@@ -302,7 +302,7 @@ const File = forwardRef<
       name,
       className,
       handleSelect,
-      isSelectable = true,
+      isSelectable,
       isSelect,
       fileIcon,
       children,
@@ -349,7 +349,7 @@ const File = forwardRef<
             },
             isSelectable
               ? "cursor-pointer px-2 py-1"
-              : "opacity-50 bg-red-900  cursor-not-allowed",
+              : "opacity-50  cursor-not-allowed",
             className,
           )}
           onClick={() => {

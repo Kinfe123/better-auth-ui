@@ -28,6 +28,7 @@ export const RenderElements: React.FC<{
         }
         return (
           <File
+            isSelectable={item.isSelectable}
             currentPage={currentPage}
             name={item.name}
             handleSelect={setCurrentPage}

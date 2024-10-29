@@ -317,7 +317,7 @@ export function ComponentShowcase({
   );
 }
 
-import { File, Tree } from "@/components/file-tree";
+import { Tree } from "@/components/file-tree";
 import { RenderElements } from "./element-render";
 
 export function FileTree({

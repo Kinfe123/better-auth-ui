@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import * as Tabs from "@radix-ui/react-tabs";
 import TabsTrigger from "@/components/tabs";
 import { Separator } from "@/components/ui/separator";

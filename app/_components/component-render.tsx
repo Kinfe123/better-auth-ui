@@ -1,9 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
 import { ComponentShowcase } from "./component-preview";
 import { Button } from "@/components/ui/button";
 import { previewComponent } from "../constants/components";
-import { Icons } from "@/components/icons";
 import { Github } from "lucide-react";
 export default function ComponentShowcaseSection({
   category,

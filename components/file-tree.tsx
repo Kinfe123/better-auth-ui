@@ -353,8 +353,8 @@ const File = forwardRef<
             className,
           )}
           onClick={() => {
-            if (name) {
-              handleSelect(name ?? "");
+            if (name && handleSelect) {
+              handleSelect(name);
             }
             selectItem(value);
           }}

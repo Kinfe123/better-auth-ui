@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggler";
-// import { NavbarMobile, NavbarMobileBtn } from "./nav-mobile";
 import { NavLink } from "./navlink";
 import { Logo } from "./logo";
 
@@ -23,16 +22,14 @@ export const Navbar = () => {
         <div className="md:col-span-10 flex items-center justify-end relative">
           <ul className="md:flex items-center divide-x w-max border-r hidden shrink-0">
             {navMenu.map((menu, i) => (
-              <NavLink key={menu.name} href={menu.path}>
+              <NavLink key={i} href={menu.path}>
                 {menu.name}
               </NavLink>
             ))}
           </ul>
           <ThemeToggle />
-          {/* <NavbarMobileBtn /> */}
         </div>
       </nav>
-      {/* <NavbarMobile /> */}
     </div>
   );
 };

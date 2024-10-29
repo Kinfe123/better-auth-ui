@@ -167,7 +167,7 @@ export function ComponentShowcase({
                   className="rounded-none py-2  data-[state=active]:text-white flex  items-center gap-2 data-[state=active]:bg-stone-900 "
                   value="preview"
                   onClick={() => {
-                    setIsPrev((prv) => !prv);
+                    // setIsPrev((prv) => !prv);
                     setActiveTab("");
                   }}
                 >

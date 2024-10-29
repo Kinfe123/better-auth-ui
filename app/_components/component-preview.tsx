@@ -45,15 +45,6 @@ import {
   TooltipTrigger,
   TooltipProvider,
 } from "@/components/ui/tooltip";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { CodeSnippet } from "@/components/codeblock";
 interface CodeExample {
   language: string;
@@ -90,7 +81,7 @@ export function ComponentShowcase({
   });
   const [fm, setFm] = useState("react");
   const [defaultFm, setDefaultFm] = useState("");
-  const [fmForTree, setFmForTree] = useState("react");
+  const [fmForTree, setFmForTree] = useState("next");
   const [isPrev, setIsPrev] = useState(true);
   const [activeTab, setActiveTab] = useState("");
   const copyToClipboard = (
@@ -206,11 +197,19 @@ export function ComponentShowcase({
                 <div className="hidden md:flex">
                   <TabsTrigger
                     className="flex py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
-                    value="react"
+                    value="next"
                     onClick={() => handleTabClick("react")}
                   >
                     <Icons.nextJS className="w-4 h-4" />
-                    React
+                    NextJS
+                  </TabsTrigger>
+                  <TabsTrigger
+                    className="flex py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
+                    value="react"
+                    onClick={() => handleTabClick("react")}
+                  >
+                    <Icons.react className="w-4 h-4" />
+                    ReactJS
                   </TabsTrigger>
                   <TabsTrigger
                     className="flex py-2 data-[state=active]:text-white rounded-none gap-2 items-center  data-[state=active]:bg-stone-900"

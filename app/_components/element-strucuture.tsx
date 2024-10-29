@@ -1,3 +1,39 @@
+export const NEXT_ELEMENTS = [
+  {
+    id: "1",
+    isSelectable: true,
+    name: "src",
+    children: [
+      {
+        id: "2",
+        isSelectable: true,
+        name: "app",
+        children: [
+          { id: "3", isSelectable: true, name: "layout.tsx" },
+          { id: "4", isSelectable: true, name: "page.tsx" },
+        ],
+      },
+      {
+        id: "5",
+        isSelectable: true,
+        name: "components",
+        children: [
+          { id: "6", isSelectable: true, name: "login.tsx" },
+          { id: "7", isSelectable: true, name: "signup.tsx" },
+        ],
+      },
+      {
+        id: "8",
+        isSelectable: true,
+        name: "lib",
+        children: [
+          { id: "9", isSelectable: true, name: "client.ts" },
+          { id: "10", isSelectable: true, name: "auth.ts" },
+        ],
+      },
+    ],
+  },
+];
 export const REACT_ELEMENTS = [
   {
     id: "1",
@@ -27,7 +63,7 @@ export const REACT_ELEMENTS = [
         isSelectable: true,
         name: "lib",
         children: [
-          { id: "9", isSelectable: true, name: "utils.ts" },
+          { id: "9", isSelectable: true, name: "client.ts" },
           { id: "10", isSelectable: true, name: "auth.ts" },
         ],
       },

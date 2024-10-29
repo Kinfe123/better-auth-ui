@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import clsx from "clsx";
-import { CheckIcon } from "lucide-react";
 import Link from "next/link";
 
 export const SimpleUsernameAndPass = () => {

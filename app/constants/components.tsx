@@ -86,35 +86,49 @@ const SimpleUsernameAndPass = () => {
       // this is sign up page
       `,
         auth: `
-      // this is authTs page
+import { betterAuth } from "better-auth"
+import { username } from "better-auth/plugins"
+
+const auth = betterAuth({
+       plugins: [
+         username()
+       ]
+ })
             `,
-        utils: `
-       // this is authTs page
+        client: `
+import { createAuthClient } from "better-auth/client"
+import { usernameClient } from "better-auth/client/plugins"
+
+const client = createAuthClient({
+     plugins: [
+         usernameClient()
+    ]
+})
                   `,
       },
       svelte: {
         login: "",
         signup: "",
         auth: "",
-        utils: "",
+        client: "",
       },
       astro: {
         login: "",
         signup: "",
         auth: "",
-        utils: "",
+        client: "",
       },
       solid: {
         login: "",
         signup: "",
         auth: "",
-        utils: "",
+        client: "",
       },
       nuxt: {
         login: "",
         signup: "",
         auth: "",
-        utils: "",
+        client: "",
       },
     },
   },

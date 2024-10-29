@@ -7,10 +7,10 @@ export const NEXT_ELEMENTS = [
       {
         id: "2",
         isSelectable: true,
-        name: "app",
+        name: "heapp",
         children: [
-          { id: "3", isSelectable: true, name: "layout.tsx" },
-          { id: "4", isSelectable: true, name: "page.tsx" },
+          { id: "3", isSelectable: false, name: "layout.tsx" },
+          { id: "4", isSelectable: false, name: "page.tsx" },
         ],
       },
       {
@@ -45,8 +45,8 @@ export const REACT_ELEMENTS = [
         isSelectable: true,
         name: "app",
         children: [
-          { id: "3", isSelectable: true, name: "layout.tsx" },
-          { id: "4", isSelectable: true, name: "page.tsx" },
+          { id: "3", isSelectable: false, name: "layout.tsx" },
+          { id: "4", isSelectable: false, name: "page.tsx" },
         ],
       },
       {

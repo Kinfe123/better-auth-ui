@@ -16,11 +16,12 @@ export default function ComponentShowcaseSection({
   return (
     <div className="p-8 flex flex-col gap-10">
       {category === "all" ? (
-        previewComponent.map((comp , indx) => {
+        previewComponent.map((comp, indx) => {
           return (
             <ComponentShowcase
-            key={indx}
+              key={indx}
               codeExamples={{
+                next: { language: "typescript", code: comp.code.next },
                 react: { language: "typescript", code: comp.code.react },
                 svelte: { language: "html", code: comp.code.svelte },
                 astro: { language: "html", code: comp.code.astro },
@@ -44,11 +45,12 @@ export default function ComponentShowcaseSection({
           </a>
         </div>
       ) : (
-        filteredBasedOnCategory.map((comp  , indx) => {
+        filteredBasedOnCategory.map((comp, indx) => {
           return (
             <ComponentShowcase
-            key={indx}
-            codeExamples={{
+              key={indx}
+              codeExamples={{
+                next: { language: "typescript", code: comp.code.next },
                 react: { language: "typescript", code: comp.code.react },
                 svelte: { language: "html", code: comp.code.svelte },
                 astro: { language: "html", code: comp.code.astro },

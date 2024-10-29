@@ -1,20 +1,5 @@
 "use client";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarInset,
-  SidebarMenu,
-  SidebarMenuBadge,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarProvider,
-  SidebarRail,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
+
 import {
   REACT_ELEMENTS,
   SVELTE_ELEMENTS,
@@ -22,21 +7,13 @@ import {
   NUXT_ELEMENTS,
   ASTRO_ELEMENTS,
   REMIX_ELEMENTS,
+  NEXT_ELEMENTS,
 } from "./element-strucuture";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Copy,
-  Check,
-  Layout,
-  Loader2,
-  Link2,
-  ChevronsDownUpIcon,
-  FileText,
-  X,
-} from "lucide-react";
+import { Copy, Check, Layout, Link2, FileText, X } from "lucide-react";
 import { Icons } from "@/components/icons";
 import Link from "next/link";
 import {
@@ -57,6 +34,7 @@ interface ComponentShowcaseProps {
   component: React.ReactNode;
   docLink?: string;
   codeExamples: {
+    next: CodeExample;
     react: CodeExample;
     svelte: CodeExample;
     astro: CodeExample;
@@ -99,6 +77,11 @@ export function ComponentShowcase({
     setActiveTab(tab);
     setIsPrev(false);
     switch (tab) {
+      case "next":
+        setFmForTree("next");
+        setFm("jsx");
+        setCurrentPage("login.tsx");
+        break;
       case "react":
         setFmForTree("react");
         setFm("jsx");
@@ -198,7 +181,7 @@ export function ComponentShowcase({
                   <TabsTrigger
                     className="flex py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
                     value="next"
-                    onClick={() => handleTabClick("react")}
+                    onClick={() => handleTabClick("next")}
                   >
                     <Icons.nextJS className="w-4 h-4" />
                     NextJS
@@ -346,6 +329,9 @@ export function FileTree({
 }) {
   let FM = null;
   switch (element) {
+    case "next":
+      FM = NEXT_ELEMENTS;
+      break;
     case "react":
       FM = REACT_ELEMENTS;
       break;

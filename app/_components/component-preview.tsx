@@ -279,8 +279,8 @@ export function ComponentShowcase({
                         {getFileIconByExtension(currentPage)}
                       </div>
                       <span className="font-mono">{currentPage}</span>
-                      <button className="ml-2 p-1 rounded-full hover:bg-stone-600">
-                        <X className="w-3 h-3 dark:hover:text-black hover:text-white" />
+                      <button className="ml-2 group p-1 rounded-full hover:bg-stone-600">
+                        <X className="w-3 h-3 dark:group-hover:text-black group-hover:text-white" />
                       </button>
                     </div>
                     <CodeSnippet

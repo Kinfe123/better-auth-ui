@@ -44,13 +44,9 @@ export const navMenu = [
   },
   {
     name: "docs",
-    path: "/docs",
+    path: "https://better-auth.com/docs",
   },
 
-  {
-    name: "changelogs",
-    path: "/changelogs",
-  },
   {
     name: "community",
     path: "https://discord.gg/GYC3W7tZzb",

@@ -10,24 +10,24 @@ export const previewComponent = [
     code: {
       react: {
         login: `
-        import { useState } from "react";
-        import { Button } from "@/components/ui/button";
-        import { Input } from "@/components/ui/input";
-        import { Label } from "@/components/ui/label";
-        import Link from "next/link";
-        import clsx from "clsx";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import Link from "next/link";
+import clsx from "clsx";
 
-        const SimpleUsernameAndPass = () => {
-          const [email, setEmail] = useState("");
-          const [password, setPassword] = useState("");
+const SimpleUsernameAndPass = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-          const handleSubmit = (e) => {
-            e.preventDefault();
-            console.log("Email:", email);
-            console.log("Password:", password);
-          };
+    const handleSubmit = (e) => {
+       e.preventDefault();
+       console.log("Email:", email);
+       console.log("Password:", password);
+    };
 
-          return (
+     return (
             <div className="w-full max-w-md rounded-xl dark:bg-background shadow-md ring-1 ring-black/5 dark:transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#8686f01f_inset]">
               <form onSubmit={handleSubmit} className="p-7 sm:p-11">
                 <div className="flex items-start">
@@ -80,7 +80,7 @@ export const previewComponent = [
           );
         };
 
-        export default SimpleUsernameAndPass;
+  export default SimpleUsernameAndPass;
   `,
         signup: `
       // this is sign up page

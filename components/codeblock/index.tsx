@@ -17,7 +17,7 @@ export const CodeSnippet = ({
   const copyCode = () => {
     copyToClipboard(code);
   };
-
+  const trimmed = code.replace(/^[  \t]{0,}/gm, "");
   return (
     <div className="relative">
       <CodeBlock code={code} language={language} theme={themes.oneDark}>

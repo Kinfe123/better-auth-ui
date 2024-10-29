@@ -287,6 +287,7 @@ Folder.displayName = "Folder";
 const File = forwardRef<
   HTMLButtonElement,
   {
+    currentPage: string;
     value: string;
     name: string;
     handleSelect?: (id: string) => void;

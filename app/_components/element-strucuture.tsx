@@ -7,7 +7,7 @@ export const NEXT_ELEMENTS = [
       {
         id: "2",
         isSelectable: true,
-        name: "heapp",
+        name: "app",
         children: [
           { id: "3", isSelectable: false, name: "layout.tsx" },
           { id: "4", isSelectable: false, name: "page.tsx" },

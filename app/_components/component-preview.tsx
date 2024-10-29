@@ -159,7 +159,7 @@ export function ComponentShowcase({
           </TooltipProvider>
         </div>
 
-        <div className="w-full  border-b-2 border-gray-900/50">
+        <div className="w-full  border-b-2 border-gray-200/50 dark:border-gray-900/50">
           <div className="md:ml-[-2px] py-2 px-3 bg-transparent flex gap-10 items-center justify-between md:justify-normal  rounded-none">
             <Tabs defaultValue="preview" className="w-full">
               <TabsList className=" md:ml-[-5px] data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
@@ -260,7 +260,7 @@ export function ComponentShowcase({
                   className="flex relative w-full gap-2 min-h-[60vh] "
                   key={framework}
                 >
-                  <div className="sticky w-64 z-20 backdrop-blur-2xl top-0 left-0">
+                  <div className="sticky w-64 z-20 dark;backdrop-blur-2xl top-0 left-0">
                     <FileTree
                       element={fmForTree}
                       currentPage={currentPage}
@@ -270,15 +270,17 @@ export function ComponentShowcase({
                   <div className="w-full -ml-2 overflow-x-hidden">
                     <div
                       className={` top-2 left-0  flex items-center px-3 py-2 text-sm w-fit cursor-pointer ${
-                        true ? "bg-stone-900" : "hover:bg-gray-700"
+                        true
+                          ? "bg-stone-200 dark:bg-stone-900"
+                          : "hover:bg-gray-700"
                       }`}
                     >
                       <div className="mr-2">
                         {getFileIconByExtension(currentPage)}
                       </div>
                       <span className="font-mono">{currentPage}</span>
-                      <button className="ml-2 p-1 rounded-full hover:bg-gray-600">
-                        <X className="w-3 h-3" />
+                      <button className="ml-2 p-1 rounded-full hover:bg-stone-600">
+                        <X className="w-3 h-3 dark:hover:text-black hover:text-white" />
                       </button>
                     </div>
                     <CodeSnippet
@@ -355,7 +357,7 @@ export function FileTree({
   }
 
   return (
-    <div className="relative pr-10 flex h-full w-full font-mono flex-col items-center justify-center overflow-hidden rounded-none border border-t-0 border-b-0 border-l-0 bg-background md:shadow-2xl">
+    <div className="relative pr-10 flex h-full w-full font-mono flex-col items-center justify-center overflow-hidden rounded-none border border-t-0 border-b-0 border-l-0 bg-background dark:md:shadow-2xl">
       <Tree
         className="p-2 overflow-hidden rounded-md bg-background "
         initialSelectedId="6"

@@ -9,7 +9,7 @@ import {
   REMIX_ELEMENTS,
   NEXT_ELEMENTS,
 } from "./element-strucuture";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -108,10 +108,13 @@ export function ComponentShowcase({
         setCurrentPage("login.vue");
         break;
       default:
-        setIsPrev((prev) => !prev);
+        // setIsPrev((prev) => !prev);
         break;
     }
   };
+  useEffect(() => {
+    console.log({ isPrev });
+  }, [isPrev]);
   const getFileIconByExtension = (fileName: string) => {
     const [_, extension] = fileName.split(".");
     switch (extension) {
@@ -167,8 +170,8 @@ export function ComponentShowcase({
                   className="rounded-none py-2  data-[state=active]:text-white flex  items-center gap-2 data-[state=active]:bg-stone-900 "
                   value="preview"
                   onClick={() => {
-                    // setIsPrev((prv) => !prv);
-                    setActiveTab("");
+                    setIsPrev(true);
+                    setActiveTab("preview");
                   }}
                 >
                   <Layout className="w-4 h-4" />
@@ -269,16 +272,18 @@ export function ComponentShowcase({
                   </div>
                   <div className="w-full -ml-2 overflow-x-hidden">
                     <div
-                      className={` top-2 left-0  flex items-center px-3 py-2 text-sm w-fit cursor-pointer ${
+                      className={` top-2 left-0  flex justify-between items-center px-3 py-2 text-sm w-40 cursor-pointer ${
                         true
                           ? "bg-stone-200 dark:bg-stone-900"
                           : "hover:bg-gray-700"
                       }`}
                     >
-                      <div className="mr-2">
-                        {getFileIconByExtension(currentPage)}
+                      <div className="flex items-center">
+                        <div className="mr-2">
+                          {getFileIconByExtension(currentPage)}
+                        </div>
+                        <span className="font-mono">{currentPage}</span>
                       </div>
-                      <span className="font-mono">{currentPage}</span>
                       <button className="ml-2 group p-1 rounded-full hover:bg-stone-600">
                         <X className="w-3 h-3 dark:group-hover:text-black group-hover:text-white" />
                       </button>

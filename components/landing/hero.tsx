@@ -1,7 +1,7 @@
 import { GridPattern } from "@/components/landing/grid-pattern";
 export default function AuthUIHero() {
   return (
-    <div className="min-h-[80vh] flex items-center justify-center overflow-hidden no-visible-scrollbar px-6 md:px-0">
+    <div className="min-h-[60vh] mb-[-8rem] flex items-center justify-center overflow-hidden no-visible-scrollbar px-6 md:px-0">
       <GridPattern
         className="absolute inset-x-0 -top-14 -z-10 h-full w-full dark:fill-secondary/30 fill-neutral-100 dark:stroke-secondary/30 stroke-neutral-700/5 [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)]"
         yOffset={-96}

@@ -36,7 +36,7 @@ export const ComponentDisplay = () => {
   return (
     <div>
       <Tabs.Root
-        className="mt-[-18rem] flex-1 overflow-hidden bg-transparent w-full pb-10"
+        className=" flex-1 overflow-hidden bg-transparent w-full pb-10"
         defaultValue={selectedTab}
         onValueChange={(value) => setSelectedTab(value)}
       >

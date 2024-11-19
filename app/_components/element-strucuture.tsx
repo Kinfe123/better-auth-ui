@@ -1,3 +1,11 @@
+import { useComponents } from "@/lib/store";
+// export const treeGen = (parent: string) => {
+//   switch(parent)  {
+//     case "forget-password":
+//        if(forgetPassExists) {}
+//   }
+// }
+
 export const NEXT_ELEMENTS = [
   {
     id: "1",

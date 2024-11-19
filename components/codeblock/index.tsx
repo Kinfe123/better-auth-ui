@@ -1,7 +1,6 @@
 "use client";
 import { CodeBlock } from "react-code-block";
 import { themes } from "prism-react-renderer";
-
 export const CodeSnippet = ({
   code,
   language = "jsx",

@@ -20,11 +20,18 @@ import { commentMap } from "../constants/templates/map";
 export function CodeComponent() {
   const [fmForTree, setFmForTree] = useState("next");
   const [activeTab, setActiveTab] = useState("next");
-  const [fm, setFm] = useState("");
+  const [fm, setFm] = useState("jsx");
   const [currentPage, setCurrentPage] = useState("login.tsx");
   const { code } = useCodeComponent();
   const { enabledComp } = useComponents();
-  console.log("Hello this is the code : ", code);
+  const [copiedStates, setCopiedStates] = useState({
+    next: false,
+    react: false,
+    svelte: false,
+    astro: false,
+    nuxt: false,
+    solid: false,
+  });
   const nextCode = {
     login: code.next.components.signin,
     signup: code.next.components.signin,
@@ -45,6 +52,17 @@ export function CodeComponent() {
     const fileName = value.split(".")[0];
     return fileName;
   }
+  const copyToClipboard = (
+    text: string,
+    framework: keyof typeof copiedStates,
+  ) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedStates((prev) => ({ ...prev, [framework]: true }));
+      setTimeout(() => {
+        setCopiedStates((prev) => ({ ...prev, [framework]: false }));
+      }, 2000);
+    });
+  };
   const getFileIconByExtension = (fileName: string) => {
     const [_, extension] = fileName.split(".");
     switch (extension) {
@@ -235,24 +253,26 @@ export function CodeComponent() {
                   key={framework}
                 />
 
-                {/* <Button
+                <Button
                   variant="outline"
                   size="icon"
-                  className="absolute top-2 right-4"
+                  className="absolute rounded-none outline-none w-7 h-7 top-2 right-4"
                   onClick={() =>
                     copyToClipboard(
-                      example.code[getCode(currentPage)],
+                      parsedContent(
+                        example.code[getCode(currentPage)],
+                      ) as string,
                       framework as keyof typeof copiedStates,
                     )
                   }
                 >
                   {copiedStates[framework as keyof typeof copiedStates] ? (
-                    <Check className="h-4 w-4" />
+                    <Check className="h-2 w-2" />
                   ) : (
-                    <Copy className="h-4 w-4" />
+                    <Copy className="h-2 w-2" />
                   )}
                   <span className="sr-only">Copy code</span>
-                </Button> */}
+                </Button>
               </div>
             </div>
           ),

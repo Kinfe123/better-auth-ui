@@ -15,7 +15,7 @@ export const CodeSnippet = ({
     <pre className="relative">
       <CodeBlock code={code.trim()} language={language} theme={themes.oneDark}>
         <div>
-          <CodeBlock.Code className="bg-transparent !p-4 text-sm rounded-xl dark:shadow-lg whitespace-pre overflow-y-scroll max-h-[70vh]">
+          <CodeBlock.Code className="bg-transparent !p-4 text-xs rounded-xl dark:shadow-lg whitespace-pre overflow-y-scroll max-h-[70vh]">
             <div className="table-row">
               <CodeBlock.LineNumber className="table-cell pr-4 text-sm text-gray-500 text-right select-none" />
               <CodeBlock.LineContent className="table-cell">

@@ -43,7 +43,6 @@ export function CodeComponent() {
     client: code.next.files.client,
     forgetPassword: code.next.components.forgetPassword,
     resetPassword: code.next.components.resetPassword,
-    "login/page.tsx": code.next.pages.signin,
   };
   const codeExamples = {
     next: { language: "typescript", code: nextCode },
@@ -149,11 +148,9 @@ export function CodeComponent() {
       ...socialEnabledLists,
       ...otherEnabledLists,
     ];
-    console.log({ listsOfComments });
     let cleanedJsx = "";
-
     const replacableLists = Object.keys(commentMap);
-    if (listsOfComments.length === 0) {
+    if (listsOfComments.length === 1) {
       cleanedJsx = replaceCommentsWithJSX(replacableLists, content, {
         eraseAll: true,
       });
@@ -276,7 +273,9 @@ export function CodeComponent() {
                         </SelectTrigger>
                         <SelectContent className="text-xs rounded-none">
                           <SelectGroup>
-                            <SelectLabel>Options</SelectLabel>
+                            <SelectLabel>Adapter</SelectLabel>
+                            <hr className="mb-2 w-full h-[1.5px] bg-gray-200" />
+
                             <SelectItem
                               className="text-xs rounded-none"
                               value="prisma"
@@ -289,6 +288,10 @@ export function CodeComponent() {
                             >
                               Drizzle
                             </SelectItem>
+
+                            <SelectLabel>Database</SelectLabel>
+                            <hr className="mb-2 w-full h-[1.5px] bg-gray-2600" />
+
                             <SelectItem
                               className="text-xs rounded-none"
                               value="mongoDb"

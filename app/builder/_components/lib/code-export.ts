@@ -11,9 +11,9 @@ export function replaceCommentsWithJSX(
     if (!eraseAll) {
       replacement = commentMap[commentLabel] || "";
     }
-    console.log({ commentRegex, replacement });
     jsxString = jsxString.replace(commentRegex, replacement);
   });
+
   jsxString = removeEmptyLines(jsxString);
   return jsxString;
 }

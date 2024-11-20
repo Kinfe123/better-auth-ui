@@ -11,7 +11,10 @@ export const commentMap: Record<string, string> = {
   forgetPassword: forgetPasswordSnippet,
   comment: '<div className="comment-placeholder"></div>',
   rememberMe: remeberMeSnippet,
-  empty: "\n",
+  empty: `
+   \n
+
+  `,
   passKey: PassKeySnippet,
   github: `
       github: {

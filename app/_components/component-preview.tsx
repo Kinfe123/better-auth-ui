@@ -338,7 +338,7 @@ export function FileTree({
   let FM = null;
   const { code } = useCodeComponent();
   const { enabledComp } = useComponents();
-
+  console.log("Hello wold", currentPage);
   switch (element) {
     case "next":
       FM = NEXT_ELEMENTS;

@@ -1,4 +1,14 @@
 import { useState } from "react";
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Layout, Copy, Check, FileText, X } from "lucide-react";
 import { Icons } from "@/components/icons";
@@ -9,9 +19,7 @@ import { previewComponent } from "../constants/components";
 import { useCodeComponent } from "../constants/store";
 import { useComponents } from "@/lib/store";
 import { replaceCommentsWithJSX } from "../builder/_components/lib/code-export";
-import prettier from "prettier";
 import { commentMap } from "../constants/templates/map";
-import { setDefaultAutoSelectFamilyAttemptTimeout } from "net";
 export function CodeComponent() {
   const [fmForTree, setFmForTree] = useState("next");
   const [activeTab, setActiveTab] = useState("next");
@@ -34,6 +42,7 @@ export function CodeComponent() {
     client: code.next.files.client,
     forgetPassword: code.next.components.forgetPassword,
     resetPassword: code.next.components.resetPassword,
+    "login/page.tsx": code.next.pages.signin,
   };
   const codeExamples = {
     next: { language: "typescript", code: nextCode },
@@ -249,12 +258,52 @@ export function CodeComponent() {
                     <X className="w-3 h-3 dark:group-hover:text-black group-hover:text-white" />
                   </button>
                 </div>
-                <CodeSnippet
-                  language={fm}
-                  code={parsedContent(example.code[getCode(currentPage)])}
-                  key={framework}
-                />
 
+                {currentPage === "auth.ts" ? (
+                  <div className="relative">
+                    <div className="z-20 absolute -top-7 right-14">
+                      <Select defaultValue={"prisma"}>
+                        <SelectTrigger className="w-[180px] text-xs h-7 rounded-none">
+                          <SelectValue placeholder="Select a adapter" />
+                        </SelectTrigger>
+                        <SelectContent className="text-xs">
+                          <SelectGroup>
+                            <SelectLabel>Adapters</SelectLabel>
+                            <SelectItem
+                              className="text-xs rounded-none"
+                              value="prisma"
+                            >
+                              Prisma
+                            </SelectItem>
+                            <SelectItem
+                              className="text-xs rounded-none"
+                              value="drizzle"
+                            >
+                              Drizzle
+                            </SelectItem>
+                            <SelectItem
+                              className="text-xs rounded-none"
+                              value="mongo"
+                            >
+                              MongoDB
+                            </SelectItem>
+                          </SelectGroup>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <CodeSnippet
+                      language={fm}
+                      code={parsedContent(example.code[getCode(currentPage)])}
+                      key={framework}
+                    />
+                  </div>
+                ) : (
+                  <CodeSnippet
+                    language={fm}
+                    code={parsedContent(example.code[getCode(currentPage)])}
+                    key={framework}
+                  />
+                )}
                 <Button
                   variant="outline"
                   size="icon"

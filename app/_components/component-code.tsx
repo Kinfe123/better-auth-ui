@@ -27,6 +27,7 @@ export function CodeComponent() {
   const [currentPage, setCurrentPage] = useState("login.tsx");
   const { code } = useCodeComponent();
   const { enabledComp } = useComponents();
+  const [dbOptions, setDbOptions] = useState("prisma");
   const [copiedStates, setCopiedStates] = useState({
     next: false,
     react: false,
@@ -262,13 +263,19 @@ export function CodeComponent() {
                 {currentPage === "auth.ts" ? (
                   <div className="relative">
                     <div className="z-20 absolute -top-7 right-14">
-                      <Select defaultValue={"prisma"}>
+                      <Select
+                        onValueChange={(e) => {
+                          setDbOptions(e);
+                          console.log({ e });
+                        }}
+                        defaultValue={dbOptions}
+                      >
                         <SelectTrigger className="w-[180px] text-xs h-7 rounded-none">
                           <SelectValue placeholder="Select a adapter" />
                         </SelectTrigger>
-                        <SelectContent className="text-xs">
+                        <SelectContent className="text-xs rounded-none">
                           <SelectGroup>
-                            <SelectLabel>Adapters</SelectLabel>
+                            <SelectLabel>Options</SelectLabel>
                             <SelectItem
                               className="text-xs rounded-none"
                               value="prisma"
@@ -283,9 +290,27 @@ export function CodeComponent() {
                             </SelectItem>
                             <SelectItem
                               className="text-xs rounded-none"
-                              value="mongo"
+                              value="mongoDb"
                             >
                               MongoDB
+                            </SelectItem>
+                            <SelectItem
+                              className="text-xs rounded-none"
+                              value="mysql"
+                            >
+                              MySql
+                            </SelectItem>
+                            <SelectItem
+                              className="text-xs rounded-none"
+                              value="postgres"
+                            >
+                              Postgres
+                            </SelectItem>
+                            <SelectItem
+                              className="text-xs rounded-none"
+                              value="libsql"
+                            >
+                              Libsql
                             </SelectItem>
                           </SelectGroup>
                         </SelectContent>
@@ -293,7 +318,7 @@ export function CodeComponent() {
                     </div>
                     <CodeSnippet
                       language={fm}
-                      code={parsedContent(example.code[getCode(currentPage)])}
+                      code={parsedContent(example.code["auth"][dbOptions])}
                       key={framework}
                     />
                   </div>

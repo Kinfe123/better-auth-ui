@@ -144,6 +144,7 @@ export function CodeComponent() {
       .map((curr) => curr[0]);
     console.log({ otherEnabledLists });
     listsOfComments = [
+      "empty",
       ...listsOfComments,
       ...socialEnabledLists,
       ...otherEnabledLists,

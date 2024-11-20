@@ -472,17 +472,20 @@ export const getSession = cache(async () => {
 this is libsql
 import { betterAuth } from "better-auth";
 import { nextCookies } from "better-auth/next-js";
-import { prismaAdapter } from "better-auth/adapters/prisma";
-import { PrismaClient } from "@prisma/client";
+import { LibsqlDialect } from "@libsql/kysely-libsql";
 import { cache } from "react";
 import { headers } from "next/headers";
+const dialect = new LibsqlDialect({
+    url: process.env.TURSO_DATABASE_URL || "",
+    authToken: process.env.TURSO_AUTH_TOKEN || "",
+})
 
-const prisma = new PrismaClient();
 export const auth = betterAuth({
-   database: prismaAdapter(prisma, {
-     provider: "postgresql",
- }),
-  emailAndPassword: {
+    database: {
+        dialect,
+        type: "sqlite"
+   },
+    emailAndPassword: {
     enabled: true,
     plugins: [
       nextCookies()
@@ -506,9 +509,8 @@ export const getSession = cache(async () => {
     })
 })
 `,
-          mongoDb: `
+          sqlite: `
 
-// this is libsql
 import { betterAuth } from "better-auth";
 import { nextCookies } from "better-auth/next-js";
 import { prismaAdapter } from "better-auth/adapters/prisma";
@@ -518,9 +520,48 @@ import { headers } from "next/headers";
 
 const prisma = new PrismaClient();
 export const auth = betterAuth({
-   database: prismaAdapter(prisma, {
-     provider: "postgresql",
- }),
+  database: new Database("./sqlite.db"),
+  emailAndPassword: {
+    enabled: true,
+    plugins: [
+      nextCookies()
+    ],
+
+   socialProviders: {
+    // github
+    // google
+    // facebook
+    // twitch
+    // microsoft
+    // twitter
+    // discord
+   }
+});
+
+
+export const getSession = cache(async () => {
+     return await auth.api.getSession({
+        headers: await headers()
+    })
+})
+
+
+`,
+          mongoDb: `
+
+import { betterAuth } from "better-auth";
+import { nextCookies } from "better-auth/next-js";
+import { cache } from "react";
+import { headers } from "next/headers";
+import { MongoClient } from "mongodb";
+import { mongodbAdapter } from "better-auth/adapters/mongodb";
+// empty
+// empty
+const client = new MongoClient("mongodb://localhost:27017");
+
+const db = client.db()
+export const auth = betterAuth({
+  database: mongodbAdapter(db)
   emailAndPassword: {
     enabled: true,
     plugins: [
@@ -547,19 +588,19 @@ export const getSession = cache(async () => {
 
 `,
           mysql: `
-// this is mysql
 import { betterAuth } from "better-auth";
 import { nextCookies } from "better-auth/next-js";
-import { prismaAdapter } from "better-auth/adapters/prisma";
-import { PrismaClient } from "@prisma/client";
 import { cache } from "react";
+import { createPool } from "mysql2/promise"
 import { headers } from "next/headers";
 
-const prisma = new PrismaClient();
 export const auth = betterAuth({
-   database: prismaAdapter(prisma, {
-     provider: "postgresql",
- }),
+    database: createPool({
+       host: "localhost",
+       user: "root",
+       password: "password",
+       database: "database"
+   }),
   emailAndPassword: {
     enabled: true,
     plugins: [
@@ -586,20 +627,16 @@ export const getSession = cache(async () => {
 `,
           postgres: `
 
-// this is mysql
 import { betterAuth } from "better-auth";
 import { nextCookies } from "better-auth/next-js";
-import { prismaAdapter } from "better-auth/adapters/prisma";
-import { PrismaClient } from "@prisma/client";
 import { cache } from "react";
 import { headers } from "next/headers";
-
-const prisma = new PrismaClient();
+import { Pool } from "pg"
 export const auth = betterAuth({
-   database: prismaAdapter(prisma, {
-     provider: "postgresql",
- }),
-  emailAndPassword: {
+   database: new Pool({
+      connectionString: "postgres://user:password@localhost:5432/database"
+   }),
+   emailAndPassword: {
     enabled: true,
     plugins: [
       nextCookies()

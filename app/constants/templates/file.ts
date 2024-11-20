@@ -23,20 +23,22 @@ export const remeberMeSnippet = `
 
   `;
 export const PassKeySnippet = `
-<Button
-		variant="outline"
-		className="gap-2"
-	  onClick={async () => {
-			await signIn.passkey({
-				fetchOptions: {
-					onResponse(context) {
-						router.push("/dashboard");
-					},
-			  },
-		 });
-	 }}
-	>
-		<Key size={16} />
-	  Sign-in with Passkey
-</Button>
+
+          <Button
+             variant="outline"
+             className="gap-2"
+             onClick={async () => {
+                await signIn.passkey({
+                fetchOptions: {
+                onResponse(context) {
+                  router.push("/dashboard");
+                },
+              },
+            });
+          }}
+		  >
+		   <Key size={16} />
+	       Sign-in with Passkey
+		</Button>
+
   `;

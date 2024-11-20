@@ -1,4 +1,8 @@
-import { forgetPasswordSnippet, remeberMeSnippet } from "./file";
+import {
+  forgetPasswordSnippet,
+  PassKeySnippet,
+  remeberMeSnippet,
+} from "./file";
 
 export const commentMap: Record<string, string> = {
   socialProviders: `socialProviders: {
@@ -7,6 +11,7 @@ export const commentMap: Record<string, string> = {
   forgetPassword: forgetPasswordSnippet,
   comment: '<div className="comment-placeholder"></div>',
   rememberMe: remeberMeSnippet,
+  passKey: PassKeySnippet,
   github: `
       github: {
            clientId: process.env.GITHUB_CLIENT_ID!,

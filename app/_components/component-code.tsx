@@ -1,10 +1,4 @@
 import { useState } from "react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-  TooltipProvider,
-} from "@/components/ui/tooltip";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Layout, Copy, Check, FileText, X } from "lucide-react";
 import { Icons } from "@/components/icons";
@@ -17,6 +11,7 @@ import { useComponents } from "@/lib/store";
 import { replaceCommentsWithJSX } from "../builder/_components/lib/code-export";
 import prettier from "prettier";
 import { commentMap } from "../constants/templates/map";
+import { setDefaultAutoSelectFamilyAttemptTimeout } from "net";
 export function CodeComponent() {
   const [fmForTree, setFmForTree] = useState("next");
   const [activeTab, setActiveTab] = useState("next");
@@ -131,12 +126,19 @@ export function CodeComponent() {
     let socialEnabledLists = Object.entries(enabledComp.socials)
       .filter(([comment, enabled]) => enabled)
       .map((curr) => curr[0]);
+    socialEnabledLists = socialEnabledLists.length
+      ? ["socialProviders"].concat(socialEnabledLists)
+      : socialEnabledLists;
+    const otherEnabledLists = Object.entries(enabledComp.otherSignIn)
+      .filter(([comment, enabled]) => enabled)
+      .map((curr) => curr[0]);
+    console.log({ otherEnabledLists });
     listsOfComments = [
       ...listsOfComments,
-      "socialProviders",
       ...socialEnabledLists,
+      ...otherEnabledLists,
     ];
-
+    console.log({ listsOfComments });
     let cleanedJsx = "";
 
     const replacableLists = Object.keys(commentMap);
@@ -259,9 +261,7 @@ export function CodeComponent() {
                   className="absolute rounded-none outline-none w-7 h-7 top-2 right-4"
                   onClick={() =>
                     copyToClipboard(
-                      parsedContent(
-                        example.code[getCode(currentPage)],
-                      ) as string,
+                      parsedContent(example.code[getCode(currentPage)]),
                       framework as keyof typeof copiedStates,
                     )
                   }

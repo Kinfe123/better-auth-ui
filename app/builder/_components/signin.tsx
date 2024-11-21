@@ -77,7 +77,9 @@ export default function SignIn() {
                         updateEnabledComponent({
                           toogledComp: {
                             additionals: {
+                              ...enabledComp.additionals,
                               forgetPassword: {
+                                ...enabledComp.additionals.forgetPassword,
                                 routing: true,
                               },
                             },

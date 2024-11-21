@@ -37,16 +37,17 @@ export default function AuthBuilder() {
   }, [enabledComp]);
   const forgetPass = enabledComp.additionals.forgetPassword?.visiblity;
   useEffect(() => {
-    updateEnabledComponent({
-      toogledComp: {
-        additionals: {
-          ...enabledComp.additionals,
-          resetPassword: {
-            visiblity: forgetPass,
-          },
-        },
-      },
-    });
+    // updateEnabledComponent({
+    //   toogledComp: {
+    //     additionals: {
+    //       ...enabledComp.additionals,
+    //       resetPassword: {
+    //         ...enabledComp.additionals.resetPassword,
+    //         visiblity: forgetPass,
+    //       },
+    //     },
+    //   },
+    // });
   }, [forgetPass]);
   return (
     <Card className="relative h-full w-full bg-transparent max-w-7xl mx-auto rounded-none">
@@ -186,7 +187,7 @@ export default function AuthBuilder() {
                                   const disabled = enabledCredentials.filter(
                                     (curr) => fullDeps?.includes(curr),
                                   );
-
+                                  console.log({ addition, exists });
                                   if (exists) {
                                     return (
                                       <div
@@ -207,7 +208,7 @@ export default function AuthBuilder() {
                                           </span>
                                         </div>
                                         <Switch
-                                          disabled={!disabled.length}
+                                          // disabled={!disabled.length}
                                           onCheckedChange={(e) => {
                                             updateEnabledComponent({
                                               toogledComp: {
@@ -218,6 +219,7 @@ export default function AuthBuilder() {
                                                       "additionals"
                                                     ][addition],
                                                     visiblity: e,
+                                                    routing: false,
                                                   },
                                                 },
                                               },

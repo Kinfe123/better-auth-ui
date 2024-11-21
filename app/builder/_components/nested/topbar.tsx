@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useComponents, useUrl } from "@/lib/store";
+import { useHistory } from "@/lib/history";
 
 export function TopBar() {
   const { updateUrl, url } = useUrl();
@@ -30,13 +31,49 @@ export function TopBar() {
       });
     }
   }, [enabledComp]);
+  const pathSplitted = url.slice(7, url.length).split("/");
+  const { histories, pushHistory, popHistory } = useHistory();
+  useEffect(() => {
+    const pathSplitted = url.slice(7, url.length).split("/");
+    if (pathSplitted.length >= 2 && !histories.includes(pathSplitted[1])) {
+      pushHistory(pathSplitted[1]);
+    }
+  }, [url]);
+  useEffect(() => {
+    if (histories.length === 0) {
+      updateUrl({
+        url: "http://localhost:3000",
+      });
+    } else {
+      const currHistory = histories[histories.length - 1];
+      updateUrl({
+        url: `http://localhost:3000/${currHistory}`,
+      });
+    }
+  }, [histories]);
   return (
     <div className="flex w-full mx-auto items-center space-x-2 mt-2 ml-2 bg-background p-2 shadow-md">
       <div className="flex space-x-1">
-        <Button variant="ghost" size="icon" title="Go back">
+        <Button
+          variant="ghost"
+          disabled={pathSplitted.length === 1}
+          onClick={() => {
+            popHistory();
+          }}
+          size="icon"
+          className="hover:rounded-full"
+          title="Go back"
+        >
           <ArrowLeft className="h-3 w-3" />
         </Button>
-        <Button variant="ghost" size="icon" title="Go forward">
+        <Button
+          variant="ghost"
+          size="icon"
+          // disabled={histories.length === 0}
+          onClick={() => {}}
+          className="hover:rounded-full"
+          title="Go forward"
+        >
           <ArrowRight className="h-3 w-3" />
         </Button>
         <Button variant="ghost" size="icon" title="Refresh">

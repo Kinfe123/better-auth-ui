@@ -154,7 +154,7 @@ export const authOptions = {
   },
   otherSignIn: {
     passKey: {
-      name: "Pass Key",
+      name: "Passkey",
       checked: false,
       icon: <Key className="w-4 h-4" />,
     },

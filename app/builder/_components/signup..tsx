@@ -16,7 +16,6 @@ import { DiscordLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
 import Image from "next/image";
 import { Loader2, X } from "lucide-react";
-import { toast } from "sonner";
 
 export function SignUp() {
   const [firstName, setFirstName] = useState("");

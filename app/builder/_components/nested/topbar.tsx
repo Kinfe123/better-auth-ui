@@ -69,7 +69,7 @@ export function TopBar() {
         <Button
           variant="ghost"
           size="icon"
-          // disabled={histories.length === 0}
+          disabled={true}
           onClick={() => {}}
           className="hover:rounded-full"
           title="Go forward"

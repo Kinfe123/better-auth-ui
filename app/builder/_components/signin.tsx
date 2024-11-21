@@ -55,7 +55,6 @@ export default function SignIn() {
                     <Label htmlFor="phone">Use phone</Label>
                   )}
                 </div>
-
                 <Input
                   id="email"
                   type="email"

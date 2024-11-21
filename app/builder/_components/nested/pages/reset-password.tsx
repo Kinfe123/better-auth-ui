@@ -19,7 +19,7 @@ import { useState } from "react";
 
 export default function ResetPasswordDemo() {
   const { updateUrl } = useUrl();
-  const { updateEnabledComponent } = useComponents();
+  const { enabledComp, updateEnabledComponent } = useComponents();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -71,14 +71,21 @@ export default function ResetPasswordDemo() {
               className="w-full mt-4"
               type="submit"
               onClick={() => {
-                // updateEnabledComponent({
-                //   toogledComp: {
-                //     additionals: {
-                //       forgetPassword: false,
-                //       resetPassword: false,
-                //     },
-                //   },
-                // });
+                updateEnabledComponent({
+                  toogledComp: {
+                    additionals: {
+                      ...enabledComp.additionals,
+                      forgetPassword: {
+                        ...enabledComp.additionals.forgetPassword,
+                        routing: false,
+                      },
+                      resetPassword: {
+                        ...enabledComp.additionals.forgetPassword,
+                        routing: false,
+                      },
+                    },
+                  },
+                });
                 updateUrl({
                   url: "http://localhost:3000",
                 });

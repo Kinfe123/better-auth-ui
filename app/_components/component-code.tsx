@@ -239,9 +239,9 @@ export function CodeComponent() {
                   setCurrentPage={setCurrentPage}
                 />
               </div>
-              <div className="w-full -ml-2 overflow-x-hidden">
+              <div className="w-full -ml-2 h-[70vh] overflow-x-hidden">
                 <div
-                  className={` top-2 left-0  flex justify-between items-center px-3 py-2 text-sm w-56 cursor-pointer ${
+                  className={`top-2 left-0  flex justify-between items-center px-3 py-2 text-sm w-56 cursor-pointer ${
                     true
                       ? "bg-stone-200 dark:bg-stone-900"
                       : "hover:bg-gray-700"

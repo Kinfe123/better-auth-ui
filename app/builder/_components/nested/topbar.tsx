@@ -15,7 +15,7 @@ import { useHistory } from "@/lib/history";
 
 export function TopBar() {
   const { updateUrl, url } = useUrl();
-  const { enabledComp } = useComponents();
+  const { enabledComp, updateEnabledComponent } = useComponents();
   useEffect(() => {
     if (
       enabledComp.additionals.forgetPassword?.routing &&
@@ -31,6 +31,22 @@ export function TopBar() {
       });
     }
   }, [enabledComp]);
+  useEffect(() => {
+    updateEnabledComponent({
+      toogledComp: {
+        ...enabledComp,
+        additionals: {
+          ...enabledComp.additionals,
+          forgetPassword: {
+            routing: false,
+          },
+          resetPassword: {
+            routing: false,
+          },
+        },
+      },
+    });
+  }, []);
   const pathSplitted = url.slice(7, url.length).split("/");
   const { histories, pushHistory, popHistory } = useHistory();
   useEffect(() => {

@@ -22,7 +22,7 @@ import {
 import { Key, Loader2, TwitchIcon } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ApearanceLayout } from "./apearance-layout";
 import { authOptions } from "./lib/auth-options";
 
@@ -36,6 +36,23 @@ export default function SignIn() {
   const { url } = useUrl();
   const providerEntry = Object.entries(enabledComp.socials);
   const enabledEntries = providerEntry.filter((curr) => curr[1]);
+
+  useEffect(() => {
+    updateEnabledComponent({
+      toogledComp: {
+        ...enabledComp,
+        additionals: {
+          ...enabledComp.additionals,
+          forgetPassword: {
+            routing: false,
+          },
+          resetPassword: {
+            routing: false,
+          },
+        },
+      },
+    });
+  }, []);
   return (
     <Card className="z-50 rounded-md rounded-t-none max-w-md">
       <CardHeader>

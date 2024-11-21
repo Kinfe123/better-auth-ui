@@ -15,7 +15,7 @@ import { useHistory } from "@/lib/history";
 
 export function TopBar() {
   const { updateUrl, url } = useUrl();
-  const { enabledComp, updateEnabledComponent } = useComponents();
+  const { enabledComp, updateEnabledComponent, reset } = useComponents();
   useEffect(() => {
     if (
       enabledComp.additionals.forgetPassword?.routing &&
@@ -31,22 +31,6 @@ export function TopBar() {
       });
     }
   }, [enabledComp]);
-  useEffect(() => {
-    updateEnabledComponent({
-      toogledComp: {
-        ...enabledComp,
-        additionals: {
-          ...enabledComp.additionals,
-          forgetPassword: {
-            routing: false,
-          },
-          resetPassword: {
-            routing: false,
-          },
-        },
-      },
-    });
-  }, []);
   const pathSplitted = url.slice(7, url.length).split("/");
   const { histories, pushHistory, popHistory } = useHistory();
   useEffect(() => {
@@ -67,6 +51,7 @@ export function TopBar() {
       });
     }
   }, [histories]);
+
   return (
     <div className="flex w-full mx-auto items-center space-x-2 mt-2 ml-2 bg-background p-2 shadow-md">
       <div className="flex space-x-1">
@@ -92,7 +77,12 @@ export function TopBar() {
         >
           <ArrowRight className="h-3 w-3" />
         </Button>
-        <Button variant="ghost" size="icon" title="Refresh">
+        <Button
+          variant="ghost"
+          onClick={() => reset()}
+          size="icon"
+          title="Refresh"
+        >
           <RefreshCw className="h-3 w-3" />
         </Button>
         <Button variant="ghost" size="icon" title="Home">

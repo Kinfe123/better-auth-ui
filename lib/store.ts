@@ -52,49 +52,51 @@ interface ComponentStore {
   }: {
     toogledComp: Partial<EnabledComponent>;
   }) => void;
+  reset: () => void;
 }
 interface AppUrl {
   url: string;
   updateUrl: ({ url }: { url: string }) => void;
 }
-export const useComponents = create<ComponentStore>((set) => ({
-  enabledComp: {
-    credentials: {
-      email: true,
-      username: false,
-      phoneNumber: false,
+const initialState = {
+  credentials: {
+    email: true,
+    username: false,
+    phoneNumber: false,
+  },
+  additionals: {
+    forgetPassword: {
+      visiblity: false,
+      routing: false,
+      dependencies: ["email"],
     },
-    additionals: {
-      forgetPassword: {
-        visiblity: false,
-        routing: false,
-        dependencies: ["email"],
-      },
-      resetPassword: {
-        visiblity: false,
-        routing: false,
-        dependencies: ["email"],
-      },
-      rememberMe: {
-        visiblity: false,
-        routing: false,
-        dependencies: ["email"],
-      },
+    resetPassword: {
+      visiblity: false,
+      routing: false,
+      dependencies: ["email"],
     },
-    socials: {
-      google: true,
-      facebook: false,
-      discord: false,
-      apple: false,
-      twitter: false,
-      twitch: false,
-      github: false,
-      microsoft: false,
-    },
-    otherSignIn: {
-      passKey: false,
+    rememberMe: {
+      visiblity: false,
+      routing: false,
+      dependencies: ["email"],
     },
   },
+  socials: {
+    google: true,
+    facebook: false,
+    discord: false,
+    apple: false,
+    twitter: false,
+    twitch: false,
+    github: false,
+    microsoft: false,
+  },
+  otherSignIn: {
+    passKey: false,
+  },
+};
+export const useComponents = create<ComponentStore>((set) => ({
+  enabledComp: initialState,
   updateEnabledComponent: ({ toogledComp }) =>
     set((state) => ({
       enabledComp: {
@@ -102,6 +104,10 @@ export const useComponents = create<ComponentStore>((set) => ({
         ...toogledComp,
       },
     })),
+  reset: () =>
+    set({
+      enabledComp: initialState,
+    }),
 }));
 export const useUrl = create<AppUrl>((set) => ({
   url: "http://localhost:3000",

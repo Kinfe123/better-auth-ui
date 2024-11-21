@@ -158,7 +158,6 @@ export function CodeComponent() {
       cleanedJsx = replaceCommentsWithJSX(listsOfComments, content, {
         eraseAll: false,
       });
-      console.log({ cleanedJsx });
       cleanedJsx = replaceCommentsWithJSX(replacableLists, cleanedJsx, {
         eraseAll: true,
       });

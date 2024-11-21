@@ -6,14 +6,17 @@ import {
 
 export const commentMap: Record<string, string> = {
   socialProviders: `socialProviders: {
+
   }
  `,
   forgetPassword: forgetPasswordSnippet,
   comment: '<div className="comment-placeholder"></div>',
   rememberMe: remeberMeSnippet,
-  empty: `
-   \n
+  empty: `// newLine`,
+  newLine: `
 
+ \n
+ \n
   `,
   passKey: PassKeySnippet,
   github: `

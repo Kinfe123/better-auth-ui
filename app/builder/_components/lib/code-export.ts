@@ -13,11 +13,17 @@ export function replaceCommentsWithJSX(
     }
     jsxString = jsxString.replace(commentRegex, replacement);
   });
-
-  jsxString = removeEmptyLines(jsxString);
+  jsxString = removeEmptyLines(jsxString, commentsArray);
   return jsxString;
 }
 
-function removeEmptyLines(inputString: string) {
-  return inputString.replace(/^\s*[\r\n]/gm, "");
+function removeEmptyLines(inputString: string, commentsArray: string[]) {
+  let result = inputString.replace(/^\s*[\r\n]/gm, "");
+  console.log(result);
+  const commentRegex = new RegExp(`//\\s*newLine\\s*$`, "gm");
+  console.log({ commentRegex });
+  const replacement = commentMap["newLine"];
+  result = result.replace(commentRegex, replacement);
+
+  return result;
 }

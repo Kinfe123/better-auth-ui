@@ -324,7 +324,8 @@ export function ComponentShowcase({
 
 import { Tree } from "@/components/file-tree";
 import { RenderElements } from "./element-render";
-
+import { useCodeComponent } from "../constants/store";
+import { useComponents } from "@/lib/store";
 export function FileTree({
   element,
   setCurrentPage,
@@ -335,9 +336,46 @@ export function FileTree({
   setCurrentPage: (value: string) => void;
 }) {
   let FM = null;
+  const { code } = useCodeComponent();
+  const { enabledComp } = useComponents();
+  console.log("Hello wold", currentPage);
   switch (element) {
     case "next":
       FM = NEXT_ELEMENTS;
+      const comps = FM[0].children
+        .filter((file) => file.name === "components")
+        .map((file) => file.children)[0];
+      const forgetCompExistsIndx = comps.findIndex(
+        (comp) => comp.name === "forgetPassword.tsx",
+      );
+      console.log({ forgetCompExistsIndx });
+      const resetCompExistsIndx = comps.findIndex(
+        (comp) => comp.name === "resetPassword.tsx",
+      );
+      const forgetExists = code.next.components.forgetPassword?.length === 0;
+      const forgetOn = enabledComp.additionals.forgetPassword?.visiblity;
+      const resetOn = enabledComp.additionals.resetPassword?.visiblity;
+      const resetExists = code.next.components.resetPassword?.length === 0;
+      if (forgetOn && !forgetExists && forgetCompExistsIndx === -1) {
+        FM[0].children[1].children.push({
+          id: Math.random().toString(),
+          isSelectable: true,
+          name: "forgetPassword.tsx",
+        });
+      }
+      if (!forgetOn && forgetCompExistsIndx !== -1) {
+        FM[0].children[1].children.pop(forgetCompExistsIndx);
+      }
+      if (resetOn && !resetExists && resetCompExistsIndx === -1) {
+        FM[0].children[1].children.push({
+          id: Math.random().toString(),
+          isSelectable: true,
+          name: "resetPassword.tsx",
+        });
+      }
+      if (!resetOn && resetCompExistsIndx !== -1) {
+        FM[0].children[1].children.pop(resetCompExistsIndx);
+      }
       break;
     case "react":
       FM = REACT_ELEMENTS;
@@ -362,7 +400,7 @@ export function FileTree({
   }
 
   return (
-    <div className="relative pr-10 flex h-full w-full font-mono flex-col items-center justify-center overflow-hidden rounded-none border border-t-0 border-b-0 border-l-0 bg-background dark:md:shadow-2xl">
+    <div className="relative ml-1 border-l-0 flex h-full w-full font-mono flex-col items-center justify-center overflow-hidden rounded-none border border-t-0 border-b-0 bg-background dark:md:shadow-2xl">
       <Tree
         className="p-2 overflow-hidden rounded-md bg-background "
         initialSelectedId="6"

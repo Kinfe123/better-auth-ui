@@ -53,7 +53,7 @@ export const metadata = {
 export default function LoginPage() {
   return (
     <>
-      <Login />
+      <Login /background>
     </>
   );
 }
@@ -394,7 +394,6 @@ export default function SignIn() {
       files: {
         auth: {
           prisma: `
-// this is a prisma
 import { betterAuth } from "better-auth";
 import { nextCookies } from "better-auth/next-js";
 import { prismaAdapter } from "better-auth/adapters/prisma";

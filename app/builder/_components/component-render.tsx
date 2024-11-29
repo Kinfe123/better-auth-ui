@@ -28,16 +28,16 @@ export function ComponentRender() {
   }
   useEffect(() => {}, [enabledComp]);
   return (
-    <div className="relative h-full w-[60%]">
+    <div className="relative h-full  w-[60%]">
       <TopBar />
-      <div className="h-full">{comp}</div>
+      <div className="pt-20">{comp}</div>
     </div>
   );
 }
 
 const SignInUp = () => {
   return (
-    <div className="flex pt-20 items-center flex-col justify-center w-full md:pb-10">
+    <div className="flex items-center flex-col justify-center w-full md:pb-10">
       <div className="md:w-[400px] ">
         <Tabs
           tabs={[

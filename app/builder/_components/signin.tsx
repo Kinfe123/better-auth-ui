@@ -44,15 +44,19 @@ export default function SignIn() {
         additionals: {
           ...enabledComp.additionals,
           forgetPassword: {
+            ...enabledComp.additionals.forgetPassword,
             routing: false,
           },
           resetPassword: {
+            ...enabledComp.additionals.resetPassword,
             routing: false,
           },
         },
       },
     });
+    console.log({ enabledComp });
   }, []);
+
   return (
     <Card className="z-50 rounded-md rounded-t-none max-w-md">
       <CardHeader>
@@ -139,8 +143,6 @@ export default function SignIn() {
           )}
           <div className="flex flex-wrap items-center gap-2 w-full">
             {Object.entries(enabledComp.socials).map(([social, enabled]) => {
-              console.log({ social, enabled });
-
               if (enabled) {
                 return enabledEntries.length <= 2 ? (
                   <Button

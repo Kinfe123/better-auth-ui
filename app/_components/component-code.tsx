@@ -181,40 +181,45 @@ export function CodeComponent() {
               NextJS
             </TabsTrigger>
             <TabsTrigger
-              className="flex py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
+              className="flex cursor-not-allowed py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
               value="react"
+              disabled={true}
               onClick={() => handleTabClick("react")}
             >
               <Icons.react className="w-4 h-4" />
               ReactJS
             </TabsTrigger>
             <TabsTrigger
-              className="flex py-2 data-[state=active]:text-white rounded-none gap-2 items-center  data-[state=active]:bg-stone-900"
+              className="flex cursor-not-allowed py-2 data-[state=active]:text-white rounded-none gap-2 items-center  data-[state=active]:bg-stone-900"
               value="svelte"
+              disabled={true}
               onClick={() => handleTabClick("svelte")}
             >
               <Icons.svelteKit />
               Svelte
             </TabsTrigger>
             <TabsTrigger
-              className="flex py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900 "
+              className="flex cursor-not-allowed py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900 "
               value="astro"
+              disabled={true}
               onClick={() => handleTabClick("astro")}
             >
               <Icons.astro />
               Astro
             </TabsTrigger>
             <TabsTrigger
-              className="flex py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
+              className="flex cursor-not-allowed py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
               value="solid"
+              disabled={true}
               onClick={() => handleTabClick("solid")}
             >
               <Icons.solidStart />
               Solid{" "}
             </TabsTrigger>
             <TabsTrigger
-              className="flex  py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
+              className="flex cursor-not-allowed py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
               value="nuxt"
+              disabled={true}
               onClick={() => handleTabClick("nuxt")}
             >
               <Icons.nuxt />

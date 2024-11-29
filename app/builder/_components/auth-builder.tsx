@@ -96,7 +96,7 @@ export default function AuthBuilder() {
                     <div className="h-screen w-[1px] bg-input" />
                   </div> */}
                   <div className="relative max-w-[35%] mx-auto pt-20 px-10">
-                    <div className="absolute h-screen ml-1 mt-1 w-full pointer-events-none inset-0 flex items-center justify-center dark:bg-stone-900 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_60%,black)]"></div>
+                    <div className="absolute h-screen ml-1 mt-1 w-full pointer-events-none inset-0 flex items-center border-l-2 border-stone-900 justify-center"></div>
                     <div className="space-y-6">
                       <div>
                         <h1 className="text-2xl font-semibold mb-1">
@@ -111,11 +111,7 @@ export default function AuthBuilder() {
                       </div>
 
                       <div className="space-y-4">
-                        <div>
-                          <Label htmlFor="app-name">Application name</Label>
-                          <Input id="app-name" placeholder="My Application" />
-                        </div>
-                        <div className="h-[400px] flex flex-col gap-10 overflow-y-auto">
+                        <div className="h-[600px] pb-16 flex flex-col gap-10 overflow-y-auto">
                           <div className="space-y-4 ">
                             <Label className="font-mono text-gray-200 uppercase block mt-4">
                               Credential Login
@@ -332,10 +328,6 @@ export default function AuthBuilder() {
                           </div>
                         </div>
                       </div>
-
-                      <Button className="w-full bg-primary" size="lg">
-                        Create application
-                      </Button>
                     </div>
                   </div>
                 </div>

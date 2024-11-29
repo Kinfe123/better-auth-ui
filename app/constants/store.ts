@@ -297,7 +297,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { PasswordInput } from "@/components/ui/password-input";
-import { signIn } from "@/lib/auth-client";
+import { client } from "@/lib/client";
 import {
   DiscordLogoIcon,
   GitHubLogoIcon,
@@ -353,7 +353,7 @@ export default function SignIn() {
             className="w-full"
             disabled={loading}
             onClick={async () => {
-              await signIn.email(
+              await client.signin.email(
                 {
                   email: email,
                   password: password,
@@ -694,7 +694,7 @@ import {
     // passKeyClientImport
     // magicLinkClientImport
 } from "better-auth/client/plugins"
-export const authClient = createAuthClient({
+export const client = createAuthClient({
     baseURL: "http://localhost:3000",
     // noLists
     plugins: [
@@ -703,7 +703,6 @@ export const authClient = createAuthClient({
     ]
 })
 
-export const { signIn, signOut, useSession } = authClient;
         `,
       },
     },

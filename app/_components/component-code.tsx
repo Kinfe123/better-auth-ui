@@ -162,15 +162,22 @@ export function CodeComponent() {
     ];
     let cleanedJsx = "";
     const replacableLists = Object.keys(commentMap);
-    cleanedJsx = importAndDistructureCleanup(
-      content,
-      otherEnabledLists.length === 0,
-    );
+
     if (listsOfComments.length === 1) {
-      cleanedJsx = replaceCommentsWithJSX(replacableLists, cleanedJsx, {
+      cleanedJsx = replaceCommentsWithJSX(replacableLists, content, {
         eraseAll: true,
       });
     } else {
+      cleanedJsx = importAndDistructureCleanup(
+        "noDistructure",
+        content,
+        otherEnabledLists.length === 0,
+      );
+      cleanedJsx = importAndDistructureCleanup(
+        "noLists",
+        cleanedJsx,
+        otherEnabledLists.length === 0,
+      );
       cleanedJsx = replaceCommentsWithJSX(listsOfComments, cleanedJsx, {
         eraseAll: false,
       });

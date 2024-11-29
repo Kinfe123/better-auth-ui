@@ -55,10 +55,15 @@ export const PassKeyServerSnippet = `
 export const PassKeyClientSnippet = `
         passkeyClient(),
 `;
-
+export const PassKeyClientImport = `
+        passkeyClient,
+`;
 export const MagicLinkServerSnippet = `
         magicLink()
 `;
 export const MagicLinkClientSnippet = `
         magicLinkClient()
+`;
+export const MagicLinkClientImport = `
+        magicLinkClient
 `;

@@ -679,10 +679,14 @@ export const getSession = cache(async () => {
         },
         client: `
 import { createAuthClient } from "better-auth/react";
-
+// noDistructure
+import {
+    // passKeyClientImport
+    // magicLinkClientImport
+} from "better-auth/client/plugins"
 export const authClient = createAuthClient({
     baseURL: "http://localhost:3000",
-    // noDistructure
+    // noLists
     plugins: [
         // passKeyClient
         // magicLinkClient

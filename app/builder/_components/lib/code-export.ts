@@ -29,13 +29,14 @@ export function removeLinesWithNope(inputString: string) {
   return inputString.replace(regex, "");
 }
 export function importAndDistructureCleanup(
+  distruction: string,
   input: string,
   condition: boolean,
 ): string {
   const lines = input.split("\n");
 
   const noImportIndex = lines.findIndex((line) =>
-    line.includes("// noDistructure"),
+    line.includes(`// ${distruction}`),
   );
   if (noImportIndex !== -1) {
     if (condition) {

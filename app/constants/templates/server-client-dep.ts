@@ -1,4 +1,14 @@
 export const server_dep: Record<string, string[]> = {
-  passKey: ["passKeyClient", "passKeyServerImport", "passKeyServer"],
-  magicLink: ["magicLinkClient", "magicLinkServerImport", "magicLinkServer"],
+  passKey: [
+    "passKeyClient",
+    "passKeyServerImport",
+    "passKeyClientImport",
+    "passKeyServer",
+  ],
+  magicLink: [
+    "magicLinkClient",
+    "magicLinkServerImport",
+    "magicLinkClientImport",
+    "magicLinkServer",
+  ],
 };

@@ -143,9 +143,12 @@ export function CodeComponent() {
     let otherEnabledLists = Object.entries(enabledComp.otherSignIn)
       .filter(([comment, enabled]) => enabled)
       .map((curr) => curr[0]);
-    // addng otherSignInOptions
-    // adding passkeys here
-    otherEnabledLists = [...otherEnabledLists, ...server_dep["passKey"]];
+    // addng otherSignInOptions and the dependencies
+    Object.keys(server_dep).map((dep) => {
+      if (otherEnabledLists.includes(dep)) {
+        otherEnabledLists = [...otherEnabledLists, ...server_dep[dep]];
+      }
+    });
     console.log({ otherEnabledLists });
     listsOfComments = [
       "empty",

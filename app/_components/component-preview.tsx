@@ -352,10 +352,10 @@ export function FileTree({
       const resetCompExistsIndx = comps.findIndex(
         (comp) => comp.name === "resetPassword.tsx",
       );
-      const forgetExists = code.next.components.forgetPassword?.length === 0;
+      const forgetExists = code.next?.components.forgetPassword?.length === 0;
       const forgetOn = enabledComp.additionals.forgetPassword?.visiblity;
       const resetOn = enabledComp.additionals.resetPassword?.visiblity;
-      const resetExists = code.next.components.resetPassword?.length === 0;
+      const resetExists = code.next?.components.resetPassword?.length === 0;
       if (forgetOn && !forgetExists && forgetCompExistsIndx === -1) {
         FM[0].children[1].children.push({
           id: Math.random().toString(),

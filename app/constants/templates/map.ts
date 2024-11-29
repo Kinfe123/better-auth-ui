@@ -1,7 +1,11 @@
 import {
   forgetPasswordSnippet,
   MagicLinkClientSnippet,
+  MagicLinkServerImport,
+  MagicLinkServerSnippet,
   PassKeyClientSnippet,
+  PassKeyServerImport,
+  PassKeyServerSnippet,
   PassKeySnippet,
   remeberMeSnippet,
 } from "./file";
@@ -21,7 +25,12 @@ export const commentMap: Record<string, string> = {
  \n
   `,
   passKey: PassKeySnippet,
+  passKeyServerImport: PassKeyServerImport,
+  passKeyServer: PassKeyServerSnippet,
+  magicLinkServerImport: MagicLinkServerImport,
+  magicLinkServer: MagicLinkServerSnippet,
   magicLinkClient: MagicLinkClientSnippet,
+
   passKeyClient: PassKeyClientSnippet,
   github: `
       github: {

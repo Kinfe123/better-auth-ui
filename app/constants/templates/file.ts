@@ -41,8 +41,23 @@ export const PassKeySnippet = `
 		</Button>
 
   `;
+export const PassKeyServerImport = `
+    passkey,
+
+`;
+export const MagicLinkServerImport = `
+    magicLink
+
+`;
+export const PassKeyServerSnippet = `
+        passkey(),
+`;
 export const PassKeyClientSnippet = `
-        passkeyClient()
+        passkeyClient(),
+`;
+
+export const MagicLinkServerSnippet = `
+        magicLink()
 `;
 export const MagicLinkClientSnippet = `
         magicLinkClient()

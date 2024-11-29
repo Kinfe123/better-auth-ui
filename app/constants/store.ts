@@ -395,6 +395,10 @@ export default function SignIn() {
         auth: {
           prisma: `
 import { betterAuth } from "better-auth";
+import {
+    // passKeyServerImport
+    // magicLinkServerImport
+} from "better-auth/plugins"
 import { nextCookies } from "better-auth/next-js";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { PrismaClient } from "@prisma/client";
@@ -409,7 +413,9 @@ export const auth = betterAuth({
    emailAndPassword: {
      enabled: true,
      plugins: [
-       nextCookies()
+        nextCookies(),
+       // passKeyServer
+       // magicLinkServer
      ],
 
     socialProviders: {
@@ -637,7 +643,8 @@ export const auth = betterAuth({
    emailAndPassword: {
     enabled: true,
     plugins: [
-      nextCookies()
+      nextCookies(),
+
     ],
 
    socialProviders: {

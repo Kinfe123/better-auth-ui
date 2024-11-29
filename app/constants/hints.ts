@@ -8,7 +8,7 @@ interface HintText {
 }
 export const hintsText = {
   credential: {
-    magicLink: "Please turn off magic link to enable credential",
+    magicLink: "Please turn off magic link to enable credential.",
   },
   magicLink: {
     credential: "Please turn off credential to enable magic link.",

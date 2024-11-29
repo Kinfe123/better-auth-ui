@@ -37,12 +37,12 @@ export function CodeComponent() {
     solid: false,
   });
   const nextCode = {
-    login: code.next.components.signin,
-    signup: code.next.components.signin,
-    auth: code.next.files.auth,
-    client: code.next.files.client,
-    forgetPassword: code.next.components.forgetPassword,
-    resetPassword: code.next.components.resetPassword,
+    login: code.next?.components.signin,
+    signup: code.next?.components.signin,
+    auth: code.next?.files.auth,
+    client: code.next?.files.client,
+    forgetPassword: code.next?.components.forgetPassword,
+    resetPassword: code.next?.components.resetPassword,
   };
   const codeExamples = {
     next: { language: "typescript", code: nextCode },

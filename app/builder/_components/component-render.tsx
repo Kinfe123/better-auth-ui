@@ -13,9 +13,7 @@ import ResetPasswordDemo from "./nested/pages/reset-password";
 export function ComponentRender() {
   const { url, updateUrl } = useUrl();
   const { enabledComp } = useComponents();
-  useEffect(() => {
-    console.log(enabledComp);
-  }, [enabledComp]);
+
   let comp = <SignInUp />;
   switch (url) {
     case "http://localhost:3000/forget-password":
@@ -30,9 +28,9 @@ export function ComponentRender() {
   }
   useEffect(() => {}, [enabledComp]);
   return (
-    <div className="relative w-[60%]">
+    <div className="relative h-full w-[60%]">
       <TopBar />
-      {comp}
+      <div className="h-full">{comp}</div>
     </div>
   );
 }

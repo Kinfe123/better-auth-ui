@@ -64,7 +64,7 @@ export default function ForgetPaswordDemo() {
   }
 
   return (
-    <main className="flex w-full flex-col items-center justify-center min-h-[calc(100vh-10rem)]">
+    <main className="flex w-full flex-col items-center justify-center">
       {/* Radial gradient for the container to give a faded look */}
       <Card className="w-[350px] rounded-none">
         <CardHeader>

@@ -1,4 +1,10 @@
 "use client";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 import {
   ArrowLeft,
@@ -11,6 +17,7 @@ import {
   LucideTwitch,
   Lock,
   Calendar,
+  InfoIcon,
 } from "lucide-react";
 import {
   DiscordLogoIcon,
@@ -30,6 +37,7 @@ import { Icons } from "@/components/icons";
 import { useComponents } from "@/lib/store";
 import { useEffect } from "react";
 import { authOptions } from "./lib/auth-options";
+import { hintsText } from "@/app/constants/hints";
 export default function AuthBuilder() {
   const { enabledComp, updateEnabledComponent } = useComponents();
   useEffect(() => {
@@ -110,20 +118,20 @@ export default function AuthBuilder() {
                         </p>
                       </div>
 
-                      <div className="space-y-4">
+                      <div className="w-full space-y-4">
                         <div className="h-[600px] pb-16 flex flex-col gap-10 overflow-y-auto">
                           <div className="space-y-4 ">
                             <Label className="font-mono text-gray-200 uppercase block mt-4">
                               Credential Login
                             </Label>
                             <hr className="text-gray-300" />
-                            <div className="pr-4 space-y-4">
+                            <div className="pr-4 w-full space-y-4">
                               {Object.keys(enabledComp["credentials"]).map(
                                 (cred, indx) => {
                                   return (
                                     <div
                                       key={indx}
-                                      className="flex items-center justify-between"
+                                      className="flex w-full items-center justify-between"
                                     >
                                       <div className="flex items-center gap-2">
                                         {
@@ -139,21 +147,49 @@ export default function AuthBuilder() {
                                           }
                                         </span>
                                       </div>
-                                      <Switch
-                                        onCheckedChange={(e) => {
-                                          updateEnabledComponent({
-                                            toogledComp: {
-                                              credentials: {
-                                                ...enabledComp["credentials"],
-                                                [cred]: e,
+                                      <div className="flex items-center gap-2">
+                                        {anyBool([
+                                          enabledComp.otherSignIn.magicLink!,
+                                        ]) &&
+                                          authOptions["credential"][
+                                            cred as string
+                                          ].name === "Enabled" && (
+                                            <TooltipProvider delayDuration={50}>
+                                              <Tooltip>
+                                                <TooltipTrigger asChild>
+                                                  <InfoIcon className="w-3 h-3" />
+                                                </TooltipTrigger>
+                                                <TooltipContent className="bg-black text-white">
+                                                  <p>
+                                                    {
+                                                      hintsText["credential"][
+                                                        "magicLink"
+                                                      ]
+                                                    }
+                                                  </p>
+                                                </TooltipContent>
+                                              </Tooltip>
+                                            </TooltipProvider>
+                                          )}
+                                        <Switch
+                                          disabled={
+                                            enabledComp.otherSignIn.magicLink
+                                          }
+                                          onCheckedChange={(e) => {
+                                            updateEnabledComponent({
+                                              toogledComp: {
+                                                credentials: {
+                                                  ...enabledComp["credentials"],
+                                                  [cred]: e,
+                                                },
                                               },
-                                            },
-                                          });
-                                        }}
-                                        checked={
-                                          enabledComp["credentials"][cred]
-                                        }
-                                      />
+                                            });
+                                          }}
+                                          checked={
+                                            enabledComp["credentials"][cred]
+                                          }
+                                        />
+                                      </div>
                                     </div>
                                   );
                                 },
@@ -338,4 +374,14 @@ export default function AuthBuilder() {
       </div>
     </Card>
   );
+}
+function anyBool(lists: boolean[]) {
+  let result = false;
+  lists.map((list) => {
+    if (list) {
+      result = true;
+      return;
+    }
+  });
+  return result;
 }

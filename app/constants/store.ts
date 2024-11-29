@@ -347,31 +347,13 @@ export default function SignIn() {
               placeholder="Password"
             />
           </div>
-          // rememberMe
           <Button
             type="submit"
             className="w-full"
             disabled={loading}
             onClick={async () => {
-              await client.signin.email(
-                {
-                  email: email,
-                  password: password,
-                  callbackURL: "/dashboard",
-                  rememberMe,
-                },
-                {
-                  onRequest: () => {
-                    setLoading(true);
-                  },
-                  onResponse: () => {
-                    setLoading(false);
-                  },
-                  onError: (ctx) => {
-                    toast.error(ctx.error.message);
-                  },
-                }
-              );
+                 // signInAction
+                 // magicLinkAction
             }}
           >
             {loading ? <Loader2 size={16} className="animate-spin" /> : "Login"}

@@ -36,6 +36,31 @@ export const commentMap: Record<string, string> = {
   magicLinkClient: MagicLinkClientSnippet,
   magicLinkClientImport: MagicLinkClientImport,
   passKeyClient: PassKeyClientSnippet,
+  magicLinkAction: `
+      await client.signIn.passkey()
+  `,
+
+  signInAction: `
+                await client.signin.email(
+                  {
+                    email: email,
+                    password: password,
+                    callbackURL: "/dashboard",
+                    rememberMe,
+                  },
+                  {
+                    onRequest: () => {
+                      setLoading(true);
+                    },
+                    onResponse: () => {
+                      setLoading(false);
+                    },
+                    onError: (ctx) => {
+                      toast.error(ctx.error.message);
+                    },
+                  }
+                );
+           `,
   googleUI: `
             <Button
                 variant="outline"

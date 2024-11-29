@@ -162,6 +162,9 @@ export function CodeComponent() {
         otherEnabledLists = [...otherEnabledLists, ...server_dep[dep]];
       }
     });
+    if (enabledComp.credentials.email) {
+      otherEnabledLists.push(server_dep["email"]);
+    }
     console.log({ otherEnabledLists });
     listsOfComments = [
       "empty",

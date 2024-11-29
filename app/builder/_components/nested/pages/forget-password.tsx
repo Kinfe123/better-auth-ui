@@ -36,14 +36,14 @@ export default function ForgetPaswordDemo() {
           <CardHeader>
             <CardTitle>Check your email</CardTitle>
             <CardDescription>
-              We've sent a password reset link to your email.
+              We&lsquo;ve sent a password reset link to your email.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Alert>
               <CheckCircle2 className="h-4 w-4" />
               <AlertDescription>
-                If you don't see the email, check your spam folder.
+                If you don&lsquo;t see the email, check your spam folder.
               </AlertDescription>
             </Alert>
           </CardContent>
@@ -109,14 +109,6 @@ export default function ForgetPaswordDemo() {
         <CardFooter className="flex justify-center">
           <Button
             onClick={() => {
-              // updateEnabledComponent({
-              //   toogledComp: {
-              //     additionals: {
-              //       ...enabledComp["additionals"],
-              //       forgetPassword: false,
-              //     },
-              //   },
-              // });
               updateUrl({ url: "http://localhost:3000" });
             }}
             variant="link"

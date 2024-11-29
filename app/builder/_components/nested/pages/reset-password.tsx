@@ -29,7 +29,7 @@ export default function ResetPasswordDemo() {
     setIsSubmitting(false);
   }
   return (
-    <div className="flex flex-col items-center justify-center min-h-[calc(100vh-10rem)]">
+    <div className="flex flex-col items-center justify-center">
       <Card className="rounded-none w-[350px]">
         <CardHeader>
           <CardTitle>Reset password</CardTitle>

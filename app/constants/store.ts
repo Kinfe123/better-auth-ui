@@ -26,13 +26,13 @@ interface FileStructure {
 interface Codeblocks {
   title: string;
   slug: string;
-  code: {
+  code: Partial<{
     next: FileStructure;
     astro: FileStructure;
     solid: FileStructure;
     svelte: FileStructure;
     nuxt: FileStructure;
-  };
+  }>;
 }
 interface CodeBlocks {
   title: "SignIn UI Block";
@@ -394,7 +394,6 @@ export default function SignIn() {
       files: {
         auth: {
           prisma: `
-// this is a prisma
 import { betterAuth } from "better-auth";
 import { nextCookies } from "better-auth/next-js";
 import { prismaAdapter } from "better-auth/adapters/prisma";
@@ -432,7 +431,6 @@ export const getSession = cache(async () => {
  })
         `,
           drizzle: `
-// this is drizzle man
 import { betterAuth } from "better-auth";
 import { nextCookies } from "better-auth/next-js";
 import { prismaAdapter } from "better-auth/adapters/prisma";
@@ -470,7 +468,6 @@ export const getSession = cache(async () => {
  })
 `,
           libsql: `
-this is libsql
 import { betterAuth } from "better-auth";
 import { nextCookies } from "better-auth/next-js";
 import { LibsqlDialect } from "@libsql/kysely-libsql";

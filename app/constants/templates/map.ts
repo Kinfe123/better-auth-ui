@@ -40,58 +40,88 @@ export const commentMap: Record<string, string> = {
             <Button
                 variant="outline"
                 className="gap-2 py-4 flex-1"
+                onClick={async () => {
+                    await client.signIn.social({
+                        provider: "google"
+                    })
+                }}
             >
               Google
             </Button>
   `,
 
   githubUI: `
-             <Button
-                 variant="outline"
-                 className="gap-2 py-4 flex-1"
-             >
-               Google
-             </Button>
+          <Button
+                variant="outline"
+                className="gap-2 py-4 flex-1"
+                onClick={async () => {
+                     await client.signIn.social({
+                     provider: "Github"
+                })
+             }}
+            >
+              Github
+           </Button>
    `,
   twitterUI: `
-                   <Button
-                       variant="outline"
-                       className="gap-2 py-4 flex-1"
-                   >
-                     Google
-                   </Button>
+          <Button
+                variant="outline"
+                className="gap-2 py-4 flex-1"
+                onClick={async () => {
+                    await client.signIn.social({
+                    provider: "twitter"
+                   })
+                >
+                  Twitter
+          </Button>
          `,
   appleUI: `
-                <Button
-                    variant="outline"
-                    className="gap-2 py-4 flex-1"
-                >
-                  Google
-                </Button>
+          <Button
+                variant="outline"
+                className="gap-2 py-4 flex-1"
+                onClick={async () => {
+                    await client.signIn.social({
+                    provider: "apple"
+                })
+               >
+                Apple
+         </Button>
       `,
   discordUI: `
-             <Button
+          <Button
                  variant="outline"
                  className="gap-2 py-4 flex-1"
+                 onClick={async () => {
+                      await client.signIn.social({
+                      provider: "discord"
+                  })
                 >
-                Google
-            </Button>
+               Discord
+          </Button>
          `,
   facebookUI: `
-                      <Button
-                          variant="outline"
-                          className="gap-2 py-4 flex-1"
-                         >
-                         Google
-                     </Button>
+            <Button
+                variant="outline"
+                className="gap-2 py-4 flex-1"
+                onClick={async () => {
+                    await client.signIn.social({
+                    provider: "facebook"
+                 })
+               >
+                  Facebook
+            </Button>
                   `,
   microsoftUI: `
-                      <Button
-                          variant="outline"
-                          className="gap-2 py-4 flex-1"
-                         >
-                         Google
-                     </Button>
+          <Button
+              variant="outline"
+              className="gap-2 py-4 flex-1"
+              onClick={async () => {
+                  await client.signIn.social({
+                  provider: "microsoft"
+                })
+               >
+                 Microsoft
+          </Button>
                   `,
   github: `
       github: {

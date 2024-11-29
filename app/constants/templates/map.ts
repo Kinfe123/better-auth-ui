@@ -1,5 +1,7 @@
 import {
   forgetPasswordSnippet,
+  MagicLinkClientSnippet,
+  PassKeyClientSnippet,
   PassKeySnippet,
   remeberMeSnippet,
 } from "./file";
@@ -19,6 +21,8 @@ export const commentMap: Record<string, string> = {
  \n
   `,
   passKey: PassKeySnippet,
+  magicLinkClient: MagicLinkClientSnippet,
+  passKeyClient: PassKeyClientSnippet,
   github: `
       github: {
            clientId: process.env.GITHUB_CLIENT_ID!,

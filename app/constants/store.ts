@@ -53,7 +53,7 @@ export const metadata = {
 export default function LoginPage() {
   return (
     <>
-      <Login /background>
+      <Login />
     </>
   );
 }
@@ -664,7 +664,11 @@ export const getSession = cache(async () => {
 import { createAuthClient } from "better-auth/react";
 
 export const authClient = createAuthClient({
-    baseURL: "http://localhost:3000"
+    baseURL: "http://localhost:3000",
+    plugins: [
+        // passKeyClient
+        // magicLinkClient
+    ]
 })
 
 export const { signIn, signOut, useSession } = authClient;

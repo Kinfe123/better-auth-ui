@@ -10,6 +10,7 @@ export function replaceCommentsWithJSX(
     let replacement = "";
     if (!eraseAll) {
       replacement = commentMap[commentLabel] || "";
+      console.log("THIS IS replacemnt tho: ", replacement);
     }
     jsxString = jsxString.replace(commentRegex, replacement);
   });
@@ -19,9 +20,7 @@ export function replaceCommentsWithJSX(
 
 function removeEmptyLines(inputString: string, commentsArray: string[]) {
   let result = inputString.replace(/^\s*[\r\n]/gm, "");
-  console.log(result);
   const commentRegex = new RegExp(`//\\s*newLine\\s*$`, "gm");
-  console.log({ commentRegex });
   const replacement = commentMap["newLine"];
   result = result.replace(commentRegex, replacement);
 

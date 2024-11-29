@@ -20,6 +20,8 @@ import { useCodeComponent } from "../constants/store";
 import { useComponents } from "@/lib/store";
 import { replaceCommentsWithJSX } from "../builder/_components/lib/code-export";
 import { commentMap } from "../constants/templates/map";
+import { cx } from "class-variance-authority";
+import { server_dep } from "../constants/templates/server-client-dep";
 export function CodeComponent() {
   const [fmForTree, setFmForTree] = useState("next");
   const [activeTab, setActiveTab] = useState("next");
@@ -138,9 +140,12 @@ export function CodeComponent() {
     socialEnabledLists = socialEnabledLists.length
       ? ["socialProviders"].concat(socialEnabledLists)
       : socialEnabledLists;
-    const otherEnabledLists = Object.entries(enabledComp.otherSignIn)
+    let otherEnabledLists = Object.entries(enabledComp.otherSignIn)
       .filter(([comment, enabled]) => enabled)
       .map((curr) => curr[0]);
+    // addng otherSignInOptions
+    // adding passkeys here
+    otherEnabledLists = [...otherEnabledLists, ...server_dep["passKey"]];
     console.log({ otherEnabledLists });
     listsOfComments = [
       "empty",

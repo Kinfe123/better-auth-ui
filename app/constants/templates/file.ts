@@ -41,3 +41,9 @@ export const PassKeySnippet = `
 		</Button>
 
   `;
+export const PassKeyClientSnippet = `
+        passkeyClient()
+`;
+export const MagicLinkClientSnippet = `
+        magicLinkClient()
+`;

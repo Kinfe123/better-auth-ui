@@ -36,19 +36,21 @@ export const commentMap: Record<string, string> = {
   magicLinkClient: MagicLinkClientSnippet,
   magicLinkClientImport: MagicLinkClientImport,
   passKeyClient: PassKeyClientSnippet,
-  magicLinkAction: `
-      await client.signIn.passkey()
-  `,
-
   signInAction: `
-                await client.signin.email(
-                  {
-                    email: email,
-                    password: password,
-                    callbackURL: "/dashboard",
-                    rememberMe,
-                  },
-                  {
+
+        <Button
+          type="submit"
+          className="w-full"
+          disabled={loading}
+          onClick={async () => {
+              await client.signin.email(
+                    {
+                      email: email,
+                      password: password,
+                      callbackURL: "/dashboard",
+                      rememberMe,
+                    },
+                    {
                     onRequest: () => {
                       setLoading(true);
                     },
@@ -56,11 +58,26 @@ export const commentMap: Record<string, string> = {
                       setLoading(false);
                     },
                     onError: (ctx) => {
-                      toast.error(ctx.error.message);
+                        toast.error(ctx.error.message);
                     },
                   }
                 );
-           `,
+              }}
+            >
+              {loading ? <Loader2 size={16} className="animate-spin" /> : "Login"}
+          </Button> `,
+  magicLinkAction: `
+            <Button
+                type="submit"
+                className="w-full"
+                onClick={async () => {
+                    await client.signin.magicLink({ email })
+                }}
+              >
+              Sign-in with Magickey
+          </Button>
+
+    `,
   googleUI: `
             <Button
                 variant="outline"

@@ -162,7 +162,7 @@ export function CodeComponent() {
         otherEnabledLists = [...otherEnabledLists, ...server_dep[dep]];
       }
     });
-    if (enabledComp.credentials.email) {
+    if (enabledComp.credentials.email && !enabledComp.otherSignIn.magicLink) {
       otherEnabledLists.push(server_dep["email"]);
     }
     console.log({ otherEnabledLists });

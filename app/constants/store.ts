@@ -339,7 +339,7 @@ export default function SignIn() {
           </div>
           <div className="grid gap-2">
             // forgetPassword
-            <PasswordInput
+            <Input
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -347,18 +347,8 @@ export default function SignIn() {
               placeholder="Password"
             />
           </div>
-          <Button
-            type="submit"
-            className="w-full"
-            disabled={loading}
-            onClick={async () => {
-                 // signInAction
-                 // magicLinkAction
-            }}
-          >
-            {loading ? <Loader2 size={16} className="animate-spin" /> : "Login"}
-          </Button>
-
+          // signInAction
+          // magicLinkAction
           <div className="flex flex-wrap items-center gap-2 w-full">
            // googleUI
            // appleUI

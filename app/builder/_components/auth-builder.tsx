@@ -19,14 +19,7 @@ import {
   Calendar,
   InfoIcon,
 } from "lucide-react";
-import {
-  DiscordLogoIcon,
-  GitHubLogoIcon,
-  TwitterLogoIcon,
-  UpdateIcon,
-} from "@radix-ui/react-icons";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { ComponentRender } from "./component-render";
@@ -297,6 +290,20 @@ export default function AuthBuilder() {
                                       </div>
                                       <Switch
                                         onCheckedChange={(e) => {
+                                          // if (
+                                          //   authOptions["otherSignIn"][other]
+                                          //     .name === "Magic Link"
+                                          // ) {
+                                          //   updateEnabledComponent({
+                                          //     toogledComp: {
+                                          //       ...enabledComp,
+                                          //       credentials: {
+                                          //         ...enabledComp.credentials,
+                                          //         enabled: false,
+                                          //       },
+                                          //     },
+                                          //   });
+                                          // }
                                           updateEnabledComponent({
                                             toogledComp: {
                                               otherSignIn: {

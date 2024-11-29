@@ -1,3 +1,4 @@
+import { authOptions } from "@/app/builder/_components/lib/auth-options";
 import {
   forgetPasswordSnippet,
   MagicLinkClientImport,
@@ -35,6 +36,63 @@ export const commentMap: Record<string, string> = {
   magicLinkClient: MagicLinkClientSnippet,
   magicLinkClientImport: MagicLinkClientImport,
   passKeyClient: PassKeyClientSnippet,
+  googleUI: `
+            <Button
+                variant="outline"
+                className="gap-2 py-4 flex-1"
+            >
+              Google
+            </Button>
+  `,
+
+  githubUI: `
+             <Button
+                 variant="outline"
+                 className="gap-2 py-4 flex-1"
+             >
+               Google
+             </Button>
+   `,
+  twitterUI: `
+                   <Button
+                       variant="outline"
+                       className="gap-2 py-4 flex-1"
+                   >
+                     Google
+                   </Button>
+         `,
+  appleUI: `
+                <Button
+                    variant="outline"
+                    className="gap-2 py-4 flex-1"
+                >
+                  Google
+                </Button>
+      `,
+  discordUI: `
+             <Button
+                 variant="outline"
+                 className="gap-2 py-4 flex-1"
+                >
+                Google
+            </Button>
+         `,
+  facebookUI: `
+                      <Button
+                          variant="outline"
+                          className="gap-2 py-4 flex-1"
+                         >
+                         Google
+                     </Button>
+                  `,
+  microsoftUI: `
+                      <Button
+                          variant="outline"
+                          className="gap-2 py-4 flex-1"
+                         >
+                         Google
+                     </Button>
+                  `,
   github: `
       github: {
            clientId: process.env.GITHUB_CLIENT_ID!,

@@ -376,6 +376,16 @@ export default function SignIn() {
           >
             {loading ? <Loader2 size={16} className="animate-spin" /> : "Login"}
           </Button>
+
+          <div className="flex flex-wrap items-center gap-2 w-full">
+           // googleUI
+           // appleUI
+           // facebookUI
+           // microsoftUI
+           // discordUI
+           // twitterUI
+           // githubUI
+           </div>
           // passKey
         </div>
       </CardContent>

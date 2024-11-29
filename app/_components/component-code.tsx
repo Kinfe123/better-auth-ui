@@ -25,6 +25,7 @@ import {
 import { commentMap } from "../constants/templates/map";
 import { cx } from "class-variance-authority";
 import { server_dep } from "../constants/templates/server-client-dep";
+import { UIFunctionDep } from "../constants/templates/ui-function-dep";
 export function CodeComponent() {
   const [fmForTree, setFmForTree] = useState("next");
   const [activeTab, setActiveTab] = useState("next");
@@ -140,9 +141,17 @@ export function CodeComponent() {
     let socialEnabledLists = Object.entries(enabledComp.socials)
       .filter(([comment, enabled]) => enabled)
       .map((curr) => curr[0]);
+
     socialEnabledLists = socialEnabledLists.length
       ? ["socialProviders"].concat(socialEnabledLists)
       : socialEnabledLists;
+
+    Object.keys(UIFunctionDep).map((dep) => {
+      if (socialEnabledLists.includes(dep)) {
+        socialEnabledLists = [...socialEnabledLists, ...UIFunctionDep[dep]];
+      }
+    });
+    console.log({ socialEnabledLists });
     let otherEnabledLists = Object.entries(enabledComp.otherSignIn)
       .filter(([comment, enabled]) => enabled)
       .map((curr) => curr[0]);

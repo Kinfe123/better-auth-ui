@@ -38,6 +38,7 @@ interface Credentials {
 }
 interface OtherSignIn {
   passKey: boolean;
+  magicLink: boolean;
 }
 interface EnabledComponent {
   credentials: Partial<Credentials>;
@@ -93,6 +94,7 @@ const initialState = {
   },
   otherSignIn: {
     passKey: false,
+    magicLink: false,
   },
 };
 export const useComponents = create<ComponentStore>((set) => ({

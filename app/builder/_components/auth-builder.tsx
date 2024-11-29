@@ -109,6 +109,7 @@ export default function AuthBuilder() {
                           auth ui by toggling the peices you want.
                         </p>
                       </div>
+
                       <div className="space-y-4">
                         <div className="h-[600px] pb-16 flex flex-col gap-10 overflow-y-auto">
                           <div className="space-y-4 ">

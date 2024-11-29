@@ -452,9 +452,10 @@ export const auth = betterAuth({
    emailAndPassword: {
      enabled: true,
      plugins: [
-       nextCookies()
-     ],
-
+        nextCookies(),
+        // passKeyServer
+        // magicLinkServer
+    ],
     socialProviders: {
      // github
      // google
@@ -492,8 +493,11 @@ export const auth = betterAuth({
     emailAndPassword: {
     enabled: true,
     plugins: [
-      nextCookies()
+        nextCookies(),
+       // passKeyServer
+       // magicLinkServer
     ],
+    ,
 
    socialProviders: {
     // github
@@ -527,9 +531,10 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     plugins: [
-      nextCookies()
+        nextCookies(),
+       // passKeyServer
+       // magicLinkServer
     ],
-
    socialProviders: {
     // github
     // google
@@ -569,10 +574,11 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     plugins: [
-      nextCookies()
+        nextCookies(),
+       // passKeyServer
+       // magicLinkServer
     ],
-
-   socialProviders: {
+    socialProviders: {
     // github
     // google
     // facebook
@@ -608,7 +614,9 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     plugins: [
-      nextCookies()
+        nextCookies(),
+        // passKeyServer
+        // magicLinkServer
     ],
 
    socialProviders: {
@@ -643,8 +651,9 @@ export const auth = betterAuth({
    emailAndPassword: {
     enabled: true,
     plugins: [
-      nextCookies(),
-
+        nextCookies(),
+        // passKeyServer
+        // magicLinkServer
     ],
 
    socialProviders: {

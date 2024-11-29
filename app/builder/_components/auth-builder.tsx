@@ -85,12 +85,12 @@ export default function AuthBuilder() {
               </TabsTrigger>
             </TabsList>
             <hr className="bg-gray-200 mt-1" />
-            <TabsContent value="code" className="w-full">
+            <TabsContent value="code" className="w-full h-full">
               <CodeComponent />
             </TabsContent>
-            <TabsContent value="preview" className="w-full -mt-1">
+            <TabsContent value="preview" className="w-full -mt-1 h-full">
               <div className="">
-                <div className="container mx-auto grid md:flex items-start gap-14 max-w-7xl">
+                <div className="container mx-auto grid h-full md:flex items-start gap-14 max-w-7xl">
                   <ComponentRender />
                   {/* <div>
                     <div className="h-screen w-[1px] bg-input" />
@@ -103,7 +103,6 @@ export default function AuthBuilder() {
                         <h1 className="text-2xl font-semibold mb-1">
                           Build you own{" "}
                           <span className="font-mono">{"<SignIn />"} </span>and{" "}
-                          <span className="font-mono">{"<SignUp />"}</span>{" "}
                           Component.
                         </h1>
                         <p className="text-sm text-muted-foreground">

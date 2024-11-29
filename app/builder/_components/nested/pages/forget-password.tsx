@@ -31,7 +31,7 @@ export default function ForgetPaswordDemo() {
 
   if (isSubmitted) {
     return (
-      <main className="flex flex-col items-center justify-center min-h-[calc(100vh-10rem)]">
+      <main className="flex flex-col items-center justify-center h-full">
         <Card className="rounded-none w-[350px]">
           <CardHeader>
             <CardTitle>Check your email</CardTitle>
@@ -64,7 +64,7 @@ export default function ForgetPaswordDemo() {
   }
 
   return (
-    <main className="flex w-full flex-col items-center justify-center min-h-[calc(100vh-10rem)]">
+    <main className="flex w-full flex-col items-center justify-center">
       {/* Radial gradient for the container to give a faded look */}
       <Card className="w-[350px] rounded-none">
         <CardHeader>

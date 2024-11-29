@@ -5,10 +5,12 @@ import { useSelectedLayoutSegment } from "next/navigation";
 
 type Props = {
   href: string;
+  className?: string;
+  external?: boolean;
   children: React.ReactNode;
 };
 
-export const NavLink = ({ href, children }: Props) => {
+export const NavLink = ({ href, children, external, className }: Props) => {
   const segment = useSelectedLayoutSegment();
   const isActive =
     segment === href.slice(1) || (segment === null && href === "/");
@@ -16,6 +18,7 @@ export const NavLink = ({ href, children }: Props) => {
   return (
     <li className="relative group">
       <Link
+        target={external ? "_blank" : "_self"}
         href={href}
         className={cn(
           "w-full h-full block py-4 px-5 transition-colors",

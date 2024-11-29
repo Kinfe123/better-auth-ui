@@ -163,7 +163,7 @@ export function CodeComponent() {
       }
     });
     if (enabledComp.credentials.email && !enabledComp.otherSignIn.magicLink) {
-      otherEnabledLists.push(server_dep["email"]);
+      otherEnabledLists.concat(server_dep["email"]);
     }
     console.log({ otherEnabledLists });
     listsOfComments = [

@@ -10,7 +10,6 @@ export function replaceCommentsWithJSX(
     let replacement = "";
     if (!eraseAll) {
       replacement = commentMap[commentLabel] || "";
-      console.log("THIS IS replacemnt tho: ", replacement);
     }
     jsxString = jsxString.replace(commentRegex, replacement);
   });
@@ -23,6 +22,27 @@ function removeEmptyLines(inputString: string, commentsArray: string[]) {
   const commentRegex = new RegExp(`//\\s*newLine\\s*$`, "gm");
   const replacement = commentMap["newLine"];
   result = result.replace(commentRegex, replacement);
-
   return result;
+}
+export function removeLinesWithNope(inputString: string) {
+  const regex = /(?:.*\n)?.*nope.*\n?.*\n/g;
+  return inputString.replace(regex, "");
+}
+export function importAndDistructureCleanup(
+  input: string,
+  condition: boolean,
+): string {
+  const lines = input.split("\n");
+
+  const noImportIndex = lines.findIndex((line) =>
+    line.includes("// noDistructure"),
+  );
+  if (noImportIndex !== -1) {
+    if (condition) {
+      lines.splice(noImportIndex, 5);
+    } else {
+      lines.splice(noImportIndex, 1);
+    }
+  }
+  return lines.join("\n");
 }

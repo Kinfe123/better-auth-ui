@@ -395,6 +395,7 @@ export default function SignIn() {
         auth: {
           prisma: `
 import { betterAuth } from "better-auth";
+// noDistructure
 import {
     // passKeyServerImport
     // magicLinkServerImport

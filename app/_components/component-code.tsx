@@ -18,7 +18,10 @@ import { CodeSnippet } from "@/components/codeblock";
 import { previewComponent } from "../constants/components";
 import { useCodeComponent } from "../constants/store";
 import { useComponents } from "@/lib/store";
-import { replaceCommentsWithJSX } from "../builder/_components/lib/code-export";
+import {
+  importAndDistructureCleanup,
+  replaceCommentsWithJSX,
+} from "../builder/_components/lib/code-export";
 import { commentMap } from "../constants/templates/map";
 import { cx } from "class-variance-authority";
 import { server_dep } from "../constants/templates/server-client-dep";
@@ -144,6 +147,7 @@ export function CodeComponent() {
       .filter(([comment, enabled]) => enabled)
       .map((curr) => curr[0]);
     // addng otherSignInOptions and the dependencies
+
     Object.keys(server_dep).map((dep) => {
       if (otherEnabledLists.includes(dep)) {
         otherEnabledLists = [...otherEnabledLists, ...server_dep[dep]];
@@ -158,12 +162,16 @@ export function CodeComponent() {
     ];
     let cleanedJsx = "";
     const replacableLists = Object.keys(commentMap);
+    cleanedJsx = importAndDistructureCleanup(
+      content,
+      otherEnabledLists.length === 0,
+    );
     if (listsOfComments.length === 1) {
-      cleanedJsx = replaceCommentsWithJSX(replacableLists, content, {
+      cleanedJsx = replaceCommentsWithJSX(replacableLists, cleanedJsx, {
         eraseAll: true,
       });
     } else {
-      cleanedJsx = replaceCommentsWithJSX(listsOfComments, content, {
+      cleanedJsx = replaceCommentsWithJSX(listsOfComments, cleanedJsx, {
         eraseAll: false,
       });
       cleanedJsx = replaceCommentsWithJSX(replacableLists, cleanedJsx, {

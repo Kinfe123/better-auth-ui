@@ -301,7 +301,7 @@ export function CodeComponent() {
                         <SelectContent className="text-xs rounded-none">
                           <SelectGroup>
                             <SelectLabel>Adapter</SelectLabel>
-                            <hr className="mb-2 w-full h-[1.5px] bg-gray-200" />
+                            <hr className="mb-2 w-full h-[1.2px] bg-gray-600/30" />
 
                             <SelectItem
                               className="text-xs rounded-none"
@@ -317,7 +317,7 @@ export function CodeComponent() {
                             </SelectItem>
 
                             <SelectLabel>Database</SelectLabel>
-                            <hr className="mb-2 w-full h-[1.5px] bg-gray-2600" />
+                            <hr className="mb-2 w-full h-[1.2px] bg-gray-600/30" />
 
                             <SelectItem
                               className="text-xs rounded-none"

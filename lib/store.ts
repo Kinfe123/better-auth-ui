@@ -32,6 +32,7 @@ interface SocialProviders {
   microsoft: boolean;
 }
 interface Credentials {
+  enabled: boolean;
   email: boolean;
   username: boolean;
   phoneNumber: boolean;
@@ -61,6 +62,7 @@ interface AppUrl {
 }
 const initialState = {
   credentials: {
+    enabled: true,
     email: true,
     username: false,
     phoneNumber: false,

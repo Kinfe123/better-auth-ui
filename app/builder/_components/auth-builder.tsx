@@ -106,7 +106,7 @@ export default function AuthBuilder() {
                         </h1>
                         <p className="text-sm text-muted-foreground">
                           You can configure anything you want for build your
-                          auth ui by toggling the peices you want.
+                          auth component.
                         </p>
                       </div>
 

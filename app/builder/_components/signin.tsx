@@ -67,7 +67,7 @@ export default function SignIn() {
       </CardHeader>
       <CardContent>
         <div className="grid gap-4">
-          {enabledComp.credentials.email && (
+          {enabledComp.credentials.enabled && (
             <ApearanceLayout className="grid gap-4">
               <div className="grid gap-2">
                 <div className="flex justify-between items-center">
@@ -87,40 +87,41 @@ export default function SignIn() {
                   value={email}
                 />
               </div>
-              <div className="grid gap-2">
-                <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
-                  {enabledComp.additionals.forgetPassword?.visiblity && (
-                    <Link
-                      href=""
-                      onClick={() =>
-                        updateEnabledComponent({
-                          toogledComp: {
-                            additionals: {
-                              ...enabledComp.additionals,
-                              forgetPassword: {
-                                ...enabledComp.additionals.forgetPassword,
-                                routing: true,
+              {!enabledComp.otherSignIn.magicLink && (
+                <div className="grid gap-2">
+                  <div className="flex items-center">
+                    <Label htmlFor="password">Password</Label>
+                    {enabledComp.additionals.forgetPassword?.visiblity && (
+                      <Link
+                        href=""
+                        onClick={() =>
+                          updateEnabledComponent({
+                            toogledComp: {
+                              additionals: {
+                                ...enabledComp.additionals,
+                                forgetPassword: {
+                                  ...enabledComp.additionals.forgetPassword,
+                                  routing: true,
+                                },
                               },
                             },
-                          },
-                        })
-                      }
-                      className="ml-auto inline-block text-sm underline"
-                    >
-                      Forgot your password?
-                    </Link>
-                  )}
+                          })
+                        }
+                        className="ml-auto inline-block text-sm underline"
+                      >
+                        Forgot your password?
+                      </Link>
+                    )}
+                  </div>
+                  <PasswordInput
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    autoComplete="password"
+                    placeholder="Password"
+                  />
                 </div>
-                <PasswordInput
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  autoComplete="password"
-                  placeholder="Password"
-                />
-              </div>
-
+              )}
               {enabledComp.additionals.rememberMe?.visiblity && (
                 <div className="flex items-center gap-2">
                   <Checkbox

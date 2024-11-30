@@ -35,7 +35,7 @@ export default function ComponentShowcaseSection({
       ) : filteredBasedOnCategory.length === 0 ? (
         <div className="flex gap-4 flex-col justify-center items-center">
           <p className="text-center">Currently not implemeted</p>{" "}
-          <a href="https://github.com/better-auth/ui">
+          <a href="https://github.com/farm-ui">
             <Button className="border text-gray-600 hover:text-gray-200 dark:text-gray-200 dark:hover:bg-transparent/90 rounded-none bg-transparent flex gap-2 items-center">
               <Github className="w-4 h-4" />
               Contribute

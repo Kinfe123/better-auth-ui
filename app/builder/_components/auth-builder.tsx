@@ -52,7 +52,7 @@ export default function AuthBuilder() {
     // });
   }, [forgetPass]);
   return (
-    <Card className="relative h-full w-full bg-transparent max-w-7xl mx-auto rounded-none">
+    <Card className="relative h-full w-full bg-transparent max-w-7xl mx-auto border-t-0 rounded-none">
       <div className="w-full  border-b-2 border-gray-200/50 dark:border-gray-900/50">
         <div className="overflow-hidden md:ml-[-2px] bg-transparent flex gap-10 items-center justify-between md:justify-normal  rounded-none">
           <Tabs defaultValue="preview" className="w-full">

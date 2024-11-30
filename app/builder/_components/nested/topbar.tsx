@@ -85,7 +85,7 @@ export function TopBar() {
         >
           <RefreshCw className="h-3 w-3" />
         </Button>
-        <Button variant="ghost" size="icon" title="Home">
+        <Button variant="ghost" size="icon" disabled={true} title="Home">
           <Home className="h-3 w-3" />
         </Button>
       </div>
@@ -119,7 +119,7 @@ export function TopBar() {
               className="h-4 w-4"
               title="Bookmark this tab"
             >
-              <Star className="h-4 w-4" />
+              <Star className="h-4 w-4 text-gray-400" />
             </Button>
           </div>
         </div>

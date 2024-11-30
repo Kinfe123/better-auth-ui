@@ -204,7 +204,7 @@ export function CodeComponent() {
   };
 
   return (
-    <div className="w-full flex flex-col -mt-2">
+    <div className="w-full flex flex-col -mt-2 ">
       <Tabs defaultValue="next" className="w-full flex justify-end items-end">
         <TabsList className="md:ml-[-5px] data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
           <div className="hidden md:flex">

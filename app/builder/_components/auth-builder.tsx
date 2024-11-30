@@ -87,10 +87,10 @@ export default function AuthBuilder() {
               </TabsTrigger>
             </TabsList>
             <hr className="bg-gray-200 mt-1" />
-            <TabsContent value="code" className="w-full h-[70vh]">
+            <TabsContent value="code" className="w-full h-[75vh]">
               <CodeComponent />
             </TabsContent>
-            <TabsContent value="preview" className="w-full h-[70vh] -mt-1">
+            <TabsContent value="preview" className="w-full h-full -mt-1">
               <div className="">
                 <div className="container mx-auto grid h-full md:flex items-start gap-14 max-w-7xl">
                   <ComponentRender />

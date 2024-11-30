@@ -243,7 +243,7 @@ export function ComponentShowcase({
         <Tabs defaultValue="preview" className="w-full">
           {isPrev && (
             <TabsContent value="preview" className="p-4 gap-2 rounded-none">
-              <main className="border-none overflow-hidden bg-gray-50 dark:bg-gradient-to-tr dark:from-stone-950 dark:via-stone-900 dark:to-stone-950">
+              <main className="border-none overflow-hidden bg-gray-50 dark:bg-gradient-to-tr dark:from-black dark:via-black/90 dark:to-black/90">
                 <div className="flex items-center justify-center p-6 lg:p-8">
                   {component}
                 </div>

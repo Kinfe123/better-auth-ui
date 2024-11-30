@@ -193,12 +193,14 @@ export function ComponentShowcase({
                   <TabsTrigger
                     className="flex py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
                     value="react"
+                    disabled={true}
                     onClick={() => handleTabClick("react")}
                   >
                     <Icons.react className="w-4 h-4" />
                     ReactJS
                   </TabsTrigger>
                   <TabsTrigger
+                    disabled={true}
                     className="flex py-2 data-[state=active]:text-white rounded-none gap-2 items-center  data-[state=active]:bg-stone-900"
                     value="svelte"
                     onClick={() => handleTabClick("svelte")}
@@ -207,6 +209,7 @@ export function ComponentShowcase({
                     Svelte
                   </TabsTrigger>
                   <TabsTrigger
+                    disabled={true}
                     className="flex py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900 "
                     value="astro"
                     onClick={() => handleTabClick("astro")}
@@ -215,6 +218,7 @@ export function ComponentShowcase({
                     Astro
                   </TabsTrigger>
                   <TabsTrigger
+                    disabled={true}
                     className="flex py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
                     value="solid"
                     onClick={() => handleTabClick("solid")}
@@ -223,6 +227,7 @@ export function ComponentShowcase({
                     Solid{" "}
                   </TabsTrigger>
                   <TabsTrigger
+                    disabled={true}
                     className="flex  py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
                     value="nuxt"
                     onClick={() => handleTabClick("nuxt")}

@@ -6,7 +6,7 @@ export const previewComponent = [
   {
     title: "Simple Credential Login",
     slug: "username-and-password",
-    docsLink: "/docs/plugins/username",
+    docsLink: "docs/authentication/email-password",
     component: <SimpleUsernameAndPass />,
     category: ["credential"],
 

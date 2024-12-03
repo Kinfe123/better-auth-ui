@@ -40,7 +40,6 @@ export const commentMap: Record<string, string> = {
   magicLinkClientImport: MagicLinkClientImport,
   passKeyClient: PassKeyClientSnippet,
   signInAction: `
-
         <Button
           type="submit"
           className="w-full"

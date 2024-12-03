@@ -164,7 +164,7 @@ export function CodeComponent() {
     });
 
     if (enabledComp.credentials.email && !enabledComp.otherSignIn.magicLink) {
-      otherEnabledLists.concat(server_dep["email"]);
+      otherEnabledLists = [...otherEnabledLists, ...server_dep["email"]];
     }
     console.log({ otherEnabledLists });
     listsOfComments = [

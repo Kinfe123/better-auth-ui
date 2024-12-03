@@ -368,7 +368,7 @@ export function CodeComponent() {
                   <Button
                     variant="outline"
                     size="icon"
-                    className="absolute rounded-none outline-none w-7 h-7 top-1 right-4"
+                    className="absolute rounded-none outline-none w-7 h-[27.8px] top-[5px] right-4"
                     onClick={() => {
                       getCode(currentPage) === "auth"
                         ? copyToClipboard(
@@ -380,9 +380,9 @@ export function CodeComponent() {
                     }}
                   >
                     {copiedStates ? (
-                      <Check className="h-2 w-2" />
+                      <Check className="h-1 w-1" />
                     ) : (
-                      <Copy className="h-2 w-2" />
+                      <Copy className="h-1 w-1" />
                     )}
                     <span className="sr-only">Copy code</span>
                   </Button>

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   Select,
@@ -35,14 +35,7 @@ export function CodeComponent() {
   const { code } = useCodeComponent();
   const { enabledComp } = useComponents();
   const [dbOptions, setDbOptions] = useState("prisma");
-  const [copiedStates, setCopiedStates] = useState({
-    next: false,
-    react: false,
-    svelte: false,
-    astro: false,
-    nuxt: false,
-    solid: false,
-  });
+  const [copiedStates, setCopiedStates] = useState(false);
   const nextCode = {
     login: code.next?.components.signin,
     signup: code.next?.components.signin,
@@ -71,6 +64,9 @@ export function CodeComponent() {
       }, 2000);
     });
   };
+  useEffect(() => {
+    console.log({ copiedStates });
+  }, [copiedStates]);
   const getFileIconByExtension = (fileName: string) => {
     const [_, extension] = fileName.split(".");
     switch (extension) {

@@ -30,6 +30,10 @@ interface SocialProviders {
   twitch: boolean;
   github: boolean;
   microsoft: boolean;
+  gitlab: boolean;
+  dropbox: boolean;
+  linkedin: boolean;
+  spotify: boolean;
 }
 interface Credentials {
   enabled: boolean;

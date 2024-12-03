@@ -280,7 +280,7 @@ export function CodeComponent() {
                   <div
                     className={`top-2 left-0 flex h-10 justify-between items-center px-3 py-2 text-sm w-56 cursor-pointer ${
                       true
-                        // ? "bg-stone-200 dark:bg-transpirent/20 border-r border-white/20"
+                        ? "bg-stone-200 dark:bg-transpirent/20 border-r border-white/20"
                         : "hover:bg-gray-700"
                     }`}
                   >

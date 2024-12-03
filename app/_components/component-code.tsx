@@ -28,6 +28,7 @@ import { cx } from "class-variance-authority";
 import { server_dep } from "../constants/templates/server-client-dep";
 import { UIFunctionDep } from "../constants/templates/ui-function-dep";
 import { stateMap } from "../constants/templates/state";
+import { twoLevelComment } from "../constants/templates/two-level";
 export function CodeComponent() {
   const [fmForTree, setFmForTree] = useState("next");
   const [activeTab, setActiveTab] = useState("next");
@@ -167,12 +168,12 @@ export function CodeComponent() {
         listsOfComments = [...listsOfComments, ...stateMap[state]];
       }
     });
-    console.log({ otherEnabledLists });
+    console.log({ otherEnabledLists, listsOfComments });
     listsOfComments = [
       "empty",
+      ...otherEnabledLists,
       ...listsOfComments,
       ...socialEnabledLists,
-      ...otherEnabledLists,
     ];
     let cleanedJsx = "";
     const replacableLists = Object.keys(commentMap);
@@ -182,6 +183,8 @@ export function CodeComponent() {
         eraseAll: true,
       });
     } else {
+      console.log({ cleanedJsx });
+      // listsOfComments.concat(twoLevelComment);
       cleanedJsx = importAndDistructureCleanup(
         "noDistructure",
         content,
@@ -195,6 +198,8 @@ export function CodeComponent() {
       cleanedJsx = replaceCommentsWithJSX(listsOfComments, cleanedJsx, {
         eraseAll: false,
       });
+
+      console.log("THis is th curernt one : ", cleanedJsx);
       cleanedJsx = replaceCommentsWithJSX(replacableLists, cleanedJsx, {
         eraseAll: true,
       });

@@ -63,14 +63,11 @@ export function CodeComponent() {
     const fileName = value.split(".")[0];
     return fileName;
   }
-  const copyToClipboard = (
-    text: string,
-    framework: keyof typeof copiedStates,
-  ) => {
+  const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text).then(() => {
-      setCopiedStates((prev) => ({ ...prev, [framework]: true }));
+      setCopiedStates(true);
       setTimeout(() => {
-        setCopiedStates((prev) => ({ ...prev, [framework]: false }));
+        setCopiedStates(false);
       }, 2000);
     });
   };
@@ -157,7 +154,6 @@ export function CodeComponent() {
       .filter(([comment, enabled]) => enabled)
       .map((curr) => curr[0]);
     // addng otherSignInOptions and the dependencies
-
     Object.keys(server_dep).map((dep) => {
       if (otherEnabledLists.includes(dep)) {
         otherEnabledLists = [...otherEnabledLists, ...server_dep[dep]];
@@ -377,14 +373,17 @@ export function CodeComponent() {
                   variant="outline"
                   size="icon"
                   className="absolute rounded-none outline-none w-7 h-7 top-2 right-4"
-                  onClick={() =>
-                    copyToClipboard(
-                      parsedContent(example.code[getCode(currentPage)]),
-                      framework as keyof typeof copiedStates,
-                    )
-                  }
+                  onClick={() => {
+                    getCode(currentPage) === "auth"
+                      ? copyToClipboard(
+                          parsedContent(example.code["auth"][dbOptions]),
+                        )
+                      : copyToClipboard(
+                          parsedContent(example.code[getCode(currentPage)]),
+                        );
+                  }}
                 >
-                  {copiedStates[framework as keyof typeof copiedStates] ? (
+                  {copiedStates ? (
                     <Check className="h-2 w-2" />
                   ) : (
                     <Copy className="h-2 w-2" />

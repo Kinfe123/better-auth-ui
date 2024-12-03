@@ -165,6 +165,54 @@ export const commentMap: Record<string, string> = {
                  Microsoft
           </Button>
                   `,
+  linkedinUI: `
+                          <Button
+                              variant="outline"
+                              className="gap-2 py-4 flex-1"
+                              onClick={async () => {
+                                  await client.signIn.social({
+                                  provider: "linkedin"
+                                })
+                               >
+                               LinkedIn
+                          </Button>
+                                  `,
+  gitlabUI: `
+                            <Button
+                                variant="outline"
+                                className="gap-2 py-4 flex-1"
+                                onClick={async () => {
+                                    await client.signIn.social({
+                                    provider: "gitlab"
+                                  })
+                                 >
+                                Gitlab
+                            </Button>
+                                    `,
+  dropboxUI: `
+                          <Button
+                              variant="outline"
+                              className="gap-2 py-4 flex-1"
+                              onClick={async () => {
+                                  await client.signIn.social({
+                                  provider: "dropbox"
+                                })
+                               >
+                                Dropbox
+                          </Button>
+                                  `,
+  spotlifyUI: `
+                          <Button
+                              variant="outline"
+                              className="gap-2 py-4 flex-1"
+                              onClick={async () => {
+                                  await client.signIn.social({
+                                  provider: "spotify"
+                                })
+                               >
+                                Spotify
+                          </Button>
+                                  `,
   github: `
       github: {
            clientId: process.env.GITHUB_CLIENT_ID!,
@@ -207,6 +255,30 @@ export const commentMap: Record<string, string> = {
             clientSecret: process.env.MICROSOFT_CLIENT_SECRET as string,
       },
       `,
+  spotify: `
+            spotify: {
+                  clientId: process.env.SPOTIFY_CLIENT_ID as string,
+                  clientSecret: process.env.SPOTIFY_CLIENT_SECRET as string,
+            },
+            `,
+  gitlab: `
+            gitlab: {
+                  clientId: process.env.GITLAB_CLIENT_ID as string,
+                  clientSecret: process.env.GITLAB_CLIENT_SECRET as string,
+            },
+            `,
+  dropbox: `
+            dropbox: {
+                  clientId: process.env.DROPBOX_CLIENT_ID as string,
+                  clientSecret: process.env.DROPBOX_CLIENT_SECRET as string,
+            },
+            `,
+  linkedin: `
+            linkedin: {
+                  clientId: process.env.LINKEDIN_CLIENT_ID as string,
+                  clientSecret: process.env.LINKEDIN_CLIENT_SECRET as string,
+            },
+            `,
   discord: `
        discord: {
             clientId: process.env.DISCORD_CLIENT_ID as string,

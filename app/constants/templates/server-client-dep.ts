@@ -13,4 +13,5 @@ export const server_dep: Record<string, string[]> = {
     "magicLinkAction",
   ],
   email: ["signInAction"],
+  rememberMe: ["rememberMeState"],
 };

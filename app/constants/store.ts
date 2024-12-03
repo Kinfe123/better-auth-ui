@@ -311,7 +311,7 @@ import { useState } from "react";
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
+  // rememberMeState
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   return (

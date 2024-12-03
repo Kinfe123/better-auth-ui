@@ -21,6 +21,9 @@ export const commentMap: Record<string, string> = {
   forgetPassword: forgetPasswordSnippet,
   comment: '<div className="comment-placeholder"></div>',
   rememberMe: remeberMeSnippet,
+  rememberMeState: `
+  const [rememberMe, setRememberMe] = useState(false);
+    `,
   empty: `// newLine`,
   newLine: `
 

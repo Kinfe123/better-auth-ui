@@ -27,6 +27,7 @@ import { commentMap } from "../constants/templates/map";
 import { cx } from "class-variance-authority";
 import { server_dep } from "../constants/templates/server-client-dep";
 import { UIFunctionDep } from "../constants/templates/ui-function-dep";
+import { stateMap } from "../constants/templates/state";
 export function CodeComponent() {
   const [fmForTree, setFmForTree] = useState("next");
   const [activeTab, setActiveTab] = useState("next");
@@ -132,6 +133,12 @@ export function CodeComponent() {
     let listsOfComments = Object.entries(enabledComp.additionals)
       .filter(([comment, enabled]) => enabled.visiblity)
       .map((curr) => curr[0]);
+    Object.keys(stateMap).map((state) => {
+      if (listsOfComments.includes(state)) {
+        listsOfComments = [...listsOfComments, ...stateMap[state]];
+      }
+    });
+    console.log({ listsOfComments });
     let socialEnabledLists = Object.entries(enabledComp.socials)
       .filter(([comment, enabled]) => enabled)
       .map((curr) => curr[0]);
@@ -155,6 +162,7 @@ export function CodeComponent() {
         otherEnabledLists = [...otherEnabledLists, ...server_dep[dep]];
       }
     });
+
     if (enabledComp.credentials.email && !enabledComp.otherSignIn.magicLink) {
       otherEnabledLists.concat(server_dep["email"]);
     }

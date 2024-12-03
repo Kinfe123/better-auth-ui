@@ -166,52 +166,52 @@ export const commentMap: Record<string, string> = {
           </Button>
                   `,
   linkedinUI: `
-                          <Button
-                              variant="outline"
-                              className="gap-2 py-4 flex-1"
-                              onClick={async () => {
-                                  await client.signIn.social({
-                                  provider: "linkedin"
-                                })
-                               >
-                               LinkedIn
-                          </Button>
+           <Button
+               variant="outline"
+               className="gap-2 py-4 flex-1"
+               onClick={async () => {
+                  await client.signIn.social({
+                        provider: "linkedin"
+                 })
+              >
+                LinkedIn
+            </Button>
                                   `,
   gitlabUI: `
-                            <Button
-                                variant="outline"
-                                className="gap-2 py-4 flex-1"
-                                onClick={async () => {
-                                    await client.signIn.social({
-                                    provider: "gitlab"
-                                  })
-                                 >
-                                Gitlab
+            <Button
+                variant="outline"
+                className="gap-2 py-4 flex-1"
+                onClick={async () => {
+                    await client.signIn.social({
+                        provider: "gitlab"
+                  })
+               >
+                    Gitlab
                             </Button>
                                     `,
   dropboxUI: `
-                          <Button
-                              variant="outline"
-                              className="gap-2 py-4 flex-1"
-                              onClick={async () => {
-                                  await client.signIn.social({
-                                  provider: "dropbox"
-                                })
-                               >
-                                Dropbox
-                          </Button>
+            <Button
+                variant="outline"
+                className="gap-2 py-4 flex-1"
+                onClick={async () => {
+                    await client.signIn.social({
+                        provider: "dropbox"
+                })
+              >
+                   Dropbox
+            </Button>
                                   `,
   spotifyUI: `
-                          <Button
-                              variant="outline"
-                              className="gap-2 py-4 flex-1"
-                              onClick={async () => {
-                                  await client.signIn.social({
-                                  provider: "spotify"
-                                })
-                               >
-                                Spotify
-                          </Button>
+            <Button
+                variant="outline"
+                className="gap-2 py-4 flex-1"
+                onClick={async () => {
+                    await client.signIn.social({
+                        provider: "spotify"
+                  })
+              >
+                 Spotify
+             </Button>
                                   `,
   github: `
       github: {

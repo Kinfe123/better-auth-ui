@@ -24,6 +24,7 @@ export const commentMap: Record<string, string> = {
   rememberMeState: `
   const [rememberMe, setRememberMe] = useState(false);
     `,
+  rememberMeValue: "rememberMe",
   empty: `// newLine`,
   newLine: `
 
@@ -50,6 +51,7 @@ export const commentMap: Record<string, string> = {
                       email: email,
                       password: password,
                       callbackURL: "/dashboard",
+                      // rememberMeValue
                       rememberMe,
                     },
                     {

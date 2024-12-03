@@ -133,11 +133,7 @@ export function CodeComponent() {
     let listsOfComments = Object.entries(enabledComp.additionals)
       .filter(([comment, enabled]) => enabled.visiblity)
       .map((curr) => curr[0]);
-    Object.keys(stateMap).map((state) => {
-      if (listsOfComments.includes(state)) {
-        listsOfComments = [...listsOfComments, ...stateMap[state]];
-      }
-    });
+
     console.log({ listsOfComments });
     let socialEnabledLists = Object.entries(enabledComp.socials)
       .filter(([comment, enabled]) => enabled)
@@ -166,6 +162,11 @@ export function CodeComponent() {
     if (enabledComp.credentials.email && !enabledComp.otherSignIn.magicLink) {
       otherEnabledLists = [...otherEnabledLists, ...server_dep["email"]];
     }
+    Object.keys(stateMap).map((state) => {
+      if (listsOfComments.includes(state)) {
+        listsOfComments = [...listsOfComments, ...stateMap[state]];
+      }
+    });
     console.log({ otherEnabledLists });
     listsOfComments = [
       "empty",

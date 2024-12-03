@@ -201,7 +201,7 @@ export const commentMap: Record<string, string> = {
                                 Dropbox
                           </Button>
                                   `,
-  spotlifyUI: `
+  spotifyUI: `
                           <Button
                               variant="outline"
                               className="gap-2 py-4 flex-1"

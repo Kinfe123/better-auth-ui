@@ -357,6 +357,10 @@ export default function SignIn() {
            // discordUI
            // twitterUI
            // githubUI
+           // dropboxUI
+           // gitlabUI
+           // spotifyUI
+           // linkedinUI
            </div>
           // passKey
         </div>

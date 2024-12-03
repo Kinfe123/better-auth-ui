@@ -276,11 +276,11 @@ export function CodeComponent() {
                 />
               </div>
               <div className="w-full relative flex flex-col -ml-2 h-[70vh] overflow-x-hidden">
-                <div className="w-full h-10 sticky top-0 left-0 bg-transparent border-b border-white/10">
+                <div className="w-full h-10 sticky top-0 left-0 bg-transparent border-b">
                   <div
                     className={`top-2 left-0 flex h-10 justify-between items-center px-3 py-2 text-sm w-56 cursor-pointer ${
                       true
-                        ? "bg-stone-200 dark:bg-transpirent border-r border-white/20"
+                        ? "bg-stone-200 dark:bg-transparent border-r"
                         : "hover:bg-gray-700"
                     }`}
                   >

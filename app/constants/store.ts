@@ -409,7 +409,7 @@ export const auth = betterAuth({
      // microsoft
      // twitter
      // discord
-     // sportify
+     // spotify
      // linkedin
      // dropbox
      // gitlab
@@ -451,7 +451,7 @@ export const auth = betterAuth({
      // microsoft
      // twitter
      // discord
-     // sportify
+     // spotify
      // linkedin
      // dropbox
      // gitlab
@@ -498,7 +498,7 @@ export const auth = betterAuth({
     // microsoft
     // twitter
     // discord
-    // sportify
+    // spotify
     // linkedin
     // dropbox
     // gitlab
@@ -538,7 +538,7 @@ export const auth = betterAuth({
     // microsoft
     // twitter
     // discord
-    // sportify
+    // spotify
     // linkedin
     // dropbox
     // gitlab
@@ -585,7 +585,7 @@ export const auth = betterAuth({
     // microsoft
     // twitter
     // discord
-    // sportify
+    // spotify
     // linkedin
     // dropbox
     // gitlab
@@ -630,7 +630,7 @@ export const auth = betterAuth({
     // microsoft
     // twitter
     // discord
-    // sportify
+    // spotify
     // linkedin
     // dropbox
     // gitlab
@@ -671,7 +671,7 @@ export const auth = betterAuth({
     // microsoft
     // twitter
     // discord
-    // sportify
+    // spotify
     // linkedin
     // dropbox
     // gitlab

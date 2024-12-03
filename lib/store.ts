@@ -97,6 +97,10 @@ const initialState = {
     twitch: false,
     github: false,
     microsoft: false,
+    gitlab: false,
+    dropbox: false,
+    linkedin: false,
+    spotify: false,
   },
   otherSignIn: {
     passKey: false,

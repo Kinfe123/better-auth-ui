@@ -202,10 +202,10 @@ export function CodeComponent() {
   return (
     <div className="w-full flex flex-col -mt-2 ">
       <Tabs defaultValue="next" className="w-full flex justify-end items-end">
-        <TabsList className="md:ml-[-5px] data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
+        <TabsList className="md:ml-[-5px] h-10 data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
           <div className="hidden md:flex">
             <TabsTrigger
-              className="flex py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
+              className="flex py-3 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
               value="next"
               onClick={() => handleTabClick("next")}
             >
@@ -213,7 +213,7 @@ export function CodeComponent() {
               NextJS
             </TabsTrigger>
             <TabsTrigger
-              className="flex cursor-not-allowed py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
+              className="flex cursor-not-allowed py-3 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
               value="react"
               disabled={true}
               onClick={() => handleTabClick("react")}
@@ -222,7 +222,7 @@ export function CodeComponent() {
               ReactJS
             </TabsTrigger>
             <TabsTrigger
-              className="flex cursor-not-allowed py-2 data-[state=active]:text-white rounded-none gap-2 items-center  data-[state=active]:bg-stone-900"
+              className="flex cursor-not-allowed py-3 data-[state=active]:text-white rounded-none gap-2 items-center  data-[state=active]:bg-stone-900"
               value="svelte"
               disabled={true}
               onClick={() => handleTabClick("svelte")}
@@ -231,7 +231,7 @@ export function CodeComponent() {
               Svelte
             </TabsTrigger>
             <TabsTrigger
-              className="flex cursor-not-allowed py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900 "
+              className="flex cursor-not-allowed py-3 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900 "
               value="astro"
               disabled={true}
               onClick={() => handleTabClick("astro")}
@@ -240,7 +240,7 @@ export function CodeComponent() {
               Astro
             </TabsTrigger>
             <TabsTrigger
-              className="flex cursor-not-allowed py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
+              className="flex cursor-not-allowed py-3 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
               value="solid"
               disabled={true}
               onClick={() => handleTabClick("solid")}
@@ -249,7 +249,7 @@ export function CodeComponent() {
               Solid{" "}
             </TabsTrigger>
             <TabsTrigger
-              className="flex cursor-not-allowed py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
+              className="flex cursor-not-allowed py-3 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
               value="nuxt"
               disabled={true}
               onClick={() => handleTabClick("nuxt")}
@@ -275,121 +275,122 @@ export function CodeComponent() {
                   setCurrentPage={setCurrentPage}
                 />
               </div>
-              <div className="w-full -ml-2 h-[70vh] overflow-x-hidden">
-                <div
-                  className={`top-2 left-0  flex justify-between items-center px-3 py-2 text-sm w-56 cursor-pointer ${
-                    true
-                      ? "bg-stone-200 dark:bg-stone-900"
-                      : "hover:bg-gray-700"
-                  }`}
-                >
-                  <div className="flex items-center">
-                    <div className="mr-2">
-                      {getFileIconByExtension(currentPage)}
+              <div className="w-full relative flex flex-col -ml-2 h-[70vh] overflow-x-hidden">
+                <div className="w-full h-10 sticky top-0 left-0 bg-transparent border-b border-white/10">
+                  <div
+                    className={`top-2 left-0 flex h-10 justify-between items-center px-3 py-2 text-sm w-56 cursor-pointer ${
+                      true
+                        ? "bg-stone-200 dark:bg-stone-900"
+                        : "hover:bg-gray-700"
+                    }`}
+                  >
+                    <div className="flex items-center">
+                      <div className="mr-2">
+                        {getFileIconByExtension(currentPage)}
+                      </div>
+                      <span className="font-mono">{currentPage}</span>
                     </div>
-                    <span className="font-mono">{currentPage}</span>
+                    <button className="ml-2 group p-1 rounded-full hover:bg-stone-600">
+                      <X className="w-3 h-3 dark:group-hover:text-black group-hover:text-white" />
+                    </button>
                   </div>
-                  <button className="ml-2 group p-1 rounded-full hover:bg-stone-600">
-                    <X className="w-3 h-3 dark:group-hover:text-black group-hover:text-white" />
-                  </button>
-                </div>
 
-                {currentPage === "auth.ts" ? (
-                  <div className="relative">
-                    <div className="z-20 absolute -top-7 right-14">
-                      <Select
-                        onValueChange={(e) => {
-                          setDbOptions(e);
-                          console.log({ e });
-                        }}
-                        defaultValue={dbOptions}
-                      >
-                        <SelectTrigger className="w-[180px] text-xs h-7 rounded-none">
-                          <SelectValue placeholder="Select a adapter" />
-                        </SelectTrigger>
-                        <SelectContent className="text-xs rounded-none">
-                          <SelectGroup>
-                            <SelectLabel>Adapter</SelectLabel>
-                            <hr className="mb-2 w-full h-[1.2px] bg-gray-600/30" />
+                  {getCode(currentPage) === "auth" ? (
+                    <div className="relative">
+                      <div className="z-20 absolute -top-[35px] right-14">
+                        <Select
+                          onValueChange={(e) => {
+                            setDbOptions(e);
+                          }}
+                          defaultValue={dbOptions}
+                        >
+                          <SelectTrigger className="w-[180px] text-xs h-7 rounded-none">
+                            <SelectValue placeholder="Select a adapter" />
+                          </SelectTrigger>
+                          <SelectContent className="text-xs rounded-none">
+                            <SelectGroup>
+                              <SelectLabel>Adapter</SelectLabel>
+                              <hr className="mb-2 w-full h-[1.2px] bg-gray-600/30" />
 
-                            <SelectItem
-                              className="text-xs rounded-none"
-                              value="prisma"
-                            >
-                              Prisma
-                            </SelectItem>
-                            <SelectItem
-                              className="text-xs rounded-none"
-                              value="drizzle"
-                            >
-                              Drizzle
-                            </SelectItem>
+                              <SelectItem
+                                className="text-xs rounded-none"
+                                value="prisma"
+                              >
+                                Prisma
+                              </SelectItem>
+                              <SelectItem
+                                className="text-xs rounded-none"
+                                value="drizzle"
+                              >
+                                Drizzle
+                              </SelectItem>
 
-                            <SelectLabel>Database</SelectLabel>
-                            <hr className="mb-2 w-full h-[1.2px] bg-gray-600/30" />
+                              <SelectLabel>Database</SelectLabel>
+                              <hr className="mb-2 w-full h-[1.2px] bg-gray-600/30" />
 
-                            <SelectItem
-                              className="text-xs rounded-none"
-                              value="mongoDb"
-                            >
-                              MongoDB
-                            </SelectItem>
-                            <SelectItem
-                              className="text-xs rounded-none"
-                              value="mysql"
-                            >
-                              MySql
-                            </SelectItem>
-                            <SelectItem
-                              className="text-xs rounded-none"
-                              value="postgres"
-                            >
-                              Postgres
-                            </SelectItem>
-                            <SelectItem
-                              className="text-xs rounded-none"
-                              value="libsql"
-                            >
-                              Libsql
-                            </SelectItem>
-                          </SelectGroup>
-                        </SelectContent>
-                      </Select>
+                              <SelectItem
+                                className="text-xs rounded-none"
+                                value="mongoDb"
+                              >
+                                MongoDB
+                              </SelectItem>
+                              <SelectItem
+                                className="text-xs rounded-none"
+                                value="mysql"
+                              >
+                                MySql
+                              </SelectItem>
+                              <SelectItem
+                                className="text-xs rounded-none"
+                                value="postgres"
+                              >
+                                Postgres
+                              </SelectItem>
+                              <SelectItem
+                                className="text-xs rounded-none"
+                                value="libsql"
+                              >
+                                Libsql
+                              </SelectItem>
+                            </SelectGroup>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <CodeSnippet
+                        language={fm}
+                        code={parsedContent(example.code["auth"][dbOptions])}
+                        key={framework}
+                      />
                     </div>
+                  ) : (
                     <CodeSnippet
                       language={fm}
-                      code={parsedContent(example.code["auth"][dbOptions])}
+                      code={parsedContent(example.code[getCode(currentPage)])}
                       key={framework}
                     />
-                  </div>
-                ) : (
-                  <CodeSnippet
-                    language={fm}
-                    code={parsedContent(example.code[getCode(currentPage)])}
-                    key={framework}
-                  />
-                )}
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="absolute rounded-none outline-none w-7 h-7 top-2 right-4"
-                  onClick={() => {
-                    getCode(currentPage) === "auth"
-                      ? copyToClipboard(
-                          parsedContent(example.code["auth"][dbOptions]),
-                        )
-                      : copyToClipboard(
-                          parsedContent(example.code[getCode(currentPage)]),
-                        );
-                  }}
-                >
-                  {copiedStates ? (
-                    <Check className="h-2 w-2" />
-                  ) : (
-                    <Copy className="h-2 w-2" />
                   )}
-                  <span className="sr-only">Copy code</span>
-                </Button>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="absolute rounded-none outline-none w-7 h-7 top-1 right-4"
+                    onClick={() => {
+                      getCode(currentPage) === "auth"
+                        ? copyToClipboard(
+                            parsedContent(example.code["auth"][dbOptions]),
+                          )
+                        : copyToClipboard(
+                            parsedContent(example.code[getCode(currentPage)]),
+                          );
+                    }}
+                  >
+                    {copiedStates ? (
+                      <Check className="h-2 w-2" />
+                    ) : (
+                      <Copy className="h-2 w-2" />
+                    )}
+                    <span className="sr-only">Copy code</span>
+                  </Button>
+                </div>
               </div>
             </div>
           ),

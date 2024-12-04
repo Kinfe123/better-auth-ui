@@ -1,6 +1,6 @@
 import { create } from "zustand";
 const firstName = "firstName";
-const lastName = "lastName                                      ";
+const lastName = "lastName";
 interface FileStructure {
   pages: Partial<{
     signin: string;
@@ -9,7 +9,6 @@ interface FileStructure {
   }>;
   components: Partial<{
     signin: string;
-    signup: string;
     forgetPassword: string;
     resetPassword: string;
   }>;
@@ -378,12 +377,10 @@ export default function SignIn() {
   );
 }
         `,
-
         signup: `
         "use client";
-
-        import { Button } from "@/components/ui/button";
-        import {
+import { Button } from "@/components/ui/button";
+import {
 	Card,
 	CardContent,
 	CardDescription,
@@ -391,18 +388,18 @@ export default function SignIn() {
 	CardHeader,
 	CardTitle,
         } from "@/components/ui/card";
-        import { Input } from "@/components/ui/input";
-        import { Label } from "@/components/ui/label";
-        import { PasswordInput } from "@/components/ui/password-input";
-        import { DiscordLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
-        import { useState } from "react";
-        import { client, signIn, signUp } from "@/lib/auth-client";
-        import Image from "next/image";
-        import { Loader2, X } from "lucide-react";
-        import { toast } from "sonner";
-        import { useRouter } from "next/navigation";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { PasswordInput } from "@/components/ui/password-input";
+import { DiscordLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
+import { useState } from "react";
+import { client, signIn, signUp } from "@/lib/auth-client";
+import Image from "next/image";
+import { Loader2, X } from "lucide-react";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
-        export function SignUp() {
+export function SignUp() {
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
@@ -535,7 +532,7 @@ export default function SignIn() {
 							await signUp.email({
 								email,
 								password,
-								name:"{firstName} {lastName}",
+								name: {firstName} {lastName},
 								image: image ? await convertImageToBase64(image) : "",
 								callbackURL: "/dashboard",
 								fetchOptions: {
@@ -664,8 +661,7 @@ export default function SignIn() {
 		reader.readAsDataURL(file);
 	});
         }
-
-       `,
+        `,
       },
       files: {
         auth: {

@@ -161,7 +161,7 @@ export function CodeComponent() {
     });
 
     if (enabledComp.credentials.email && !enabledComp.otherSignIn.magicLink) {
-      otherEnabledLists = [...otherEnabledLists, ...server_dep["email"]];
+      listsOfComments = [...listsOfComments, ...stateMap["email"]];
     }
     Object.keys(stateMap).map((state) => {
       if (listsOfComments.includes(state)) {
@@ -183,8 +183,6 @@ export function CodeComponent() {
         eraseAll: true,
       });
     } else {
-      console.log({ cleanedJsx });
-      // listsOfComments.concat(twoLevelComment);
       cleanedJsx = importAndDistructureCleanup(
         "noDistructure",
         content,
@@ -199,7 +197,6 @@ export function CodeComponent() {
         eraseAll: false,
       });
 
-      console.log("THis is th curernt one : ", cleanedJsx);
       cleanedJsx = replaceCommentsWithJSX(replacableLists, cleanedJsx, {
         eraseAll: true,
       });

@@ -40,7 +40,7 @@ export function CodeComponent() {
   const [copiedStates, setCopiedStates] = useState(false);
   const nextCode = {
     login: code.next?.components.signin,
-    signup: code.next?.components.signin,
+    signup: code.next?.components.signup,
     auth: code.next?.files.auth,
     client: code.next?.files.client,
     forgetPassword: code.next?.components.forgetPassword,

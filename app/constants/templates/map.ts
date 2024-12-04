@@ -42,12 +42,12 @@ export const commentMap: Record<string, string> = {
   magicLinkClientImport: MagicLinkClientImport,
   passKeyClient: PassKeyClientSnippet,
   signInAction: `
-        <Button
-          type="submit"
-          className="w-full"
-          disabled={loading}
-          onClick={async () => {
-              await client.signin.email(
+          <Button
+            type="submit"
+            className="w-full"
+            disabled={loading}
+            onClick={async () => {
+                await client.signin.email(
                     {
                       email: email,
                       password: password,
@@ -191,7 +191,7 @@ export const commentMap: Record<string, string> = {
                   })
                >
                     Gitlab
-                            </Button>
+            </Button>
                                     `,
   dropboxUI: `
             <Button
@@ -260,28 +260,28 @@ export const commentMap: Record<string, string> = {
       },
       `,
   spotify: `
-            spotify: {
-                  clientId: process.env.SPOTIFY_CLIENT_ID as string,
-                  clientSecret: process.env.SPOTIFY_CLIENT_SECRET as string,
-            },
+      spotify: {
+            clientId: process.env.SPOTIFY_CLIENT_ID as string,
+            clientSecret: process.env.SPOTIFY_CLIENT_SECRET as string,
+      },
             `,
   gitlab: `
-            gitlab: {
-                  clientId: process.env.GITLAB_CLIENT_ID as string,
-                  clientSecret: process.env.GITLAB_CLIENT_SECRET as string,
-            },
+      gitlab: {
+            clientId: process.env.GITLAB_CLIENT_ID as string,
+            clientSecret: process.env.GITLAB_CLIENT_SECRET as string,
+      },
             `,
   dropbox: `
-            dropbox: {
-                  clientId: process.env.DROPBOX_CLIENT_ID as string,
-                  clientSecret: process.env.DROPBOX_CLIENT_SECRET as string,
-            },
+      dropbox: {
+             clientId: process.env.DROPBOX_CLIENT_ID as string,
+             clientSecret: process.env.DROPBOX_CLIENT_SECRET as string,
+      },
             `,
   linkedin: `
-            linkedin: {
-                  clientId: process.env.LINKEDIN_CLIENT_ID as string,
-                  clientSecret: process.env.LINKEDIN_CLIENT_SECRET as string,
-            },
+      linkedin: {
+            clientId: process.env.LINKEDIN_CLIENT_ID as string,
+            clientSecret: process.env.LINKEDIN_CLIENT_SECRET as string,
+      },
             `,
   discord: `
        discord: {

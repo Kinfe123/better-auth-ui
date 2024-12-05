@@ -99,35 +99,29 @@ export function CodeComponent() {
   };
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
-
+    setFmForTree(tab);
     switch (tab) {
       case "next":
-        setFmForTree("next");
         setFm("jsx");
         setCurrentPage("login.tsx");
         break;
       case "react":
-        setFmForTree("react");
         setFm("jsx");
         setCurrentPage("login.tsx");
         break;
       case "svelte":
         setFm("html");
-        setFmForTree("svelte");
         setCurrentPage("login.svelte");
         break;
       case "astro":
         setFm("js");
-        setFmForTree("astro");
         setCurrentPage("login.astro");
         break;
       case "solid":
         setFm("jsx");
-        setFmForTree("solid");
         setCurrentPage("login.tsx");
         break;
       case "nuxt":
-        setFmForTree("nuxt");
         setFm("html");
         setCurrentPage("login.vue");
         break;

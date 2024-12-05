@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 import {
   Tooltip,
@@ -6,7 +5,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-
+import { anyBool } from "@/lib/utils";
 import {
   ArrowLeft,
   Layout,
@@ -28,11 +27,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import { CodeComponent } from "@/app/_components/component-code";
 import { Icons } from "@/components/icons";
-import { useComponents } from "@/lib/store";
+import { EnabledComponent, useComponents } from "@/lib/store";
 import { useEffect } from "react";
 import { authOptions } from "./lib/auth-options";
 import { hintsText } from "@/app/constants/hints";
 import { disablityStatusRelation } from "@/lib/disable-relation";
+
+type additionalAuthType = (typeof authOptions)["additionals"];
+type otherSigninAuthType = (typeof authOptions)["otherSignIn"];
+type socialAuthType = (typeof authOptions)["socialProviders"];
 export default function AuthBuilder() {
   const { enabledComp, updateEnabledComponent } = useComponents();
   type authOptionTypes = keyof typeof enabledComp;
@@ -46,6 +49,7 @@ export default function AuthBuilder() {
       const deps = disablityStatusRelation[currOption];
       const categories = enabledComp[category];
       deps.map((dep) => {
+        // @ts-expect-error map indx
         disabledStatus = disabledStatus || (categories[dep] as boolean);
       });
     }
@@ -129,15 +133,15 @@ export default function AuthBuilder() {
                                     >
                                       <div className="flex items-center gap-2">
                                         {
-                                          authOptions["credential"][cred][
-                                            "icon"
-                                          ]
+                                          authOptions["credential"][
+                                            cred as keyof EnabledComponent["credentials"]
+                                          ]["icon"]
                                         }
                                         <span className="text-sm">
                                           {
                                             authOptions["credential"][
-                                              cred as string
-                                            ].name
+                                              cred as keyof EnabledComponent["credentials"]
+                                            ]["name"]
                                           }
                                         </span>
                                       </div>
@@ -146,8 +150,8 @@ export default function AuthBuilder() {
                                           enabledComp.otherSignIn.magicLink!,
                                         ]) &&
                                           authOptions["credential"][
-                                            cred as string
-                                          ].name === "Enabled" && (
+                                            cred as keyof EnabledComponent["credentials"]
+                                          ]["name"] === "Enabled" && (
                                             <TooltipProvider delayDuration={50}>
                                               <Tooltip>
                                                 <TooltipTrigger asChild>
@@ -180,7 +184,9 @@ export default function AuthBuilder() {
                                             });
                                           }}
                                           checked={
-                                            enabledComp["credentials"][cred]
+                                            enabledComp["credentials"][
+                                              cred as keyof EnabledComponent["credentials"]
+                                            ]
                                           }
                                         />
                                       </div>
@@ -205,14 +211,10 @@ export default function AuthBuilder() {
                                   )
                                     .filter((curr) => curr[1])
                                     .map((curr) => curr[0]);
-                                  const fullDeps =
-                                    enabledComp.additionals[addition][
-                                      "dependencies"
-                                    ];
-                                  const disabled = enabledCredentials.filter(
-                                    (curr) => fullDeps?.includes(curr),
-                                  );
-                                  console.log({ addition, exists });
+                                  const fullDeps = enabledComp!.additionals![
+                                    addition as keyof EnabledComponent["additionals"]
+                                  ]!["dependencies"] as string[];
+
                                   if (exists) {
                                     return (
                                       <div
@@ -221,25 +223,26 @@ export default function AuthBuilder() {
                                       >
                                         <div className="flex items-center gap-2">
                                           {
-                                            authOptions["additionals"][addition]
-                                              .icon
+                                            authOptions["additionals"][
+                                              addition as keyof additionalAuthType
+                                            ]["icon"]
                                           }
                                           <span className="text-sm">
                                             {
                                               authOptions["additionals"][
-                                                addition as string
-                                              ].name
+                                                addition as keyof additionalAuthType
+                                              ]["name"]
                                             }
                                           </span>
                                         </div>
                                         <Switch
                                           disabled={checkDisablity(
                                             addition,
-                                            enabledComp.additionals[addition]
-                                              .visibility,
+                                            enabledComp!["additionals"]![
+                                              addition as keyof EnabledComponent["additionals"]
+                                            ]!["visiblity"] as boolean,
                                             "otherSignIn",
                                           )}
-                                          // disabled={!disabled.length}
                                           onCheckedChange={(e) => {
                                             updateEnabledComponent({
                                               toogledComp: {
@@ -248,7 +251,9 @@ export default function AuthBuilder() {
                                                   [addition]: {
                                                     ...enabledComp[
                                                       "additionals"
-                                                    ][addition],
+                                                    ][
+                                                      addition as keyof EnabledComponent["additionals"]
+                                                    ],
                                                     visiblity: e,
                                                     routing: false,
                                                   },
@@ -257,8 +262,9 @@ export default function AuthBuilder() {
                                             });
                                           }}
                                           checked={
-                                            enabledComp["additionals"][addition]
-                                              .visiblity
+                                            enabledComp["additionals"][
+                                              addition as keyof EnabledComponent["additionals"]
+                                            ]?.visiblity
                                           }
                                         />
                                       </div>
@@ -283,23 +289,24 @@ export default function AuthBuilder() {
                                     >
                                       <div className="flex items-center gap-2">
                                         {
-                                          authOptions["otherSignIn"][other][
-                                            "icon"
-                                          ]
+                                          authOptions["otherSignIn"][
+                                            other as keyof EnabledComponent["otherSignIn"]
+                                          ]["icon"]
                                         }
                                         <span className="text-sm">
                                           {
                                             authOptions["otherSignIn"][
-                                              other as string
-                                            ].name
+                                              other as keyof EnabledComponent["otherSignIn"]
+                                            ]["name"]
                                           }
                                         </span>
                                       </div>
                                       <Switch
                                         onCheckedChange={(e) => {
                                           if (
-                                            authOptions["otherSignIn"][other]
-                                              .name === "Magic Link"
+                                            authOptions["otherSignIn"][
+                                              other as keyof EnabledComponent["otherSignIn"]
+                                            ]?.name === "Magic Link"
                                           ) {
                                             updateEnabledComponent({
                                               toogledComp: {
@@ -335,7 +342,9 @@ export default function AuthBuilder() {
                                           });
                                         }}
                                         checked={
-                                          enabledComp["otherSignIn"][other]
+                                          enabledComp["otherSignIn"][
+                                            other as keyof EnabledComponent["otherSignIn"]
+                                          ]
                                         }
                                       />
                                     </div>
@@ -360,14 +369,14 @@ export default function AuthBuilder() {
                                       <div className="flex items-center gap-2">
                                         {
                                           authOptions["socialProviders"][
-                                            social
+                                            social as keyof socialAuthType
                                           ]["icon"]
                                         }
                                         <span className="text-sm">
                                           {
                                             authOptions["socialProviders"][
-                                              social as string
-                                            ].name
+                                              social as keyof socialAuthType
+                                            ]["name"]
                                           }
                                         </span>
                                       </div>
@@ -382,7 +391,11 @@ export default function AuthBuilder() {
                                             },
                                           });
                                         }}
-                                        checked={enabledComp["socials"][social]}
+                                        checked={
+                                          enabledComp["socials"][
+                                            social as keyof EnabledComponent["socials"]
+                                          ]
+                                        }
                                       />
                                     </div>
                                   );
@@ -402,14 +415,4 @@ export default function AuthBuilder() {
       </div>
     </Card>
   );
-}
-function anyBool(lists: boolean[]) {
-  let result = false;
-  lists.map((list) => {
-    if (list) {
-      result = true;
-      return;
-    }
-  });
-  return result;
 }

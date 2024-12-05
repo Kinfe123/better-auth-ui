@@ -38,36 +38,36 @@ export const parserTokenMap: Record<string, string> = {
   passKeyServer: PassKeyServerSnippet,
   magicLinkServerImport: MagicLinkServerImport,
   magicLinkServer: MagicLinkServerSnippet,
-  magicLinkClient: MagicLinkClientSnippet,
-  magicLinkClientImport: MagicLinkClientImport,
-  passKeyClient: PassKeyClientSnippet,
-  passwordInput: `
-          <div className="grid gap-2">
-              <Input
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  autoComplete="password"
-                  placeholder="Password"
-              />
-           </div>
-`,
-  signInAction: `
-          <Button
-            type="submit"
-            className="w-full"
-            disabled={loading}
-            onClick={async () => {
-                await client.signin.email(
-                    {
-                      email: email,
-                      password: password,
-                      callbackURL: "/dashboard",
-                      // rememberMeValue
-                    },
-                    {
-                    onRequest: () => {
-                      setLoading(true);
+    magicLinkClient: MagicLinkClientSnippet,
+    magicLinkClientImport: MagicLinkClientImport,
+    passKeyClient: PassKeyClientSnippet,
+    passwordInput: `
+            <div className="grid gap-2">
+                <Input
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    autoComplete="password"
+                    placeholder="Password"
+                />
+            </div>
+  `,
+    signInAction: `
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={loading}
+              onClick={async () => {
+                  await client.signin.email(
+                      {
+                        email: email,
+                        password: password,
+                        callbackURL: "/dashboard",
+                        // rememberMeValue
+                      },
+                      {
+                      onRequest: () => {
+                        setLoading(true);
                     },
                     onResponse: () => {
                       setLoading(false);

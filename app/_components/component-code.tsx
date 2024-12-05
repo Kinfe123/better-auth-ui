@@ -341,7 +341,7 @@ export function CodeComponent() {
               className="flex relative w-full gap-2 min-h-[60vh] "
               key={framework}
             >
-              <div className="sticky w-32 sm:w-48 md:w-80 z-20 dark;backdrop-blur-2xl top-0 left-0">
+              <div className="sticky w-48 sm:w-56 md:w-80 z-20 dark;backdrop-blur-2xl top-0 left-0">
                 <FileTree
                   element={fmForTree}
                   currentPage={currentPage}
@@ -351,7 +351,7 @@ export function CodeComponent() {
               <div className="w-full relative flex flex-col -ml-2 h-[70vh] overflow-x-hidden">
                 <div className="w-full h-10 sticky top-0 left-0 bg-transparent border-b">
                   <div
-                    className={`top-2 left-0 flex h-10 justify-between items-center px-3 py-2 text-sm w-56 cursor-pointer ${
+                    className={`top-2 left-0 flex h-10 justify-between items-center px-3 py-2 text-sm w-fit md:w-56 cursor-pointer ${
                       true
                         ? "bg-stone-200 dark:bg-transparent border-r"
                         : "hover:bg-gray-700"
@@ -377,7 +377,7 @@ export function CodeComponent() {
                           }}
                           defaultValue={dbOptions}
                         >
-                          <SelectTrigger className="w-[180px] text-xs h-7 rounded-none">
+                          <SelectTrigger className="w-[80px] md:w-[180px] text-xs h-7 rounded-none">
                             <SelectValue placeholder="Select a adapter" />
                           </SelectTrigger>
                           <SelectContent className="text-xs rounded-none">

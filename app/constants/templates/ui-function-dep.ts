@@ -9,6 +9,7 @@ export const actionUIDep: Record<string, string[]> = {
   spotify: ["spotifyUI"],
   gitlab: ["gitlabUI"],
   linkedin: ["linkedinUI"],
+  twitter: ["twitterUI"],
 };
 export const credentialDep: Record<string, string[]> = {
   enabled: ["passwordInput"],

@@ -314,20 +314,34 @@ export default function AuthBuilder() {
                                       </div>
                                       <Switch
                                         onCheckedChange={(e) => {
-                                          // if (
-                                          //   authOptions["otherSignIn"][other]
-                                          //     .name === "Magic Link"
-                                          // ) {
-                                          //   updateEnabledComponent({
-                                          //     toogledComp: {
-                                          //       ...enabledComp,
-                                          //       credentials: {
-                                          //         ...enabledComp.credentials,
-                                          //         enabled: false,
-                                          //       },
-                                          //     },
-                                          //   });
-                                          // }
+                                          if (
+                                            authOptions["otherSignIn"][other]
+                                              .name === "Magic Link"
+                                          ) {
+                                            updateEnabledComponent({
+                                              toogledComp: {
+                                                ...enabledComp,
+                                                credentials: {
+                                                  ...enabledComp.credentials,
+                                                  enabled: false,
+                                                },
+                                                additionals: {
+                                                  forgetPassword: {
+                                                    visiblity: false,
+                                                    routing: false,
+                                                  },
+                                                  resetPassword: {
+                                                    visiblity: false,
+                                                    routing: false,
+                                                  },
+                                                  rememberMe: {
+                                                    visiblity: false,
+                                                    routing: false,
+                                                  },
+                                                },
+                                              },
+                                            });
+                                          }
                                           updateEnabledComponent({
                                             toogledComp: {
                                               otherSignIn: {

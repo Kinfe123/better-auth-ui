@@ -10,3 +10,6 @@ export const UIFunctionDep: Record<string, string[]> = {
   gitlab: ["gitlabUI"],
   linkedin: ["linkedinUI"],
 };
+export const credentialDep: Record<string, string[]> = {
+  enabled: ["passwordInput"],
+};

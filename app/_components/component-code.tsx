@@ -26,9 +26,13 @@ import {
 import { commentMap } from "../constants/templates/map";
 import { cx } from "class-variance-authority";
 import { server_dep } from "../constants/templates/server-client-dep";
-import { UIFunctionDep } from "../constants/templates/ui-function-dep";
+import {
+  credentialDep,
+  UIFunctionDep,
+} from "../constants/templates/ui-function-dep";
 import { stateMap } from "../constants/templates/state";
 import { twoLevelComment } from "../constants/templates/two-level";
+import { anyBool } from "@/lib/utils";
 export function CodeComponent() {
   const [fmForTree, setFmForTree] = useState("next");
   const [activeTab, setActiveTab] = useState("next");
@@ -134,8 +138,11 @@ export function CodeComponent() {
     let listsOfComments = Object.entries(enabledComp.additionals)
       .filter(([comment, enabled]) => enabled.visiblity)
       .map((curr) => curr[0]);
-
-    console.log({ listsOfComments });
+    const credentialLists =
+      enabledComp.credentials.enabled &&
+      !anyBool([enabledComp.otherSignIn.magicLink])
+        ? credentialDep["enabled"]
+        : [];
     let socialEnabledLists = Object.entries(enabledComp.socials)
       .filter(([comment, enabled]) => enabled)
       .map((curr) => curr[0]);
@@ -174,6 +181,7 @@ export function CodeComponent() {
       ...otherEnabledLists,
       ...listsOfComments,
       ...socialEnabledLists,
+      ...credentialLists,
     ];
     let cleanedJsx = "";
     const replacableLists = Object.keys(commentMap);

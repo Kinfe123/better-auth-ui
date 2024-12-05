@@ -41,6 +41,17 @@ export const commentMap: Record<string, string> = {
   magicLinkClient: MagicLinkClientSnippet,
   magicLinkClientImport: MagicLinkClientImport,
   passKeyClient: PassKeyClientSnippet,
+  passwordInput: `
+          <div className="grid gap-2">
+              <Input
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  autoComplete="password"
+                  placeholder="Password"
+              />
+           </div>
+`,
   signInAction: `
           <Button
             type="submit"

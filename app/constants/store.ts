@@ -338,15 +338,8 @@ export default function SignIn() {
               value={email}
             />
           </div>
-          <div className="grid gap-2">
             // forgetPassword
-            <Input
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              autoComplete="password"
-              placeholder="Password"
-            />
+            // passwordInput
           </div>
           // signInAction
           // magicLinkAction

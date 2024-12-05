@@ -36,12 +36,12 @@ export const ComponentDisplay = () => {
   return (
     <div>
       <Tabs.Root
-        className=" flex-1 overflow-hidden bg-transparent w-full pb-10"
+        className="flex-1 overflow-hidden bg-transparent w-full pb-10"
         defaultValue={selectedTab}
         onValueChange={(value) => setSelectedTab(value)}
       >
         <Tabs.List
-          className="flex items-center justify-center px-4 py-2 mb-2   overflow-auto gap-4 "
+          className="flex-wrap space-y-4 text-center items-center justify-center px-4 py-2 mb-2   overflow-auto gap-4 "
           aria-label="Switch between supported frameworks"
         >
           {tabs.map((item, idx) => (

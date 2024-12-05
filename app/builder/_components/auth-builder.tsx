@@ -35,23 +35,6 @@ import { hintsText } from "@/app/constants/hints";
 import { disablityStatusRelation } from "@/lib/disable-relation";
 export default function AuthBuilder() {
   const { enabledComp, updateEnabledComponent } = useComponents();
-  useEffect(() => {
-    console.log({ enabledComp });
-  }, [enabledComp]);
-  const forgetPass = enabledComp.additionals.forgetPassword?.visiblity;
-  useEffect(() => {
-    // updateEnabledComponent({
-    //   toogledComp: {
-    //     additionals: {
-    //       ...enabledComp.additionals,
-    //       resetPassword: {
-    //         ...enabledComp.additionals.resetPassword,
-    //         visiblity: forgetPass,
-    //       },
-    //     },
-    //   },
-    // });
-  }, [forgetPass]);
   type authOptionTypes = keyof typeof enabledComp;
   const checkDisablity = (
     currOption: string,

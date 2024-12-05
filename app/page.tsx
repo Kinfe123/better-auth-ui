@@ -1,6 +1,9 @@
 import AuthUIHero from "@/components/landing/hero";
 import { ComponentDisplay } from "./_components/component-display";
 import Section from "@/components/landing/sections";
+export const metadata = {
+  title: "Better Auth UI.",
+};
 const BetterAuthUI = () => {
   return (
     <div className="flex font-geist-sans  flex-col gap-2">

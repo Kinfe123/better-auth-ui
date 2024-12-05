@@ -337,7 +337,7 @@ export function ComponentShowcase({
                   className="flex relative w-full gap-2 min-h-[60vh] "
                   key={framework}
                 >
-                  <div className="sticky w-64 z-20 dark;backdrop-blur-2xl top-0 left-0">
+                  <div className="sticky w-32 sm:w-48 md:overflow-x-hidden md:w-64 z-20 dark;backdrop-blur-2xl top-0 left-0">
                     <FileTree
                       element={fmForTree}
                       currentPage={currentPage}
@@ -371,7 +371,7 @@ export function ComponentShowcase({
                     <Button
                       variant="outline"
                       size="icon"
-                      className="absolute top-2 right-4"
+                      className="absolute rounded-none top-2 right-4"
                       onClick={() =>
                         copyToClipboard(
                           example.code[getCode(currentPage)],

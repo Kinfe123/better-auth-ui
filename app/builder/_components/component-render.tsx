@@ -24,7 +24,7 @@ export function ComponentRender() {
   }
   useEffect(() => {}, [enabledComp]);
   return (
-    <div className="relative h-full  w-[60%]">
+    <div className="relative h-full max-w-full w-full md:w-[60%]">
       <TopBar />
       <div className="pt-20">{comp}</div>
     </div>

@@ -56,49 +56,49 @@ export default function AuthBuilder() {
       <div className="w-full  border-b-2 border-gray-200/50 dark:border-gray-900/50">
         <div className="overflow-hidden md:ml-[-2px] bg-transparent flex gap-10 items-center justify-between md:justify-normal  rounded-none">
           <Tabs defaultValue="preview" className="w-full">
-            <TabsList className=" md:ml-[-5px] data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
-              <TabsTrigger
-                className="rounded-none py-2 pt-4  data-[state=active]:text-white flex  items-center gap-2 data-[state=active]:bg-stone-900 "
-                value="preview"
-                onClick={() => {
-                  // setIsPrev(true);
-                  // setActiveTab("preview");
-                }}
-              >
-                <Layout className="w-4 h-4" />
-                <span className="py-1 flex items-center justify-center">
-                  Preview
-                </span>
-              </TabsTrigger>
-            </TabsList>
-            <TabsList className=" md:ml-[-5px] data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
-              <TabsTrigger
-                className="rounded-none py-2 pt-2 data-[state=active]:text-white flex  items-center gap-2 data-[state=active]:bg-stone-900 "
-                value="code"
-                onClick={() => {
-                  // setIsPrev(true);
-                  // setActiveTab("preview");
-                }}
-              >
-                <Code2 className="w-4 h-4" />
-                <span className="py-1 flex items-center justify-center">
-                  Code
-                </span>
-              </TabsTrigger>
-            </TabsList>
+            <div className="w-32 md:w-full flex items-center justify-start gap-1">
+              <TabsList className=" md:ml-[-5px] data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
+                <TabsTrigger
+                  className="rounded-none py-2 pt-3 ml-[-3px]  data-[state=active]:text-white flex w-full  items-center gap-2 data-[state=active]:bg-stone-900 "
+                  value="preview"
+                  onClick={() => {
+                    // setIsPrev(true);
+                    // setActiveTab("preview");
+                  }}
+                >
+                  <Layout className="w-4 h-4" />
+                  <span className="py-1 flex items-center justify-center">
+                    Preview
+                  </span>
+                </TabsTrigger>
+              </TabsList>
+              <TabsList className="md:ml-[-5px] data-[state=active]:bg-background w-full items-center justify-between md:justify-normal bg-tranparent gap-3  md:w-fit  rounded-none">
+                <TabsTrigger
+                  className="rounded-none ml-[-3px] w-full py-2 pt-2 data-[state=active]:text-white flex  items-center gap-2 data-[state=active]:bg-stone-900 "
+                  value="code"
+                  onClick={() => {
+                    // setIsPrev(true);
+                    // setActiveTab("preview");
+                  }}
+                >
+                  <Code2 className="w-4 h-4" />
+                  <span className="py-1 flex items-center justify-center">
+                    Code
+                  </span>
+                </TabsTrigger>
+              </TabsList>
+            </div>
             <hr className="bg-gray-200 mt-1" />
             <TabsContent value="code" className="w-full h-[75vh]">
               <CodeComponent />
             </TabsContent>
             <TabsContent value="preview" className="w-full h-full -mt-1">
               <div className="">
-                <div className="container mx-auto grid h-full md:flex items-start gap-14 max-w-7xl">
+                <div className="container mx-auto flex-col w-full h-full md:flex md:flex-row items-start gap-14 md:max-w-7xl">
                   <ComponentRender />
-                  {/* <div>
-                    <div className="h-screen w-[1px] bg-input" />
-                  </div> */}
-                  <div className="relative max-w-[35%] mx-auto pt-20 px-10">
-                    <div className="absolute h-screen ml-1 mt-1 w-full pointer-events-none inset-0 flex items-center border-l-2 border-stone-900 justify-center"></div>
+
+                  <div className="relative max-w-full w-full md:max-w-[35%] mx-auto pt-20 px-10">
+                    <div className="absolute h-screen ml-1 rounded-none  w-full pointer-events-none inset-0 flex items-center border-r-2 border-t-2 md:border-t-0 mt-10 md:mt-0 md:border-r-0 border-l-2 border-stone-900 justify-center"></div>
                     <div className="space-y-6">
                       <div>
                         <h1 className="text-2xl font-semibold mb-1">

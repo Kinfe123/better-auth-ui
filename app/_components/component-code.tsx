@@ -218,6 +218,64 @@ export function CodeComponent() {
     <div className="w-full flex flex-col -mt-2 ">
       <Tabs defaultValue="next" className="w-full flex justify-end items-end">
         <TabsList className="md:ml-[-5px] h-10 data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
+          <div className="flex w-full justify-end items-end lg:hidden">
+            <Select
+              onValueChange={(e) => {
+                console.log("THe mob val: ", e);
+                handleTabClick(e);
+              }}
+            >
+              <SelectTrigger className="w-[120px] rounded-none">
+                <SelectValue placeholder="Framework" />
+              </SelectTrigger>
+              <SelectContent className="rounded-none">
+                <SelectGroup>
+                  <SelectLabel>Framework</SelectLabel>
+                  <SelectItem
+                    className="rounded-none hover:rounded-none"
+                    value="next"
+                  >
+                    Nextjs
+                  </SelectItem>
+                  <SelectItem
+                    disabled={true}
+                    className="rounded-none hover:rounded-none"
+                    value="react"
+                  >
+                    React
+                  </SelectItem>
+                  <SelectItem
+                    disabled={true}
+                    className="rounded-none hover:rounded-none"
+                    value="svelte"
+                  >
+                    Svelte
+                  </SelectItem>
+                  <SelectItem
+                    disabled={true}
+                    className="rounded-none hover:rounded-none"
+                    value="nuxt"
+                  >
+                    Nuxt
+                  </SelectItem>
+                  <SelectItem
+                    disabled={true}
+                    className="rounded-none hover:rounded-none"
+                    value="solid"
+                  >
+                    Solid
+                  </SelectItem>
+                  <SelectItem
+                    disabled={true}
+                    className="rounded-none hover:rounded-none"
+                    value="astro"
+                  >
+                    Astro
+                  </SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </div>
           <div className="hidden md:flex">
             <TabsTrigger
               className="flex py-3 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
@@ -283,7 +341,7 @@ export function CodeComponent() {
               className="flex relative w-full gap-2 min-h-[60vh] "
               key={framework}
             >
-              <div className="sticky w-80 z-20 dark;backdrop-blur-2xl top-0 left-0">
+              <div className="sticky w-32 sm:w-48 md:w-80 z-20 dark;backdrop-blur-2xl top-0 left-0">
                 <FileTree
                   element={fmForTree}
                   currentPage={currentPage}

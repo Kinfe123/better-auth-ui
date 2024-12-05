@@ -53,7 +53,7 @@ export function TopBar() {
   }, [histories]);
 
   return (
-    <div className="flex w-full mx-auto items-center space-x-2 mt-2 ml-2 bg-background p-2 shadow-md">
+    <div className="flex w-full ml-auto md:mx-auto items-center space-x-2 mt-2 md:ml-2 bg-background p-2 shadow-md">
       <div className="flex space-x-1">
         <Button
           variant="ghost"

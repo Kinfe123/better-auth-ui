@@ -94,7 +94,7 @@ export default function AuthBuilder() {
             </TabsContent>
             <TabsContent value="preview" className="w-full h-full -mt-1">
               <div className="">
-                <div className="container mx-auto flex-col w-full h-full md:flex md:flex-row items-start gap-14 md:max-w-7xl">
+                <div className="md:container mx-auto flex-col w-full h-full md:flex md:flex-row items-start gap-14 md:max-w-7xl">
                   <ComponentRender />
 
                   <div className="relative max-w-full w-full md:max-w-[35%] mx-auto pt-20 px-10">

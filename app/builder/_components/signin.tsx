@@ -26,6 +26,7 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { ApearanceLayout } from "./apearance-layout";
 import { authOptions } from "./lib/auth-options";
+import { anyBool } from "@/lib/utils";
 
 export default function SignIn() {
   const { enabledComp, updateEnabledComponent } = useComponents();
@@ -123,16 +124,17 @@ export default function SignIn() {
                   />
                 </div>
               )}
-              {enabledComp.additionals.rememberMe?.visiblity && (
-                <div className="flex items-center gap-2">
-                  <Checkbox
-                    onClick={() => {
-                      setRememberMe(!rememberMe);
-                    }}
-                  />
-                  <Label>Remember me</Label>
-                </div>
-              )}
+              {enabledComp.additionals.rememberMe?.visiblity &&
+                !anyBool([enabledComp.otherSignIn.magicLink]) && (
+                  <div className="flex items-center gap-2">
+                    <Checkbox
+                      onClick={() => {
+                        setRememberMe(!rememberMe);
+                      }}
+                    />
+                    <Label>Remember me</Label>
+                  </div>
+                )}
 
               <Button type="submit" className="w-full" disabled={loading}>
                 {loading ? (

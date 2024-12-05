@@ -32,6 +32,7 @@ import { useComponents } from "@/lib/store";
 import { useEffect } from "react";
 import { authOptions } from "./lib/auth-options";
 import { hintsText } from "@/app/constants/hints";
+import { disablityStatusRelation } from "@/lib/disable-relation";
 export default function AuthBuilder() {
   const { enabledComp, updateEnabledComponent } = useComponents();
   useEffect(() => {
@@ -51,6 +52,22 @@ export default function AuthBuilder() {
     //   },
     // });
   }, [forgetPass]);
+  type authOptionTypes = keyof typeof enabledComp;
+  const checkDisablity = (
+    currOption: string,
+    status: boolean,
+    category: authOptionTypes,
+  ) => {
+    let disabledStatus = status;
+    if (currOption in disablityStatusRelation) {
+      const deps = disablityStatusRelation[currOption];
+      const categories = enabledComp[category];
+      deps.map((dep) => {
+        disabledStatus = disabledStatus || (categories[dep] as boolean);
+      });
+    }
+    return disabledStatus;
+  };
   return (
     <Card className="relative h-full w-full bg-transparent max-w-7xl mx-auto border-t-0 rounded-none">
       <div className="w-full  border-b-2 border-gray-200/50 dark:border-gray-900/50">
@@ -233,6 +250,12 @@ export default function AuthBuilder() {
                                           </span>
                                         </div>
                                         <Switch
+                                          disabled={checkDisablity(
+                                            addition,
+                                            enabledComp.additionals[addition]
+                                              .visibility,
+                                            "otherSignIn",
+                                          )}
                                           // disabled={!disabled.length}
                                           onCheckedChange={(e) => {
                                             updateEnabledComponent({

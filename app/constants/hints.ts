@@ -6,7 +6,7 @@ interface HintText {
     [key: string]: string;
   };
 }
-export const hintsText = {
+export const hintsText: HintText = {
   credential: {
     magicLink: "Please turn off magic link to enable credential.",
   },

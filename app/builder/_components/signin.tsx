@@ -69,7 +69,8 @@ export default function SignIn() {
       </CardHeader>
       <CardContent>
         <div className="grid gap-4">
-          {enabledComp.credentials.enabled && (
+          {(enabledComp.credentials.enabled ||
+            enabledComp.credentials.email) && (
             <ApearanceLayout className="grid gap-4">
               <div className="grid gap-2">
                 <div className="flex justify-between items-center">

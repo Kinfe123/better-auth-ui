@@ -174,9 +174,9 @@ export function ComponentShowcase({
         </div>
 
         <div className="w-full  border-b-2 border-gray-200/50 dark:border-gray-900/50">
-          <div className="md:ml-[-2px] py-2 px-3 bg-transparent flex gap-10 items-center justify-between md:justify-normal  rounded-none">
+          <div className="w-full md:ml-[-2px] py-2 px-3 bg-transparent flex gap-10 items-center justify-between lg:justify-normal  rounded-none">
             <Tabs defaultValue="preview" className="w-full">
-              <TabsList className=" md:ml-[-5px] data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
+              <TabsList className=" md:ml-[-5px] data-[state=active]:bg-background items-center justify-between lg:justify-normal bg-tranparent gap-3 w-full lg:w-fit  rounded-none">
                 <TabsTrigger
                   className="rounded-none py-2  data-[state=active]:text-white flex  items-center gap-2 data-[state=active]:bg-stone-900 "
                   value="preview"
@@ -191,7 +191,7 @@ export function ComponentShowcase({
                 <div className="mx-5">
                   <div className="hidden md:block w-[1px] h-[30px] z-20 bg-black/50 dark:bg-white/20"></div>
                 </div>
-                <div className="flex md:hidden">
+                <div className="flex w-full justify-end items-end lg:hidden">
                   <Select
                     onValueChange={(e) => {
                       console.log("THe mob val: ", e);
@@ -249,7 +249,7 @@ export function ComponentShowcase({
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="hidden md:flex">
+                <div className="hidden lg:flex">
                   <TabsTrigger
                     className="flex py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
                     value="next"

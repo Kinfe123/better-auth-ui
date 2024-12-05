@@ -10,6 +10,16 @@ import {
   REMIX_ELEMENTS,
   NEXT_ELEMENTS,
 } from "./element-strucuture";
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import React, { useState, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
@@ -180,6 +190,64 @@ export function ComponentShowcase({
                 </TabsTrigger>
                 <div className="mx-5">
                   <div className="hidden md:block w-[1px] h-[30px] z-20 bg-black/50 dark:bg-white/20"></div>
+                </div>
+                <div className="flex md:hidden">
+                  <Select
+                    onValueChange={(e) => {
+                      console.log("THe mob val: ", e);
+                      handleTabClick(e);
+                    }}
+                  >
+                    <SelectTrigger className="w-[120px] rounded-none">
+                      <SelectValue placeholder="Framework" />
+                    </SelectTrigger>
+                    <SelectContent className="rounded-none">
+                      <SelectGroup>
+                        <SelectLabel>Framework</SelectLabel>
+                        <SelectItem
+                          className="rounded-none hover:rounded-none"
+                          value="next"
+                        >
+                          Nextjs
+                        </SelectItem>
+                        <SelectItem
+                          disabled={true}
+                          className="rounded-none hover:rounded-none"
+                          value="react"
+                        >
+                          React
+                        </SelectItem>
+                        <SelectItem
+                          disabled={true}
+                          className="rounded-none hover:rounded-none"
+                          value="svelte"
+                        >
+                          Svelte
+                        </SelectItem>
+                        <SelectItem
+                          disabled={true}
+                          className="rounded-none hover:rounded-none"
+                          value="nuxt"
+                        >
+                          Nuxt
+                        </SelectItem>
+                        <SelectItem
+                          disabled={true}
+                          className="rounded-none hover:rounded-none"
+                          value="solid"
+                        >
+                          Solid
+                        </SelectItem>
+                        <SelectItem
+                          disabled={true}
+                          className="rounded-none hover:rounded-none"
+                          value="astro"
+                        >
+                          Astro
+                        </SelectItem>
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
                 </div>
                 <div className="hidden md:flex">
                   <TabsTrigger

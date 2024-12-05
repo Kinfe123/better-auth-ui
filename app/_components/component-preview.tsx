@@ -10,6 +10,16 @@ import {
   REMIX_ELEMENTS,
   NEXT_ELEMENTS,
 } from "./element-strucuture";
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import React, { useState, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
@@ -164,9 +174,9 @@ export function ComponentShowcase({
         </div>
 
         <div className="w-full  border-b-2 border-gray-200/50 dark:border-gray-900/50">
-          <div className="md:ml-[-2px] py-2 px-3 bg-transparent flex gap-10 items-center justify-between md:justify-normal  rounded-none">
+          <div className="w-full md:ml-[-2px] py-2 px-3 bg-transparent flex gap-10 items-center justify-between lg:justify-normal  rounded-none">
             <Tabs defaultValue="preview" className="w-full">
-              <TabsList className=" md:ml-[-5px] data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
+              <TabsList className=" md:ml-[-5px] data-[state=active]:bg-background items-center justify-between lg:justify-normal bg-tranparent gap-3 w-full lg:w-fit  rounded-none">
                 <TabsTrigger
                   className="rounded-none py-2  data-[state=active]:text-white flex  items-center gap-2 data-[state=active]:bg-stone-900 "
                   value="preview"
@@ -181,7 +191,65 @@ export function ComponentShowcase({
                 <div className="mx-5">
                   <div className="hidden md:block w-[1px] h-[30px] z-20 bg-black/50 dark:bg-white/20"></div>
                 </div>
-                <div className="hidden md:flex">
+                <div className="flex w-full justify-end items-end lg:hidden">
+                  <Select
+                    onValueChange={(e) => {
+                      console.log("THe mob val: ", e);
+                      handleTabClick(e);
+                    }}
+                  >
+                    <SelectTrigger className="w-[120px] rounded-none">
+                      <SelectValue placeholder="Framework" />
+                    </SelectTrigger>
+                    <SelectContent className="rounded-none">
+                      <SelectGroup>
+                        <SelectLabel>Framework</SelectLabel>
+                        <SelectItem
+                          className="rounded-none hover:rounded-none"
+                          value="next"
+                        >
+                          Nextjs
+                        </SelectItem>
+                        <SelectItem
+                          disabled={true}
+                          className="rounded-none hover:rounded-none"
+                          value="react"
+                        >
+                          React
+                        </SelectItem>
+                        <SelectItem
+                          disabled={true}
+                          className="rounded-none hover:rounded-none"
+                          value="svelte"
+                        >
+                          Svelte
+                        </SelectItem>
+                        <SelectItem
+                          disabled={true}
+                          className="rounded-none hover:rounded-none"
+                          value="nuxt"
+                        >
+                          Nuxt
+                        </SelectItem>
+                        <SelectItem
+                          disabled={true}
+                          className="rounded-none hover:rounded-none"
+                          value="solid"
+                        >
+                          Solid
+                        </SelectItem>
+                        <SelectItem
+                          disabled={true}
+                          className="rounded-none hover:rounded-none"
+                          value="astro"
+                        >
+                          Astro
+                        </SelectItem>
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="hidden lg:flex">
                   <TabsTrigger
                     className="flex py-2 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
                     value="next"
@@ -269,7 +337,7 @@ export function ComponentShowcase({
                   className="flex relative w-full gap-2 min-h-[60vh] "
                   key={framework}
                 >
-                  <div className="sticky w-64 z-20 dark;backdrop-blur-2xl top-0 left-0">
+                  <div className="sticky w-32 sm:w-48 md:overflow-x-hidden md:w-64 z-20 dark;backdrop-blur-2xl top-0 left-0">
                     <FileTree
                       element={fmForTree}
                       currentPage={currentPage}
@@ -303,7 +371,7 @@ export function ComponentShowcase({
                     <Button
                       variant="outline"
                       size="icon"
-                      className="absolute top-2 right-4"
+                      className="absolute rounded-none top-2 right-4"
                       onClick={() =>
                         copyToClipboard(
                           example.code[getCode(currentPage)],

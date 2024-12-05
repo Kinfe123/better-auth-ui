@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 import {
   Tooltip,
@@ -6,7 +5,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-
+import { anyBool } from "@/lib/utils";
 import {
   ArrowLeft,
   Layout,
@@ -28,30 +27,17 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import { CodeComponent } from "@/app/_components/component-code";
 import { Icons } from "@/components/icons";
-import { useComponents } from "@/lib/store";
+import { EnabledComponent, useComponents } from "@/lib/store";
 import { useEffect } from "react";
 import { authOptions } from "./lib/auth-options";
 import { hintsText } from "@/app/constants/hints";
 import { disablityStatusRelation } from "@/lib/disable-relation";
+
+type additionalAuthType = (typeof authOptions)["additionals"];
+type otherSigninAuthType = (typeof authOptions)["otherSignIn"];
+type socialAuthType = (typeof authOptions)["socialProviders"];
 export default function AuthBuilder() {
   const { enabledComp, updateEnabledComponent } = useComponents();
-  useEffect(() => {
-    console.log({ enabledComp });
-  }, [enabledComp]);
-  const forgetPass = enabledComp.additionals.forgetPassword?.visiblity;
-  useEffect(() => {
-    // updateEnabledComponent({
-    //   toogledComp: {
-    //     additionals: {
-    //       ...enabledComp.additionals,
-    //       resetPassword: {
-    //         ...enabledComp.additionals.resetPassword,
-    //         visiblity: forgetPass,
-    //       },
-    //     },
-    //   },
-    // });
-  }, [forgetPass]);
   type authOptionTypes = keyof typeof enabledComp;
   const checkDisablity = (
     currOption: string,
@@ -63,6 +49,7 @@ export default function AuthBuilder() {
       const deps = disablityStatusRelation[currOption];
       const categories = enabledComp[category];
       deps.map((dep) => {
+        // @ts-expect-error map indx
         disabledStatus = disabledStatus || (categories[dep] as boolean);
       });
     }
@@ -73,49 +60,49 @@ export default function AuthBuilder() {
       <div className="w-full  border-b-2 border-gray-200/50 dark:border-gray-900/50">
         <div className="overflow-hidden md:ml-[-2px] bg-transparent flex gap-10 items-center justify-between md:justify-normal  rounded-none">
           <Tabs defaultValue="preview" className="w-full">
-            <TabsList className=" md:ml-[-5px] data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
-              <TabsTrigger
-                className="rounded-none py-2 pt-4  data-[state=active]:text-white flex  items-center gap-2 data-[state=active]:bg-stone-900 "
-                value="preview"
-                onClick={() => {
-                  // setIsPrev(true);
-                  // setActiveTab("preview");
-                }}
-              >
-                <Layout className="w-4 h-4" />
-                <span className="py-1 flex items-center justify-center">
-                  Preview
-                </span>
-              </TabsTrigger>
-            </TabsList>
-            <TabsList className=" md:ml-[-5px] data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
-              <TabsTrigger
-                className="rounded-none py-2 pt-2 data-[state=active]:text-white flex  items-center gap-2 data-[state=active]:bg-stone-900 "
-                value="code"
-                onClick={() => {
-                  // setIsPrev(true);
-                  // setActiveTab("preview");
-                }}
-              >
-                <Code2 className="w-4 h-4" />
-                <span className="py-1 flex items-center justify-center">
-                  Code
-                </span>
-              </TabsTrigger>
-            </TabsList>
+            <div className="w-32 md:w-full flex items-center justify-start gap-1">
+              <TabsList className=" md:ml-[-5px] data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
+                <TabsTrigger
+                  className="rounded-none py-2 pt-3 ml-[-3px]  data-[state=active]:text-white flex w-full  items-center gap-2 data-[state=active]:bg-stone-900 "
+                  value="preview"
+                  onClick={() => {
+                    // setIsPrev(true);
+                    // setActiveTab("preview");
+                  }}
+                >
+                  <Layout className="w-4 h-4" />
+                  <span className="py-1 flex items-center justify-center">
+                    Preview
+                  </span>
+                </TabsTrigger>
+              </TabsList>
+              <TabsList className="md:ml-[-5px] data-[state=active]:bg-background w-full items-center justify-between md:justify-normal bg-tranparent gap-3  md:w-fit  rounded-none">
+                <TabsTrigger
+                  className="rounded-none ml-[-3px] w-full py-2 pt-2 data-[state=active]:text-white flex  items-center gap-2 data-[state=active]:bg-stone-900 "
+                  value="code"
+                  onClick={() => {
+                    // setIsPrev(true);
+                    // setActiveTab("preview");
+                  }}
+                >
+                  <Code2 className="w-4 h-4" />
+                  <span className="py-1 flex items-center justify-center">
+                    Code
+                  </span>
+                </TabsTrigger>
+              </TabsList>
+            </div>
             <hr className="bg-gray-200 mt-1" />
             <TabsContent value="code" className="w-full h-[75vh]">
               <CodeComponent />
             </TabsContent>
             <TabsContent value="preview" className="w-full h-full -mt-1">
               <div className="">
-                <div className="container mx-auto grid h-full md:flex items-start gap-14 max-w-7xl">
+                <div className="md:container mx-auto flex-col w-full h-full md:flex md:flex-row items-start gap-14 md:max-w-7xl">
                   <ComponentRender />
-                  {/* <div>
-                    <div className="h-screen w-[1px] bg-input" />
-                  </div> */}
-                  <div className="relative max-w-[35%] mx-auto pt-20 px-10">
-                    <div className="absolute h-screen ml-1 mt-1 w-full pointer-events-none inset-0 flex items-center border-l-2 border-stone-900 justify-center"></div>
+
+                  <div className="relative max-w-full w-full md:max-w-[35%] mx-auto pt-20 px-10">
+                    <div className="absolute h-screen ml-1 rounded-none  w-full pointer-events-none inset-0 flex items-center border-r-2 border-t-2 md:border-t-0 mt-10 md:mt-0 md:border-r-0 border-l-2 border-stone-900 justify-center"></div>
                     <div className="space-y-6">
                       <div>
                         <h1 className="text-2xl font-semibold mb-1">
@@ -146,15 +133,15 @@ export default function AuthBuilder() {
                                     >
                                       <div className="flex items-center gap-2">
                                         {
-                                          authOptions["credential"][cred][
-                                            "icon"
-                                          ]
+                                          authOptions["credential"][
+                                            cred as keyof EnabledComponent["credentials"]
+                                          ]["icon"]
                                         }
                                         <span className="text-sm">
                                           {
                                             authOptions["credential"][
-                                              cred as string
-                                            ].name
+                                              cred as keyof EnabledComponent["credentials"]
+                                            ]["name"]
                                           }
                                         </span>
                                       </div>
@@ -163,8 +150,8 @@ export default function AuthBuilder() {
                                           enabledComp.otherSignIn.magicLink!,
                                         ]) &&
                                           authOptions["credential"][
-                                            cred as string
-                                          ].name === "Enabled" && (
+                                            cred as keyof EnabledComponent["credentials"]
+                                          ]["name"] === "Enabled" && (
                                             <TooltipProvider delayDuration={50}>
                                               <Tooltip>
                                                 <TooltipTrigger asChild>
@@ -197,7 +184,9 @@ export default function AuthBuilder() {
                                             });
                                           }}
                                           checked={
-                                            enabledComp["credentials"][cred]
+                                            enabledComp["credentials"][
+                                              cred as keyof EnabledComponent["credentials"]
+                                            ]
                                           }
                                         />
                                       </div>
@@ -222,14 +211,10 @@ export default function AuthBuilder() {
                                   )
                                     .filter((curr) => curr[1])
                                     .map((curr) => curr[0]);
-                                  const fullDeps =
-                                    enabledComp.additionals[addition][
-                                      "dependencies"
-                                    ];
-                                  const disabled = enabledCredentials.filter(
-                                    (curr) => fullDeps?.includes(curr),
-                                  );
-                                  console.log({ addition, exists });
+                                  const fullDeps = enabledComp!.additionals![
+                                    addition as keyof EnabledComponent["additionals"]
+                                  ]!["dependencies"] as string[];
+
                                   if (exists) {
                                     return (
                                       <div
@@ -238,25 +223,26 @@ export default function AuthBuilder() {
                                       >
                                         <div className="flex items-center gap-2">
                                           {
-                                            authOptions["additionals"][addition]
-                                              .icon
+                                            authOptions["additionals"][
+                                              addition as keyof additionalAuthType
+                                            ]["icon"]
                                           }
                                           <span className="text-sm">
                                             {
                                               authOptions["additionals"][
-                                                addition as string
-                                              ].name
+                                                addition as keyof additionalAuthType
+                                              ]["name"]
                                             }
                                           </span>
                                         </div>
                                         <Switch
                                           disabled={checkDisablity(
                                             addition,
-                                            enabledComp.additionals[addition]
-                                              .visibility,
+                                            enabledComp!["additionals"]![
+                                              addition as keyof EnabledComponent["additionals"]
+                                            ]!["visiblity"] as boolean,
                                             "otherSignIn",
                                           )}
-                                          // disabled={!disabled.length}
                                           onCheckedChange={(e) => {
                                             updateEnabledComponent({
                                               toogledComp: {
@@ -265,7 +251,9 @@ export default function AuthBuilder() {
                                                   [addition]: {
                                                     ...enabledComp[
                                                       "additionals"
-                                                    ][addition],
+                                                    ][
+                                                      addition as keyof EnabledComponent["additionals"]
+                                                    ],
                                                     visiblity: e,
                                                     routing: false,
                                                   },
@@ -274,8 +262,9 @@ export default function AuthBuilder() {
                                             });
                                           }}
                                           checked={
-                                            enabledComp["additionals"][addition]
-                                              .visiblity
+                                            enabledComp["additionals"][
+                                              addition as keyof EnabledComponent["additionals"]
+                                            ]?.visiblity
                                           }
                                         />
                                       </div>
@@ -300,23 +289,24 @@ export default function AuthBuilder() {
                                     >
                                       <div className="flex items-center gap-2">
                                         {
-                                          authOptions["otherSignIn"][other][
-                                            "icon"
-                                          ]
+                                          authOptions["otherSignIn"][
+                                            other as keyof EnabledComponent["otherSignIn"]
+                                          ]["icon"]
                                         }
                                         <span className="text-sm">
                                           {
                                             authOptions["otherSignIn"][
-                                              other as string
-                                            ].name
+                                              other as keyof EnabledComponent["otherSignIn"]
+                                            ]["name"]
                                           }
                                         </span>
                                       </div>
                                       <Switch
                                         onCheckedChange={(e) => {
                                           if (
-                                            authOptions["otherSignIn"][other]
-                                              .name === "Magic Link"
+                                            authOptions["otherSignIn"][
+                                              other as keyof EnabledComponent["otherSignIn"]
+                                            ]?.name === "Magic Link"
                                           ) {
                                             updateEnabledComponent({
                                               toogledComp: {
@@ -352,7 +342,9 @@ export default function AuthBuilder() {
                                           });
                                         }}
                                         checked={
-                                          enabledComp["otherSignIn"][other]
+                                          enabledComp["otherSignIn"][
+                                            other as keyof EnabledComponent["otherSignIn"]
+                                          ]
                                         }
                                       />
                                     </div>
@@ -377,14 +369,14 @@ export default function AuthBuilder() {
                                       <div className="flex items-center gap-2">
                                         {
                                           authOptions["socialProviders"][
-                                            social
+                                            social as keyof socialAuthType
                                           ]["icon"]
                                         }
                                         <span className="text-sm">
                                           {
                                             authOptions["socialProviders"][
-                                              social as string
-                                            ].name
+                                              social as keyof socialAuthType
+                                            ]["name"]
                                           }
                                         </span>
                                       </div>
@@ -399,7 +391,11 @@ export default function AuthBuilder() {
                                             },
                                           });
                                         }}
-                                        checked={enabledComp["socials"][social]}
+                                        checked={
+                                          enabledComp["socials"][
+                                            social as keyof EnabledComponent["socials"]
+                                          ]
+                                        }
                                       />
                                     </div>
                                   );
@@ -419,14 +415,4 @@ export default function AuthBuilder() {
       </div>
     </Card>
   );
-}
-function anyBool(lists: boolean[]) {
-  let result = false;
-  lists.map((list) => {
-    if (list) {
-      result = true;
-      return;
-    }
-  });
-  return result;
 }

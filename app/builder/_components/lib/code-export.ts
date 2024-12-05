@@ -1,6 +1,5 @@
-import { commentMap } from "@/app/constants/templates/map";
-
-export function replaceCommentsWithJSX(
+import { parserTokenMap } from "@/app/constants/templates/map";
+export function parseTokens(
   commentsArray: string[],
   jsxString: string,
   { eraseAll = false }: { eraseAll?: boolean },
@@ -9,7 +8,7 @@ export function replaceCommentsWithJSX(
     const commentRegex = new RegExp(`//\\s*${commentLabel}\\s*$`, "gm");
     let replacement = "";
     if (!eraseAll) {
-      replacement = commentMap[commentLabel] || "";
+      replacement = parserTokenMap[commentLabel] || "";
     }
     jsxString = jsxString.replace(commentRegex, replacement);
   });
@@ -20,7 +19,7 @@ export function replaceCommentsWithJSX(
 function removeEmptyLines(inputString: string, commentsArray: string[]) {
   let result = inputString.replace(/^\s*[\r\n]/gm, "");
   const commentRegex = new RegExp(`//\\s*newLine\\s*$`, "gm");
-  const replacement = commentMap["newLine"];
+  const replacement = parserTokenMap["newLine"];
   result = result.replace(commentRegex, replacement);
   return result;
 }

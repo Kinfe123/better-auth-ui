@@ -45,7 +45,7 @@ interface OtherSignIn {
   passKey: boolean;
   magicLink: boolean;
 }
-interface EnabledComponent {
+export interface EnabledComponent {
   credentials: Partial<Credentials>;
   additionals: Partial<Additionals>;
   socials: Partial<SocialProviders>;

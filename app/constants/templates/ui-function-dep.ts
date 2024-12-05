@@ -1,4 +1,4 @@
-export const UIFunctionDep: Record<string, string[]> = {
+export const actionUIDep: Record<string, string[]> = {
   google: ["googleUI"],
   apple: ["appleUI"],
   github: ["githubUI"],
@@ -9,6 +9,7 @@ export const UIFunctionDep: Record<string, string[]> = {
   spotify: ["spotifyUI"],
   gitlab: ["gitlabUI"],
   linkedin: ["linkedinUI"],
+  twitter: ["twitterUI"],
 };
 export const credentialDep: Record<string, string[]> = {
   enabled: ["passwordInput"],

@@ -21,18 +21,20 @@ import { useCodeComponent } from "../constants/store";
 import { useComponents } from "@/lib/store";
 import {
   importAndDistructureCleanup,
-  replaceCommentsWithJSX,
+  parseTokens,
 } from "../builder/_components/lib/code-export";
-import { commentMap } from "../constants/templates/map";
+import { parserTokenMap } from "../constants/templates/map";
 import { cx } from "class-variance-authority";
-import { server_dep } from "../constants/templates/server-client-dep";
+import { serverClientDep } from "../constants/templates/server-client-dep";
 import {
+  actionUIDep,
   credentialDep,
   UIFunctionDep,
 } from "../constants/templates/ui-function-dep";
 import { stateMap } from "../constants/templates/state";
 import { twoLevelComment } from "../constants/templates/two-level";
 import { anyBool } from "@/lib/utils";
+import { parsedNextContent } from "@/lib/parser/next";
 export function CodeComponent() {
   const [fmForTree, setFmForTree] = useState("next");
   const [activeTab, setActiveTab] = useState("next");
@@ -97,35 +99,29 @@ export function CodeComponent() {
   };
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
-
+    setFmForTree(tab);
     switch (tab) {
       case "next":
-        setFmForTree("next");
         setFm("jsx");
         setCurrentPage("login.tsx");
         break;
       case "react":
-        setFmForTree("react");
         setFm("jsx");
         setCurrentPage("login.tsx");
         break;
       case "svelte":
         setFm("html");
-        setFmForTree("svelte");
         setCurrentPage("login.svelte");
         break;
       case "astro":
         setFm("js");
-        setFmForTree("astro");
         setCurrentPage("login.astro");
         break;
       case "solid":
         setFm("jsx");
-        setFmForTree("solid");
         setCurrentPage("login.tsx");
         break;
       case "nuxt":
-        setFmForTree("nuxt");
         setFm("html");
         setCurrentPage("login.vue");
         break;
@@ -134,90 +130,68 @@ export function CodeComponent() {
     }
   };
 
-  const parsedContent = (content: string) => {
-    let listsOfComments = Object.entries(enabledComp.additionals)
-      .filter(([comment, enabled]) => enabled.visiblity)
-      .map((curr) => curr[0]);
-    const credentialLists =
-      enabledComp.credentials.enabled &&
-      !anyBool([enabledComp.otherSignIn.magicLink])
-        ? credentialDep["enabled"]
-        : [];
-    let socialEnabledLists = Object.entries(enabledComp.socials)
-      .filter(([comment, enabled]) => enabled)
-      .map((curr) => curr[0]);
-
-    socialEnabledLists = socialEnabledLists.length
-      ? ["socialProviders"].concat(socialEnabledLists)
-      : socialEnabledLists;
-
-    Object.keys(UIFunctionDep).map((dep) => {
-      if (socialEnabledLists.includes(dep)) {
-        socialEnabledLists = [...socialEnabledLists, ...UIFunctionDep[dep]];
-      }
-    });
-    console.log({ socialEnabledLists });
-    let otherEnabledLists = Object.entries(enabledComp.otherSignIn)
-      .filter(([comment, enabled]) => enabled)
-      .map((curr) => curr[0]);
-    // addng otherSignInOptions and the dependencies
-    Object.keys(server_dep).map((dep) => {
-      if (otherEnabledLists.includes(dep)) {
-        otherEnabledLists = [...otherEnabledLists, ...server_dep[dep]];
-      }
-    });
-
-    if (enabledComp.credentials.email && !enabledComp.otherSignIn.magicLink) {
-      listsOfComments = [...listsOfComments, ...stateMap["email"]];
-    }
-    Object.keys(stateMap).map((state) => {
-      if (listsOfComments.includes(state)) {
-        listsOfComments = [...listsOfComments, ...stateMap[state]];
-      }
-    });
-    console.log({ otherEnabledLists, listsOfComments });
-    listsOfComments = [
-      "empty",
-      ...otherEnabledLists,
-      ...listsOfComments,
-      ...socialEnabledLists,
-      ...credentialLists,
-    ];
-    let cleanedJsx = "";
-    const replacableLists = Object.keys(commentMap);
-
-    if (listsOfComments.length === 1) {
-      cleanedJsx = replaceCommentsWithJSX(replacableLists, content, {
-        eraseAll: true,
-      });
-    } else {
-      cleanedJsx = importAndDistructureCleanup(
-        "noDistructure",
-        content,
-        otherEnabledLists.length === 0,
-      );
-      cleanedJsx = importAndDistructureCleanup(
-        "noLists",
-        cleanedJsx,
-        otherEnabledLists.length === 0,
-      );
-      cleanedJsx = replaceCommentsWithJSX(listsOfComments, cleanedJsx, {
-        eraseAll: false,
-      });
-
-      cleanedJsx = replaceCommentsWithJSX(replacableLists, cleanedJsx, {
-        eraseAll: true,
-      });
-
-      console.log({ cleanedJsx });
-    }
-    return cleanedJsx;
-  };
-
   return (
     <div className="w-full flex flex-col -mt-2 ">
       <Tabs defaultValue="next" className="w-full flex justify-end items-end">
         <TabsList className="md:ml-[-5px] h-10 data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
+          <div className="flex w-full justify-end items-end lg:hidden">
+            <Select
+              onValueChange={(e) => {
+                console.log("THe mob val: ", e);
+                handleTabClick(e);
+              }}
+            >
+              <SelectTrigger className="w-[120px] rounded-none">
+                <SelectValue placeholder="Framework" />
+              </SelectTrigger>
+              <SelectContent className="rounded-none">
+                <SelectGroup>
+                  <SelectLabel>Framework</SelectLabel>
+                  <SelectItem
+                    className="rounded-none hover:rounded-none"
+                    value="next"
+                  >
+                    Nextjs
+                  </SelectItem>
+                  <SelectItem
+                    disabled={true}
+                    className="rounded-none hover:rounded-none"
+                    value="react"
+                  >
+                    React
+                  </SelectItem>
+                  <SelectItem
+                    disabled={true}
+                    className="rounded-none hover:rounded-none"
+                    value="svelte"
+                  >
+                    Svelte
+                  </SelectItem>
+                  <SelectItem
+                    disabled={true}
+                    className="rounded-none hover:rounded-none"
+                    value="nuxt"
+                  >
+                    Nuxt
+                  </SelectItem>
+                  <SelectItem
+                    disabled={true}
+                    className="rounded-none hover:rounded-none"
+                    value="solid"
+                  >
+                    Solid
+                  </SelectItem>
+                  <SelectItem
+                    disabled={true}
+                    className="rounded-none hover:rounded-none"
+                    value="astro"
+                  >
+                    Astro
+                  </SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </div>
           <div className="hidden md:flex">
             <TabsTrigger
               className="flex py-3 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
@@ -283,7 +257,7 @@ export function CodeComponent() {
               className="flex relative w-full gap-2 min-h-[60vh] "
               key={framework}
             >
-              <div className="sticky w-80 z-20 dark;backdrop-blur-2xl top-0 left-0">
+              <div className="sticky w-48 sm:w-56 md:w-80 z-20 dark;backdrop-blur-2xl top-0 left-0">
                 <FileTree
                   element={fmForTree}
                   currentPage={currentPage}
@@ -293,7 +267,7 @@ export function CodeComponent() {
               <div className="w-full relative flex flex-col -ml-2 h-[70vh] overflow-x-hidden">
                 <div className="w-full h-10 sticky top-0 left-0 bg-transparent border-b">
                   <div
-                    className={`top-2 left-0 flex h-10 justify-between items-center px-3 py-2 text-sm w-56 cursor-pointer ${
+                    className={`top-2 left-0 flex h-10 justify-between items-center px-3 py-2 text-sm w-fit md:w-56 cursor-pointer ${
                       true
                         ? "bg-stone-200 dark:bg-transparent border-r"
                         : "hover:bg-gray-700"
@@ -319,7 +293,7 @@ export function CodeComponent() {
                           }}
                           defaultValue={dbOptions}
                         >
-                          <SelectTrigger className="w-[180px] text-xs h-7 rounded-none">
+                          <SelectTrigger className="w-[80px] md:w-[180px] text-xs h-7 rounded-none">
                             <SelectValue placeholder="Select a adapter" />
                           </SelectTrigger>
                           <SelectContent className="text-xs rounded-none">
@@ -373,14 +347,20 @@ export function CodeComponent() {
                       </div>
                       <CodeSnippet
                         language={fm}
-                        code={parsedContent(example.code["auth"][dbOptions])}
+                        code={parsedNextContent(
+                          example.code["auth"][dbOptions],
+                          enabledComp,
+                        )}
                         key={framework}
                       />
                     </div>
                   ) : (
                     <CodeSnippet
                       language={fm}
-                      code={parsedContent(example.code[getCode(currentPage)])}
+                      code={parsedNextContent(
+                        example.code[getCode(currentPage)],
+                        enabledComp,
+                      )}
                       key={framework}
                     />
                   )}
@@ -391,10 +371,16 @@ export function CodeComponent() {
                     onClick={() => {
                       getCode(currentPage) === "auth"
                         ? copyToClipboard(
-                            parsedContent(example.code["auth"][dbOptions]),
+                            parsedNextContent(
+                              example.code["auth"][dbOptions],
+                              enabledComp,
+                            ),
                           )
                         : copyToClipboard(
-                            parsedContent(example.code[getCode(currentPage)]),
+                            parsedNextContent(
+                              example.code[getCode(currentPage)],
+                              enabledComp,
+                            ),
                           );
                     }}
                   >

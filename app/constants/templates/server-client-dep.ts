@@ -1,4 +1,4 @@
-export const server_dep: Record<string, string[]> = {
+export const serverClientDep: Record<string, string[]> = {
   passKey: [
     "passKeyClient",
     "passKeyServerImport",

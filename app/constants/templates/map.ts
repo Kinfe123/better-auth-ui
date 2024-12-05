@@ -13,7 +13,7 @@ import {
   remeberMeSnippet,
 } from "./file";
 
-export const commentMap: Record<string, string> = {
+export const parserTokenMap: Record<string, string> = {
   socialProviders: `socialProviders: {
 
   }

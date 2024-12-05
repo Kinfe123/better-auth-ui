@@ -1,4 +1,4 @@
-export const UIFunctionDep: Record<string, string[]> = {
+export const actionUIDep: Record<string, string[]> = {
   google: ["googleUI"],
   apple: ["appleUI"],
   github: ["githubUI"],

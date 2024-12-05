@@ -21,18 +21,20 @@ import { useCodeComponent } from "../constants/store";
 import { useComponents } from "@/lib/store";
 import {
   importAndDistructureCleanup,
-  replaceCommentsWithJSX,
+  parseTokens,
 } from "../builder/_components/lib/code-export";
-import { commentMap } from "../constants/templates/map";
+import { parserTokenMap } from "../constants/templates/map";
 import { cx } from "class-variance-authority";
-import { server_dep } from "../constants/templates/server-client-dep";
+import { serverClientDep } from "../constants/templates/server-client-dep";
 import {
+  actionUIDep,
   credentialDep,
   UIFunctionDep,
 } from "../constants/templates/ui-function-dep";
 import { stateMap } from "../constants/templates/state";
 import { twoLevelComment } from "../constants/templates/two-level";
 import { anyBool } from "@/lib/utils";
+import { parsedNextContent } from "@/lib/parser/next";
 export function CodeComponent() {
   const [fmForTree, setFmForTree] = useState("next");
   const [activeTab, setActiveTab] = useState("next");
@@ -151,7 +153,7 @@ export function CodeComponent() {
       ? ["socialProviders"].concat(socialEnabledLists)
       : socialEnabledLists;
 
-    Object.keys(UIFunctionDep).map((dep) => {
+    Object.keys(actionUIDep).map((dep) => {
       if (socialEnabledLists.includes(dep)) {
         socialEnabledLists = [...socialEnabledLists, ...UIFunctionDep[dep]];
       }
@@ -161,9 +163,9 @@ export function CodeComponent() {
       .filter(([comment, enabled]) => enabled)
       .map((curr) => curr[0]);
     // addng otherSignInOptions and the dependencies
-    Object.keys(server_dep).map((dep) => {
+    Object.keys(serverClientDep).map((dep) => {
       if (otherEnabledLists.includes(dep)) {
-        otherEnabledLists = [...otherEnabledLists, ...server_dep[dep]];
+        otherEnabledLists = [...otherEnabledLists, ...serverClientDep[dep]];
       }
     });
 
@@ -184,10 +186,10 @@ export function CodeComponent() {
       ...credentialLists,
     ];
     let cleanedJsx = "";
-    const replacableLists = Object.keys(commentMap);
+    const replacableLists = Object.keys(parserTokenMap);
 
     if (listsOfComments.length === 1) {
-      cleanedJsx = replaceCommentsWithJSX(replacableLists, content, {
+      cleanedJsx = parseTokens(replacableLists, content, {
         eraseAll: true,
       });
     } else {
@@ -201,11 +203,11 @@ export function CodeComponent() {
         cleanedJsx,
         otherEnabledLists.length === 0,
       );
-      cleanedJsx = replaceCommentsWithJSX(listsOfComments, cleanedJsx, {
+      cleanedJsx = parseTokens(listsOfComments, cleanedJsx, {
         eraseAll: false,
       });
 
-      cleanedJsx = replaceCommentsWithJSX(replacableLists, cleanedJsx, {
+      cleanedJsx = parseTokens(replacableLists, cleanedJsx, {
         eraseAll: true,
       });
 
@@ -431,14 +433,20 @@ export function CodeComponent() {
                       </div>
                       <CodeSnippet
                         language={fm}
-                        code={parsedContent(example.code["auth"][dbOptions])}
+                        code={parsedNextContent(
+                          example.code["auth"][dbOptions],
+                          enabledComp,
+                        )}
                         key={framework}
                       />
                     </div>
                   ) : (
                     <CodeSnippet
                       language={fm}
-                      code={parsedContent(example.code[getCode(currentPage)])}
+                      code={parsedNextContent(
+                        example.code[getCode(currentPage)],
+                        enabledComp,
+                      )}
                       key={framework}
                     />
                   )}

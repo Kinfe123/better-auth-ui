@@ -457,10 +457,16 @@ export function CodeComponent() {
                     onClick={() => {
                       getCode(currentPage) === "auth"
                         ? copyToClipboard(
-                            parsedContent(example.code["auth"][dbOptions]),
+                            parsedNextContent(
+                              example.code["auth"][dbOptions],
+                              enabledComp,
+                            ),
                           )
                         : copyToClipboard(
-                            parsedContent(example.code[getCode(currentPage)]),
+                            parsedNextContent(
+                              example.code[getCode(currentPage)],
+                              enabledComp,
+                            ),
                           );
                     }}
                   >

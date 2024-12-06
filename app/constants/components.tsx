@@ -111,7 +111,7 @@ const Login = () => {
   );
 };
 
-export default SimpleUsernameAndPass;
+export default Login;
 
         `,
         signup: `
@@ -146,6 +146,14 @@ export function SignUp() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
+  async function convertImageToBase64(file: File): Promise<string> {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result as string);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+  }
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -157,6 +165,7 @@ export function SignUp() {
       reader.readAsDataURL(file);
     }
   };
+
 
   return (
     <Card className="z-50 rounded-md rounded-t-none max-w-md">
@@ -309,14 +318,6 @@ export function SignUp() {
   );
 }
 
-async function convertImageToBase64(file: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result as string);
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
-}
             `,
         auth: `
 import {

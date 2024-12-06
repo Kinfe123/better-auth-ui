@@ -235,9 +235,6 @@ const Folder = forwardRef<
       openIcon,
       closeIcon,
     } = useTree();
-    console.log({ element, children });
-    const flattenElement = children?.props.elements;
-    console.log({ flattenElement });
     return (
       <AccordionPrimitive.Item
         {...props}

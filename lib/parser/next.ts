@@ -7,7 +7,7 @@ import {
 import { anyBool } from "../utils";
 import { serverClientDep } from "@/app/constants/templates/server-client-dep";
 import { stateMap } from "@/app/constants/templates/state";
-import { parserTokenMap } from "@/app/constants/templates/map";
+import { parserTokenMap } from "@/app/constants/templates/tokenMap";
 import { parseTokens } from "@/app/builder/_components/lib/code-export";
 export const parsedNextContent = (
   content: string,
@@ -69,16 +69,39 @@ export const parsedNextContent = (
       eraseAll: true,
     });
   } else {
+    /*
+    cleaning up import distructuring at the top of the file if not used in file
+
+    e.g
+    import {
+    } from "better-auth/plugins"
+
+    - will be converted to empty string since it is useless putting it there
+    */
     cleanedJsx = importAndDistructureCleanup(
       "noDistructure",
       content,
       otherEnabledLists.length === 0,
     );
+
+    /*
+    cleaning up lists like plugin if not imported in a file
+
+    e.g
+    plugins: [
+    ]
+    - will be converted to empty string since it is useless putting it there
+    */
     cleanedJsx = importAndDistructureCleanup(
       "noLists",
       cleanedJsx,
       otherEnabledLists.length === 0,
     );
+    /*
+
+    parse all token which is '//' and build a string using it using a tokenMap.ts file
+
+    */
     cleanedJsx = parseTokens(listsOfComments, cleanedJsx, {
       eraseAll: false,
     });

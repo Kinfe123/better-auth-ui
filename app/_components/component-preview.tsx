@@ -174,7 +174,7 @@ export function ComponentShowcase({
         </div>
 
         <div className="w-full border-b border-gray-200/50 dark:border-white/10">
-          <div className="w-full md:ml-[-2px] py-2 px-3 bg-transparent flex gap-10 items-center justify-between lg:justify-normal  rounded-none">
+          <div className="w-full md:ml-[-2px]  py-2 px-3  flex gap-10 items-center justify-between lg:justify-normal  rounded-none">
             <Tabs defaultValue="preview" className="w-full">
               <TabsList className=" md:ml-[-5px] data-[state=active]:bg-background items-center justify-between lg:justify-normal bg-tranparent gap-3 w-full lg:w-fit  rounded-none">
                 <TabsTrigger
@@ -194,7 +194,6 @@ export function ComponentShowcase({
                 <div className="flex w-full justify-end items-end lg:hidden">
                   <Select
                     onValueChange={(e) => {
-                      console.log("THe mob val: ", e);
                       handleTabClick(e);
                     }}
                   >
@@ -337,7 +336,7 @@ export function ComponentShowcase({
                   className="flex relative w-full gap-2 min-h-[60vh] "
                   key={framework}
                 >
-                  <div className="sticky w-32 sm:w-48 md:overflow-x-hidden md:w-64 z-20 dark;backdrop-blur-2xl top-0 left-0">
+                  <div className="sticky border w-32 sm:w-48 md:overflow-x-hidden md:w-64 z-20 dark:backdrop-blur-2xl top-0 left-0">
                     <FileTree
                       element={fmForTree}
                       currentPage={currentPage}
@@ -345,7 +344,7 @@ export function ComponentShowcase({
                     />
                   </div>
 
-                  <div className="w-full border-l border-white/10 -mb-6 pb-5 relative flex flex-col -ml-2 h-[70vh] overflow-x-hidden">
+                  <div className="w-full border border-white/10 -mb-6 pb-5 relative flex flex-col -ml-2 h-[70vh] overflow-x-hidden">
                     <div className="w-full h-10 sticky top-0 left-0 bg-transparent border-b border-white/10">
                       <div
                         className={`border-r h-10 border-white/10 top-2 left-0 flex justify-between items-center px-3 py-2 text-sm w-44 cursor-pointer ${

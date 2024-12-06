@@ -57,13 +57,13 @@ export default function AuthBuilder() {
   };
   return (
     <Card className="relative h-full w-full bg-transparent max-w-7xl mx-auto border-t-0 rounded-none">
-      <div className="w-full  border-b-2 border-gray-200/50 dark:border-gray-900/50">
+      <div className="w-full border-l-2 border-b-2 border-gray-200/50 dark:border-gray-900/50">
         <div className="overflow-hidden md:ml-[-2px] bg-transparent flex gap-10 items-center justify-between md:justify-normal  rounded-none">
           <Tabs defaultValue="preview" className="w-full">
             <div className="w-32 md:w-full flex items-center justify-start gap-1">
               <TabsList className=" md:ml-[-5px] data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
                 <TabsTrigger
-                  className="rounded-none py-2 pt-3 ml-[-3px]  data-[state=active]:text-white flex w-full  items-center gap-2 data-[state=active]:bg-stone-900 "
+                  className="rounded-none py-2 pt-[9px] ml-[-3px]  data-[state=active]:text-white flex w-full  items-center gap-2 data-[state=active]:bg-stone-900 "
                   value="preview"
                   onClick={() => {
                     // setIsPrev(true);
@@ -78,7 +78,7 @@ export default function AuthBuilder() {
               </TabsList>
               <TabsList className="md:ml-[-5px] data-[state=active]:bg-background w-full items-center justify-between md:justify-normal bg-tranparent gap-3  md:w-fit  rounded-none">
                 <TabsTrigger
-                  className="rounded-none ml-[-3px] w-full py-2 pt-2 data-[state=active]:text-white flex  items-center gap-2 data-[state=active]:bg-stone-900 "
+                  className="rounded-none ml-[-3px] w-full py-2 pt-[9px] data-[state=active]:text-white flex  items-center gap-2 data-[state=active]:bg-stone-900 "
                   value="code"
                   onClick={() => {
                     // setIsPrev(true);

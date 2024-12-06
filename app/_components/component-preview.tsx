@@ -173,7 +173,7 @@ export function ComponentShowcase({
           </TooltipProvider>
         </div>
 
-        <div className="w-full  border-b-2 border-gray-200/50 dark:border-gray-900/50">
+        <div className="w-full border-b border-gray-200/50 dark:border-white/10">
           <div className="w-full md:ml-[-2px] py-2 px-3 bg-transparent flex gap-10 items-center justify-between lg:justify-normal  rounded-none">
             <Tabs defaultValue="preview" className="w-full">
               <TabsList className=" md:ml-[-5px] data-[state=active]:bg-background items-center justify-between lg:justify-normal bg-tranparent gap-3 w-full lg:w-fit  rounded-none">
@@ -311,7 +311,7 @@ export function ComponentShowcase({
         <Tabs defaultValue="preview" className="w-full ">
           {isPrev && (
             <TabsContent value="preview" className="p-4 gap-2 rounded-none">
-              <main className="border-none overflow-hidden bg-gray-50 dark:bg-gradient-to-tr dark:from-black dark:via-black/90 dark:to-black/90">
+              <main className="border-none overflow-hidden bg-gray-50 dark:bg-gradient-to-tr dark:from-black dark:via-black/95 dark:to-black/90">
                 <div className="flex items-center justify-center p-6 lg:p-8">
                   {component}
                 </div>
@@ -373,7 +373,7 @@ export function ComponentShowcase({
                       <Button
                         variant="outline"
                         size="icon"
-                        className="absolute w-7 h-[27.8px] outline-none rounded-none top-2 right-4"
+                        className="absolute w-7 h-[27.8px] outline-none rounded-none top-[5px] right-4"
                         onClick={() =>
                           copyToClipboard(
                             example.code[getCode(currentPage)],

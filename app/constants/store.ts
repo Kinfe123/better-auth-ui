@@ -4,6 +4,7 @@ const lastName = "lastName";
 interface FileStructure {
   pages: Partial<{
     signin: string;
+    signup: string;
     forgetPassword: string;
     resetPassword: string;
   }>;
@@ -54,11 +55,25 @@ export const metadata = {
 export default function LoginPage() {
   return (
     <>
-      <Login />
+        <Login />
     </>
   );
 }
           `,
+
+        signup: `
+import SignUp from "@/components/signup";
+export const metadata = {
+  title: "SignUp - Better Auth",
+};
+export default function SignUpPage() {
+  return (
+   <>
+      <SignUp />
+   </>
+  );
+}
+            `,
         forgetPassword: "this is",
         resetPassword: "this is the page",
       },
@@ -709,12 +724,11 @@ export const getSession = cache(async () => {
           drizzle: `
 import { betterAuth } from "better-auth";
 import { nextCookies } from "better-auth/next-js";
-import { prismaAdapter } from "better-auth/adapters/prisma";
-import { PrismaClient } from "@prisma/client";
-import { cache } from "react";
+import { cache } from "react"
+import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { db } from "./drizzle";
 import { headers } from "next/headers";
 
-const prisma = new PrismaClient();
 export const auth = betterAuth({
     database: drizzleAdapter(db, {
       provider: "sqlite", // or "pg" or "mysql"

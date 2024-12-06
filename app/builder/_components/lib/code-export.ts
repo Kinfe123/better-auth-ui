@@ -1,4 +1,4 @@
-import { parserTokenMap } from "@/app/constants/templates/map";
+import { parserTokenMap } from "@/app/constants/templates/tokenMap";
 export function parseTokens(
   commentsArray: string[],
   jsxString: string,

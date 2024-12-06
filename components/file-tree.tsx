@@ -92,7 +92,6 @@ const Tree = forwardRef<HTMLDivElement, TreeViewProps>(
         return [...(prev ?? []), id];
       });
     }, []);
-
     const expandSpecificTargetedElements = useCallback(
       (elements?: TreeViewElement[], selectId?: string) => {
         if (!elements || !selectId) return;
@@ -236,7 +235,6 @@ const Folder = forwardRef<
       openIcon,
       closeIcon,
     } = useTree();
-
     return (
       <AccordionPrimitive.Item
         {...props}
@@ -287,9 +285,13 @@ const File = forwardRef<
   HTMLButtonElement,
   {
     currentPage: string;
+    currentSlug: string;
     value: string;
     name: string;
+    slug: string;
+    flattenPath?: string;
     handleSelect?: (id: string) => void;
+    handleSlugSelect?: (id: string) => void;
     isSelectable?: boolean;
     isSelect?: boolean;
     fileIcon?: React.ReactNode;
@@ -305,10 +307,15 @@ const File = forwardRef<
       isSelect,
       fileIcon,
       children,
+      currentSlug,
+      handleSlugSelect,
+      flattenPath,
+      slug,
       ...props
     },
     ref,
   ) => {
+    console.log({ flattenPath });
     const getFileIconByExtension = (fileName: string) => {
       const [_, extension] = fileName.split(".");
       switch (extension) {
@@ -352,12 +359,16 @@ const File = forwardRef<
             className,
           )}
           onClick={() => {
+            if (slug && handleSlugSelect) {
+              handleSlugSelect(slug ?? "");
+            }
             if (name && handleSelect) {
               handleSelect(name);
             }
             selectItem(value);
           }}
         >
+          {" "}
           {getFileIconByExtension(name)}
           {/* {fileIcon ?? <FileIcon className="size-4" />} */}
           {children}

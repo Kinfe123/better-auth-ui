@@ -87,34 +87,30 @@ export function ComponentShowcase({
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
     setIsPrev(false);
+    setFmForTree(tab);
+    setCurrentSlug("login");
     switch (tab) {
       case "next":
-        setFmForTree("next");
         setFm("jsx");
         setCurrentPage("login.tsx");
         break;
       case "react":
-        setFmForTree("react");
         setFm("jsx");
         setCurrentPage("login.tsx");
         break;
       case "svelte":
         setFm("html");
-        setFmForTree("svelte");
         setCurrentPage("login.svelte");
         break;
       case "astro":
         setFm("js");
-        setFmForTree("astro");
         setCurrentPage("login.astro");
         break;
       case "solid":
         setFm("jsx");
-        setFmForTree("solid");
         setCurrentPage("login.tsx");
         break;
       case "nuxt":
-        setFmForTree("nuxt");
         setFm("html");
         setCurrentPage("login.vue");
         break;
@@ -150,6 +146,7 @@ export function ComponentShowcase({
   };
 
   const [currentPage, setCurrentPage] = useState("login.tsx");
+  const [currentSlug, setCurrentSlug] = useState("login");
   function getCode(value: string) {
     const fileName = value.split(".")[0];
     return fileName;
@@ -173,8 +170,8 @@ export function ComponentShowcase({
           </TooltipProvider>
         </div>
 
-        <div className="w-full  border-b-2 border-gray-200/50 dark:border-gray-900/50">
-          <div className="w-full md:ml-[-2px] py-2 px-3 bg-transparent flex gap-10 items-center justify-between lg:justify-normal  rounded-none">
+        <div className="w-full border-b border-gray-200/50 dark:border-white/10">
+          <div className="w-full md:ml-[-2px]  py-2 px-3  flex gap-10 items-center justify-between lg:justify-normal  rounded-none">
             <Tabs defaultValue="preview" className="w-full">
               <TabsList className=" md:ml-[-5px] data-[state=active]:bg-background items-center justify-between lg:justify-normal bg-tranparent gap-3 w-full lg:w-fit  rounded-none">
                 <TabsTrigger
@@ -194,7 +191,6 @@ export function ComponentShowcase({
                 <div className="flex w-full justify-end items-end lg:hidden">
                   <Select
                     onValueChange={(e) => {
-                      console.log("THe mob val: ", e);
                       handleTabClick(e);
                     }}
                   >
@@ -308,10 +304,10 @@ export function ComponentShowcase({
             </Tabs>
           </div>
         </div>
-        <Tabs defaultValue="preview" className="w-full">
+        <Tabs defaultValue="preview" className="w-full ">
           {isPrev && (
             <TabsContent value="preview" className="p-4 gap-2 rounded-none">
-              <main className="border-none overflow-hidden bg-gray-50 dark:bg-gradient-to-tr dark:from-black dark:via-black/90 dark:to-black/90">
+              <main className="border-none overflow-hidden bg-gray-50 dark:bg-gradient-to-tr dark:from-black dark:via-black/95 dark:to-black/90">
                 <div className="flex items-center justify-center p-6 lg:p-8">
                   {component}
                 </div>
@@ -324,7 +320,7 @@ export function ComponentShowcase({
                 defaultFm === framework && (
                   <CodeSnippet
                     language={fm}
-                    code={example.code[getCode(currentPage)]}
+                    code={example.code[currentSlug]}
                     key={framework}
                   />
                 ),
@@ -337,55 +333,62 @@ export function ComponentShowcase({
                   className="flex relative w-full gap-2 min-h-[60vh] "
                   key={framework}
                 >
-                  <div className="sticky w-32 sm:w-48 md:overflow-x-hidden md:w-64 z-20 dark;backdrop-blur-2xl top-0 left-0">
+                  <div className="sticky border w-32 sm:w-48 md:overflow-x-hidden md:w-80 z-20 dark:backdrop-blur-2xl top-0 left-0">
                     <FileTree
+                      currentSlug={currentSlug}
+                      setCurrentSlug={setCurrentSlug}
                       element={fmForTree}
                       currentPage={currentPage}
                       setCurrentPage={setCurrentPage}
                     />
                   </div>
-                  <div className="w-full -ml-2 overflow-x-hidden">
-                    <div
-                      className={` top-2 left-0  flex justify-between items-center px-3 py-2 text-sm w-44 cursor-pointer ${
-                        true
-                          ? "bg-stone-200 dark:bg-stone-900"
-                          : "hover:bg-gray-700"
-                      }`}
-                    >
-                      <div className="flex items-center">
-                        <div className="mr-2">
-                          {getFileIconByExtension(currentPage)}
-                        </div>
-                        <span className="font-mono">{currentPage}</span>
-                      </div>
-                      <button className="ml-2 group p-1 rounded-full hover:bg-stone-600">
-                        <X className="w-3 h-3 dark:group-hover:text-black group-hover:text-white" />
-                      </button>
-                    </div>
-                    <CodeSnippet
-                      language={fm}
-                      code={example.code[getCode(currentPage)]}
-                      key={framework}
-                    />
 
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="absolute rounded-none top-2 right-4"
-                      onClick={() =>
-                        copyToClipboard(
-                          example.code[getCode(currentPage)],
-                          framework as keyof typeof copiedStates,
-                        )
-                      }
-                    >
-                      {copiedStates[framework as keyof typeof copiedStates] ? (
-                        <Check className="h-4 w-4" />
-                      ) : (
-                        <Copy className="h-4 w-4" />
-                      )}
-                      <span className="sr-only">Copy code</span>
-                    </Button>
+                  <div className="w-full border border-white/10 -mb-6 pb-5 relative flex flex-col -ml-2 h-[70vh] overflow-x-hidden">
+                    <div className="w-full h-10 sticky top-0 left-0 bg-transparent border-b border-white/10">
+                      <div
+                        className={`border-r h-10 border-white/10 top-2 left-0 flex justify-between items-center px-3 py-2 text-sm w-44 cursor-pointer ${
+                          true
+                            ? "bg-stone-200 dark:bg-transparent"
+                            : "hover:bg-gray-700"
+                        }`}
+                      >
+                        <div className="flex items-center">
+                          <div className="mr-2">
+                            {getFileIconByExtension(currentPage)}
+                          </div>
+                          <span className="font-mono">{currentPage}</span>
+                        </div>
+                        <button className="ml-2 group p-1 rounded-full hover:bg-stone-600">
+                          <X className="w-3 h-3 dark:group-hover:text-black group-hover:text-white" />
+                        </button>
+                      </div>
+                      <CodeSnippet
+                        language={fm}
+                        code={example.code[currentSlug]}
+                        key={framework}
+                      />
+
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="absolute w-7 h-[27.8px] outline-none rounded-none top-[5px] right-4"
+                        onClick={() =>
+                          copyToClipboard(
+                            example.code[currentSlug],
+                            framework as keyof typeof copiedStates,
+                          )
+                        }
+                      >
+                        {copiedStates[
+                          framework as keyof typeof copiedStates
+                        ] ? (
+                          <Check className="h-1 w-1" />
+                        ) : (
+                          <Copy className="h-1 w-1" />
+                        )}
+                        <span className="sr-only">Copy code</span>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               ),
@@ -403,10 +406,14 @@ import { useComponents } from "@/lib/store";
 export function FileTree({
   element,
   setCurrentPage,
+  setCurrentSlug,
+  currentSlug,
   currentPage,
 }: {
   element: string;
   currentPage: string;
+  currentSlug: string;
+  setCurrentSlug: (value: string) => void;
   setCurrentPage: (value: string) => void;
 }) {
   let FM = null;
@@ -494,8 +501,10 @@ export function FileTree({
         elements={FM}
       >
         <RenderElements
+          currentSlug={currentSlug}
           currentPage={currentPage}
           elements={FM}
+          setCurrentSlug={setCurrentSlug}
           setCurrentPage={setCurrentPage}
         />
       </Tree>

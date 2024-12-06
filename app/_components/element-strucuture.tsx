@@ -9,14 +9,52 @@ import { useComponents } from "@/lib/store";
 export const NEXT_ELEMENTS = [
   {
     id: "1",
+    slug: "src_root",
     isSelectable: true,
     name: "src",
     children: [
       {
         id: "2",
         isSelectable: true,
+        slug: "app_dir",
         name: "app",
         children: [
+          {
+            id: "2.1",
+            slug: "auth_group",
+            isSelectable: true,
+            name: "(auth)",
+            children: [
+              {
+                id: "2.2",
+                slug: "login",
+                isSelectable: true,
+                name: "login",
+                children: [
+                  {
+                    id: "2.3",
+                    slug: "login_page",
+                    isSelectable: true,
+                    name: "page.tsx",
+                  },
+                ],
+              },
+              {
+                id: "2.4",
+                slug: "signup",
+                isSelectable: true,
+                name: "signup",
+                children: [
+                  {
+                    id: "2.5",
+                    slug: "signup_page",
+                    isSelectable: true,
+                    name: "page.tsx",
+                  },
+                ],
+              },
+            ],
+          },
           { id: "3", isSelectable: false, name: "layout.tsx" },
           { id: "4", isSelectable: false, name: "page.tsx" },
         ],
@@ -25,18 +63,35 @@ export const NEXT_ELEMENTS = [
         id: "5",
         isSelectable: true,
         name: "components",
+        slug: "components",
         children: [
-          { id: "6", isSelectable: true, name: "login.tsx" },
-          { id: "7", isSelectable: true, name: "signup.tsx" },
+          {
+            id: "6",
+            isSelectable: true,
+            slug: "login",
+            name: "login.tsx",
+          },
+          {
+            id: "7",
+            isSelectable: true,
+            slug: "signup",
+            name: "signup.tsx",
+          },
         ],
       },
       {
         id: "8",
         isSelectable: true,
         name: "lib",
+        slug: "lib",
         children: [
-          { id: "9", isSelectable: true, name: "client.ts" },
-          { id: "10", isSelectable: true, name: "auth.ts" },
+          {
+            id: "9",
+            isSelectable: true,
+            slug: "client",
+            name: "client.ts",
+          },
+          { id: "10", isSelectable: true, slug: "auth", name: "auth.ts" },
         ],
       },
     ],

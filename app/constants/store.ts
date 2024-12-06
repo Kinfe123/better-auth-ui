@@ -300,6 +300,8 @@ export default function ResetPassword() {
 }
         `,
         signin: `
+"use client"
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -386,7 +388,8 @@ export default function SignIn() {
 }
         `,
         signup: `
-        "use client";
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
 	Card,

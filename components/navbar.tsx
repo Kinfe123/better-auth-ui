@@ -57,7 +57,7 @@ export const navMenu = [
     path: "/",
   },
   {
-    name: "builder",
+    name: "builder_",
     path: "/builder",
   },
 ];

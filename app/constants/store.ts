@@ -355,9 +355,9 @@ export default function SignIn() {
           </div>
             // forgetPassword
             // passwordInput
-          </div>
-          // signInAction
-          // magicLinkAction
+            // rememberMeUI
+            // signInAction
+            // magicLinkAction
           <div className="flex flex-wrap items-center gap-2 w-full">
            // googleUI
            // appleUI

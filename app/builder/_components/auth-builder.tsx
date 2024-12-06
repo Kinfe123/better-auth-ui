@@ -98,13 +98,13 @@ export default function AuthBuilder() {
                     <div className="space-y-6">
                       <div>
                         <h1 className="text-2xl font-semibold mb-1">
-                          Build you own{" "}
-                          <span className="font-mono">{"<SignIn />"} </span>and{" "}
+                          Create your own{" "}
+                          <span className="font-mono">{"<SignIn />"} </span>{" "}
                           Component.
                         </h1>
                         <p className="text-sm text-muted-foreground">
-                          You can configure anything you want for build your
-                          auth component.
+                          Configure the sign in box to your liking and copy the
+                          code to your application
                         </p>
                       </div>
 
@@ -190,7 +190,7 @@ export default function AuthBuilder() {
                           </div>
                           <div className="space-y-4 ">
                             <Label className="font-mono text-gray-200 uppercase block mt-4">
-                              Additional Credential
+                              Additional On Credential
                             </Label>
                             <hr className="text-gray-300" />
                             <div className="pr-4 space-y-4">

@@ -55,6 +55,17 @@ export const parserTokenMap: Record<string, string> = {
                 />
             </div>
   `,
+  rememberMeUI: `
+           <div className="flex items-center gap-2">
+                <Checkbox
+                    onClick={() => {
+                        setRememberMe(!rememberMe);
+                    }}
+                />
+               <Label>Remember me</Label>
+            </div>
+  `,
+
   signInAction: `
             <Button
               type="submit"
@@ -245,62 +256,62 @@ export const parserTokenMap: Record<string, string> = {
   `,
   facebook: `
       facebook: {
-           clientId: process.env.FACEBOOK_CLIENT_ID as string,
-           clientSecret: process.env.FACEBOOK_CLIENT_SECRET as string,
+           clientId: process.env.FACEBOOK_CLIENT_ID!,
+           clientSecret: process.env.FACEBOOK_CLIENT_SECRET!,
       },
   `,
   twitch: `
       twitch: {
-           clientId: process.env.TWITCH_CLIENT_ID as string,
-           clientSecret: process.env.TWITCH_CLIENT_SECRET as string,
+           clientId: process.env.TWITCH_CLIENT_ID!,
+           clientSecret: process.env.TWITCH_CLIENT_SECRET!,
        },
   `,
   twitter: `
       twitter: {
-           clientId: process.env.TWITTER_CLIENT_ID as string,
-           clientSecret: process.env.TWITTER_CLIENT_SECRET as string,
+           clientId: process.env.TWITTER_CLIENT_ID!,
+           clientSecret: process.env.TWITTER_CLIENT_SECRET!,
       },
     `,
   apple: `
         apple: {
-             clientId: process.env.APPLE_CLIENT_ID as string,
-             clientSecret: process.env.APPLE_CLIENT_SECRET as string,
+             clientId: process.env.APPLE_CLIENT_ID! ,
+             clientSecret: process.env.APPLE_CLIENT_SECRET!,
          },
     `,
   microsoft: `
       microsoft: {
-            clientId: process.env.MICROSOFT_CLIENT_ID as string,
-            clientSecret: process.env.MICROSOFT_CLIENT_SECRET as string,
+            clientId: process.env.MICROSOFT_CLIENT_ID!,
+            clientSecret: process.env.MICROSOFT_CLIENT_SECRET!,
       },
       `,
   spotify: `
       spotify: {
-            clientId: process.env.SPOTIFY_CLIENT_ID as string,
-            clientSecret: process.env.SPOTIFY_CLIENT_SECRET as string,
+            clientId: process.env.SPOTIFY_CLIENT_ID! ,
+            clientSecret: process.env.SPOTIFY_CLIENT_SECRET!,
       },
             `,
   gitlab: `
       gitlab: {
-            clientId: process.env.GITLAB_CLIENT_ID as string,
-            clientSecret: process.env.GITLAB_CLIENT_SECRET as string,
+            clientId: process.env.GITLAB_CLIENT_ID!,
+            clientSecret: process.env.GITLAB_CLIENT_SECRET!,
       },
             `,
   dropbox: `
       dropbox: {
-             clientId: process.env.DROPBOX_CLIENT_ID as string,
-             clientSecret: process.env.DROPBOX_CLIENT_SECRET as string,
+             clientId: process.env.DROPBOX_CLIENT_ID!,
+             clientSecret: process.env.DROPBOX_CLIENT_SECRET!,
       },
             `,
   linkedin: `
       linkedin: {
-            clientId: process.env.LINKEDIN_CLIENT_ID as string,
-            clientSecret: process.env.LINKEDIN_CLIENT_SECRET as string,
+            clientId: process.env.LINKEDIN_CLIENT_ID!,
+            clientSecret: process.env.LINKEDIN_CLIENT_SECRET!,
       },
             `,
   discord: `
        discord: {
-            clientId: process.env.DISCORD_CLIENT_ID as string,
-            clientSecret: process.env.DISCORD_CLIENT_SECRET as string,
+            clientId: process.env.DISCORD_CLIENT_ID!,
+            clientSecret: process.env.DISCORD_CLIENT_SECRET!,
       },
       `,
 };

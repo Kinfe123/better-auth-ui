@@ -12,5 +12,5 @@ export const actionUIDep: Record<string, string[]> = {
   twitter: ["twitterUI"],
 };
 export const credentialDep: Record<string, string[]> = {
-  enabled: ["passwordInput"],
+  enabled: ["passwordInput", "passwordState", "loadingState"],
 };

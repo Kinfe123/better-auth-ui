@@ -1,4 +1,3 @@
-import { authOptions } from "@/app/builder/_components/lib/auth-options";
 import {
   forgetPasswordSnippet,
   MagicLinkClientImport,
@@ -23,6 +22,12 @@ export const parserTokenMap: Record<string, string> = {
   rememberMeState: `
   const [rememberMe, setRememberMe] = useState(false);
     `,
+  loadingState: `
+  const [loading, setLoading] = useState(false);
+    `,
+  passwordState: `
+  const [password, setPassword] = useState("");
+        `,
   rememberMeValue: `
                       rememberMe`,
   empty: `// newLine`,

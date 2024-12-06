@@ -326,10 +326,10 @@ import { useState } from "react";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // passwordState
   // rememberMeState
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
+  // loadingState
   return (
     <Card className="z-50 rounded-md rounded-t-none max-w-md">
       <CardHeader>

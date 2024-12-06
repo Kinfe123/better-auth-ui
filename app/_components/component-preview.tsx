@@ -348,7 +348,7 @@ export function ComponentShowcase({
                   <div className="w-full border-l border-white/10 -mb-6 pb-5 relative flex flex-col -ml-2 h-[70vh] overflow-x-hidden">
                     <div className="w-full h-10 sticky top-0 left-0 bg-transparent border-b border-white/10">
                       <div
-                        className={`border-r border-white/10 top-2 left-0 flex justify-between items-center px-3 py-2 text-sm w-44 cursor-pointer ${
+                        className={`border-r h-10 border-white/10 top-2 left-0 flex justify-between items-center px-3 py-2 text-sm w-44 cursor-pointer ${
                           true
                             ? "bg-stone-200 dark:bg-transparent"
                             : "hover:bg-gray-700"

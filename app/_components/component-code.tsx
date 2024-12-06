@@ -368,6 +368,7 @@ export function CodeComponent() {
                     size="icon"
                     className="absolute rounded-none outline-none w-7 h-[27.8px] top-[5px] right-4"
                     onClick={() => {
+                      // @ts-expect-error ts is not smart
                       getCode(currentPage) === "auth"
                         ? copyToClipboard(
                             parsedNextContent(

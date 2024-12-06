@@ -6,19 +6,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { anyBool } from "@/lib/utils";
-import {
-  ArrowLeft,
-  Layout,
-  PhoneCall,
-  Users2,
-  Code2,
-  Mail,
-  TwitchIcon,
-  LucideTwitch,
-  Lock,
-  Calendar,
-  InfoIcon,
-} from "lucide-react";
+import { Layout, Code2, InfoIcon } from "lucide-react";
 
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
@@ -26,7 +14,6 @@ import { ComponentRender } from "./component-render";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import { CodeComponent } from "@/app/_components/component-code";
-import { Icons } from "@/components/icons";
 import { EnabledComponent, useComponents } from "@/lib/store";
 import { useEffect } from "react";
 import { authOptions } from "./lib/auth-options";

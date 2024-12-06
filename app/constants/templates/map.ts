@@ -15,7 +15,6 @@ import {
 
 export const parserTokenMap: Record<string, string> = {
   socialProviders: `socialProviders: {
-
   }
  `,
   forgetPassword: forgetPasswordSnippet,
@@ -28,7 +27,6 @@ export const parserTokenMap: Record<string, string> = {
                       rememberMe`,
   empty: `// newLine`,
   newLine: `
-
  \n
  \n
   `,
@@ -38,10 +36,10 @@ export const parserTokenMap: Record<string, string> = {
   passKeyServer: PassKeyServerSnippet,
   magicLinkServerImport: MagicLinkServerImport,
   magicLinkServer: MagicLinkServerSnippet,
-    magicLinkClient: MagicLinkClientSnippet,
-    magicLinkClientImport: MagicLinkClientImport,
-    passKeyClient: PassKeyClientSnippet,
-    passwordInput: `
+  magicLinkClient: MagicLinkClientSnippet,
+  magicLinkClientImport: MagicLinkClientImport,
+  passKeyClient: PassKeyClientSnippet,
+  passwordInput: `
             <div className="grid gap-2">
                 <Input
                     id="password"
@@ -52,7 +50,7 @@ export const parserTokenMap: Record<string, string> = {
                 />
             </div>
   `,
-    signInAction: `
+  signInAction: `
             <Button
               type="submit"
               className="w-full"

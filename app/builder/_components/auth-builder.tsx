@@ -65,10 +65,6 @@ export default function AuthBuilder() {
                 <TabsTrigger
                   className="rounded-none py-2 pt-[9px] ml-[-3px]  data-[state=active]:text-white flex w-full  items-center gap-2 data-[state=active]:bg-stone-900 "
                   value="preview"
-                  onClick={() => {
-                    // setIsPrev(true);
-                    // setActiveTab("preview");
-                  }}
                 >
                   <Layout className="w-4 h-4" />
                   <span className="py-1 flex items-center justify-center">
@@ -80,10 +76,6 @@ export default function AuthBuilder() {
                 <TabsTrigger
                   className="rounded-none ml-[-3px] w-full py-2 pt-[9px] data-[state=active]:text-white flex  items-center gap-2 data-[state=active]:bg-stone-900 "
                   value="code"
-                  onClick={() => {
-                    // setIsPrev(true);
-                    // setActiveTab("preview");
-                  }}
                 >
                   <Code2 className="w-4 h-4" />
                   <span className="py-1 flex items-center justify-center">

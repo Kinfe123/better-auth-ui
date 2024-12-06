@@ -40,11 +40,14 @@ export function CodeComponent() {
   const [activeTab, setActiveTab] = useState("next");
   const [fm, setFm] = useState("jsx");
   const [currentPage, setCurrentPage] = useState("login.tsx");
+  const [currentSlug, setCurrentSlug] = useState("login");
   const { code } = useCodeComponent();
   const { enabledComp } = useComponents();
   const [dbOptions, setDbOptions] = useState("prisma");
   const [copiedStates, setCopiedStates] = useState(false);
   const nextCode = {
+    login_page: code.next?.pages.signin,
+    signup_page: code.next?.pages.signup,
     login: code.next?.components.signin,
     signup: code.next?.components.signup,
     auth: code.next?.files.auth,
@@ -104,25 +107,31 @@ export function CodeComponent() {
       case "next":
         setFm("jsx");
         setCurrentPage("login.tsx");
+        setCurrentSlug("login");
         break;
       case "react":
         setFm("jsx");
         setCurrentPage("login.tsx");
+        setCurrentSlug("login");
         break;
       case "svelte":
         setFm("html");
         setCurrentPage("login.svelte");
+        setCurrentSlug("login");
         break;
       case "astro":
         setFm("js");
         setCurrentPage("login.astro");
+        setCurrentSlug("login");
         break;
       case "solid":
         setFm("jsx");
+        setCurrentSlug("login");
         setCurrentPage("login.tsx");
         break;
       case "nuxt":
         setFm("html");
+        setCurrentSlug("login");
         setCurrentPage("login.vue");
         break;
       default:
@@ -258,12 +267,14 @@ export function CodeComponent() {
             >
               <div className="sticky w-48 sm:w-56 md:w-80 z-20 dark:backdrop-blur-2xl top-0 left-0">
                 <FileTree
+                  currentSlug={currentSlug}
+                  setCurrentSlug={setCurrentSlug}
                   element={fmForTree}
                   currentPage={currentPage}
                   setCurrentPage={setCurrentPage}
                 />
               </div>
-              <div className="w-full relative flex flex-col -ml-2 h-[70vh] overflow-x-hidden">
+              <div className="w-full relative flex flex-col -ml-2 mb-12 h-[70vh] pb-10 overflow-x-hidden">
                 <div className="w-full h-10 sticky top-0 left-0 bg-transparent border-b">
                   <div
                     className={`top-2 left-0 flex h-10 justify-between items-center px-3 py-2 text-sm w-fit md:w-56 cursor-pointer ${
@@ -357,7 +368,7 @@ export function CodeComponent() {
                     <CodeSnippet
                       language={fm}
                       code={parsedNextContent(
-                        example.code[getCode(currentPage)],
+                        example.code[currentSlug],
                         enabledComp,
                       )}
                       key={framework}

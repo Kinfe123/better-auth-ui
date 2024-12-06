@@ -4,6 +4,7 @@ const lastName = "lastName";
 interface FileStructure {
   pages: Partial<{
     signin: string;
+    signup: string;
     forgetPassword: string;
     resetPassword: string;
   }>;
@@ -54,11 +55,25 @@ export const metadata = {
 export default function LoginPage() {
   return (
     <>
-      <Login />
+        <Login />
     </>
   );
 }
           `,
+
+        signup: `
+  import SignUp from "@/components/signup";
+  export const metadata = {
+    title: "SignUp - Better Auth",
+  };
+  export default function SignUpPage() {
+    return (
+      <>
+        <SignUp />
+      </>
+    );
+  }
+            `,
         forgetPassword: "this is",
         resetPassword: "this is the page",
       },

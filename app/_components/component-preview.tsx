@@ -407,10 +407,14 @@ import { useComponents } from "@/lib/store";
 export function FileTree({
   element,
   setCurrentPage,
+  setCurrentSlug,
+  currentSlug,
   currentPage,
 }: {
   element: string;
   currentPage: string;
+  currentSlug: string;
+  setCurrentSlug: (value: string) => void;
   setCurrentPage: (value: string) => void;
 }) {
   let FM = null;
@@ -498,8 +502,10 @@ export function FileTree({
         elements={FM}
       >
         <RenderElements
+          currentSlug={currentSlug}
           currentPage={currentPage}
           elements={FM}
+          setCurrentSlug={setCurrentSlug}
           setCurrentPage={setCurrentPage}
         />
       </Tree>

@@ -62,17 +62,17 @@ export default function LoginPage() {
           `,
 
         signup: `
-  import SignUp from "@/components/signup";
-  export const metadata = {
-    title: "SignUp - Better Auth",
-  };
-  export default function SignUpPage() {
-    return (
-      <>
-        <SignUp />
-      </>
-    );
-  }
+import SignUp from "@/components/signup";
+export const metadata = {
+  title: "SignUp - Better Auth",
+};
+export default function SignUpPage() {
+  return (
+   <>
+      <SignUp />
+   </>
+  );
+}
             `,
         forgetPassword: "this is",
         resetPassword: "this is the page",

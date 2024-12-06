@@ -292,7 +292,9 @@ export default function AuthBuilder() {
                                                 ...enabledComp,
                                                 credentials: {
                                                   ...enabledComp.credentials,
-                                                  enabled: false,
+                                                  enabled:
+                                                    !enabledComp.credentials
+                                                      .enabled,
                                                 },
                                                 additionals: {
                                                   forgetPassword: {

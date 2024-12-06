@@ -724,12 +724,11 @@ export const getSession = cache(async () => {
           drizzle: `
 import { betterAuth } from "better-auth";
 import { nextCookies } from "better-auth/next-js";
-import { prismaAdapter } from "better-auth/adapters/prisma";
-import { PrismaClient } from "@prisma/client";
-import { cache } from "react";
+import { cache } from "react"
+import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { db } from "./drizzle";
 import { headers } from "next/headers";
 
-const prisma = new PrismaClient();
 export const auth = betterAuth({
     database: drizzleAdapter(db, {
       provider: "sqlite", // or "pg" or "mysql"

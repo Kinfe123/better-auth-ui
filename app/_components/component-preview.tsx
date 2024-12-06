@@ -87,34 +87,30 @@ export function ComponentShowcase({
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
     setIsPrev(false);
+    setFmForTree(tab);
+    setCurrentSlug("login");
     switch (tab) {
       case "next":
-        setFmForTree("next");
         setFm("jsx");
         setCurrentPage("login.tsx");
         break;
       case "react":
-        setFmForTree("react");
         setFm("jsx");
         setCurrentPage("login.tsx");
         break;
       case "svelte":
         setFm("html");
-        setFmForTree("svelte");
         setCurrentPage("login.svelte");
         break;
       case "astro":
         setFm("js");
-        setFmForTree("astro");
         setCurrentPage("login.astro");
         break;
       case "solid":
         setFm("jsx");
-        setFmForTree("solid");
         setCurrentPage("login.tsx");
         break;
       case "nuxt":
-        setFmForTree("nuxt");
         setFm("html");
         setCurrentPage("login.vue");
         break;
@@ -150,6 +146,7 @@ export function ComponentShowcase({
   };
 
   const [currentPage, setCurrentPage] = useState("login.tsx");
+  const [currentSlug, setCurrentSlug] = useState("login");
   function getCode(value: string) {
     const fileName = value.split(".")[0];
     return fileName;
@@ -323,7 +320,7 @@ export function ComponentShowcase({
                 defaultFm === framework && (
                   <CodeSnippet
                     language={fm}
-                    code={example.code[getCode(currentPage)]}
+                    code={example.code[currentSlug]}
                     key={framework}
                   />
                 ),
@@ -338,6 +335,8 @@ export function ComponentShowcase({
                 >
                   <div className="sticky border w-32 sm:w-48 md:overflow-x-hidden md:w-64 z-20 dark:backdrop-blur-2xl top-0 left-0">
                     <FileTree
+                      currentSlug={currentSlug}
+                      setCurrentSlug={setCurrentSlug}
                       element={fmForTree}
                       currentPage={currentPage}
                       setCurrentPage={setCurrentPage}
@@ -365,7 +364,7 @@ export function ComponentShowcase({
                       </div>
                       <CodeSnippet
                         language={fm}
-                        code={example.code[getCode(currentPage)]}
+                        code={example.code[currentSlug]}
                         key={framework}
                       />
 
@@ -375,7 +374,7 @@ export function ComponentShowcase({
                         className="absolute w-7 h-[27.8px] outline-none rounded-none top-[5px] right-4"
                         onClick={() =>
                           copyToClipboard(
-                            example.code[getCode(currentPage)],
+                            example.code[currentSlug],
                             framework as keyof typeof copiedStates,
                           )
                         }

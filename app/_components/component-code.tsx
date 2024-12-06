@@ -137,7 +137,6 @@ export function CodeComponent() {
           <div className="flex w-full justify-end items-end lg:hidden">
             <Select
               onValueChange={(e) => {
-                console.log("THe mob val: ", e);
                 handleTabClick(e);
               }}
             >
@@ -257,7 +256,7 @@ export function CodeComponent() {
               className="flex relative w-full gap-2 min-h-[60vh] "
               key={framework}
             >
-              <div className="sticky w-48 sm:w-56 md:w-80 z-20 dark;backdrop-blur-2xl top-0 left-0">
+              <div className="sticky w-48 sm:w-56 md:w-80 z-20 dark:backdrop-blur-2xl top-0 left-0">
                 <FileTree
                   element={fmForTree}
                   currentPage={currentPage}

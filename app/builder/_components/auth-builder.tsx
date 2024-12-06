@@ -44,7 +44,7 @@ export default function AuthBuilder() {
     status: boolean,
     category: authOptionTypes,
   ) => {
-    let disabledStatus = status;
+    let disabledStatus = false;
     if (currOption in disablityStatusRelation) {
       const deps = disablityStatusRelation[currOption];
       const categories = enabledComp[category];

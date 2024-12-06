@@ -12,6 +12,32 @@ export const previewComponent = [
 
     code: {
       next: {
+        login_page: `
+import Login from "@/components/login";
+export const metadata = {
+  title: "Login - Better Auth",
+};
+export default function LoginPage() {
+  return (
+    <>
+        <Login />
+    </>
+  );
+}
+`,
+        signup_page: `
+import SignUp from "@/components/signup";
+  export const metadata = {
+    title: "SignUp - Better Auth",
+  };
+  export default function SignUpPage() {
+    return (
+      <>
+        <SignUp />
+      </>
+    );
+  }
+`,
         login: `
 import { useState } from "react";
 import { Button } from "@/components/ui/button";

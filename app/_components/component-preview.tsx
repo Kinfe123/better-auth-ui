@@ -333,7 +333,7 @@ export function ComponentShowcase({
                   className="flex relative w-full gap-2 min-h-[60vh] "
                   key={framework}
                 >
-                  <div className="sticky border w-32 sm:w-48 md:overflow-x-hidden md:w-64 z-20 dark:backdrop-blur-2xl top-0 left-0">
+                  <div className="sticky border w-32 sm:w-48 md:overflow-x-hidden md:w-80 z-20 dark:backdrop-blur-2xl top-0 left-0">
                     <FileTree
                       currentSlug={currentSlug}
                       setCurrentSlug={setCurrentSlug}

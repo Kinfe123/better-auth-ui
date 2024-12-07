@@ -331,17 +331,6 @@ export const auth = betterAuth({
             // Send an email to the user with a link to reset their password
         },
     },
-    socialProviders: {
-        google: {
-            clientId: process.env.GOOGLE_CLIENT_ID,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET
-        },
-        github: {
-            clientId: process.env.GITHUB_CLIENT_ID,
-            clientSecret: process.env.GITHUB_CLIENT_SECRET
-        }
-    },
-
     /** if no database is provided, the user data will be stored in memory.
      * Make sure to provide a database to persist user data **/
 });
@@ -349,31 +338,8 @@ export const auth = betterAuth({
                   `,
         client: `
 import { createAuthClient } from "better-auth/react";
-import {
-	organizationClient,
-	passkeyClient,
-	twoFactorClient,
-	adminClient,
-	multiSessionClient,
-	oneTapClient,
-} from "better-auth/client/plugins";
-import { toast } from "sonner";
 
 export const client = createAuthClient({
-	plugins: [
-		organizationClient(),
-		twoFactorClient({
-			onTwoFactorRedirect() {
-				window.location.href = "/two-factor";
-			},
-		}),
-		passkeyClient(),
-		adminClient(),
-		multiSessionClient(),
-		oneTapClient({
-			clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!,
-		}),
-	],
 	fetchOptions: {
 		onError(e) {
 			if (e.error.status === 429) {

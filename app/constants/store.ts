@@ -576,6 +576,19 @@ export function SignUp() {
 							"Create an account"
 						)}
 					</Button>
+					<div className="flex flex-wrap items-center gap-2 w-full">
+           // googleUI
+           // appleUI
+           // facebookUI
+           // microsoftUI
+           // discordUI
+           // twitterUI
+           // githubUI
+           // dropboxUI
+           // gitlabUI
+           // spotifyUI
+           // linkedinUI
+           </div>
 					<div className="flex items-center gap-2">
 						<Button
 							variant="outline"

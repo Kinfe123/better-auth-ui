@@ -15,7 +15,7 @@ export const Navbar = () => {
           <div className="flex flex-col gap-2 w-full">
             <div className="flex items-center gap-2">
               <Logo />
-              <p className="text-sm md:text-inherit">BETTER-AUTH.</p>{" "}
+              <p className="text-sm md:text-inherit">BETTER-AUTH UI.</p>{" "}
             </div>
           </div>
         </Link>

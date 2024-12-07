@@ -3,7 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/provider";
 import { Navbar } from "@/components/navbar";
-
+import { metadata as mt } from "@/meta";
+const { title, description, ogImage } = mt;
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -16,10 +17,26 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Better Auth UI",
-  description:
-    "Explore a tuned auth UI that you can copy / paste with better-auth features and capabilities",
-  ogImage: "https;//better-auth.farmui.com/og.png",
+  title,
+  description,
+  ogImage,
+  openGraph: {
+    title,
+    description,
+    images: [
+      {
+        url: ogImage,
+      },
+    ],
+    url: "https://better-auth.farmui.com",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [ogImage],
+    creator: "@kinfishT",
+  },
 };
 
 export default function RootLayout({

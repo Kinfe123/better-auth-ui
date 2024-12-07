@@ -19,7 +19,6 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title,
   description,
-  ogImage,
   openGraph: {
     title,
     description,

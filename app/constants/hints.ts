@@ -14,3 +14,9 @@ export const hintsText: HintText = {
     credential: "Please turn off credential to enable magic link.",
   },
 };
+export const hintTextWithString: Record<string, any> = {
+  yetGroup: {
+    phoneNumber: "Phone number will be updated soon.",
+    username: "Username will be updated soon.",
+  },
+};

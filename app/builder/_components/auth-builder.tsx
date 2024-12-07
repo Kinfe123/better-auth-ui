@@ -17,7 +17,7 @@ import { CodeComponent } from "@/app/_components/component-code";
 import { EnabledComponent, useComponents } from "@/lib/store";
 import { useEffect } from "react";
 import { authOptions } from "./lib/auth-options";
-import { hintsText } from "@/app/constants/hints";
+import { hintsText, hintTextWithString } from "@/app/constants/hints";
 import { disablityStatusRelation } from "@/lib/disable-relation";
 
 type additionalAuthType = (typeof authOptions)["additionals"];
@@ -125,6 +125,25 @@ export default function AuthBuilder() {
                                         </span>
                                       </div>
                                       <div className="flex items-center gap-2">
+                                        {cred in
+                                          hintTextWithString["yetGroup"] && (
+                                          <TooltipProvider delayDuration={50}>
+                                            <Tooltip>
+                                              <TooltipTrigger asChild>
+                                                <InfoIcon className="w-3 h-3" />
+                                              </TooltipTrigger>
+                                              <TooltipContent className="bg-black text-white">
+                                                <p>
+                                                  {
+                                                    hintTextWithString[
+                                                      "yetGroup"
+                                                    ][cred]
+                                                  }
+                                                </p>
+                                              </TooltipContent>
+                                            </Tooltip>
+                                          </TooltipProvider>
+                                        )}
                                         {anyBool([
                                           enabledComp.otherSignIn.magicLink!,
                                         ]) &&
@@ -150,7 +169,9 @@ export default function AuthBuilder() {
                                           )}
                                         <Switch
                                           disabled={
-                                            enabledComp.otherSignIn.magicLink
+                                            enabledComp.otherSignIn.magicLink ||
+                                            cred in
+                                              hintTextWithString["yetGroup"]
                                           }
                                           onCheckedChange={(e) => {
                                             updateEnabledComponent({

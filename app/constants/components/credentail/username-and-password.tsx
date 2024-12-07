@@ -17,7 +17,7 @@ export const SimpleUsernameAndPass = () => {
         <p className="mt-1 text-sm/5 dark:text-gray-300 text-gray-600">
           Sign in to your account to continue.
         </p>
-        <div className="mt-8 space-y-3">
+        <div className="mt-6 space-y-2">
           <Label className="text-sm/5 font-medium">Email</Label>
           <Input
             required
@@ -30,7 +30,7 @@ export const SimpleUsernameAndPass = () => {
             )}
           />
         </div>
-        <div className="mt-8 space-y-3">
+        <div className="mt-6 space-y-2">
           <Label className="text-sm/5 font-medium">Password</Label>
           <Input
             required
@@ -43,7 +43,7 @@ export const SimpleUsernameAndPass = () => {
             )}
           />
         </div>
-        <div className="mt-8 ">
+        <div className="mt-6 ">
           <Button type="submit" className="w-full">
             Sign in
           </Button>

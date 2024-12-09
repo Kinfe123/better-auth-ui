@@ -55,7 +55,7 @@ export const metadata = {
 export default function LoginPage() {
   return (
     <>
-        <Login />
+      <Login />
     </>
   );
 }
@@ -68,9 +68,9 @@ export const metadata = {
 };
 export default function SignUpPage() {
   return (
-   <>
+    <>
       <SignUp />
-   </>
+    </>
   );
 }
             `,
@@ -326,7 +326,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function SignIn() {
+const LogIn = () => {
   const [email, setEmail] = useState("");
   // passwordState
   // rememberMeState
@@ -386,6 +386,7 @@ export default function SignIn() {
     </Card>
   );
 }
+export default Login
         `,
         signup: `
 "use client";
@@ -410,7 +411,7 @@ import { Loader2, X } from "lucide-react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
-export function SignUp() {
+const SignUp = () => {
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
@@ -684,6 +685,7 @@ export function SignUp() {
 	);
 }
 
+export default SignUp
 
         `,
       },

@@ -317,7 +317,7 @@ const SignUp = () => {
     </Card>
   );
 }
-export default SignUp
+export default SignUp;
 
             `,
         auth: `

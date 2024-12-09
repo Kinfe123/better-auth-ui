@@ -406,6 +406,8 @@ import { useComponents } from "@/lib/store";
 export function FileTree({
   element,
   currentPage,
+  currentSlug,
+  setCurrentSlug,
   setCurrentPage,
 }: {
   element: string;

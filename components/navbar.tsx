@@ -32,7 +32,7 @@ export const Navbar = () => {
               </NavLink>
             ))}
             <Link
-              href="https://github.com/better-auth/better-auth"
+              href="https://github.com/Kinfe123/better-auth-ui"
               className=" bg-muted/20 border-l ring-0 rounded-none h-14 w-14 shrink-0 flex justify-center items-center"
               target="_blank"
             >
@@ -58,7 +58,7 @@ export const Navbar = () => {
 
 export const navMenu = [
   {
-    name: "helo_",
+    name: "ui_",
     path: "/",
   },
   {

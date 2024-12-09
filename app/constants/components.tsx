@@ -10,14 +10,14 @@ export const previewComponent = [
     code: {
       next: {
         login_page: `
-import Login from "@/components/login";
+import LogIn from "@/components/login";
 export const metadata = {
   title: "Login - Better Auth",
 };
 export default function LoginPage() {
   return (
     <>
-      <Login />
+      <LogIn />
     </>
   );
 }
@@ -46,7 +46,7 @@ import { signIn } from "@/lib/client";
 import Link from "next/link";
 import clsx from "clsx";
 
-const Login = () => {
+const LogIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -111,7 +111,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LogIn;
 
         `,
         signup: `

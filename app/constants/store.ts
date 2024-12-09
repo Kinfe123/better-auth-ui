@@ -48,14 +48,14 @@ export const useCodeComponent = create<Codeblocks>((set) => ({
     next: {
       pages: {
         signin: `
-import Login from "@/components/login";
+import LogIn from "@/components/login";
 export const metadata = {
   title: "Login - Better Auth",
 };
 export default function LoginPage() {
   return (
     <>
-      <Login />
+      <LogIn />
     </>
   );
 }
@@ -386,7 +386,7 @@ const LogIn = () => {
     </Card>
   );
 }
-export default Login
+export default LogIn
         `,
         signup: `
 "use client";

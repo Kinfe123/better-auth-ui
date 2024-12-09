@@ -385,9 +385,9 @@ export function CodeComponent() {
                               example.code["auth"][dbOptions],
                               enabledComp,
                             )
-                          : parsednextcontent(
-                              example.code[currentslug],
-                              enabledcomp,
+                          : parsedNextContent(
+                              example.code[currentSlug],
+                              enabledComp,
                             ),
                       );
                     }}

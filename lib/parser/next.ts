@@ -22,7 +22,7 @@ export const parsedNextContent = (
       ? credentialDep["enabled"]
       : [];
   let socialEnabledLists = Object.entries(enabledComp.socials)
-    .filter(([comment, enabled]) => enabled)
+    .filter(([_, enabled]) => enabled)
     .map((curr) => curr[0]);
 
   socialEnabledLists = socialEnabledLists.length
@@ -34,9 +34,8 @@ export const parsedNextContent = (
       socialEnabledLists = [...socialEnabledLists, ...actionUIDep[dep]];
     }
   });
-  console.log({ socialEnabledLists });
   let otherEnabledLists = Object.entries(enabledComp.otherSignIn)
-    .filter(([comment, enabled]) => enabled)
+    .filter(([_, enabled]) => enabled)
     .map((curr) => curr[0]);
   // addng otherSignInOptions and the dependencies
   Object.keys(serverClientDep).map((dep) => {
@@ -109,8 +108,6 @@ export const parsedNextContent = (
     cleanedJsx = parseTokens(replacableLists, cleanedJsx, {
       eraseAll: true,
     });
-
-    console.log({ cleanedJsx });
   }
   return cleanedJsx;
 };

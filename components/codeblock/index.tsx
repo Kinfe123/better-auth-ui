@@ -1,8 +1,6 @@
 "use client";
 import { CodeBlock } from "react-code-block";
 import { themes } from "prism-react-renderer";
-import prettier from "prettier";
-import { useEffect, useState } from "react";
 export const CodeSnippet = ({
   code,
   language = "jsx",
@@ -10,7 +8,6 @@ export const CodeSnippet = ({
   code: string;
   language?: string;
 }) => {
-  const [formattedCode, setFormattedCode] = useState("");
   return (
     <pre className="relative">
       <CodeBlock code={code} language={language} theme={themes.oneDark}>

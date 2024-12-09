@@ -175,16 +175,16 @@ export const parserTokenMap: Record<string, string> = {
          `,
 
   twitterContinueUI: `
-                   <Button
-                         variant="outline"
-                         className="gap-2 flex-1 w-full py-4"
-                         onClick={async () => {
-                             await client.signIn.social({
-                                provider: "twitter"
-                            })
-                      >
+                <Button
+                    variant="outline"
+                    className="gap-2 flex-1 w-full py-4"
+                    onClick={async () => {
+                        await client.signIn.social({
+                            provider: "twitter"
+                    })
+                  >
                    Continue with Twitter
-                </Button>
+              </Button>
                   `,
   appleUI: `
           <Button

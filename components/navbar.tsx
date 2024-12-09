@@ -15,7 +15,12 @@ export const Navbar = () => {
           <div className="flex flex-col gap-2 w-full">
             <div className="flex items-center gap-2">
               <Logo />
-              <p className="text-sm md:text-inherit">BETTER-AUTH UI.</p>{" "}
+              <p className="text-sm relative md:text-inherit">
+                BETTER-AUTH UI.{" "}
+                <span className="text-xs absolute -top-2 -right-8 font-mono text-stone-400">
+                  BETA
+                </span>
+              </p>{" "}
             </div>
           </div>
         </Link>

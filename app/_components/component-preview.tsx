@@ -333,8 +333,8 @@ export function ComponentShowcase({
                   className="flex relative w-full gap-2 min-h-[60vh] "
                   key={framework}
                 >
-                  <div className="sticky border w-32 sm:w-48 md:overflow-x-hidden md:w-80 z-20 dark:backdrop-blur-2xl top-0 left-0">
-                    <FileTree
+                  <div className="sticky border border-r-0 w-32 sm:w-48 md:overflow-x-hidden md:w-96 z-20 dark:backdrop-blur-2xl top-0 left-0">
+                    <FileTreePreMade
                       currentSlug={currentSlug}
                       setCurrentSlug={setCurrentSlug}
                       element={fmForTree}
@@ -405,10 +405,8 @@ import { useCodeComponent } from "../constants/store";
 import { useComponents } from "@/lib/store";
 export function FileTree({
   element,
-  setCurrentPage,
-  setCurrentSlug,
-  currentSlug,
   currentPage,
+  setCurrentPage,
 }: {
   element: string;
   currentPage: string;
@@ -419,7 +417,6 @@ export function FileTree({
   let FM = null;
   const { code } = useCodeComponent();
   const { enabledComp } = useComponents();
-  console.log("Hello wold", currentPage);
   switch (element) {
     case "next":
       FM = NEXT_ELEMENTS;
@@ -514,6 +511,76 @@ export function FileTree({
           currentPage={currentPage}
           elements={FM}
           setCurrentSlug={setCurrentSlug}
+          setCurrentPage={setCurrentPage}
+        />
+      </Tree>
+    </div>
+  );
+}
+
+export function FileTreePreMade({
+  element,
+  currentPage,
+  setCurrentPage,
+}: {
+  element: string;
+  currentPage: string;
+  currentSlug: string;
+  setCurrentSlug: (value: string) => void;
+  setCurrentPage: (value: string) => void;
+}) {
+  let FM = null;
+  const { code } = useCodeComponent();
+  const { enabledComp } = useComponents();
+  switch (element) {
+    case "next":
+      FM = NEXT_ELEMENTS;
+      break;
+    case "react":
+      FM = REACT_ELEMENTS;
+      break;
+    case "svelte":
+      FM = SVELTE_ELEMENTS;
+      break;
+    case "astro":
+      FM = ASTRO_ELEMENTS;
+      break;
+    case "remix":
+      FM = REMIX_ELEMENTS;
+      break;
+    case "solid":
+      FM = SOLID_ELEMENTS;
+      break;
+    case "nuxt":
+      FM = NUXT_ELEMENTS;
+      break;
+    default:
+      FM = REACT_ELEMENTS;
+  }
+
+  return (
+    <div className="relative ml-1 border-l-0 flex h-full w-full font-mono flex-col items-center justify-center overflow-hidden rounded-none border border-t-0 border-b-0 bg-background dark:md:shadow-2xl">
+      <Tree
+        className="p-2 overflow-hidden rounded-md bg-background "
+        initialSelectedId="6"
+        initialExpandedItems={[
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+        ]}
+        elements={FM}
+      >
+        <RenderElements
+          currentPage={currentPage}
+          elements={FM}
           setCurrentPage={setCurrentPage}
         />
       </Tree>

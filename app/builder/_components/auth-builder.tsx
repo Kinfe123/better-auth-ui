@@ -169,6 +169,7 @@ export default function AuthBuilder() {
                                           )}
                                         <Switch
                                           disabled={
+                                            cred === "email" ||
                                             enabledComp.otherSignIn.magicLink ||
                                             cred in
                                               hintTextWithString["yetGroup"]
@@ -179,6 +180,9 @@ export default function AuthBuilder() {
                                                 credentials: {
                                                   ...enabledComp["credentials"],
                                                   [cred]: e,
+                                                  email:
+                                                    !enabledComp.credentials
+                                                      .enabled,
                                                 },
                                               },
                                             });

@@ -153,7 +153,7 @@ export default function SignIn() {
             {Object.entries(enabledComp.socials).map(
               ([social, enabled], indx) => {
                 if (enabled) {
-                  return enabledEntries.length <= 2 ? (
+                  return enabledEntries.length <= 3 ? (
                     <Button
                       key={indx}
                       variant="outline"

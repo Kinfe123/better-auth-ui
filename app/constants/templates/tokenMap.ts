@@ -148,7 +148,7 @@ export const parserTokenMap: Record<string, string> = {
               Github
            </Button>
    `,
-  githuContinueUI: `
+  githubContinueUI: `
              <Button
                    variant="outline"
                    className="gap-2 flex-1 w-full py-4"

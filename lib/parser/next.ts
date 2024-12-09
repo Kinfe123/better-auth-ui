@@ -31,7 +31,7 @@ export const parsedNextContent = (
     : socialEnabledLists;
   Object.keys(actionUIDep).map((dep) => {
     if (socialEnabledLists.includes(dep)) {
-      const currSocialUIVariant = socialCount <= 2 ? "continue" : "pure";
+      const currSocialUIVariant = socialCount <= 3 ? "continue" : "pure";
       socialEnabledLists = [
         ...socialEnabledLists,
         ...actionUIDep[dep][currSocialUIVariant],

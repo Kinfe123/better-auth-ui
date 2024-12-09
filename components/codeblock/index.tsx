@@ -10,7 +10,11 @@ export const CodeSnippet = ({
 }) => {
   return (
     <pre className="relative">
-      <CodeBlock code={code} language={language} theme={themes.oneDark}>
+      <CodeBlock
+        code={code}
+        language={language}
+        theme={themes.gruvboxMaterialDark}
+      >
         <div>
           <CodeBlock.Code className="bg-transparent !p-4 text-xs rounded-xl dark:shadow-lg whitespace-pre overflow-y-scroll max-h-[70vh]">
             <div className="table-row">

@@ -441,6 +441,7 @@ export function FileTree({
         FM[0].children[1].children.push({
           id: Math.random().toString(),
           isSelectable: true,
+          slug: "forgetPassword",
           name: "forgetPassword.tsx",
         });
       }
@@ -451,6 +452,7 @@ export function FileTree({
         FM[0].children[1].children.push({
           id: Math.random().toString(),
           isSelectable: true,
+          slug: "resetPassword",
           name: "resetPassword.tsx",
         });
       }

@@ -149,14 +149,14 @@ export const parserTokenMap: Record<string, string> = {
            </Button>
    `,
   githubContinueUI: `
-             <Button
-                   variant="outline"
-                   className="gap-2 flex-1 w-full py-4"
-                   onClick={async () => {
-                        await client.signIn.social({
-                        provider: "Github"
-                   })
-                }}
+          <Button
+                variant="outline"
+                className="gap-2 flex-1 w-full py-4"
+                onClick={async () => {
+                   await client.signIn.social({
+                      provider: "Github"
+                })
+             }}
                >
                  Continue with Github
               </Button>
@@ -180,11 +180,11 @@ export const parserTokenMap: Record<string, string> = {
                          className="gap-2 flex-1 w-full py-4"
                          onClick={async () => {
                              await client.signIn.social({
-                             provider: "twitter"
+                                provider: "twitter"
                             })
-                         >
+                      >
                    Continue with Twitter
-                   </Button>
+                </Button>
                   `,
   appleUI: `
           <Button
@@ -204,7 +204,7 @@ export const parserTokenMap: Record<string, string> = {
                       className="gap-2 flex-1 w-full py-4"
                       onClick={async () => {
                           await client.signIn.social({
-                          provider: "apple"
+                             provider: "apple"
                       })
                      >
                       Continue with Apple
@@ -216,7 +216,7 @@ export const parserTokenMap: Record<string, string> = {
                  className="gap-2 py-4 flex-1"
                  onClick={async () => {
                       await client.signIn.social({
-                      provider: "discord"
+                         provider: "discord"
                   })
                 >
                Discord
@@ -224,16 +224,16 @@ export const parserTokenMap: Record<string, string> = {
          `,
 
   discordContinueUI: `
-                   <Button
-                          variant="outline"
-                          className="gap-2 flex-1 w-full py-4"
-                          onClick={async () => {
-                               await client.signIn.social({
-                               provider: "discord"
-                           })
-                         >
-                        Continue with Discord
-                   </Button>
+                 <Button
+                     variant="outline"
+                     className="gap-2 flex-1 w-full py-4"
+                     onClick={async () => {
+                        await client.signIn.social({
+                           provider: "discord"
+                     })
+                      >
+                      Continue with Discord
+                 </Button>
                   `,
   facebookUI: `
             <Button
@@ -241,7 +241,7 @@ export const parserTokenMap: Record<string, string> = {
                 className="gap-2 py-4 flex-1"
                 onClick={async () => {
                     await client.signIn.social({
-                    provider: "facebook"
+                       provider: "facebook"
                  })
                >
                   Facebook
@@ -266,7 +266,7 @@ export const parserTokenMap: Record<string, string> = {
               className="gap-2 py-4 flex-1"
               onClick={async () => {
                   await client.signIn.social({
-                  provider: "microsoft"
+                      provider: "microsoft"
                 })
                >
                  Microsoft
@@ -274,16 +274,16 @@ export const parserTokenMap: Record<string, string> = {
                   `,
 
   microsoftContinueUI: `
-                            <Button
-                                variant="outline"
-                                className="gap-2 flex-1 w-full py-4"
-                                onClick={async () => {
-                                    await client.signIn.social({
-                                    provider: "microsoft"
-                                  })
-                                 >
-                                   Continue with Microsoft
-                            </Button>
+                <Button
+                    variant="outline"
+                    className="gap-2 flex-1 w-full py-4"
+                    onClick={async () => {
+                        await client.signIn.social({
+                            provider: "microsoft"
+                    })
+                >
+                   Continue with Microsoft
+               </Button>
                                     `,
   linkedinUI: `
            <Button
@@ -291,7 +291,7 @@ export const parserTokenMap: Record<string, string> = {
                className="gap-2 py-4 flex-1"
                onClick={async () => {
                   await client.signIn.social({
-                        provider: "linkedin"
+                      provider: "linkedin"
                  })
               >
                 LinkedIn
@@ -304,7 +304,7 @@ export const parserTokenMap: Record<string, string> = {
                     onClick={async () => {
                         await client.signIn.social({
                             provider: "linkedin"
-                        })
+                    })
                   >
                       Continue with LinkedIn
                   </Button>
@@ -323,16 +323,16 @@ export const parserTokenMap: Record<string, string> = {
                                     `,
 
   gitlabContinueUI: `
-                                              <Button
-                                                  variant="outline"
-                                                  className="gap-2 flex-1 w-full py-4"
-                                                  onClick={async () => {
-                                                      await client.signIn.social({
-                                                          provider: "gitlab"
-                                                    })
-                                                 >
-                                                      Continue with Gitlab
-                                              </Button>
+                <Button
+                    variant="outline"
+                    className="gap-2 flex-1 w-full py-4"
+                    onClick={async () => {
+                        await client.signIn.social({
+                           provider: "gitlab"
+                    })
+                >
+                 Continue with Gitlab
+              </Button>
                                                                       `,
   dropboxUI: `
             <Button
@@ -347,16 +347,16 @@ export const parserTokenMap: Record<string, string> = {
             </Button>
                                   `,
   dropboxContinueUI: `
-                                              <Button
-                                                  variant="outline"
-                                                  className="gap-2 flex-1 w-full py-4"
-                                                  onClick={async () => {
-                                                      await client.signIn.social({
-                                                          provider: "dropbox"
-                                                  })
-                                                >
-                                                     Continue with Dropbox
-                                              </Button>
+                <Button
+                    variant="outline"
+                    className="gap-2 flex-1 w-full py-4"
+                    onClick={async () => {
+                        await client.signIn.social({
+                            provider: "dropbox"
+                    })
+                >
+                  Continue with Dropbox
+              </Button>
                                                                     `,
   spotifyUI: `
             <Button
@@ -371,16 +371,16 @@ export const parserTokenMap: Record<string, string> = {
              </Button>
                                   `,
   spotifyContinueUI: `
-                                              <Button
-                                                  variant="outline"
-                                                  className="gap-2 flex-1 w-full py-4"
-                                                  onClick={async () => {
-                                                      await client.signIn.social({
-                                                          provider: "spotify"
-                                                    })
-                                                >
-                                                Continue with Spotify
-                                               </Button>
+                <Button
+                    variant="outline"
+                    className="gap-2 flex-1 w-full py-4"
+                    onClick={async () => {
+                        await client.signIn.social({
+                            provider: "spotify"
+                    })
+                >
+                  Continue with Spotify
+              </Button>
                                                                     `,
   github: `
       github: {

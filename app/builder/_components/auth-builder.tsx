@@ -252,6 +252,7 @@ export default function AuthBuilder() {
                                               toogledComp: {
                                                 additionals: {
                                                   ...enabledComp["additionals"],
+
                                                   [addition]: {
                                                     ...enabledComp[
                                                       "additionals"
@@ -259,6 +260,13 @@ export default function AuthBuilder() {
                                                       addition as keyof EnabledComponent["additionals"]
                                                     ],
                                                     visiblity: e,
+                                                    routing: false,
+                                                  },
+                                                  resetPassword: {
+                                                    visiblity:
+                                                      enabledComp["additionals"]
+                                                        .forgetPassword
+                                                        ?.visiblity ?? false,
                                                     routing: false,
                                                   },
                                                 },

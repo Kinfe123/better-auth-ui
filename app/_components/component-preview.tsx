@@ -444,11 +444,6 @@ export function FileTree({
           slug: "forgetPassword",
           name: "forgetPassword.tsx",
         });
-      }
-      if (!forgetOn && forgetCompExistsIndx !== -1) {
-        FM[0].children[1].children.pop(forgetCompExistsIndx);
-      }
-      if (resetOn && !resetExists && resetCompExistsIndx === -1) {
         FM[0].children[1].children.push({
           id: Math.random().toString(),
           isSelectable: true,
@@ -456,9 +451,21 @@ export function FileTree({
           name: "resetPassword.tsx",
         });
       }
-      if (!resetOn && resetCompExistsIndx !== -1) {
+      if (!forgetOn && forgetCompExistsIndx !== -1) {
+        FM[0].children[1].children.pop(forgetCompExistsIndx);
         FM[0].children[1].children.pop(resetCompExistsIndx);
       }
+      // if (resetOn && !resetExists && resetCompExistsIndx === -1) {
+      //   FM[0].children[1].children.push({
+      //     id: Math.random().toString(),
+      //     isSelectable: true,
+      //     slug: "resetPassword",
+      //     name: "resetPassword.tsx",
+      //   });
+      // }
+      // if (!resetOn && resetCompExistsIndx !== -1) {
+      //   FM[0].children[1].children.pop(resetCompExistsIndx);
+      // }
       break;
     case "react":
       FM = REACT_ELEMENTS;

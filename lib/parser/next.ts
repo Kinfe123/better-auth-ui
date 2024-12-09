@@ -3,6 +3,7 @@ import { importAndDistructureCleanup } from "@/app/builder/_components/lib/code-
 import {
   credentialDep,
   actionUIDep,
+  socialDepResolver,
 } from "@/app/constants/templates/ui-function-dep";
 import { anyBool } from "../utils";
 import { serverClientDep } from "@/app/constants/templates/server-client-dep";
@@ -24,20 +25,23 @@ export const parsedNextContent = (
   let socialEnabledLists = Object.entries(enabledComp.socials)
     .filter(([_, enabled]) => enabled)
     .map((curr) => curr[0]);
-
+  const socialCount = socialEnabledLists.length;
   socialEnabledLists = socialEnabledLists.length
     ? ["socialProviders"].concat(socialEnabledLists)
     : socialEnabledLists;
-
   Object.keys(actionUIDep).map((dep) => {
     if (socialEnabledLists.includes(dep)) {
-      socialEnabledLists = [...socialEnabledLists, ...actionUIDep[dep]];
+      const currSocialUIVariant = socialCount <= 2 ? "continue" : "pure";
+      socialEnabledLists = [
+        ...socialEnabledLists,
+        ...actionUIDep[dep][currSocialUIVariant],
+      ];
     }
   });
   let otherEnabledLists = Object.entries(enabledComp.otherSignIn)
     .filter(([_, enabled]) => enabled)
     .map((curr) => curr[0]);
-  // addng otherSignInOptions and the dependencies
+  // adding otherSignInOptions and the dependencies
   Object.keys(serverClientDep).map((dep) => {
     if (otherEnabledLists.includes(dep)) {
       otherEnabledLists = [...otherEnabledLists, ...serverClientDep[dep]];

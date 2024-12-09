@@ -361,17 +361,29 @@ const LogIn = () => {
             // signInAction
             // magicLinkAction
           <div className="flex flex-wrap items-center gap-2 w-full">
-           // googleUI
-           // appleUI
-           // facebookUI
-           // microsoftUI
-           // discordUI
-           // twitterUI
-           // githubUI
-           // dropboxUI
-           // gitlabUI
-           // spotifyUI
-           // linkedinUI
+
+          // googleUI
+          // googleContinueUI
+          // appleUI
+          // appleContinueUI
+          // facebookUI
+          // facebookContinueUI
+          // microsoftUI
+          // microsoftContinueUI
+          // discordUI
+          // discordContinueUI
+          // twitterUI
+          // twitterContinueUI
+          // githubUI
+          // githubContinueUI
+          // dropboxUI
+          // dropboxContinueUI
+          // gitlabUI
+          // gitlabContinueUI
+          // spotifyUI
+          // spotifyContinueUI
+          // linkedinUI
+          // linkedinContinueUI
            </div>
           // passKey
         </div>
@@ -427,7 +439,7 @@ const SignUp = () => {
 			reader.onerror = reject;
 			reader.readAsDataURL(file);
 		});
-  }
+    }
 	const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files?.[0];
 		if (file) {
@@ -579,16 +591,27 @@ const SignUp = () => {
 					</Button>
 					<div className="flex flex-wrap items-center gap-2 w-full">
                 // googleUI
+                // googleContinueUI
                 // appleUI
+                // appleContinueUI
                 // facebookUI
+                // facebookContinueUI
                 // microsoftUI
+                // microsoftContinueUI
                 // discordUI
+                // discordContinueUI
                 // twitterUI
+                // twitterContinueUI
                 // githubUI
-           // dropboxUI
-           // gitlabUI
-           // spotifyUI
-           // linkedinUI
+                // githubContinueUI
+                // dropboxUI
+                // dropboxContinueUI
+                // gitlabUI
+                // gitlabContinueUI
+                // spotifyUI
+                // spotifyContinueUI
+                // linkedinUI
+                // linkedinContinueUI
            </div>
 			</CardContent>
 			<CardFooter>
@@ -635,6 +658,7 @@ export const auth = betterAuth({
      ],
 
     socialProviders: {
+     // github
      // github
      // google
      // facebook

@@ -121,6 +121,20 @@ export const parserTokenMap: Record<string, string> = {
             </Button>
   `,
 
+  googleContinueUI: `
+              <Button
+                  variant="outline"
+                  className="gap-2 flex-1 w-full py-4"
+                  onClick={async () => {
+                      await client.signIn.social({
+                          provider: "google"
+                      })
+                  }}
+              >
+                Continue with Google
+              </Button>
+    `,
+
   githubUI: `
           <Button
                 variant="outline"
@@ -134,6 +148,19 @@ export const parserTokenMap: Record<string, string> = {
               Github
            </Button>
    `,
+  githuContinueUI: `
+             <Button
+                   variant="outline"
+                   className="gap-2 flex-1 w-full py-4"
+                   onClick={async () => {
+                        await client.signIn.social({
+                        provider: "Github"
+                   })
+                }}
+               >
+                 Continue with Github
+              </Button>
+      `,
   twitterUI: `
           <Button
                 variant="outline"
@@ -146,6 +173,19 @@ export const parserTokenMap: Record<string, string> = {
                   Twitter
           </Button>
          `,
+
+  twitterContinueUI: `
+                   <Button
+                         variant="outline"
+                         className="gap-2 flex-1 w-full py-4"
+                         onClick={async () => {
+                             await client.signIn.social({
+                             provider: "twitter"
+                            })
+                         >
+                   Continue with Twitter
+                   </Button>
+                  `,
   appleUI: `
           <Button
                 variant="outline"
@@ -158,6 +198,18 @@ export const parserTokenMap: Record<string, string> = {
                 Apple
          </Button>
       `,
+  appleContinueUI: `
+                <Button
+                      variant="outline"
+                      className="gap-2 flex-1 w-full py-4"
+                      onClick={async () => {
+                          await client.signIn.social({
+                          provider: "apple"
+                      })
+                     >
+                      Continue with Apple
+               </Button>
+            `,
   discordUI: `
           <Button
                  variant="outline"
@@ -170,6 +222,19 @@ export const parserTokenMap: Record<string, string> = {
                Discord
           </Button>
          `,
+
+  discordContinueUI: `
+                   <Button
+                          variant="outline"
+                          className="gap-2 flex-1 w-full py-4"
+                          onClick={async () => {
+                               await client.signIn.social({
+                               provider: "discord"
+                           })
+                         >
+                        Continue with Discord
+                   </Button>
+                  `,
   facebookUI: `
             <Button
                 variant="outline"
@@ -182,6 +247,19 @@ export const parserTokenMap: Record<string, string> = {
                   Facebook
             </Button>
                   `,
+
+  facebookContinueUI: `
+               <Button
+                    variant="outline"
+                    className="gap-2 flex-1 w-full py-4"
+                    onClick={async () => {
+                        await client.signIn.social({
+                          provider: "facebook"
+                    })
+                  >
+                  Continue with Facebook
+                </Button>
+                                    `,
   microsoftUI: `
           <Button
               variant="outline"
@@ -194,6 +272,19 @@ export const parserTokenMap: Record<string, string> = {
                  Microsoft
           </Button>
                   `,
+
+  microsoftContinueUI: `
+                            <Button
+                                variant="outline"
+                                className="gap-2 flex-1 w-full py-4"
+                                onClick={async () => {
+                                    await client.signIn.social({
+                                    provider: "microsoft"
+                                  })
+                                 >
+                                   Continue with Microsoft
+                            </Button>
+                                    `,
   linkedinUI: `
            <Button
                variant="outline"
@@ -206,6 +297,18 @@ export const parserTokenMap: Record<string, string> = {
                 LinkedIn
             </Button>
                                   `,
+  linkedinContinueUI: `
+                <Button
+                    variant="outline"
+                    className="gap-2 flex-1 w-full py-4"
+                    onClick={async () => {
+                        await client.signIn.social({
+                            provider: "linkedin"
+                        })
+                  >
+                      Continue with LinkedIn
+                  </Button>
+                                                                    `,
   gitlabUI: `
             <Button
                 variant="outline"
@@ -218,6 +321,19 @@ export const parserTokenMap: Record<string, string> = {
                     Gitlab
             </Button>
                                     `,
+
+  gitlabContinueUI: `
+                                              <Button
+                                                  variant="outline"
+                                                  className="gap-2 flex-1 w-full py-4"
+                                                  onClick={async () => {
+                                                      await client.signIn.social({
+                                                          provider: "gitlab"
+                                                    })
+                                                 >
+                                                      Continue with Gitlab
+                                              </Button>
+                                                                      `,
   dropboxUI: `
             <Button
                 variant="outline"
@@ -230,6 +346,18 @@ export const parserTokenMap: Record<string, string> = {
                    Dropbox
             </Button>
                                   `,
+  dropboxContinueUI: `
+                                              <Button
+                                                  variant="outline"
+                                                  className="gap-2 flex-1 w-full py-4"
+                                                  onClick={async () => {
+                                                      await client.signIn.social({
+                                                          provider: "dropbox"
+                                                  })
+                                                >
+                                                     Continue with Dropbox
+                                              </Button>
+                                                                    `,
   spotifyUI: `
             <Button
                 variant="outline"
@@ -242,6 +370,18 @@ export const parserTokenMap: Record<string, string> = {
                  Spotify
              </Button>
                                   `,
+  spotifyContinueUI: `
+                                              <Button
+                                                  variant="outline"
+                                                  className="gap-2 flex-1 w-full py-4"
+                                                  onClick={async () => {
+                                                      await client.signIn.social({
+                                                          provider: "spotify"
+                                                    })
+                                                >
+                                                Continue with Spotify
+                                               </Button>
+                                                                    `,
   github: `
       github: {
            clientId: process.env.GITHUB_CLIENT_ID!,

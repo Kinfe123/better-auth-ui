@@ -689,7 +689,7 @@ import { betterAuth } from "better-auth";
 import { nextCookies } from "better-auth/next-js";
 import { cache } from "react"
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { db } from "./drizzle";
+import { db } from "./drizzle"; // your drizzle db config
 import { headers } from "next/headers";
 
 export const auth = betterAuth({

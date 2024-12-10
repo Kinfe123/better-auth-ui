@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useComponents, useUrl } from "@/lib/store";
 import { useHistory } from "@/lib/history";
-
+const compPages = ["forget-password", "reset-password"];
 export function TopBar() {
   const { updateUrl, url } = useUrl();
   const { enabledComp, updateEnabledComponent, reset } = useComponents();
@@ -29,6 +29,21 @@ export function TopBar() {
       updateUrl({
         url: "http://localhost:3000/forget-password",
       });
+    }
+    const currSplittedPath = url.slice(7, url.length).split("/");
+
+    if (
+      currSplittedPath.length >= 2 &&
+      compPages.includes(currSplittedPath[currSplittedPath.length - 1])
+    ) {
+      if (
+        !enabledComp.additionals.forgetPassword?.routing ||
+        !enabledComp.additionals.resetPassword?.routing
+      ) {
+        updateUrl({
+          url: "http://localhost:3000",
+        });
+      }
     }
   }, [enabledComp]);
   const pathSplitted = url.slice(7, url.length).split("/");

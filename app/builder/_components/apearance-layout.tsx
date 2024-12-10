@@ -11,9 +11,9 @@ export const ApearanceLayout = ({
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ opacity: 0, scale: 0.8, y: 20 }}
+        initial={{ opacity: 0, scale: 0.9, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.7, y: -20 }}
+        exit={{ opacity: 0, scale: 0.8, y: -10 }}
         transition={{ duration: 0.2 }}
         className={className}
       >

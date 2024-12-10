@@ -14,12 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { PasswordInput } from "@/components/ui/password-input";
 import { useComponents, useUrl } from "@/lib/store";
-import {
-  DiscordLogoIcon,
-  GitHubLogoIcon,
-  TwitterLogoIcon,
-} from "@radix-ui/react-icons";
-import { Key, Loader2, TwitchIcon } from "lucide-react";
+import { Key, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -27,8 +22,6 @@ import { ApearanceLayout } from "./apearance-layout";
 import { authOptions } from "./lib/auth-options";
 import { anyBool } from "@/lib/utils";
 
-type additionalAuthType = (typeof authOptions)["additionals"];
-type otherSigninAuthType = (typeof authOptions)["otherSignIn"];
 type socialAuthType = (typeof authOptions)["socialProviders"];
 
 export default function SignIn() {

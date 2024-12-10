@@ -496,6 +496,7 @@ export function FileTree({
         initialExpandedItems={[
           "1",
           "2",
+          "2.1",
           "3",
           "4",
           "5",

@@ -3,7 +3,6 @@ import { importAndDistructureCleanup } from "@/app/builder/_components/lib/code-
 import {
   credentialDep,
   actionUIDep,
-  socialDepResolver,
 } from "@/app/constants/templates/ui-function-dep";
 import { anyBool } from "../utils";
 import { serverClientDep } from "@/app/constants/templates/server-client-dep";

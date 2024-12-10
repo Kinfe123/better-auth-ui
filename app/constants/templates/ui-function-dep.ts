@@ -51,4 +51,3 @@ export const actionUIDep: Record<string, any> = {
 export const credentialDep: Record<string, string[]> = {
   enabled: ["passwordInput", "passwordState", "loadingState"],
 };
-export const socialDepResolver = () => {};

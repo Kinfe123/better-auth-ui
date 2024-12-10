@@ -235,6 +235,30 @@ export const parserTokenMap: Record<string, string> = {
                       Continue with Discord
                  </Button>
                   `,
+  twitchUI: `
+              <Button
+                     variant="outline"
+                     className="gap-2 py-4 flex-1"
+                     onClick={async () => {
+                        await client.signIn.social({
+                          provider: "twitch"
+                      })
+                      >
+                          Twitch
+                  </Button>
+                                    `,
+  twitchContinueUI: `
+              <Button
+                  variant="outline"
+                  className="gap-2 flex-1 w-full py-4"
+                  onClick={async () => {
+                      await client.signIn.social({
+                        provider: "twitch"
+                  })
+                 >
+                  Continue with Twitch
+              </Button>
+                                                      `,
   facebookUI: `
             <Button
                 variant="outline"

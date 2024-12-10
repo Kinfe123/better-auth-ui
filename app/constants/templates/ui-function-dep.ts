@@ -43,6 +43,10 @@ export const actionUIDep: Record<string, any> = {
     continue: ["twitterContinueUI"],
     pure: ["twitterUI"],
   },
+  twitch: {
+    continue: ["twitchContinueUI"],
+    pure: ["twitchUI"],
+  },
 };
 export const credentialDep: Record<string, string[]> = {
   enabled: ["passwordInput", "passwordState", "loadingState"],

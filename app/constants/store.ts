@@ -374,6 +374,8 @@ const LogIn = () => {
           // discordContinueUI
           // twitterUI
           // twitterContinueUI
+          // twitchUI
+          // twitchContinueUI
           // githubUI
           // githubContinueUI
           // dropboxUI
@@ -602,6 +604,8 @@ const SignUp = () => {
                 // discordContinueUI
                 // twitterUI
                 // twitterContinueUI
+                // twitchUI
+                // twitchContinueUI
                 // githubUI
                 // githubContinueUI
                 // dropboxUI

@@ -51,7 +51,12 @@ export function TopBar() {
       });
     }
   }, [histories]);
-
+  const refreshReset = () => {
+    updateUrl({
+      url: "http://localhost:3000",
+    });
+    reset();
+  };
   return (
     <div className="flex w-full ml-auto md:mx-auto items-center space-x-2 mt-2 md:ml-2 bg-background p-2 shadow-md">
       <div className="flex space-x-1">
@@ -79,7 +84,7 @@ export function TopBar() {
         </Button>
         <Button
           variant="ghost"
-          onClick={() => reset()}
+          onClick={() => refreshReset()}
           size="icon"
           title="Refresh"
         >

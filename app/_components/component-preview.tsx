@@ -151,6 +151,10 @@ export function ComponentShowcase({
     const fileName = value.split(".")[0];
     return fileName;
   }
+  useEffect(() => {
+    console.log({ currentSlug });
+  }, [currentSlug]);
+
   return (
     <Card className="w-full bg-transparent max-w-7xl mx-auto rounded-none">
       <CardContent className="p-6">
@@ -317,13 +321,20 @@ export function ComponentShowcase({
           <div className="block md:hidden">
             {Object.entries(codeExamples).map(
               ([framework, example]) =>
-                defaultFm === framework && (
+                defaultFm === framework &&
+                (currentSlug === "env" ? (
+                  <CodeSnippet
+                    language={fm}
+                    code={example.code["env"]}
+                    key={framework}
+                  />
+                ) : (
                   <CodeSnippet
                     language={fm}
                     code={example.code[currentSlug]}
                     key={framework}
                   />
-                ),
+                )),
             )}
           </div>
           {Object.entries(codeExamples).map(
@@ -524,6 +535,8 @@ export function FileTree({
 export function FileTreePreMade({
   element,
   currentPage,
+  currentSlug,
+  setCurrentSlug,
   setCurrentPage,
 }: {
   element: string;
@@ -582,6 +595,8 @@ export function FileTreePreMade({
         elements={FM}
       >
         <RenderElements
+          currentSlug={currentSlug}
+          setCurrentSlug={setCurrentSlug}
           currentPage={currentPage}
           elements={FM}
           setCurrentPage={setCurrentPage}

@@ -1,5 +1,5 @@
 import { GridPattern } from "@/components/landing/grid-pattern";
-import { PlusIcon } from "lucide-react";
+import { PlusIcon, LayoutDashboard } from "lucide-react";
 import Link from "next/link";
 export default function AuthUIHero() {
   return (
@@ -29,7 +29,7 @@ export default function AuthUIHero() {
         <div className="flex gap-2 h-[80px] items-center justify-center">
           <Link href="/builder">
             <button className="group flex justify-center items-center rounded-none gap-2 group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-neutral-900 duration-500 hover:duration-500  origin-left hover:decoration-2 hover:text-neutral-300 relative bg-neutral-900 px-5 py-2 border text-left p-3 text-gray-50 text-base font-normal overflow-hidden after:absolute after:z-10 after:w-10 after:h-10 after:content[''] after:bg-stone-300 after:-left-8 after:top-8 after:rounded-full after:blur-lg hover:after:animate-pulse">
-              <PlusIcon className="w-4 h-4" />
+              <LayoutDashboard className="w-4 h-4" />
               Build UI
             </button>
           </Link>

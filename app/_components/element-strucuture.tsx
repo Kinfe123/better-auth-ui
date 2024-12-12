@@ -95,7 +95,7 @@ export const NEXT_ELEMENTS = [
         ],
       },
       {
-        id: "9",
+        id: "11",
         isSelectable: true,
         name: ".env",
         slug: "env",
@@ -351,7 +351,7 @@ export const REMIX_ELEMENTS = [
         ],
       },
       {
-        id: "9",
+        id: "11",
         isSelectable: true,
         name: ".env",
         slug: "env",

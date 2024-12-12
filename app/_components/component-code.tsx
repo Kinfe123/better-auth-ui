@@ -54,6 +54,7 @@ export function CodeComponent() {
     client: code.next?.files.client,
     forgetPassword: code.next?.components.forgetPassword,
     resetPassword: code.next?.components.resetPassword,
+    env: code.next?.files.env,
   };
   const codeExamples = {
     next: { language: "typescript", code: nextCode },
@@ -364,6 +365,12 @@ export function CodeComponent() {
                         key={framework}
                       />
                     </div>
+                  ) : currentPage === ".env" ? (
+                    <CodeSnippet
+                      language={fm}
+                      code={parsedNextContent(example.code["env"], enabledComp)}
+                      key={framework}
+                    />
                   ) : (
                     <CodeSnippet
                       language={fm}

@@ -1,51 +1,51 @@
 export const actionUIDep: Record<string, any> = {
   google: {
-    continue: ["googleContinueUI"],
-    pure: ["googleUI"],
+    continue: ["googleContinueUI", "google_env"],
+    pure: ["googleUI", "google_env"],
   },
   apple: {
-    continue: ["appleContinueUI"],
-    pure: ["appleUI"],
+    continue: ["appleContinueUI", "apple_env"],
+    pure: ["appleUI", "apple_env"],
   },
   github: {
-    continue: ["githubContinueUI"],
-    pure: ["githubUI"],
+    continue: ["githubContinueUI", "github_env"],
+    pure: ["githubUI", "github_env"],
   },
   discord: {
-    continue: ["discordContinueUI"],
-    pure: ["discordUI"],
+    continue: ["discordContinueUI", "discord_env"],
+    pure: ["discordUI", "discord_env"],
   },
   microsoft: {
-    continue: ["microsoftContinueUI"],
-    pure: ["microsoftUI"],
+    continue: ["microsoftContinueUI", "microsoft_env"],
+    pure: ["microsoftUI", "microsoft_env"],
   },
   facebook: {
-    continue: ["facebookContinueUI"],
-    pure: ["facebookUI"],
+    continue: ["facebookContinueUI", "facebook_env"],
+    pure: ["facebookUI", "facebook_env"],
   },
   dropbox: {
-    continue: ["dropboxContinueUI"],
-    pure: ["dropboxUI"],
+    continue: ["dropboxContinueUI", "dropbox_env"],
+    pure: ["dropboxUI", "dropbox_env"],
   },
   spotify: {
-    continue: ["spotifyContinueUI"],
-    pure: ["spotifyUI"],
+    continue: ["spotifyContinueUI", "spotify_env"],
+    pure: ["spotifyUI", "spotify_env"],
   },
   gitlab: {
-    continue: ["gitlabContinueUI"],
-    pure: ["gitlabUI"],
+    continue: ["gitlabContinueUI", "gitlab_env"],
+    pure: ["gitlabUI", "gitlab_env"],
   },
   linkedin: {
-    continue: ["linkedinContinueUI"],
-    pure: ["linkedinUI"],
+    continue: ["linkedinContinueUI", "linkedin_env"],
+    pure: ["linkedinUI", "linkedin_env"],
   },
   twitter: {
-    continue: ["twitterContinueUI"],
-    pure: ["twitterUI"],
+    continue: ["twitterContinueUI", "twitter_env"],
+    pure: ["twitterUI", "twitter_env"],
   },
   twitch: {
-    continue: ["twitchContinueUI"],
-    pure: ["twitchUI"],
+    continue: ["twitchContinueUI", "twitch_env"],
+    pure: ["twitchUI", "twitch_env"],
   },
 };
 export const credentialDep: Record<string, string[]> = {

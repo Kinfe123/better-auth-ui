@@ -15,6 +15,7 @@ interface FileStructure {
   }>;
   files: Partial<{
     client: string;
+    env: string;
     auth: {
       prisma: string;
       drizzle: string;
@@ -634,6 +635,20 @@ export default SignUp
         `,
       },
       files: {
+        env: `
+       // google_env
+       // apple_env
+       // github_env
+       // discord_env
+       // twitch_env
+       // dropbox_env
+       // linkedin_env
+       // twitter_env
+       // gitlab_env
+       // spotify_env
+       // facebook_env
+       // microsoft_env
+    `,
         auth: {
           prisma: `
 import { betterAuth } from "better-auth";

@@ -867,6 +867,55 @@ export const parserTokenMap: Record<string, string> = {
             clientSecret: process.env.DISCORD_CLIENT_SECRET!,
       },
       `,
+  google_env: `
+GOOGLE_CLIENT_ID=""
+GOOGLE_CLIENT_SECRET=""
+  `,
+  apple_env: `
+APPLE_CLIENT_ID=""
+APPLE_CLIENT_SECRET=""
+   `,
+  github_env: `
+GITHUB_CLIENT_ID=""
+GITHUB_CLIENT_SECRET=""
+    `,
+  discord_env: `
+DISCORD_CLIENT_ID=""
+DISCORD_CLIENT_SECRET=""
+      `,
+  twitch_env: `
+TWITCH_CLIENT_ID=""
+TWITCH_CLIENT_SECRET=""
+            `,
+  dropbox_env: `
+DROPBOX_CLIENT_ID=""
+DROPBOX_CLIENT_SECRET=""
+       `,
+  linkedin_env: `
+LINKEDIN_CLIENT_ID=""
+LINKEDIN_CLIENT_SECRET=""
+           `,
+  twitter_env: `
+TWITTER_CLIENT_ID=""
+TWITTER_CLIENT_SECRET=""
+                      `,
+
+  gitlab_env: `
+GITLAB_CLIENT_ID=""
+GITLAB_CLIENT_SECRET=""
+           `,
+  spotify_env: `
+SPOTIFY_CLIENT_ID=""
+SPOTIFY_CLIENT_SECRET=""
+              `,
+  facebook_env: `
+FACEBOOK_CLIENT_ID=""
+FACEBOOK_CLIENT_SECRET=""
+          `,
+  microsoft_env: `
+MICROSOFT_CLIENT_ID=""
+MICROSOFT_CLIENT_SECRET=""
+           `,
 };
 export const routeMap = {
   forgetPassword: "/app/forget-password/page.tsx",

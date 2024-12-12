@@ -94,6 +94,12 @@ export const NEXT_ELEMENTS = [
           { id: "10", isSelectable: true, slug: "auth", name: "auth.ts" },
         ],
       },
+      {
+        id: "9",
+        isSelectable: true,
+        name: ".env",
+        slug: "env",
+      },
     ],
   },
 ];
@@ -130,6 +136,12 @@ export const REACT_ELEMENTS = [
           { id: "10", isSelectable: true, name: "auth.ts" },
         ],
       },
+      {
+        id: "9",
+        isSelectable: true,
+        name: ".env",
+        slug: "env",
+      },
     ],
   },
 ];
@@ -165,6 +177,12 @@ export const SVELTE_ELEMENTS = [
           { id: "9", isSelectable: true, name: "utils.js" },
           { id: "10", isSelectable: true, name: "auth.js" },
         ],
+      },
+      {
+        id: "9",
+        isSelectable: true,
+        name: ".env",
+        slug: "env",
       },
     ],
   },
@@ -203,6 +221,12 @@ export const NUXT_ELEMENTS = [
           { id: "10", isSelectable: true, name: "auth.js" },
         ],
       },
+      {
+        id: "9",
+        isSelectable: true,
+        name: ".env",
+        slug: "env",
+      },
     ],
   },
 ];
@@ -239,6 +263,12 @@ export const SOLID_ELEMENTS = [
           { id: "9", isSelectable: true, name: "utils.js" },
           { id: "10", isSelectable: true, name: "auth.js" },
         ],
+      },
+      {
+        id: "9",
+        isSelectable: true,
+        name: ".env",
+        slug: "env",
       },
     ],
   },
@@ -277,6 +307,12 @@ export const ASTRO_ELEMENTS = [
           { id: "10", isSelectable: true, name: "auth.js" },
         ],
       },
+      {
+        id: "9",
+        isSelectable: true,
+        name: ".env",
+        slug: "env",
+      },
     ],
   },
 ];
@@ -313,6 +349,12 @@ export const REMIX_ELEMENTS = [
           { id: "9", isSelectable: true, name: "utils.js" },
           { id: "10", isSelectable: true, name: "auth.js" },
         ],
+      },
+      {
+        id: "9",
+        isSelectable: true,
+        name: ".env",
+        slug: "env",
       },
     ],
   },

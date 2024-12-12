@@ -1,5 +1,5 @@
 import { GridPattern } from "@/components/landing/grid-pattern";
-import { PlusIcon, LayoutDashboard } from "lucide-react";
+import { LayoutDashboard } from "lucide-react";
 import Link from "next/link";
 export default function AuthUIHero() {
   return (

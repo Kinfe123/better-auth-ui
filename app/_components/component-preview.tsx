@@ -163,7 +163,7 @@ export function ComponentShowcase({
           <TooltipProvider delayDuration={100}>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Link href={`https://better-auth/${docLink}`}>
+                <Link href={`https://better-auth.com/${docLink}`}>
                   <Link2 className="w-4 h-4" />
                 </Link>
               </TooltipTrigger>

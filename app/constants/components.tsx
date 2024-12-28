@@ -1,5 +1,22 @@
 import { SimpleUsernameAndPass } from "./components/credentail/username-and-password";
+import FUISignUpWithLeftBackground from "./components/GridCredentialSocial";
 export const previewComponent = [
+  {
+    title: "Grid Credential and social Login",
+    slug: "grid-credential-social",
+    docsLink: "docs/authentication/email-password",
+    component: <FUISignUpWithLeftBackground />,
+    category: ["credential", "social"],
+    code: {
+      next: {
+        login_page: ``,
+      },
+      react: {},
+      svelte: {},
+      solid: {},
+      nuxt: {},
+    },
+  },
   {
     title: "Simple Credential Login",
     slug: "username-and-password",

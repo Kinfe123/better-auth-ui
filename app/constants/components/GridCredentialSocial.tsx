@@ -52,14 +52,7 @@ export default function FUISignUpWithLeftBackground() {
             </div>
           </div>
         </div>
-        <div
-          className="absolute inset-0 my-auto h-full"
-          style={
-            {
-              // background: "linear- gradient(152.92deg, rgba(192, 132, 252, 0.2) 4.54%, rgba(232, 121, 249, 0.26) 34.2%, rgba(192, 132, 252, 0.1) 77.55%)", filter: "blur(118px)"
-            }
-          }
-        >
+        <div className="absolute inset-0 my-auto h-full">
           <div className="absolute  inset-0 opacity-5 w-full bg-transparent  bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
           <img
             className="absolute inset-x-0 -top-20 opacity-25 "

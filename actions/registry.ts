@@ -1,7 +1,8 @@
 "use server";
 
 import { db } from "@/lib/db";
-export const registryExport = async (data: any) => {
+import { RegisteryData } from "@/types/reg";
+export const registryExport = async (data: RegisteryData) => {
   console.log(data);
   const rData = await db.componentExport.create({
     data: {
@@ -23,5 +24,6 @@ export const registryExport = async (data: any) => {
   if (!rData) {
     throw new Error("Failed to create component");
   }
+  console.log({ rData });
   return rData;
 };

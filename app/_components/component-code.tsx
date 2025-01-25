@@ -19,7 +19,15 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Layout, Copy, Check, FileText, X, Loader } from "lucide-react";
+import {
+  Layout,
+  Copy,
+  Check,
+  FileText,
+  X,
+  Loader,
+  Terminal,
+} from "lucide-react";
 import { Icons } from "@/components/icons";
 import { FileTree } from "./component-preview";
 import { Button } from "@/components/ui/button";
@@ -54,6 +62,7 @@ export function CodeComponent() {
   const { enabledComp } = useComponents();
   const [dbOptions, setDbOptions] = useState("prisma");
   const [copiedStates, setCopiedStates] = useState(false);
+
   const nextCode = {
     login_page: code.next?.pages.signin,
     signup_page: code.next?.pages.signup,
@@ -190,7 +199,6 @@ export function CodeComponent() {
           target: "",
           type: "registry:component",
         },
-
         {
           path: "components/signup.tsx",
           content: parsedNextContent(example.code["signup"], enabledComp),
@@ -229,25 +237,70 @@ export function CodeComponent() {
     });
   };
 
+  const highlightCommand = (command: string) => {
+    const parts = command.split(" ");
+    return (
+      <span>
+        <span className="text-yellow-400">{parts[0]}</span>{" "}
+        <span className="text-blue-400">{parts[1]}</span>{" "}
+        <span className="text-green-400">{parts[2]}</span>{" "}
+        <span className="text-purple-400">{parts.slice(3).join(" ")}</span>
+      </span>
+    );
+  };
   return (
     <div className="w-full flex flex-col -mt-2 ">
       <Dialog
-        open={modalOpen}
+        className="rounded-none"
+        open={modalOpen && result !== null}
         onOpenChange={() => {
           setModalOpen(!modalOpen);
         }}
       >
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="sm:rounded-none sm:max-w-[490px]">
           <DialogHeader>
-            <DialogTitle>Add it to your project</DialogTitle>
+            <DialogTitle>Install Component</DialogTitle>
             <DialogDescription>
-              <ComponentCLI result={result} />
+              Run this command in your terminal to install the component.
             </DialogDescription>
           </DialogHeader>
-          hello world
-          <DialogFooter>
-            <Button type="submit">Save changes</Button>
-          </DialogFooter>
+          <div className="mt-4 rounded-md bg-zinc-950 p-4">
+            <div className="flex w-full relative items-start space-x-2">
+              <Terminal className="h-4 w-4 shrink-0 text-zinc-500" />
+              <div className="max-w-[390px] overflow-x-auto scrollbar-thin scrollbar-track-zinc-900 [&::-webkit-scrollbar]:h-0.2  scrollbar-thumb-transparent">
+                <pre className="font-mono w-fit overflow-x-scroll pb-2 text-sm whitespace-pre">
+                  {highlightCommand(
+                    `npx shadcn@latest add "https://better-auth.farmui.com/r/${result?.id.toString()}"`,
+                  )}
+                </pre>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-4 flex justify-end">
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-24 rounded-none"
+              onClick={() => {
+                copyToClipboard(
+                  `npx shadcn@latest add "https://better-auth.farmui.com/r/${result?.id}"`,
+                );
+              }}
+            >
+              {copiedStates ? (
+                <>
+                  <Check className="mr-2 h-4 w-4" />
+                  Copied
+                </>
+              ) : (
+                <>
+                  <Copy className="mr-2 h-4 w-4" />
+                  Copy
+                </>
+              )}
+            </Button>
+          </div>
         </DialogContent>
       </Dialog>
       <Tabs defaultValue="next" className="w-full flex justify-end items-end">
@@ -389,7 +442,7 @@ export function CodeComponent() {
                     className=" absolute bottom-10 w-full left-0 ml-1 z-[99] rounded-none flex gap-2 items-center"
                   >
                     {isPending && <Loader className="w-4 h-4 animate-spin" />}
-                    Export
+                    {isPending ? "Exporting..." : "Export"}
                   </Button>
                 </div>
               </div>

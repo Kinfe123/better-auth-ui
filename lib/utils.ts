@@ -5,11 +5,16 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function generateCustomKey() {
-  const part1 = crypto.randomBytes(16).toString("base64").replace(/=+$/, ""); // 16 bytes
-  const part2 = crypto.randomBytes(16).toString("base64").replace(/=+$/, ""); // 16 bytes
+export function generateCustomKey(length: number = 10) {
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"; // Uppercase and lowercase letters
+  let result = "";
 
-  return `${part1}.${part2}`;
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    result += characters[randomIndex];
+  }
+  const timestamp = Date.now();
+  return result + timestamp.toString();
 }
 export function anyBool(lists: boolean[]) {
   let result = false;

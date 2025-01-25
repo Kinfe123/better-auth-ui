@@ -14,6 +14,7 @@ export const registryExport = async (data: any) => {
         create: data.files.map((file) => ({
           path: file.path,
           type: file.type,
+          content: file.content,
           target: file.target,
         })),
       },

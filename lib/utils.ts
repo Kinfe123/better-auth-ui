@@ -4,6 +4,7 @@ import crypto from "crypto";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
 export function generateCustomKey() {
   const part1 = crypto.randomBytes(16).toString("base64").replace(/=+$/, ""); // 16 bytes
   const part2 = crypto.randomBytes(16).toString("base64").replace(/=+$/, ""); // 16 bytes

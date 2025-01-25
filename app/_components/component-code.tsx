@@ -241,7 +241,7 @@ export function CodeComponent() {
           <DialogHeader>
             <DialogTitle>Add it to your project</DialogTitle>
             <DialogDescription>
-              <ComponentCLI />
+              <ComponentCLI result={result} />
             </DialogDescription>
           </DialogHeader>
           hello world
@@ -533,6 +533,6 @@ export function CodeComponent() {
   );
 }
 
-const ComponentCLI = () => {
-  return <div>Hello from CLI</div>;
+const ComponentCLI = ({ result }: { result: any }) => {
+  return <div>npm shadcn add {result.id}</div>;
 };

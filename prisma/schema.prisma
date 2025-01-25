@@ -16,7 +16,7 @@ model User {
 }
 
 model ComponentExport {
-  id                   String     @id @default(uuid())
+  id                   String   @id @default(uuid())
   name                 String
   type                 String
   title                String?
@@ -26,10 +26,11 @@ model ComponentExport {
 }
 
 model File {
-  id          String             @id @default(uuid())
+  id          String          @id @default(uuid())
   path        String
   type        String
   target      String?
+  content     String
   componentId String
   component   ComponentExport @relation(fields: [componentId], references: [id])
 }

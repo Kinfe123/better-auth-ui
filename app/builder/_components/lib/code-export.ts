@@ -32,7 +32,7 @@ export function importAndDistructureCleanup(
   input: string,
   condition: boolean,
 ): string {
-  const lines = input.split("\n");
+  const lines = input?.split("\n");
 
   const noImportIndex = lines.findIndex((line) =>
     line.includes(`// ${distruction}`),

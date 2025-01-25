@@ -5,9 +5,18 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { anyBool } from "@/lib/utils";
 import { Layout, Code2, InfoIcon } from "lucide-react";
-
+import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { ComponentRender } from "./component-render";
@@ -42,34 +51,61 @@ export default function AuthBuilder() {
     }
     return disabledStatus;
   };
+  const constructRegistry = async () => {};
   return (
     <Card className="relative h-full w-full bg-transparent max-w-7xl mx-auto border-t-0 rounded-none">
       <div className="w-full border-l-2 border-b-2 border-gray-200/50 dark:border-gray-900/50">
         <div className="overflow-hidden md:ml-[-2px] bg-transparent flex gap-10 items-center justify-between md:justify-normal  rounded-none">
-          <Tabs defaultValue="preview" className="w-full">
+          <Tabs defaultValue="preview" className="w-full ">
             <div className="w-32 md:w-full flex items-center justify-start gap-1">
-              <TabsList className=" md:ml-[-5px] data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
-                <TabsTrigger
-                  className="rounded-none py-2 pt-[10px] ml-[-3px]  data-[state=active]:text-white flex w-full  items-center gap-2 data-[state=active]:bg-stone-900 "
-                  value="preview"
-                >
-                  <Layout className="w-4 h-4" />
-                  <span className="py-1 flex items-center justify-center">
-                    Preview
-                  </span>
-                </TabsTrigger>
-              </TabsList>
-              <TabsList className="md:ml-[-5px] data-[state=active]:bg-background w-full items-center justify-between md:justify-normal bg-tranparent gap-3  md:w-fit  rounded-none">
-                <TabsTrigger
-                  className="rounded-none ml-[-3px] w-full py-2 pt-[10px] data-[state=active]:text-white flex  items-center gap-2 data-[state=active]:bg-stone-900 "
-                  value="code"
-                >
-                  <Code2 className="w-4 h-4" />
-                  <span className="py-1 flex items-center justify-center">
-                    Code
-                  </span>
-                </TabsTrigger>
-              </TabsList>
+              <div className="w-full flex items-center justify-between">
+                <div>
+                  <TabsList className=" md:ml-[-5px] data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
+                    <TabsTrigger
+                      className="rounded-none py-2 pt-[10px] ml-[-3px]  data-[state=active]:text-white flex w-full  items-center gap-2 data-[state=active]:bg-stone-900 "
+                      value="preview"
+                    >
+                      <Layout className="w-4 h-4" />
+                      <span className="py-1 flex items-center justify-center">
+                        Preview
+                      </span>
+                    </TabsTrigger>
+                  </TabsList>
+                  <TabsList className="md:ml-[-5px] data-[state=active]:bg-background w-full items-center justify-between md:justify-normal bg-tranparent gap-3  md:w-fit  rounded-none">
+                    <TabsTrigger
+                      className="rounded-none ml-[-3px] w-full py-2 pt-[10px] data-[state=active]:text-white flex  items-center gap-2 data-[state=active]:bg-stone-900 "
+                      value="code"
+                    >
+                      <Code2 className="w-4 h-4" />
+                      <span className="py-1 flex items-center justify-center">
+                        Code
+                      </span>
+                    </TabsTrigger>
+                  </TabsList>
+                </div>
+
+                <div>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button className="pb-2 rounded-none" variant={"outline"}>
+                        Export
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+                      <DialogHeader>
+                        <DialogTitle>Add it to your project</DialogTitle>
+                        <DialogDescription>
+                          <ComponentCLI />
+                        </DialogDescription>
+                      </DialogHeader>
+                      hello world
+                      <DialogFooter>
+                        <Button type="submit">Save changes</Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
+                </div>
+              </div>
             </div>
             <hr className="bg-gray-200 mt-1" />
             <TabsContent value="code" className="w-full h-[75vh]">
@@ -430,3 +466,6 @@ export default function AuthBuilder() {
     </Card>
   );
 }
+const ComponentCLI = () => {
+  return <div></div>;
+};

@@ -1,6 +1,14 @@
 // @ts-nocheck
-import { useEffect, useState } from "react";
-
+import { useEffect, useState, useTransition } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import {
   Select,
   SelectContent,
@@ -11,7 +19,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Layout, Copy, Check, FileText, X } from "lucide-react";
+import { Layout, Copy, Check, FileText, X, Loader } from "lucide-react";
 import { Icons } from "@/components/icons";
 import { FileTree } from "./component-preview";
 import { Button } from "@/components/ui/button";
@@ -33,8 +41,9 @@ import {
 } from "../constants/templates/ui-function-dep";
 import { stateMap } from "../constants/templates/state";
 import { twoLevelComment } from "../constants/templates/two-level";
-import { anyBool } from "@/lib/utils";
+import { anyBool, generateCustomKey } from "@/lib/utils";
 import { parsedNextContent } from "@/lib/parser/next";
+import { registryExport } from "@/actions/registry";
 export function CodeComponent() {
   const [fmForTree, setFmForTree] = useState("next");
   const [activeTab, setActiveTab] = useState("next");
@@ -139,9 +148,108 @@ export function CodeComponent() {
         break;
     }
   };
+  const [isPending, startTransition] = useTransition();
+  const [result, setResult] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleExport = async (example: any) => {
+    const randomParts = generateCustomKey();
+    const isForgetEnabled = enabledComp.additionals.forgetPassword?.visiblity;
+    let fileData = [];
+    if (isForgetEnabled) {
+      fileData = [
+        {
+          path: "components/forgetPassword.tsx",
+          content: parsedNextContent(
+            example.code["forgetPassword"],
+            enabledComp,
+          ),
+          type: "registry:component",
+          target: "",
+        },
+        {
+          path: "components/resetPassword.tsx",
+          content: parsedNextContent(
+            example.code["resetPassword"],
+            enabledComp,
+          ),
+          type: "registry:component",
+          target: "",
+        },
+      ];
+    }
+    const data = {
+      id: randomParts,
+      name: randomParts,
+      type: "registry:component",
+      title: "BetterAuth UI Component",
+      registryDependencies: ["cards", "button", "input", "tabs"],
+      files: [
+        {
+          path: "components/login.tsx",
+          content: parsedNextContent(example.code["login"], enabledComp),
+          target: "",
+          type: "registry:component",
+        },
+
+        {
+          path: "components/signup.tsx",
+          content: parsedNextContent(example.code["signup"], enabledComp),
+          target: "",
+          type: "registry:component",
+        },
+        {
+          path: "lib/auth.ts",
+          content: parsedNextContent(
+            example.code["auth"][dbOptions],
+            enabledComp,
+          ),
+
+          type: "registry:lib",
+          target: "",
+        },
+        {
+          path: "lib/client.tsx",
+          content: parsedNextContent(example.code["client"], enabledComp),
+          type: "registry:lib",
+          target: "",
+        },
+        ...fileData,
+      ],
+    };
+    startTransition(() => {
+      registryExport(data)
+        .then((res) => {
+          setResult(res);
+          setModalOpen(true);
+          console.log({ res });
+        })
+        .catch((err) => {
+          console.log({ err });
+        });
+    });
+  };
 
   return (
     <div className="w-full flex flex-col -mt-2 ">
+      <Dialog
+        open={modalOpen}
+        onOpenChange={() => {
+          setModalOpen(!modalOpen);
+        }}
+      >
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Add it to your project</DialogTitle>
+            <DialogDescription>
+              <ComponentCLI />
+            </DialogDescription>
+          </DialogHeader>
+          hello world
+          <DialogFooter>
+            <Button type="submit">Save changes</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
       <Tabs defaultValue="next" className="w-full flex justify-end items-end">
         <TabsList className="md:ml-[-5px] h-10 data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
           <div className="flex w-full justify-end items-end lg:hidden">
@@ -267,13 +375,23 @@ export function CodeComponent() {
               key={framework}
             >
               <div className="sticky w-48 sm:w-56 md:w-80 z-20 dark:backdrop-blur-2xl top-0 left-0">
-                <FileTree
-                  currentSlug={currentSlug}
-                  setCurrentSlug={setCurrentSlug}
-                  element={fmForTree}
-                  currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
-                />
+                <div className="flex relative justify-between h-full flex-col ">
+                  <FileTree
+                    currentSlug={currentSlug}
+                    setCurrentSlug={setCurrentSlug}
+                    element={fmForTree}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                  />
+                  <Button
+                    disabled={isPending}
+                    onClick={() => handleExport(example)}
+                    className=" absolute bottom-10 w-full left-0 ml-1 z-[99] rounded-none flex gap-2 items-center"
+                  >
+                    {isPending && <Loader className="w-4 h-4 animate-spin" />}
+                    Export
+                  </Button>
+                </div>
               </div>
               <div className="w-full relative flex flex-col -ml-2 mb-12 h-[70vh] pb-10 overflow-x-hidden">
                 <div className="w-full pl-1 h-10 sticky top-0 left-0 bg-transparent border-b">
@@ -414,3 +532,7 @@ export function CodeComponent() {
     </div>
   );
 }
+
+const ComponentCLI = () => {
+  return <div>Hello from CLI</div>;
+};

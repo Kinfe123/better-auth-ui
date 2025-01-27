@@ -83,28 +83,6 @@ export default function AuthBuilder() {
                     </TabsTrigger>
                   </TabsList>
                 </div>
-
-                <div>
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button className="pb-2 rounded-none" variant={"outline"}>
-                        Export
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-[425px]">
-                      <DialogHeader>
-                        <DialogTitle>Add it to your project</DialogTitle>
-                        <DialogDescription>
-                          <ComponentCLI />
-                        </DialogDescription>
-                      </DialogHeader>
-                      hello world
-                      <DialogFooter>
-                        <Button type="submit">Save changes</Button>
-                      </DialogFooter>
-                    </DialogContent>
-                  </Dialog>
-                </div>
               </div>
             </div>
             <hr className="bg-gray-200 mt-1" />

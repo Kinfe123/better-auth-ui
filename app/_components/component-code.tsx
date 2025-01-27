@@ -52,6 +52,7 @@ import { twoLevelComment } from "../constants/templates/two-level";
 import { anyBool, generateCustomKey } from "@/lib/utils";
 import { parsedNextContent } from "@/lib/parser/next";
 import { registryExport } from "@/actions/registry";
+import BottomToolbar from "@/components/bottom-toolbar";
 export function CodeComponent() {
   const [fmForTree, setFmForTree] = useState("next");
   const [activeTab, setActiveTab] = useState("next");
@@ -188,7 +189,7 @@ export function CodeComponent() {
     }
     const data = {
       id: randomParts,
-      name: randomParts,
+      name: "better-auth-ui",
       type: "registry:component",
       title: "BetterAuth UI Component",
       description: "BetterAuth UI Component for your project",
@@ -268,7 +269,7 @@ export function CodeComponent() {
           <div className="mt-4 rounded-md bg-zinc-950 p-4">
             <div className="flex w-full relative items-start space-x-2">
               <Terminal className="h-4 w-4 shrink-0 text-zinc-500" />
-              <div className="max-w-[390px] overflow-x-auto scrollbar-thin scrollbar-track-zinc-900 [&::-webkit-scrollbar]:h-0.2  scrollbar-thumb-transparent">
+              <div className="max-w-[250px] sm:max-w-[390px] overflow-x-auto scrollbar-thin scrollbar-track-zinc-900 [&::-webkit-scrollbar]:h-0.2  scrollbar-thumb-transparent">
                 <pre className="font-mono w-fit overflow-x-scroll pb-2 text-sm whitespace-pre">
                   {highlightCommand(
                     `npx shadcn@latest add "https://better-auth.farmui.com/r/${result?.id.toString()}"`,
@@ -560,6 +561,7 @@ export function CodeComponent() {
                       key={framework}
                     />
                   )}
+                  <BottomToolbar />
                   <Button
                     variant="outline"
                     size="icon"

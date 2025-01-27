@@ -440,10 +440,17 @@ export function CodeComponent() {
                   <Button
                     disabled={isPending}
                     onClick={() => handleExport(example)}
-                    className=" absolute bottom-10 w-full left-0 ml-1 z-[99] rounded-none flex gap-2 items-center"
+                    className=" absolute bottom-10 w-full left-[1.51px]  z-[99] rounded-none flex gap-2 items-center"
                   >
                     {isPending && <Loader className="w-4 h-4 animate-spin" />}
-                    {isPending ? "Exporting..." : "Export"}
+                    {isPending ? (
+                      "Exporting..."
+                    ) : (
+                      <div className="flex items-center gap-2">
+                        <Terminal className="h-4 w-4 shrink-0 text-zinc-900" />
+                        Export
+                      </div>
+                    )}
                   </Button>
                 </div>
               </div>

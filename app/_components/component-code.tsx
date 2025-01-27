@@ -191,6 +191,7 @@ export function CodeComponent() {
       name: randomParts,
       type: "registry:component",
       title: "BetterAuth UI Component",
+      description: "BetterAuth UI Component for your project",
       registryDependencies: ["cards", "button", "input", "tabs"],
       files: [
         {

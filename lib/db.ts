@@ -6,12 +6,12 @@ declare global {
   var cachedPrisma: PrismaClient;
 }
 
-export let prisma: PrismaClient;
+export let db: PrismaClient;
 if (process.env.NODE_ENV === "production") {
-  prisma = new PrismaClient();
+  db = new PrismaClient();
 } else {
   if (!global.cachedPrisma) {
     global.cachedPrisma = new PrismaClient();
   }
-  prisma = global.cachedPrisma;
+  db = global.cachedPrisma;
 }

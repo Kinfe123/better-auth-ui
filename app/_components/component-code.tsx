@@ -1,6 +1,14 @@
 // @ts-nocheck
-import { useEffect, useState } from "react";
-
+import { useEffect, useState, useTransition } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import {
   Select,
   SelectContent,
@@ -11,7 +19,15 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Layout, Copy, Check, FileText, X } from "lucide-react";
+import {
+  Layout,
+  Copy,
+  Check,
+  FileText,
+  X,
+  Loader,
+  Terminal,
+} from "lucide-react";
 import { Icons } from "@/components/icons";
 import { FileTree } from "./component-preview";
 import { Button } from "@/components/ui/button";
@@ -33,8 +49,9 @@ import {
 } from "../constants/templates/ui-function-dep";
 import { stateMap } from "../constants/templates/state";
 import { twoLevelComment } from "../constants/templates/two-level";
-import { anyBool } from "@/lib/utils";
+import { anyBool, generateCustomKey } from "@/lib/utils";
 import { parsedNextContent } from "@/lib/parser/next";
+import { registryExport } from "@/actions/registry";
 export function CodeComponent() {
   const [fmForTree, setFmForTree] = useState("next");
   const [activeTab, setActiveTab] = useState("next");
@@ -45,6 +62,7 @@ export function CodeComponent() {
   const { enabledComp } = useComponents();
   const [dbOptions, setDbOptions] = useState("prisma");
   const [copiedStates, setCopiedStates] = useState(false);
+
   const nextCode = {
     login_page: code.next?.pages.signin,
     signup_page: code.next?.pages.signup,
@@ -139,9 +157,153 @@ export function CodeComponent() {
         break;
     }
   };
+  const [isPending, startTransition] = useTransition();
+  const [result, setResult] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleExport = async (example: any) => {
+    const randomParts = generateCustomKey();
+    const isForgetEnabled = enabledComp.additionals.forgetPassword?.visiblity;
+    let fileData = [];
+    if (isForgetEnabled) {
+      fileData = [
+        {
+          path: "components/forgetPassword.tsx",
+          content: parsedNextContent(
+            example.code["forgetPassword"],
+            enabledComp,
+          ),
+          type: "registry:component",
+          target: "",
+        },
+        {
+          path: "components/resetPassword.tsx",
+          content: parsedNextContent(
+            example.code["resetPassword"],
+            enabledComp,
+          ),
+          type: "registry:component",
+          target: "",
+        },
+      ];
+    }
+    const data = {
+      id: randomParts,
+      name: randomParts,
+      type: "registry:component",
+      title: "BetterAuth UI Component",
+      description: "BetterAuth UI Component for your project",
+      registryDependencies: ["cards", "button", "input", "tabs"],
+      files: [
+        {
+          path: "components/login.tsx",
+          content: parsedNextContent(example.code["login"], enabledComp),
+          target: "",
+          type: "registry:component",
+        },
+        {
+          path: "components/signup.tsx",
+          content: parsedNextContent(example.code["signup"], enabledComp),
+          target: "",
+          type: "registry:component",
+        },
+        {
+          path: "lib/auth.ts",
+          content: parsedNextContent(
+            example.code["auth"][dbOptions],
+            enabledComp,
+          ),
 
+          type: "registry:lib",
+          target: "",
+        },
+        {
+          path: "lib/client.tsx",
+          content: parsedNextContent(example.code["client"], enabledComp),
+          type: "registry:lib",
+          target: "",
+        },
+        ...fileData,
+      ],
+    };
+    startTransition(() => {
+      registryExport(data)
+        .then((res) => {
+          setResult(res);
+          setModalOpen(true);
+          console.log({ res });
+        })
+        .catch((err) => {
+          console.log({ err });
+        });
+    });
+  };
+
+  const highlightCommand = (command: string) => {
+    const parts = command.split(" ");
+    return (
+      <span>
+        <span className="text-yellow-400">{parts[0]}</span>{" "}
+        <span className="text-blue-400">{parts[1]}</span>{" "}
+        <span className="text-green-400">{parts[2]}</span>{" "}
+        <span className="text-purple-400">{parts.slice(3).join(" ")}</span>
+      </span>
+    );
+  };
   return (
     <div className="w-full flex flex-col -mt-2 ">
+      <Dialog
+        className="rounded-none"
+        open={modalOpen && result !== null}
+        onOpenChange={() => {
+          setModalOpen(!modalOpen);
+        }}
+      >
+        <DialogContent className="sm:rounded-none sm:max-w-[490px]">
+          <DialogHeader>
+            <DialogTitle>Install Component</DialogTitle>
+            <DialogDescription>
+              Run this command in your terminal to install the component.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="mt-4 rounded-md bg-zinc-950 p-4">
+            <div className="flex w-full relative items-start space-x-2">
+              <Terminal className="h-4 w-4 shrink-0 text-zinc-500" />
+              <div className="max-w-[390px] overflow-x-auto scrollbar-thin scrollbar-track-zinc-900 [&::-webkit-scrollbar]:h-0.2  scrollbar-thumb-transparent">
+                <pre className="font-mono w-fit overflow-x-scroll pb-2 text-sm whitespace-pre">
+                  {highlightCommand(
+                    `npx shadcn@latest add "https://better-auth.farmui.com/r/${result?.id.toString()}"`,
+                  )}
+                </pre>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-4 flex justify-end">
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-24 rounded-none"
+              onClick={() => {
+                copyToClipboard(
+                  `npx shadcn@latest add "https://better-auth.farmui.com/r/${result?.id}"`,
+                );
+              }}
+            >
+              {copiedStates ? (
+                <>
+                  <Check className="mr-2 h-4 w-4" />
+                  Copied
+                </>
+              ) : (
+                <>
+                  <Copy className="mr-2 h-4 w-4" />
+                  Copy
+                </>
+              )}
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
       <Tabs defaultValue="next" className="w-full flex justify-end items-end">
         <TabsList className="md:ml-[-5px] h-10 data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
           <div className="flex w-full justify-end items-end lg:hidden">
@@ -267,13 +429,23 @@ export function CodeComponent() {
               key={framework}
             >
               <div className="sticky w-48 sm:w-56 md:w-80 z-20 dark:backdrop-blur-2xl top-0 left-0">
-                <FileTree
-                  currentSlug={currentSlug}
-                  setCurrentSlug={setCurrentSlug}
-                  element={fmForTree}
-                  currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
-                />
+                <div className="flex relative justify-between h-full flex-col ">
+                  <FileTree
+                    currentSlug={currentSlug}
+                    setCurrentSlug={setCurrentSlug}
+                    element={fmForTree}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                  />
+                  <Button
+                    disabled={isPending}
+                    onClick={() => handleExport(example)}
+                    className=" absolute bottom-10 w-full left-0 ml-1 z-[99] rounded-none flex gap-2 items-center"
+                  >
+                    {isPending && <Loader className="w-4 h-4 animate-spin" />}
+                    {isPending ? "Exporting..." : "Export"}
+                  </Button>
+                </div>
               </div>
               <div className="w-full relative flex flex-col -ml-2 mb-12 h-[70vh] pb-10 overflow-x-hidden">
                 <div className="w-full pl-1 h-10 sticky top-0 left-0 bg-transparent border-b">
@@ -414,3 +586,7 @@ export function CodeComponent() {
     </div>
   );
 }
+
+const ComponentCLI = ({ result }: { result: any }) => {
+  return <div>npm shadcn add {result.id}</div>;
+};

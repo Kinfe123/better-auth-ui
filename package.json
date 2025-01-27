@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@prisma/client": "^6.2.1",
     "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-checkbox": "^1.1.2",
     "@radix-ui/react-collapsible": "^1.1.1",
@@ -31,6 +33,7 @@
     "next-themes": "^0.3.0",
     "prettier": "^3.3.3",
     "prism-react-renderer": "^2.4.0",
+    "prisma": "^6.2.1",
     "react": "^18",
     "react-code-block": "^1.0.0",
     "react-dom": "^18",

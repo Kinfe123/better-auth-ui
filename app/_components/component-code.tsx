@@ -258,7 +258,7 @@ export function CodeComponent() {
           setModalOpen(!modalOpen);
         }}
       >
-        <DialogContent className="sm:rounded-none sm:max-w-[490px]">
+        <DialogContent className="sm:rounded-none max-w-[350px] sm:max-w-[490px]">
           <DialogHeader>
             <DialogTitle>Install Component</DialogTitle>
             <DialogDescription>

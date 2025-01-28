@@ -21,7 +21,7 @@ const BottomToolbar: React.FC = () => {
   };
 
   return (
-    <div className="backdrop-blur-2xl sticky z-20 pt-2 pb-1 bg-transparent -bottom-12  left-0 right-0 border-t-2 border-white/10 text-white text-xs flex items-center justify-between px-2 py-1">
+    <div className="backdrop-blur-2xl sticky z-20 pt-[6px] pb-1 bg-transparent -bottom-12  left-0 right-0 border-t-2 border-white/10 text-white text-xs flex items-center justify-between px-2 py-1">
       <div className="flex items-center space-x-4">
         <button
           className="flex items-center space-x-1 hover:bg-transparent/90 px-2 py-0.5 rounded"

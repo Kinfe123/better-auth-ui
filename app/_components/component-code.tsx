@@ -441,7 +441,7 @@ export function CodeComponent() {
                   <Button
                     disabled={isPending}
                     onClick={() => handleExport(example)}
-                    className=" absolute bottom-10 w-full left-[1.51px]  z-[99] rounded-none flex gap-2 items-center"
+                    className=" absolute bottom-10 -mb-1 w-full left-[1.51px] z-[99] rounded-none flex gap-2 items-center"
                   >
                     {isPending && <Loader className="w-4 h-4 animate-spin" />}
                     {isPending ? (

@@ -474,7 +474,6 @@ export function CodeComponent() {
                       <X className="w-3 h-3 dark:group-hover:text-black group-hover:text-white" />
                     </button>
                   </div>
-
                   {getCode(currentPage) === "auth" ? (
                     <div className="relative">
                       <div className="z-20 absolute -top-[35px] right-14">
@@ -561,7 +560,6 @@ export function CodeComponent() {
                       key={framework}
                     />
                   )}
-                  <BottomToolbar />
                   <Button
                     variant="outline"
                     size="icon"
@@ -595,7 +593,3 @@ export function CodeComponent() {
     </div>
   );
 }
-
-const ComponentCLI = ({ result }: { result: any }) => {
-  return <div>npm shadcn add {result.id}</div>;
-};

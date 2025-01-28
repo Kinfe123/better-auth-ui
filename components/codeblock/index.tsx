@@ -1,6 +1,7 @@
 "use client";
 import { CodeBlock } from "react-code-block";
 import { themes } from "prism-react-renderer";
+import BottomToolbar from "../bottom-toolbar";
 export const CodeSnippet = ({
   code,
   language = "jsx",
@@ -22,6 +23,7 @@ export const CodeSnippet = ({
           </CodeBlock.Code>
         </div>
       </CodeBlock>
+      <BottomToolbar />
     </pre>
   );
 };

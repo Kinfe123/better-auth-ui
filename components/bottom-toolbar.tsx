@@ -16,7 +16,7 @@ const langMap = {
   ts: "TypeScript",
   txt: "Text",
 };
-const BottomToolbar: React.FC = ({ lang }: { lang?: string }) => {
+const BottomToolbar: React.FC = ({ lang = "ts" }: { lang?: string }) => {
   const [language, setLanguage] = useState(langMap[lang] || "TypeScript");
   const toggleLanguage = () => {
     setLanguage((prev: string) =>

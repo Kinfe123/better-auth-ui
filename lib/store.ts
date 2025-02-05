@@ -41,6 +41,9 @@ interface Credentials {
   username: boolean;
   phoneNumber: boolean;
 }
+interface Env {
+  better_auth_secret: boolean;
+}
 interface OtherSignIn {
   passKey: boolean;
   magicLink: boolean;
@@ -50,6 +53,7 @@ export interface EnabledComponent {
   additionals: Partial<Additionals>;
   socials: Partial<SocialProviders>;
   otherSignIn: Partial<OtherSignIn>;
+  env?: Partial<Env>;
 }
 interface ComponentStore {
   enabledComp: EnabledComponent;
@@ -105,6 +109,9 @@ const initialState = {
   otherSignIn: {
     passKey: false,
     magicLink: false,
+  },
+  env: {
+    better_auth_secret: true,
   },
 };
 export const useComponents = create<ComponentStore>((set) => ({

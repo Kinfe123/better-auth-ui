@@ -47,6 +47,10 @@ export const actionUIDep: Record<string, any> = {
     continue: ["twitchContinueUI", "twitch_env"],
     pure: ["twitchUI", "twitch_env"],
   },
+  better_auth_secret: {
+    continue: ["better_auth_secret_env"],
+    pure: ["better_auth_secret_env"],
+  },
 };
 export const credentialDep: Record<string, string[]> = {
   enabled: ["passwordInput", "passwordState", "loadingState"],

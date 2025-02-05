@@ -636,7 +636,8 @@ export default SignUp
       },
       files: {
         env: `
-       // google_env
+        // better_auth_secret_env
+        // google_env
        // apple_env
        // github_env
        // discord_env

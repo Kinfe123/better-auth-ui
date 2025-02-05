@@ -4,7 +4,7 @@ import {
   credentialDep,
   actionUIDep,
 } from "@/app/constants/templates/ui-function-dep";
-import { anyBool } from "../utils";
+import { anyBool, secretGen } from "../utils";
 import { serverClientDep } from "@/app/constants/templates/server-client-dep";
 import { stateMap } from "@/app/constants/templates/state";
 import { parserTokenMap } from "@/app/constants/templates/tokenMap";
@@ -58,6 +58,7 @@ export const parsedNextContent = (
   console.log({ otherEnabledLists, listsOfComments });
   listsOfComments = [
     "empty",
+    "better_auth_secret_env",
     ...otherEnabledLists,
     ...listsOfComments,
     ...socialEnabledLists,

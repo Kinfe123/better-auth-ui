@@ -1,3 +1,4 @@
+import { secretGen } from "@/lib/utils";
 import {
   forgetPasswordSnippet,
   MagicLinkClientImport,
@@ -12,6 +13,7 @@ import {
   remeberMeSnippet,
 } from "./file";
 
+const generateSec = secretGen();
 export const parserTokenMap: Record<string, string> = {
   socialProviders: `socialProviders: {
   }
@@ -917,7 +919,7 @@ MICROSOFT_CLIENT_ID=""
 MICROSOFT_CLIENT_SECRET=""
            `,
   better_auth_secret_env: `
-BETTER_AUTH_SECRET=
+BETTER_AUTH_SECRET="${generateSec}"
                     `,
 };
 export const routeMap = {

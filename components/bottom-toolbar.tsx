@@ -12,10 +12,14 @@ import {
   Settings,
 } from "lucide-react";
 
-const BottomToolbar: React.FC = () => {
-  const [language, setLanguage] = useState("TypeScript");
+const langMap = {
+  ts: "TypeScript",
+  txt: "Text",
+};
+const BottomToolbar: React.FC = ({ lang }: { lang?: string }) => {
+  const [language, setLanguage] = useState(langMap[lang] || "TypeScript");
   const toggleLanguage = () => {
-    setLanguage((prev) =>
+    setLanguage((prev: string) =>
       prev === "TypeScript" ? "JavaScript" : "TypeScript",
     );
   };

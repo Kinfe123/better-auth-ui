@@ -5,9 +5,11 @@ import BottomToolbar from "../bottom-toolbar";
 export const CodeSnippet = ({
   code,
   language = "jsx",
+  lang = "ts",
 }: {
   code: string;
   language?: string;
+  lang?: string;
 }) => {
   return (
     <pre className="relative">
@@ -23,7 +25,7 @@ export const CodeSnippet = ({
           </CodeBlock.Code>
         </div>
       </CodeBlock>
-      <BottomToolbar />
+      <BottomToolbar lang={lang} />
     </pre>
   );
 };

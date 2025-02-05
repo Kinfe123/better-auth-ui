@@ -547,6 +547,7 @@ export function CodeComponent() {
                   ) : currentPage === ".env" ? (
                     <CodeSnippet
                       language={fm}
+                      lang="txt"
                       code={parsedNextContent(example.code["env"], enabledComp)}
                       key={framework}
                     />

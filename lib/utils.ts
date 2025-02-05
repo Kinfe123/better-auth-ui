@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import crypto from "crypto";
+import Crypto from "crypto";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -26,3 +26,7 @@ export function anyBool(lists: boolean[]) {
   });
   return result;
 }
+export const secretGen = () => {
+  const secret = Crypto.randomBytes(32).toString("hex");
+  return secret;
+};

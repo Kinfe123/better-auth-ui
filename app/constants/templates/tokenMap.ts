@@ -916,6 +916,9 @@ FACEBOOK_CLIENT_SECRET=""
 MICROSOFT_CLIENT_ID=""
 MICROSOFT_CLIENT_SECRET=""
            `,
+  better_auth_secret_env: `
+BETTER_AUTH_SECRET=
+                    `,
 };
 export const routeMap = {
   forgetPassword: "/app/forget-password/page.tsx",

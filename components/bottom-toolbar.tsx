@@ -12,7 +12,7 @@ import {
   Settings,
 } from "lucide-react";
 
-const langMap = {
+const langMap: Record<string, string> = {
   ts: "TypeScript",
   txt: "Text",
 };

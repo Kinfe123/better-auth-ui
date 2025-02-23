@@ -3,7 +3,6 @@
 import { db } from "@/lib/db";
 import { RegisteryData } from "@/types/reg";
 export const registryExport = async (data: RegisteryData) => {
-  console.log(data);
   const rData = await db.componentExport.create({
     data: {
       name: data.name,

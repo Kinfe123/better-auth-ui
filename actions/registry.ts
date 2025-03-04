@@ -26,3 +26,27 @@ export const registryExport = async (data: RegisteryData) => {
   console.log({ rData });
   return rData;
 };
+export const registryBlockExport = async (data: any) => {
+  const rData = await db.componentExport.create({
+    data: {
+      name: data.name,
+      description: data.description,
+      title: data.title,
+      id: data.id,
+      type: data.type,
+      files: {
+  	create: {
+		path: file.path,
+          	type: file.type,
+          	content: file.content,
+          	target: file.target,
+	}
+      },
+    },
+  });
+  if (!rData) {
+    throw new Error("Failed to create component");
+  }
+  console.log({ rData });
+  return rData;
+}

@@ -29,18 +29,18 @@ export const registryExport = async (data: RegisteryData) => {
 export const registryBlockExport = async (data: any) => {
   const rData = await db.componentExport.create({
     data: {
-      name: data.name,
+      name: data.name + "Block",
       description: data.description,
       title: data.title,
       id: data.id,
       type: data.type,
       files: {
-  	create: {
-		path: file.path,
-          	type: file.type,
-          	content: file.content,
-          	target: file.target,
-	}
+        create: {
+          path: data.path,
+          type: data.type,
+          content: data.content,
+          target: data.target,
+        },
       },
     },
   });
@@ -49,4 +49,4 @@ export const registryBlockExport = async (data: any) => {
   }
   console.log({ rData });
   return rData;
-}
+};

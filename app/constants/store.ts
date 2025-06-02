@@ -667,7 +667,7 @@ import { headers } from "next/headers";
 const prisma = new PrismaClient();
 export const auth = betterAuth({
     database: prismaAdapter(prisma, {
-      provider: "postgresql", // or "pg" or "mysql
+      provider: "postgresql", // or "pg" or "mysql"
   }),
    emailAndPassword: {
      enabled: true,

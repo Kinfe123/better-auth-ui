@@ -1,5 +1,5 @@
 interface HintText {
-  credential: {
+  credent :q::tial: {
     [key: string]: string;
   };
   magicLink: {

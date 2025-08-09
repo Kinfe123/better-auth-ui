@@ -11,7 +11,7 @@ export default function AuthUIHero() {
       />
       <main className="flex flex-col gap-4 row-start-2 items-center justify-center">
         <div className="flex flex-col gap-6">
-          <h3 className="font-geist-mono font-bold text-4xl text-black dark:text-white text-center">
+          <h3 className="font-geist-mono uppercase font-bold text-4xl text-black dark:text-white text-center">
             Better Auth UI.
           </h3>
           <p className="text-center text-gray-700 dark:text-gray-300 max-w-md break-words text-sm md:text-base">

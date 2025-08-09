@@ -1,6 +1,7 @@
 import { GridPattern } from "@/components/landing/grid-pattern";
 import { LayoutDashboard } from "lucide-react";
 import Link from "next/link";
+import { LineShadowText } from "./shadow-text";
 export default function AuthUIHero() {
   return (
     <div className="min-h-[60vh] mb-[-8rem] flex items-center justify-center overflow-hidden no-visible-scrollbar px-6 md:px-0">
@@ -11,8 +12,8 @@ export default function AuthUIHero() {
       />
       <main className="flex flex-col gap-4 row-start-2 items-center justify-center">
         <div className="flex flex-col gap-6">
-          <h3 className="font-geist-mono uppercase font-bold text-4xl text-black dark:text-white text-center">
-            Better Auth UI.
+          <h3 className="font-geist-sans uppercase font-normal text-4xl text-black dark:text-white text-center">
+            Better-Auth <LineShadowText shadowColor="white" className="font-semibold">UI</LineShadowText>.
           </h3>
           <p className="text-center text-gray-700 dark:text-gray-300 max-w-md break-words text-sm md:text-base">
             Explore a tuned auth UI that you can copy / paste with{" "}

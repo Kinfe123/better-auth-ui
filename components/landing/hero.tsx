@@ -60,6 +60,7 @@ export default function AuthUIHero() {
           </Link>
         </div>
       </main>
+      
     </div>
   );
 }

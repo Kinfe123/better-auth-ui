@@ -47,6 +47,5 @@ export const registryBlockExport = async (data: any) => {
   if (!rData) {
     throw new Error("Failed to create component");
   }
-  console.log({ rData });
   return rData;
 };

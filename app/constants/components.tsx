@@ -343,9 +343,6 @@ export const auth = betterAuth({
 });
 
                   `,
-
-        env: `
-                        `,
         client: `
 import { createAuthClient } from "better-auth/react";
 

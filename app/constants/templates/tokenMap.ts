@@ -924,5 +924,5 @@ BETTER_AUTH_SECRET="${generateSec}"
 };
 export const routeMap = {
   forgetPassword: "/app/forget-password/page.tsx",
-  resetassword: "/app/reset-password/page.tsx",
+  resetPassword: "/app/reset-password/page.tsx",
 };

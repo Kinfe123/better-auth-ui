@@ -9,6 +9,12 @@ export const previewComponent = [
 
     code: {
       next: {
+        env: `
+BETTER_AUTH_URL=http://localhost:3000
+BETTER_AUTH_SECRET=
+BETTER_AUTH_CLIENT_ID=
+BETTER_AUTH_CLIENT_SECRET=
+`,
         login_page: `
 import LogIn from "@/components/login";
 export const metadata = {

@@ -251,7 +251,7 @@ export function CodeComponent() {
     );
   };
   return (
-    <div className="w-full flex flex-col -mt-2 ">
+    <div className="w-full flex flex-col -mt-2  border-2 border-white">
       <Dialog
         className="rounded-none"
         open={modalOpen && result !== null}
@@ -305,7 +305,7 @@ export function CodeComponent() {
           </div>
         </DialogContent>
       </Dialog>
-      <Tabs defaultValue="next" className="w-full flex justify-end items-end">
+      <Tabs defaultValue="next" className="w-full flex justify-end items-end ">
         <TabsList className="md:ml-[-5px] h-10 data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
           <div className="flex w-full justify-end items-end lg:hidden">
             <Select
@@ -426,11 +426,11 @@ export function CodeComponent() {
         ([framework, example]) =>
           framework === activeTab && (
             <div
-              className="flex relative w-full gap-2 min-h-[60vh] "
+              className="flex relative w-full gap-2 min-h-full border-2 border-purple-600"
               key={framework}
             >
-              <div className="sticky w-48 sm:w-56 md:w-80 z-20 dark:backdrop-blur-2xl top-0 left-0">
-                <div className="flex relative justify-between h-full flex-col ">
+              <div className="sticky w-48 sm:w-56 md:w-80 z-20 dark:backdrop-blur-2xl top-0 left-0 bottom-10 ">
+                <div className="flex relative justify-between h-full flex-col">
                   <FileTree
                     currentSlug={currentSlug}
                     setCurrentSlug={setCurrentSlug}
@@ -455,7 +455,7 @@ export function CodeComponent() {
                   </Button>
                 </div>
               </div>
-              <div className="w-full relative flex flex-col -ml-2 mb-12 h-[70vh] pb-10 overflow-x-hidden">
+              <div className="w-full relative flex flex-col border-2 border-white -ml-2 mb-12 h-[70vh] pb-10 overflow-x-hidden">
                 <div className="w-full pl-1 h-10 sticky top-0 left-0 bg-transparent border-b">
                   <div
                     className={`top-2 left-0 flex h-10 justify-between items-center px-3 py-2 text-sm w-fit md:w-56 cursor-pointer ${

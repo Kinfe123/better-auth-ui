@@ -251,7 +251,7 @@ export function CodeComponent() {
     );
   };
   return (
-    <div className="w-full flex flex-col -mt-2  border-2 border-white">
+    <div className="w-full flex flex-col -mt-2  ">
       <Dialog
         className="rounded-none"
         open={modalOpen && result !== null}
@@ -279,7 +279,7 @@ export function CodeComponent() {
             </div>
           </div>
 
-          <div className="mt-4 flex justify-end">
+          <div className="mt-4 flex justify-end ">
             <Button
               variant="outline"
               size="sm"
@@ -306,8 +306,8 @@ export function CodeComponent() {
         </DialogContent>
       </Dialog>
       <Tabs defaultValue="next" className="w-full flex justify-end items-end ">
-        <TabsList className="md:ml-[-5px] h-10 data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none">
-          <div className="flex w-full justify-end items-end lg:hidden">
+        <TabsList className="md:ml-[-5px] h-10 data-[state=active]:bg-background items-center justify-between md:justify-normal bg-tranparent gap-3 w-full md:w-fit  rounded-none ">
+          <div className="flex w-full justify-end items-end lg:hidden ">
             <Select
               onValueChange={(e) => {
                 handleTabClick(e);
@@ -364,7 +364,7 @@ export function CodeComponent() {
               </SelectContent>
             </Select>
           </div>
-          <div className="hidden md:flex">
+          <div className="hidden md:flex ">
             <TabsTrigger
               className="flex py-3 data-[state=active]:text-white rounded-none gap-2 items-center data-[state=active]:bg-stone-900"
               value="next"
@@ -426,10 +426,10 @@ export function CodeComponent() {
         ([framework, example]) =>
           framework === activeTab && (
             <div
-              className="flex relative w-full gap-2 min-h-full border-2 border-purple-600"
+              className="flex relative w-full gap-2 min-h-full "
               key={framework}
             >
-              <div className="sticky w-48 sm:w-56 md:w-80 z-20 dark:backdrop-blur-2xl top-0 left-0 bottom-10 ">
+              <div className="sticky w-48 sm:w-56 md:w-80 z-20 dark:backdrop-blur-2xl top-0 left-0 ">
                 <div className="flex relative justify-between h-full flex-col">
                   <FileTree
                     currentSlug={currentSlug}
@@ -441,7 +441,7 @@ export function CodeComponent() {
                   <Button
                     disabled={isPending}
                     onClick={() => handleExport(example)}
-                    className=" absolute bottom-[2.3rem] pb-3 justify-center w-full left-[1.51px] z-[99] rounded-none flex gap-2 items-center"
+                    className=" absolute bottom-0 pb-3 justify-center w-full left-[1.51px] z-[99] rounded-none flex gap-2 items-center"
                   >
                     {isPending && <Loader className="w-4 h-4 animate-spin" />}
                     {isPending ? (
@@ -455,7 +455,7 @@ export function CodeComponent() {
                   </Button>
                 </div>
               </div>
-              <div className="w-full relative flex flex-col border-2 border-white -ml-2 mb-12 h-[70vh] pb-10 overflow-x-hidden">
+              <div className="w-full relative flex flex-col  -ml-2  h-[75vh] pb-10 overflow-x-hidden  mb-2">
                 <div className="w-full pl-1 h-10 sticky top-0 left-0 bg-transparent border-b">
                   <div
                     className={`top-2 left-0 flex h-10 justify-between items-center px-3 py-2 text-sm w-fit md:w-56 cursor-pointer ${

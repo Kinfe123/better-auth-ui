@@ -53,9 +53,9 @@ export default function AuthBuilder() {
   };
   const constructRegistry = async () => {};
   return (
-    <Card className="relative  w-full bg-transparent max-w-7xl mx-auto border-t-0 rounded-none overflow-hidden">
+    <Card className="relative  w-full bg-transparent max-w-7xl mx-auto border-t-0 rounded-none">
       <div className="w-full border-l-2">
-        <div className=" md:ml-[-2px] bg-transparent flex gap-10 items-center justify-between md:justify-normal  rounded-none border-2 ">
+        <div className=" md:ml-[-2px] bg-transparent flex gap-10 items-center justify-between md:justify-normal  rounded-none overflow-hidden">
           <Tabs defaultValue="preview" className="w-full ">
             <div className="w-32 md:w-full flex items-center justify-start gap-1">
               <div className="w-full flex items-center justify-between">

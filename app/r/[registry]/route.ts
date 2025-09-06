@@ -3,7 +3,6 @@ export async function GET(
   request: Request,
   { params }: { params: { registry: string } },
 ) {
-  console.log(params);
   const registry = await db.componentExport.findUnique({
     where: {
       id: params.registry,
@@ -12,7 +11,6 @@ export async function GET(
       files: true,
     },
   });
-  console.log(registry);
   if (!registry) {
     return new Response(null, { status: 404 });
   }

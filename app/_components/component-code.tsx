@@ -251,7 +251,7 @@ export function CodeComponent() {
     );
   };
   return (
-    <div className="w-full flex flex-col -mt-2  ">
+    <div className="w-full flex flex-col -mt-2">
       <Dialog
         className="rounded-none"
         open={modalOpen && result !== null}
@@ -279,7 +279,7 @@ export function CodeComponent() {
             </div>
           </div>
 
-          <div className="mt-4 flex justify-end ">
+          <div className="mt-4 flex justify-end">
             <Button
               variant="outline"
               size="sm"
@@ -426,10 +426,10 @@ export function CodeComponent() {
         ([framework, example]) =>
           framework === activeTab && (
             <div
-              className="flex relative w-full gap-2 min-h-full "
+              className="flex flex-col md:flex-row relative w-full gap-2 min-h-full"
               key={framework}
             >
-              <div className="sticky w-48 sm:w-56 md:w-80 z-20 dark:backdrop-blur-2xl top-0 left-0 ">
+              <div className="sticky w-full p-2 sm:w-full md:w-80 z-20 dark:backdrop-blur-2xl top-0 left-0">
                 <div className="flex relative justify-between h-full flex-col">
                   <FileTree
                     currentSlug={currentSlug}

@@ -426,10 +426,10 @@ export function CodeComponent() {
         ([framework, example]) =>
           framework === activeTab && (
             <div
-              className="flex flex-col md:flex-row relative w-full gap-2 min-h-full"
+              className="flex flex-col md:flex-row relative w-full gap-2 min-h-full p-1"
               key={framework}
             >
-              <div className="sticky w-full p-2 sm:w-full md:w-80 z-20 dark:backdrop-blur-2xl top-0 left-1">
+              <div className="w-full sm:w-full md:w-80 z-20 dark:backdrop-blur-2xl">
                 <div className="flex relative justify-between h-full flex-col">
                   <FileTree
                     currentSlug={currentSlug}
@@ -441,13 +441,13 @@ export function CodeComponent() {
                   <Button
                     disabled={isPending}
                     onClick={() => handleExport(example)}
-                    className=" absolute bottom-0 pb-3 justify-center w-full left-[1.51px] z-[99] rounded-none flex gap-2 items-center"
+                    className=" absolute bottom-0 pb-3 justify-center w-full  z-[99] rounded-none flex gap-2 items-center"
                   >
                     {isPending && <Loader className="w-4 h-4 animate-spin" />}
                     {isPending ? (
                       "Exporting..."
                     ) : (
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 ">
                         <Terminal className="h-4 w-4 shrink-0 text-zinc-900" />
                         Export
                       </div>

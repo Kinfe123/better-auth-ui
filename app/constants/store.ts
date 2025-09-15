@@ -764,8 +764,6 @@ export const auth = betterAuth({
        // passKeyServer
        // magicLinkServer
     ],
-    ,
-
    socialProviders: {
     // github
     // google

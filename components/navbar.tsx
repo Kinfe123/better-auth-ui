@@ -1,13 +1,20 @@
+// components/navbar.tsx
 import React from "react";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggler";
 import { NavLink } from "./navlink";
 import { Logo } from "./logo";
+import { Button } from "@/components/ui/button"; // Ensure this is added via shadcn
+import { Search } from 'lucide-react'; // npm i lucide-react if not installed
 
-export const Navbar = () => {
+interface NavbarProps {
+  setSearchOpen: (open: boolean) => void;
+}
+
+export const Navbar = ({ setSearchOpen }: NavbarProps) => {
   return (
     <div className="flex flex-col sticky top-0 bg-background backdrop-blur-md z-30">
-      <nav className="md:grid grid-cols-12 md:border-b top-0 flex items-center justify-between ">
+      <nav className="md:grid grid-cols-12 md:border-b top-0 flex items-center justify-between">
         <Link
           href="/"
           className="md:border-r md:px-5 px-2.5 py-4 text-foreground md:col-span-2 shrink-0 transition-colors md:w-[--fd-sidebar-width]"
@@ -33,7 +40,7 @@ export const Navbar = () => {
             ))}
             <Link
               href="https://github.com/Kinfe123/better-auth-ui"
-              className=" bg-muted/20 border-l ring-0 rounded-none h-14 w-14 shrink-0 flex justify-center items-center"
+              className="bg-muted/20 border-l ring-0 rounded-none h-14 w-14 shrink-0 flex justify-center items-center"
               target="_blank"
             >
               <svg
@@ -49,6 +56,17 @@ export const Navbar = () => {
               </svg>
             </Link>
           </ul>
+          <Button
+            variant="outline"
+            className="ml-2 flex items-center space-x-2"
+            onClick={() => setSearchOpen(true)}
+          >
+            <Search className="h-4 w-4" />
+            <span>Search</span>
+            <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+              <span className="text-xs">⌘</span>K
+            </kbd>
+          </Button>
           {/* <ThemeToggle /> */}
         </div>
       </nav>

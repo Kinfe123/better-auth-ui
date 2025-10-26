@@ -1,14 +1,11 @@
-// app/layout.tsx
-"use client"; // Keep this for client-side features
+// app/layout.tsx 
 
 import type { ReactNode } from "react";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/provider";
 import { Navbar } from "@/components/navbar";
-import { CommandMenu } from "@/components/command-menu";
-import { metadata } from "./metadata"; // Import metadata
-import React from "react";
+import { CommandPaletteProvider } from "@/components/command-palette-context";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,28 +24,16 @@ export default function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  const [open, setOpen] = React.useState(false);
-
-  React.useEffect(() => {
-    const down = (e: KeyboardEvent) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
-        setOpen((open) => !open);
-      }
-    };
-    document.addEventListener('keydown', down);
-    return () => document.removeEventListener('keydown', down);
-  }, []);
-
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-geist`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <Navbar setSearchOpen={setOpen} />
-          {children}
-          <CommandMenu open={open} onOpenChange={setOpen} />
+            <CommandPaletteProvider> 
+                <Navbar /> 
+                {children}
+            </CommandPaletteProvider>
         </ThemeProvider>
       </body>
     </html>

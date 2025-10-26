@@ -1,17 +1,18 @@
-// components/navbar.tsx
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggler";
 import { NavLink } from "./navlink";
 import { Logo } from "./logo";
-import { Button } from "@/components/ui/button"; // Ensure this is added via shadcn
-import { Search } from 'lucide-react'; // npm i lucide-react if not installed
+import { Button } from "@/components/ui/button";
+import { Search } from 'lucide-react'; 
+import { useCommandPalette } from "./command-palette-context";
 
-interface NavbarProps {
-  setSearchOpen: (open: boolean) => void;
-}
 
-export const Navbar = ({ setSearchOpen }: NavbarProps) => {
+// Function signature cleaned up
+export const Navbar = (/* No props needed here */) => {
+  const { setOpen } = useCommandPalette()
   return (
     <div className="flex flex-col sticky top-0 bg-background backdrop-blur-md z-30">
       <nav className="md:grid grid-cols-12 md:border-b top-0 flex items-center justify-between">
@@ -59,7 +60,8 @@ export const Navbar = ({ setSearchOpen }: NavbarProps) => {
           <Button
             variant="outline"
             className="ml-2 flex items-center space-x-2"
-            onClick={() => setSearchOpen(true)}
+            // to use the setter from the context
+            onClick={() => setOpen(true)}
           >
             <Search className="h-4 w-4" />
             <span>Search</span>

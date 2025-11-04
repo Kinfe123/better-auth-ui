@@ -11,7 +11,7 @@ export const previewComponent = [
       next: {
         env: `
 BETTER_AUTH_URL=http://localhost:3000
-BETTER_AUTH_SECRET=
+BETTER_AUTH_SECRET='your secret'
 `,
         login_page: `
 import LogIn from "@/components/login";

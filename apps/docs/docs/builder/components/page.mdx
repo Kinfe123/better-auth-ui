@@ -1,0 +1,119 @@
+---
+title: "Components"
+description: "Components is a repository module detected from 12 source files."
+order: 200
+---
+
+# Components
+
+Components is a repository module detected from 12 source files.
+## What This Module Owns
+Components owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar.
+The module key is `builder/components`. It was selected because the repository has concrete source evidence for this area, such as files, declarations, routes, or package exports.
+## Module Responsibilities
+- ApearanceLayout
+- AuthBuilder
+- authOptions
+- Builder
+- ComponentRender
+- Components
+- ForgetPaswordDemo
+- importAndDistructureCleanup
+- parseTokens
+- removeLinesWithNope
+## Detailed Module Model
+Components is generated from a coherent source area, not from a generic keyword. The docs engine groups files into this page when they share a module boundary, package export, route family, or public symbol surface.
+
+For Better Auth UI, module pages help the docs grow with the repository. Small codebases may only need a few module pages; larger codebases can expose many focused pages so readers can learn one capability, adapter, plugin, or subsystem at a time.
+
+## What to Look For
+- The responsibility owned by this module.
+- The public exports, route handlers, declarations, or configuration values attached to the module.
+- The neighboring docs pages that explain related user-facing workflows or integration details.
+
+## Success Criteria
+- Readers understand why this source area exists before reading file paths.
+- Readers can find the files that define the module without searching the whole repo.
+- Maintainers can update this page when the module's exports, routes, or responsibilities change.
+## Public or Observable Surface
+The items below are extracted from the files attached to this page. Treat them as evidence for what the module exposes or handles, not as a guarantee that every symbol is public API.
+- `ApearanceLayout`
+- `AuthBuilder`
+- `authOptions`
+- `ComponentRender`
+- `ForgetPaswordDemo`
+- `importAndDistructureCleanup`
+- `parseTokens`
+- `removeLinesWithNope`
+- `ResetPasswordDemo`
+- `SignIn`
+- `TopBar`
+## Repository Notes
+These notes come from the repository README so the page stays grounded in existing project language.
+
+### Overview
+Better-Auth UI is a beautiful and compatible user interface designed to enhance the authentication experience in your applications using [Better Auth](https://better-auth.com) as your authentication library , providing you a set of pre-built UI components that you can easily copy and paste to kickstart your project.
+
+### Features
+- Beautiful and responsive UI components (shadcn , or pure tailwind)
+- Easy integration with the Better-Auth authentication library
+- Customizable components to fit your design needs
+
+
+# Contribution Guidelines
+
+Thank you for considering contributing to Better-Auth UI. Always welcomed to Issues & PR's.
+## Operational Notes
+- The concept comes before the file paths, so readers understand the workflow before they inspect implementation evidence.
+- Examples stay grounded in detected commands, config names, import paths, or behavior from the repository.
+- Maintainer details live in the reference section so the main page stays useful to product readers.
+- Module pages are generated only from concrete source, route, declaration, or package export evidence.
+- If the module is internal, keep the page focused on responsibility and maintenance boundaries rather than promising public APIs.
+## Maintainer Reference
+The sections above are the reader-facing explanation. The references below are for maintainers who need to verify or update the implementation behind this page.
+
+### Implementation Map
+- `app/builder/_components/apearance-layout.tsx` - Evidence file that contributes to the implementation understanding for this page.
+- `app/builder/_components/auth-builder.tsx` - Evidence file that contributes to the implementation understanding for this page.
+- `app/builder/_components/component-render.tsx` - Evidence file that contributes to the implementation understanding for this page.
+- `app/builder/_components/lib/auth-options.tsx` - Evidence file that contributes to the implementation understanding for this page.
+- `app/builder/_components/lib/code-export.ts` - Evidence file that contributes to the implementation understanding for this page.
+- `app/builder/_components/nested/configs/database.ts` - Evidence file that contributes to the implementation understanding for this page.
+- `app/builder/_components/nested/pages/forget-password.tsx` - Forget Password page-level UI. This is where users usually encounter the capability in the product.
+- `app/builder/_components/nested/pages/reset-password.tsx` - Reset Password page-level UI. This is where users usually encounter the capability in the product.
+- `app/builder/_components/nested/topbar.tsx` - Evidence file that contributes to the implementation understanding for this page.
+- `app/builder/_components/signin.tsx` - Evidence file that contributes to the implementation understanding for this page.
+
+### Knowledge Chunks
+- `app/builder/_components/apearance-layout.tsx:1-25` - ApearanceLayout (source; TypeScript; module builder/components; symbols ApearanceLayout). import { AnimatePresence } from "framer motion"; import { motion } from "framer motion"; import { ReactNode } from "react"; export const ApearanceLayout = ({ children, className, }: { children: ReactNode; className?: string; }) = { return ( {children} ); };
+- `app/builder/_components/auth-builder.tsx:1-60` - AuthBuilder (source; TypeScript; module builder/components; symbols AuthBuilder). "use client"; import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, } from "@/components/ui/tooltip"; import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, } from "@/components/ui/dialog"; import { anyBool } from "@/lib/utils"; import { Layout, Code2, InfoIcon } from "lucide react"; import { Button } from "@/components/ui/button"; import { Label } from
+- `app/builder/_components/auth-builder.tsx:60-98` - AuthBuilder (source; TypeScript; module builder/components; symbols AuthBuilder). Preview Code
+- `app/builder/_components/auth-builder.tsx:98-136` - AuthBuilder (source; TypeScript; module builder/components; symbols AuthBuilder). Create your own{" "} {" "} {" "} Component. Configure the sign in box to your liking and copy the code to your application Credential Login {Object.keys(enabledComp["credentials"]).map( (cred, indx) = { return ( { authOptions["credential"][ cred as keyof EnabledComponent["credentials"] ]["icon"] } { authOptions["credential"][
+- `app/builder/_components/auth-builder.tsx:136-172` - AuthBuilder (source; TypeScript; module builder/components; symbols AuthBuilder). cred as keyof EnabledComponent["credentials"] ]["name"] } {cred in hintTextWithString["yetGroup"] && ( { hintTextWithString[ "yetGroup" ][cred] } )} {anyBool([ enabledComp.otherSignIn.magicLink!, ]) && authOptions["credential"][ cred as keyof EnabledComponent["credentials"] ]["name"] === "Enabled" && (
+- `app/builder/_components/auth-builder.tsx:172-206` - AuthBuilder (source; TypeScript; module builder/components; symbols AuthBuilder). { hintsText["credential"][ "magicLink" ] } )} { updateEnabledComponent({ toogledComp: { credentials: { ...enabledComp["credentials"], [cred]: e, email: !enabledComp.credentials .enabled, }, }, }); }} checked={ enabledComp["credentials"][
+- `app/builder/_components/auth-builder.tsx:206-245` - AuthBuilder (source; TypeScript; module builder/components; symbols AuthBuilder). cred as keyof EnabledComponent["credentials"] ] } / ); }, )} Additional On Credential {Object.keys(enabledComp["additionals"]).map( (addition, indx) = { const exists = addition in authOptions["additionals"]; const enabledCredentials = Object.entries( enabledComp.credentials, ) .filter((curr) = curr[1]) .map((curr) = curr[0]); const fullDeps = enabledComp!.additionals![ addition as keyof EnabledComponent["additionals"
+- `app/builder/_components/auth-builder.tsx:245-281` - AuthBuilder (source; TypeScript; module builder/components; symbols AuthBuilder). addition as keyof additionalAuthType ]["icon"] } { authOptions["additionals"][ addition as keyof additionalAuthType ]["name"] } { updateEnabledComponent({ toogledComp: { additionals: { ...enabledComp["additionals"], [addition]: { ...enabledComp[ "additionals" ][ addition as keyof EnabledComponent["additionals"] ], visiblity: e, routing: false, }, resetPassword: { visiblity:
+- `app/builder/_components/auth-builder.tsx:281-319` - AuthBuilder (source; TypeScript; module builder/components; symbols AuthBuilder). enabledComp["additionals"] .forgetPassword ?.visiblity ?? false, routing: false, }, }, }, }); }} checked={ enabledComp["additionals"][ addition as keyof EnabledComponent["additionals"] ]?.visiblity } / ); } }, )} Other Sign In Options {Object.keys(enabledComp["otherSignIn"]).map( (other, indx) = { return ( { authOptions["otherSignIn"][
+- `app/builder/_components/auth-builder.tsx:319-334` - AuthBuilder (source; TypeScript; module builder/components; symbols AuthBuilder). other as keyof EnabledComponent["otherSignIn"] ]["icon"] } { authOptions["otherSignIn"][ other as keyof EnabledComponent["otherSignIn"] ]["name"] } { if ( authOptions["otherSignIn"][
+
+### Source Details
+- `app/builder/_components/apearance-layout.tsx`: language TypeScript; exports `ApearanceLayout`
+- `app/builder/_components/auth-builder.tsx`: language TypeScript; exports `AuthBuilder`
+- `app/builder/_components/component-render.tsx`: language TypeScript; exports `ComponentRender`
+- `app/builder/_components/lib/auth-options.tsx`: language TypeScript; exports `authOptions`
+- `app/builder/_components/lib/code-export.ts`: language TypeScript; exports `importAndDistructureCleanup`, `parseTokens`, `removeLinesWithNope`
+- `app/builder/_components/nested/pages/forget-password.tsx`: language TypeScript; exports `ForgetPaswordDemo`
+- `app/builder/_components/nested/pages/reset-password.tsx`: language TypeScript; exports `ResetPasswordDemo`
+- `app/builder/_components/nested/topbar.tsx`: language TypeScript; exports `TopBar`
+
+### Evidence
+- `app/builder/_components/apearance-layout.tsx`
+- `app/builder/_components/auth-builder.tsx`
+- `app/builder/_components/component-render.tsx`
+- `app/builder/_components/lib/auth-options.tsx`
+- `app/builder/_components/lib/code-export.ts`
+- `app/builder/_components/nested/configs/database.ts`
+- `app/builder/_components/nested/pages/forget-password.tsx`
+- `app/builder/_components/nested/pages/reset-password.tsx`
+- `app/builder/_components/nested/topbar.tsx`
+- `app/builder/_components/signin.tsx`

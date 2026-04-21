@@ -1,0 +1,77 @@
+---
+title: "Component Code"
+description: "Component Code is a repository module detected from 1 source file."
+order: 260
+---
+
+# Component Code
+
+Component Code is a repository module detected from 1 source file.
+## What This Module Owns
+Component Code owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar.
+The module key is `components/component-code`. It was selected because the repository has concrete source evidence for this area, such as files, declarations, routes, or package exports.
+## Module Responsibilities
+- CodeComponent
+- Component Code
+- Components
+## Detailed Module Model
+Component Code is generated from a coherent source area, not from a generic keyword. The docs engine groups files into this page when they share a module boundary, package export, route family, or public symbol surface.
+
+For Better Auth UI, module pages help the docs grow with the repository. Small codebases may only need a few module pages; larger codebases can expose many focused pages so readers can learn one capability, adapter, plugin, or subsystem at a time.
+
+## What to Look For
+- The responsibility owned by this module.
+- The public exports, route handlers, declarations, or configuration values attached to the module.
+- The neighboring docs pages that explain related user-facing workflows or integration details.
+
+## Success Criteria
+- Readers understand why this source area exists before reading file paths.
+- Readers can find the files that define the module without searching the whole repo.
+- Maintainers can update this page when the module's exports, routes, or responsibilities change.
+## Public or Observable Surface
+The items below are extracted from the files attached to this page. Treat them as evidence for what the module exposes or handles, not as a guarantee that every symbol is public API.
+- `CodeComponent`
+## Repository Notes
+These notes come from the repository README so the page stays grounded in existing project language.
+
+### Overview
+Better-Auth UI is a beautiful and compatible user interface designed to enhance the authentication experience in your applications using [Better Auth](https://better-auth.com) as your authentication library , providing you a set of pre-built UI components that you can easily copy and paste to kickstart your project.
+
+### Features
+- Beautiful and responsive UI components (shadcn , or pure tailwind)
+- Easy integration with the Better-Auth authentication library
+- Customizable components to fit your design needs
+
+
+# Contribution Guidelines
+
+Thank you for considering contributing to Better-Auth UI. Always welcomed to Issues & PR's.
+## Operational Notes
+- The concept comes before the file paths, so readers understand the workflow before they inspect implementation evidence.
+- Examples stay grounded in detected commands, config names, import paths, or behavior from the repository.
+- Maintainer details live in the reference section so the main page stays useful to product readers.
+- Module pages are generated only from concrete source, route, declaration, or package export evidence.
+- If the module is internal, keep the page focused on responsibility and maintenance boundaries rather than promising public APIs.
+## Maintainer Reference
+The sections above are the reader-facing explanation. The references below are for maintainers who need to verify or update the implementation behind this page.
+
+### Implementation Map
+- `app/_components/component-code.tsx` - Evidence file that contributes to the implementation understanding for this page.
+
+### Knowledge Chunks
+- `app/_components/component-code.tsx:1-21` - CodeComponent (source; TypeScript; module components/component-code; symbols CodeComponent). // @ts nocheck import { useEffect, useState, useTransition } from "react"; import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, } from "@/components/ui/dialog"; import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue, } from "@/components/ui/select";
+- `app/_components/component-code.tsx:21-76` - CodeComponent (source; TypeScript; module components/component-code; symbols CodeComponent). import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"; import { Layout, Copy, Check, FileText, X, Loader, Terminal, } from "lucide react"; import { Icons } from "@/components/icons"; import { FileTree } from "./component preview"; import { Button } from "@/components/ui/button"; import { CodeSnippet } from "@/components/codeblock"; import { previewComponent } from "../constants/components";
+- `app/_components/component-code.tsx:76-150` - CodeComponent (source; TypeScript; module components/component-code; symbols CodeComponent). env, }; const codeExamples = { next: { language: "typescript", code: nextCode }, react: { language: "typescript", code: previewComponent[0].code.react }, svelte: { language: "html", code: previewComponent[0].code.svelte }, astro: { language: "html", code: previewComponent[0].code.astro }, nuxt: { language: "html", code: previewComponent[0].code.nuxt }, solid: { language: "html", code: previewComponent[0].code.solid }
+- `app/_components/component-code.tsx:150-231` - CodeComponent (source; TypeScript; module components/component-code; symbols CodeComponent). tsx"); break; case "nuxt": setFm("html"); setCurrentSlug("login"); setCurrentPage("login.vue"); break; default: break; } }; const [isPending, startTransition] = useTransition(); const [result, setResult] = useState(null); const [modalOpen, setModalOpen] = useState(false); const handleExport = async (example: any) = { const randomParts = generateCustomKey(); const isForgetEnabled = enabledComp.additionals.forgetPasswo
+- `app/_components/component-code.tsx:231-262` - CodeComponent (source; TypeScript; module components/component-code; symbols CodeComponent). then((res) = { setResult(res); setModalOpen(true); console.log({ res }); }) .catch((err) = { console.log({ err }); }); }); }; const highlightCommand = (command: string) = { const parts = command.split(" "); return ( {parts[0]} {" "} {parts[1]} {" "} {parts[2]} {" "} {parts.slice(3).join(" ")} ); }; return ( { setModalOpen(!modalOpen); }}
+- `app/_components/component-code.tsx:262-309` - CodeComponent (source; TypeScript; module components/component-code; symbols CodeComponent). Install Component Run this command in your terminal to install the component. {highlightCommand( npx shadcn@latest add "https://better auth.farmui.com/r/${result?.id.toString()}", )} { copyToClipboard( npx shadcn@latest add "https://better auth.farmui.com/r/${result?.id}", ); }} {copiedStates ? ( < Copied ) : ( < Copy )}
+- `app/_components/component-code.tsx:309-369` - CodeComponent (source; TypeScript; module components/component-code; symbols CodeComponent). { handleTabClick(e); }} Framework Nextjs React Svelte Nuxt Solid Astro <TabsTrigger
+- `app/_components/component-code.tsx:369-413` - CodeComponent (source; TypeScript; module components/component-code; symbols CodeComponent). className="flex py 3 data [state=active]:text white rounded none gap 2 items center data [state=active]:bg stone 900" value="next" onClick={() = handleTabClick("next")} NextJS handleTabClick("react")} ReactJS handleTabClick("svelte")} Svelte handleTabClick("astro")} Astro handleTabClick("solid")} Solid{" "} <TabsTrigger
+- `app/_components/component-code.tsx:413-461` - CodeComponent (source; TypeScript; module components/component-code; symbols CodeComponent). className="flex cursor not allowed py 3 data [state=active]:text white rounded none gap 2 items center data [state=active]:bg stone 900" value="nuxt" disabled={true} onClick={() = handleTabClick("nuxt")} Nuxt {Object.entries(codeExamples).map( ([framework, example]) = framework === activeTab && ( handleExport(example)} className=" absolute bottom 0 pb 3 justify center w full z [99] rounded none flex gap 2 items cente
+- `app/_components/component-code.tsx:461-508` - CodeComponent (source; TypeScript; module components/component-code; symbols CodeComponent). className={top 2 left 0 flex h 10 justify between items center px 3 py 2 text sm w fit md:w 56 cursor pointer ${ true ? "bg stone 200 dark:bg transparent border r" : "hover:bg gray 700" }} {getFileIconByExtension(currentPage)} {currentPage} {getCode(currentPage) === "auth" ? ( { setDbOptions(e); }} defaultValue={dbOptions} Adapter Prisma Drizzle Database
+
+### Source Details
+- `app/_components/component-code.tsx`: language TypeScript; exports `CodeComponent`
+
+### Evidence
+- `app/_components/component-code.tsx`

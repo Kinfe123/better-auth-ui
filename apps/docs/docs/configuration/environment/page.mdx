@@ -1,0 +1,112 @@
+---
+title: "Environment Variables"
+description: "The repository reads environment variables or provides environment example files."
+order: 70
+---
+
+# Environment Variables
+
+The repository reads environment variables or provides environment example files.
+## What This Is
+Environment variable documentation explains which runtime values the project expects, where those values are read, what each variable controls, and what developers should verify before running previews, workers, or production deployments.
+## Why It Matters
+Environment Variables matters because it is part of how Better Auth UI turns repository behavior into a usable developer or operator workflow. This page gives readers the mental model first, then uses implementation evidence as supporting context.
+## Core Concepts
+- environment variables
+- runtime secrets
+- configuration files
+- deployment values
+## Typical Workflow
+1. Start from example environment files when they exist.
+2. Cross-check each variable against the source file that reads it.
+3. Separate required runtime values from optional provider, preview, or deployment values.
+## Detailed Configuration Model
+Environment Variables controls behavior rather than UI copy. The important questions are what decision this configuration helps a developer make, what happens when it is absent, and what runtime behavior changes when it is enabled. This page keeps the mental model ahead of the raw files that mention the setting.
+
+For Better Auth UI, configuration usually answers practical questions: who can access the product, where it is mounted, which runtime services it depends on, and what optional capabilities are enabled. Each setting is documented in relation to one of those questions.
+
+## Decision Points
+- Is the setting required for every installation, or only for a specific framework, adapter, or deployment mode?
+- Does the setting affect security, persistence, presentation, integrations, or developer convenience?
+- What does a developer verify after changing it?
+
+## Success Criteria
+- Readers know when to configure this area and when they can ignore it.
+- Readers understand the consequence of a wrong value.
+- Readers can connect the setting to a visible product behavior or runtime integration.
+## Configuration Surface
+Configuration is easiest to understand when each setting is tied to the behavior it controls. The tables below collect the relevant files and environment variables after the mental model, so readers can connect the concept to the concrete setup surface.
+### Files
+- `next.config.mjs` (framework) - Next.js application configuration.
+- `components.json` (ui) - shadcn/ui component aliases and project structure.
+### Environment Variables
+- `APPLE_CLIENT_ID`
+- `APPLE_CLIENT_SECRET`
+- `DISCORD_CLIENT_ID`
+- `DISCORD_CLIENT_SECRET`
+- `DROPBOX_CLIENT_ID`
+- `DROPBOX_CLIENT_SECRET`
+- `FACEBOOK_CLIENT_ID`
+- `FACEBOOK_CLIENT_SECRET`
+- `GITHUB_CLIENT_ID`
+- `GITHUB_CLIENT_SECRET`
+- `GITLAB_CLIENT_ID`
+- `GITLAB_CLIENT_SECRET`
+- `GOOGLE_CLIENT_ID`
+- `GOOGLE_CLIENT_SECRET`
+- `LINKEDIN_CLIENT_ID`
+- `LINKEDIN_CLIENT_SECRET`
+- `MICROSOFT_CLIENT_ID`
+- `MICROSOFT_CLIENT_SECRET`
+- `NODE_ENV`
+- `SPOTIFY_CLIENT_ID`
+- `SPOTIFY_CLIENT_SECRET`
+- `TURSO_AUTH_TOKEN`
+- `TURSO_DATABASE_URL`
+- `TWITCH_CLIENT_ID`
+- `TWITCH_CLIENT_SECRET`
+- `TWITTER_CLIENT_ID`
+- `TWITTER_CLIENT_SECRET`
+## How to Reason About This Config
+- Identify whether the option affects security, runtime mounting, data access, or presentation.
+- Prefer examples that use the same names and defaults found in the repository evidence.
+- Call out adapter-specific behavior instead of implying every setting applies to every framework.
+## Validation Checklist
+- Keep config examples aligned with source defaults and runtime validation.
+- Mention whether a setting is required, optional, or only needed for a specific adapter.
+- Update this page when config object names, env vars, or supported providers change.
+## Operational Notes
+- The concept comes before the file paths, so readers understand the workflow before they inspect implementation evidence.
+- Examples stay grounded in detected commands, config names, import paths, or behavior from the repository.
+- Maintainer details live in the reference section so the main page stays useful to product readers.
+- Required settings, optional settings, defaults, and adapter-specific behavior are separated clearly.
+- Security impact and validation expectations are called out before examples.
+## Maintainer Reference
+The sections above are the reader-facing explanation. The references below are for maintainers who need to verify or update the implementation behind this page.
+
+### Implementation Map
+- `app/constants/store.ts` - Evidence file that contributes to the implementation understanding for this page.
+- `app/constants/templates/tokenMap.ts` - Evidence file that contributes to the implementation understanding for this page.
+- `lib/db.ts` - Evidence file that contributes to the implementation understanding for this page.
+
+### Knowledge Chunks
+- `app/constants/store.ts:1-109` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). import { create } from "zustand"; const firstName = "firstName"; const lastName = "lastName"; interface FileStructure { pages: Partial ; components: Partial ; files: Partial ; } interface Codeblocks { title: string; slug: string; code: Partial ; } interface CodeBlocks { title: "SignIn UI Block"; slug: "signin ui"; } export const useCodeComponent = create ((set) = ({ title: "SignIn UI Block", slug: "signin ui", code:
+- `app/constants/store.ts:109-128` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). preventDefault(); setIsSubmitting(true); setError(""); try { const res = await client.forgetPassword({ email, redirectTo: "/reset password", }); setIsSubmitted(true); } catch (err) { setError("An error occurred. Please try again."); } finally { setIsSubmitting(false); } }; if (isSubmitted) { return (
+- `app/constants/store.ts:128-161` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). Check your email We've sent a password reset link to your email. If you don't see the email, check your spam folder. setIsSubmitted(false)} Back to reset password ); } return ( {/ Radial gradient for the container to give a faded look /}
+- `app/constants/store.ts:161-238` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). Forgot password Enter your email to reset your password Email setEmail(e.target.value)} required / {error && ( {error} )} {isSubmitting ? "Sending..." : "Send reset link"} Back to sign in ); }, resetPassword: "use client"; import { Alert, AlertDescription } from "@/components/ui/alert"; import { Button } from "@/components/ui/button"; import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } f
+- `app/constants/store.ts:238-251` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). preventDefault(); setIsSubmitting(true); setError(""); const res = await client.resetPassword({ newPassword: password, }); if (res.error) { toast.error(res.error.message); } setIsSubmitting(false); router.push("/sign in"); } return (
+- `app/constants/store.ts:251-294` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). Reset password Enter new password and confirm it to reset your password New password setPassword(e.target.value)} autoComplete="password" placeholder="Password" / Confirm password setConfirmPassword(e.target.value)} autoComplete="password" placeholder="Password" / {error && ( {error} )} {isSubmitting ? "Resetting...
+- `app/constants/store.ts:294-354` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). " : "Reset password"} ); } , signin: "use client" import { Button } from "@/components/ui/button"; import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card"; import { Checkbox } from "@/components/ui/checkbox"; import { Input } from "@/components/ui/input"; import { Label } from "@/components/ui/label"; import { PasswordInput } from "@/components/ui/password input";
+- `app/constants/store.ts:354-397` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). value); }} value={email} / // forgetPassword // passwordInput // rememberMeUI // signInAction // magicLinkAction // googleUI // googleContinueUI // appleUI // appleContinueUI // facebookUI // facebookContinueUI // microsoftUI // microsoftContinueUI // discordUI // discordContinueUI // twitterUI // twitterContinueUI // twitchUI // twitchContinueUI // githubUI // githubContinueUI // dropboxUI // dropboxContinueUI // gi
+- `app/constants/store.ts:397-454` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). ); } export default LogIn , signup: "use client"; import { Button } from "@/components/ui/button"; import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card"; import { Input } from "@/components/ui/input"; import { Label } from "@/components/ui/label"; import { PasswordInput } from "@/components/ui/password input"; import { DiscordLogoIcon, GitHubLogoIcon } from "@ra
+- `app/constants/store.ts:454-523` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). readAsDataURL(file); } }; const [loading, setLoading] = useState(false); return ( Sign Up Enter your information to create an account First name { setFirstName(e.target.value); }} value={firstName} / Last name { setLastName(e.target.value); }} value={lastName} / Email { setEmail(e.target.value); }} value={email} / Password setPassword(e.target.value)} autoComplete="new password" placeholder="Password" / Confirm Passw
+
+### Source Details
+- `app/constants/store.ts`: language TypeScript; exports `useCodeComponent`
+- `app/constants/templates/tokenMap.ts`: language TypeScript; exports `parserTokenMap`, `routeMap`
+- `lib/db.ts`: language TypeScript; exports `db`; env `NODE_ENV`
+
+### Evidence
+- `app/constants/store.ts`
+- `app/constants/templates/tokenMap.ts`
+- `lib/db.ts`

@@ -1,0 +1,183 @@
+---
+title: "Better Auth UI"
+description: "Overview for Better Auth UI."
+order: 0
+---
+
+# Better Auth UI
+
+Better Auth UI is a beautiful and compatible user interface designed to enhance the authentication experience in your applications using Better Auth as your authentication library , providing you a set of pre built UI components that you can easily copy and paste to kickstart your project.
+## Product Story
+Better Auth UI is documented as a product with capabilities, workflows, configuration decisions, and integration surfaces. These pages are organized so a reader can understand the purpose of the project before they need to inspect source files.
+## Reader Paths
+- Start with the overview, quickstart, and installation pages to understand the repository before drilling into implementation details.
+- Use feature pages to understand the product capabilities detected from README, routes, UI, or domain evidence.
+- Use configuration pages for detected runtime settings, environment files, deployment files, database files, or product config.
+- Use API reference pages after the mental model is clear and you need routes, commands, adapters, exports, or type contracts.
+## Knowledge Model
+Each page answers four questions: what the concept is, why it matters, how a developer or operator uses it, and where maintainers can verify the implementation. File paths and exports are kept as supporting evidence rather than the main explanation.
+## Documentation Map
+- Get Started: [Better Auth UI](/docs) - Core landing page for the docs app.
+- Get Started: [Quickstart](/docs/quickstart) - Core first-run workflow.
+- Get Started: [Installation](/docs/installation) - Core install and configuration workflow.
+- Core Features: [Features](/docs/features) - Section index generated so nested repository-specific pages are visible in the sidebar.
+- Core Features: [Session Management](/docs/features/session-management) - Detected feature evidence with confidence 0.92.
+- Configuration: [Configuration](/docs/configuration) - Section index generated so nested repository-specific pages are visible in the sidebar.
+- Configuration: [Database](/docs/configuration/database) - Detected configuration evidence with confidence 0.86.
+- Configuration: [Environment Variables](/docs/configuration/environment) - Detected configuration evidence with confidence 0.90.
+- API Reference: [API Reference](/docs/api) - Section index generated so nested repository-specific pages are visible in the sidebar.
+- API Reference: [Configuration API](/docs/api/config) - Section index generated so nested repository-specific pages are visible in the sidebar.
+- API Reference: [Events Config](/docs/api/config/events-config) - Detected api evidence with confidence 0.84.
+- API Reference: [Metadata Config](/docs/api/config/metadata-config) - Detected api evidence with confidence 0.84.
+- Builder: [Builder](/docs/builder) - Section index generated so nested repository-specific pages are visible in the sidebar.
+- Components: [Components](/docs/components) - Section index generated so nested repository-specific pages are visible in the sidebar.
+- Hints: [Hints](/docs/hints) - Detected module evidence with confidence 0.65.
+- Page: [Page](/docs/page) - Detected module evidence with confidence 0.65.
+- Parser: [Parser](/docs/parser) - Section index generated so nested repository-specific pages are visible in the sidebar.
+- R: [R](/docs/r) - Section index generated so nested repository-specific pages are visible in the sidebar.
+- Store: [Store](/docs/store) - Detected module evidence with confidence 0.73.
+- Templates: [Templates](/docs/templates) - Section index generated so nested repository-specific pages are visible in the sidebar.
+- Builder: [Components](/docs/builder/components) - Detected module evidence with confidence 0.94.
+- Builder: [Page](/docs/builder/page) - Detected module evidence with confidence 0.65.
+- Components: [Bottom Toolbar](/docs/components/bottom-toolbar) - Detected module evidence with confidence 0.63.
+- Components: [Codeblock](/docs/components/codeblock) - Detected module evidence with confidence 0.63.
+- Components: [Command Menu](/docs/components/command-menu) - Detected module evidence with confidence 0.63.
+- Components: [Command Palette Context](/docs/components/command-palette-context) - Detected module evidence with confidence 0.65.
+- Components: [Component Code](/docs/components/component-code) - Detected module evidence with confidence 0.63.
+- Components: [Component Display](/docs/components/component-display) - Detected module evidence with confidence 0.63.
+- Components: [Component Preview](/docs/components/component-preview) - Detected module evidence with confidence 0.67.
+- Components: [Component Render](/docs/components/component-render) - Detected module evidence with confidence 0.63.
+- Components: [Credentail](/docs/components/credentail) - Detected module evidence with confidence 0.63.
+- Components: [Element Render](/docs/components/element-render) - Detected module evidence with confidence 0.63.
+- Components: [Element Strucuture](/docs/components/element-strucuture) - Detected module evidence with confidence 0.74.
+- Components: [File Tree](/docs/components/file-tree) - Detected module evidence with confidence 0.70.
+- Components: [Grid Credential Social](/docs/components/grid-credential-social) - Detected module evidence with confidence 0.63.
+- Components: [Icons](/docs/components/icons) - Detected module evidence with confidence 0.63.
+- Components: [Landing](/docs/components/landing) - Detected module evidence with confidence 0.80.
+- Components: [Logo](/docs/components/logo) - Detected module evidence with confidence 0.63.
+- Components: [Navbar](/docs/components/navbar) - Detected module evidence with confidence 0.65.
+- Components: [Navlink](/docs/components/navlink) - Detected module evidence with confidence 0.63.
+- Components: [Provider](/docs/components/provider) - Detected module evidence with confidence 0.63.
+- Components: [Sign In](/docs/components/sign-in) - Detected module evidence with confidence 0.63.
+- Components: [Tab Context](/docs/components/tab-context) - Detected module evidence with confidence 0.67.
+- Components: [Theme Toggler](/docs/components/theme-toggler) - Detected module evidence with confidence 0.65.
+- Components: [Ui](/docs/components/ui) - Detected module evidence with confidence 0.94.
+- Parser: [Next](/docs/parser/next) - Detected module evidence with confidence 0.63.
+- R: [Registry](/docs/r/registry) - Detected module evidence with confidence 0.63.
+- Templates: [File](/docs/templates/file) - Detected module evidence with confidence 0.77.
+- Templates: [Server Client Dep](/docs/templates/server-client-dep) - Detected module evidence with confidence 0.63.
+- Templates: [State](/docs/templates/state) - Detected module evidence with confidence 0.63.
+- Templates: [Token Map](/docs/templates/token-map) - Detected module evidence with confidence 0.65.
+- Templates: [Two Level](/docs/templates/two-level) - Detected module evidence with confidence 0.63.
+- Templates: [Ui Function Dep](/docs/templates/ui-function-dep) - Detected module evidence with confidence 0.65.
+## Maintainer Snapshot
+- Project type: `cli`
+- Package name: `ui-better-auth`
+- Detected runtimes/adapters: Next.js
+- Bootstrap evidence: `README.md`, `package.json`, `components.json`, `next.config.mjs`, `postcss.config.mjs`, `tailwind.config.ts`, `app/builder/_components/auth-builder.tsx`, `app/builder/_components/lib/auth-options.tsx`, `app/constants/templates/tokenMap.ts`, `components/sign-in.tsx`, `README.md#features`, `README.md#overview`, `components/command-menu.tsx`, `components/command-palette-context.tsx`, `components/ui/command.tsx`, `app/builder/_components/apearance-layout.tsx`, `app/builder/_components/component-render.tsx`, `app/builder/_components/lib/code-export.ts`, `app/builder/_components/nested/configs/database.ts`, `app/builder/_components/nested/pages/forget-password.tsx`, `app/builder/_components/nested/pages/reset-password.tsx`, `app/builder/_components/nested/topbar.tsx`, `app/builder/_components/signin.tsx`, `components/ui/accordion.tsx`, `components/ui/alert.tsx`, `components/ui/breadcrumb.tsx`, `components/ui/button.tsx`, `components/ui/card.tsx`, `components/ui/checkbox.tsx`, `components/ui/collapsible.tsx`, `components/ui/dialog.tsx`, `components/ui/dropdown-menu.tsx`, `components/landing/grid-pattern.tsx`, `components/landing/hero.tsx`, `components/landing/section-svg.tsx`, `components/landing/sections.tsx`, `components/landing/shadow-text.tsx`, `app/constants/templates/file.ts`, `app/_components/element-strucuture.tsx`, `app/constants/store.ts`, `lib/store.ts`, `components/file-tree.tsx`, `app/_components/component-preview.tsx`, `components/tab-context.tsx`, `app/constants/hints.ts`, `components/navbar.tsx`, `app/builder/page.tsx`, `app/page.tsx`, `components/theme-toggler.tsx`, `app/constants/templates/ui-function-dep.ts`, `components/bottom-toolbar.tsx`, `components/codeblock/index.tsx`, `app/_components/component-code.tsx`, `app/_components/component-display.tsx`, `app/_components/component-render.tsx`, `app/constants/components/credentail/username-and-password.tsx`, `app/_components/element-render.tsx`, `app/constants/components/GridCredentialSocial.tsx`, `components/icons.tsx`, `components/logo.tsx`, `components/navlink.tsx`, `lib/parser/next.ts`, `components/provider.tsx`, `app/r/[registry]/route.ts`, `app/constants/templates/server-client-dep.ts`, `app/constants/templates/state.ts`, `app/constants/templates/two-level.ts`, `lib/db.ts`, `package.json:@prisma/client`, `package.json:prisma`, `app/metadata.ts`, `app/builder/_components/signup..tsx`, `app/builder/_components/tab.tsx`, `app/constants/components.tsx`, `app/layout.tsx`, `components/ui/input.tsx`, `components/ui/label.tsx`, `components/ui/password-input.tsx`, `components/ui/scroll-area.tsx`, `components/ui/select.tsx`, `components/ui/separator.tsx`, `components/ui/sheet.tsx`, `components/ui/sidebar.tsx`, `components/ui/skeleton.tsx`, `components/ui/switch.tsx`, `components/ui/tabs.tsx`, `components/ui/tooltip.tsx`, `lib/disable-relation.ts`, `lib/history.ts`, `lib/search-data.ts`, `lib/utils.ts`
+## Core Capabilities
+- Session Management: This area explains how the product observes active authentication state. It connects user identity, session creation, sign-in activity, cookies or tokens, and any security-sensitive controls exposed to administrators. Key concepts: sessions, sign in, tokens, cookies.
+- Developer Tools: This section explains the utilities that help developers inspect, configure, or generate parts of the product. These tools are not just UI screens; they are shortcuts for common setup, debugging, schema, email, or integration work. Key concepts: developer tools, generators, inspectors, visual editors.
+- Dashboard Overview: This area gives operators a high-level view of the system before they drill into individual records. It usually brings together counts, recent activity, database state, and health signals so an admin can understand whether the product is working as expected. Key concepts: workspace status, operational metrics, recent activity, dashboard widgets.
+- User Management: This capability is the administrative surface for user records. It helps an operator inspect accounts, find a user by identity, update profile or verification state, and remove records when needed. In an auth-oriented product, this page is usually one of the highest-value docs pages because it explains the exact model an admin interacts with. Key concepts: users, accounts, profiles, email verification.
+- Components: Components owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar. Key concepts: ApearanceLayout, AuthBuilder, authOptions, Builder.
+- Ui: Ui owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar. Key concepts: Accordion, AccordionContent, AccordionItem, AccordionTrigger.
+- Landing: Landing owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar. Key concepts: AuthUIHero, Components, GridPattern, Landing.
+- File: File owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar. Key concepts: File, forgetPasswordSnippet, MagicLinkClientImport, MagicLinkClientSnippet.
+- Element Strucuture: Element Strucuture owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar. Key concepts: ASTRO_ELEMENTS, Components, Element Strucuture, NEXT_ELEMENTS.
+- Store: Store owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar. Key concepts: EnabledComponent, Store, useCodeComponent, useComponents.
+- File Tree: File Tree owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar. Key concepts: CollapseButton, Components, File, File Tree.
+- Component Preview: Component Preview owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar. Key concepts: Component Preview, Components, ComponentShowcase, FileTree.
+- Tab Context: Tab Context owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar. Key concepts: Components, Tab Context, tabOptions, TabProvider.
+- Command Palette Context: Command Palette Context owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar. Key concepts: Command Palette Context, CommandPaletteProvider, Components, useCommandPalette.
+- Hints: Hints owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar. Key concepts: Hints, hintsText, hintTextWithString.
+- Navbar: Navbar owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar. Key concepts: Components, Navbar, navMenu.
+- Page: Page owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar. Key concepts: Builder, BuilderPage, metadata, Page.
+- Page: Page owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar. Key concepts: BetterAuthUI, metadata, Page.
+## Runtime and Adapter Coverage
+- Next.js
+## Language Coverage
+- TypeScript: 80 analyzed source files
+## Config Files
+- `components.json` (ui) - shadcn/ui component aliases and project structure.
+- `next.config.mjs` (framework) - Next.js application configuration.
+- `package.json` (package) - Package metadata, scripts, dependencies, and exports.
+- `postcss.config.mjs` (styling) - Styling and CSS pipeline configuration.
+- `tailwind.config.ts` (styling) - Styling and CSS pipeline configuration.
+## Available Commands
+- `dev`: `next dev`
+- `build`: `next build`
+- `start`: `next start`
+- `lint`: `next lint`
+- `postinstall`: `prisma generate`
+## Configuration Surface
+- `APPLE_CLIENT_ID`
+- `APPLE_CLIENT_SECRET`
+- `DISCORD_CLIENT_ID`
+- `DISCORD_CLIENT_SECRET`
+- `DROPBOX_CLIENT_ID`
+- `DROPBOX_CLIENT_SECRET`
+- `FACEBOOK_CLIENT_ID`
+- `FACEBOOK_CLIENT_SECRET`
+- `GITHUB_CLIENT_ID`
+- `GITHUB_CLIENT_SECRET`
+- `GITLAB_CLIENT_ID`
+- `GITLAB_CLIENT_SECRET`
+- `GOOGLE_CLIENT_ID`
+- `GOOGLE_CLIENT_SECRET`
+- `LINKEDIN_CLIENT_ID`
+- `LINKEDIN_CLIENT_SECRET`
+- `MICROSOFT_CLIENT_ID`
+- `MICROSOFT_CLIENT_SECRET`
+- `NODE_ENV`
+- `SPOTIFY_CLIENT_ID`
+- `SPOTIFY_CLIENT_SECRET`
+- `TURSO_AUTH_TOKEN`
+- `TURSO_DATABASE_URL`
+- `TWITCH_CLIENT_ID`
+- `TWITCH_CLIENT_SECRET`
+- `TWITTER_CLIENT_ID`
+- `TWITTER_CLIENT_SECRET`
+## Dependencies
+- `@prisma/client` (dependency): `^6.2.1`
+- `@radix-ui/react-accordion` (dependency): `^1.2.1`
+- `@radix-ui/react-checkbox` (dependency): `^1.1.2`
+- `@radix-ui/react-collapsible` (dependency): `^1.1.1`
+- `@radix-ui/react-dialog` (dependency): `^1.1.2`
+- `@radix-ui/react-dropdown-menu` (dependency): `^2.1.2`
+- `@radix-ui/react-icons` (dependency): `^1.3.0`
+- `@radix-ui/react-label` (dependency): `^2.1.0`
+- `@radix-ui/react-scroll-area` (dependency): `^1.2.0`
+- `@radix-ui/react-select` (dependency): `^2.1.2`
+- `@radix-ui/react-separator` (dependency): `^1.1.0`
+- `@radix-ui/react-slot` (dependency): `^1.1.0`
+- `@radix-ui/react-switch` (dependency): `^1.1.1`
+- `@radix-ui/react-tabs` (dependency): `^1.1.1`
+- `@radix-ui/react-tooltip` (dependency): `^1.1.3`
+- `@types/node` (devDependency): `^20`
+- `@types/react` (devDependency): `^18`
+- `@types/react-dom` (devDependency): `^18`
+- `class-variance-authority` (dependency): `^0.7.0`
+- `clsx` (dependency): `^2.1.1`
+- `cmdk` (dependency): `^1.1.1`
+- `eslint` (devDependency): `^8`
+- `eslint-config-next` (devDependency): `14.2.15`
+- `framer-motion` (dependency): `^11.11.9`
+## README Sections
+- ## Overview
+- ## Features
+## Named Exports
+- `Accordion`
+- `AccordionContent`
+- `AccordionItem`
+- `AccordionTrigger`
+- `actionUIDep`
+- `Alert`
+- `AlertDescription`
+- `AlertTitle`
+- `anyBool`
+- `ApearanceLayout`
+- `ASTRO_ELEMENTS`
+- `AuthBuilder`
+## CLI Options
+No CLI options were detected from the current source entrypoints.

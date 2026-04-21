@@ -1,0 +1,82 @@
+---
+title: "File Tree"
+description: "File Tree is a repository module detected from 1 source file."
+order: 330
+---
+
+# File Tree
+
+File Tree is a repository module detected from 1 source file.
+## What This Module Owns
+File Tree owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar.
+The module key is `components/file-tree`. It was selected because the repository has concrete source evidence for this area, such as files, declarations, routes, or package exports.
+## Module Responsibilities
+- CollapseButton
+- Components
+- File
+- File Tree
+- Folder
+- Tree
+- TreeViewElement
+## Detailed Module Model
+File Tree is generated from a coherent source area, not from a generic keyword. The docs engine groups files into this page when they share a module boundary, package export, route family, or public symbol surface.
+
+For Better Auth UI, module pages help the docs grow with the repository. Small codebases may only need a few module pages; larger codebases can expose many focused pages so readers can learn one capability, adapter, plugin, or subsystem at a time.
+
+## What to Look For
+- The responsibility owned by this module.
+- The public exports, route handlers, declarations, or configuration values attached to the module.
+- The neighboring docs pages that explain related user-facing workflows or integration details.
+
+## Success Criteria
+- Readers understand why this source area exists before reading file paths.
+- Readers can find the files that define the module without searching the whole repo.
+- Maintainers can update this page when the module's exports, routes, or responsibilities change.
+## Public or Observable Surface
+The items below are extracted from the files attached to this page. Treat them as evidence for what the module exposes or handles, not as a guarantee that every symbol is public API.
+- `CollapseButton`
+- `File`
+- `Folder`
+- `Tree`
+- `TreeViewElement`
+## Repository Notes
+These notes come from the repository README so the page stays grounded in existing project language.
+
+### Overview
+Better-Auth UI is a beautiful and compatible user interface designed to enhance the authentication experience in your applications using [Better Auth](https://better-auth.com) as your authentication library , providing you a set of pre-built UI components that you can easily copy and paste to kickstart your project.
+
+### Features
+- Beautiful and responsive UI components (shadcn , or pure tailwind)
+- Easy integration with the Better-Auth authentication library
+- Customizable components to fit your design needs
+
+
+# Contribution Guidelines
+
+Thank you for considering contributing to Better-Auth UI. Always welcomed to Issues & PR's.
+## Operational Notes
+- The concept comes before the file paths, so readers understand the workflow before they inspect implementation evidence.
+- Examples stay grounded in detected commands, config names, import paths, or behavior from the repository.
+- Maintainer details live in the reference section so the main page stays useful to product readers.
+- Module pages are generated only from concrete source, route, declaration, or package export evidence.
+- If the module is internal, keep the page focused on responsibility and maintenance boundaries rather than promising public APIs.
+## Maintainer Reference
+The sections above are the reader-facing explanation. The references below are for maintainers who need to verify or update the implementation behind this page.
+
+### Implementation Map
+- `components/file-tree.tsx` - Evidence file that contributes to the implementation understanding for this page.
+
+### Knowledge Chunks
+- `components/file-tree.tsx:1-47` - CollapseButton, File, Folder (source; TypeScript; module components/file-tree; symbols CollapseButton, File, Folder, Tree). "use client"; import React, { createContext, forwardRef, useCallback, useContext, useEffect, useState, } from "react"; import as AccordionPrimitive from "@radix ui/react accordion"; import { FileText, FolderIcon, FolderOpenIcon } from "lucide react"; import { cn } from "@/lib/utils"; import { Button } from "@/components/ui/button"; import { ScrollArea } from "@/components/ui/scroll area"; import { Icons } from "./ico
+- `components/file-tree.tsx:47-125` - CollapseButton, File, Folder (source; TypeScript; module components/file-tree; symbols CollapseButton, File, Folder, Tree). interface TreeViewComponentProps extends React.HTMLAttributes {} type Direction = "rtl" | "ltr" | undefined; type TreeViewProps = { initialSelectedId?: string; indicator?: boolean; elements?: TreeViewElement[]; initialExpandedItems?: string[]; openIcon?: React.ReactNode; closeIcon?: React.ReactNode; } & TreeViewComponentProps; const Tree = forwardRef ( ( { className, elements, initialSelectedId, initialExpandedItems,
+- `components/file-tree.tsx:125-193` - CollapseButton, File, Folder (source; TypeScript; module components/file-tree; symbols CollapseButton, File, Folder, Tree). forEach((element) = { findParent(element); }); }, [], ); useEffect(() = { if (initialSelectedId) { expandSpecificTargetedElements(elements, initialSelectedId); } }, [initialSelectedId, elements]); const direction = dir === "rtl" ? "rtl" : "ltr"; return ( setExpandedItems((prev) = [...(prev ?? []), value[0]]) } dir={dir as Direction} {children} ); }, ); Tree.displayName = "Tree"; const TreeIndicator = forwardRef (({ c
+- `components/file-tree.tsx:193-262` - CollapseButton, File, Folder (source; TypeScript; module components/file-tree; symbols CollapseButton, File, Folder, Tree). "h full w px bg muted absolute left 1.5 rtl:right 1.5 py 3 rounded md hover:bg slate 300 duration 300 ease in out", className, )} {...props} / ); }); TreeIndicator.displayName = "TreeIndicator"; interface FolderComponentProps extends React.ComponentPropsWithoutRef {} type FolderProps = { expandedItems?: string[]; element: string; isSelectable?: boolean; isSelect?: boolean; } & FolderComponentProps; const Folder = for
+- `components/file-tree.tsx:262-336` - CollapseButton, File, Folder (source; TypeScript; module components/file-tree; symbols CollapseButton, File, Folder, Tree). {element && indicator && } { setExpandedItems?.((prev) = [...(prev ?? []), value[0]]); }} {children} ); }, ); Folder.displayName = "Folder"; const File = forwardRef void; handleSlugSelect?: (id: string) = void; isSelectable?: boolean; isSelect?: boolean; fileIcon?: React.ReactNode; } & React.ComponentPropsWithoutRef ( ( { value, name, className, handleSelect, isSelectable, isSelect, fileIcon, children, currentSlug, h
+- `components/file-tree.tsx:336-352` - CollapseButton, File, Folder (source; TypeScript; module components/file-tree; symbols CollapseButton, File, Folder, Tree). solidStart className="w 4 h 4" / ; default: return ; } }; const { direction, selectedId, selectItem } = useTree(); const isSelected = isSelect ?? selectedId === value; return ( <AccordionPrimitive.Trigger ref={ref} {...props} dir={direction} disabled={!isSelectable} aria label="File" className={cn(
+- `components/file-tree.tsx:352-435` - CollapseButton, File, Folder (source; TypeScript; module components/file-tree; symbols CollapseButton, File, Folder, Tree). "flex items center gap 2 cursor pointer text sm pr 1 rtl:pl 1 rtl:pr 0 rounded md duration 200 ease in out", { "bg muted": isSelected && isSelectable, }, isSelectable ? "cursor pointer px 2 py 1" : "opacity 50 cursor not allowed", className, )} onClick={() = { if (slug && handleSlugSelect) { handleSlugSelect(slug ?? ""); } if (name && handleSelect) { handleSelect(name); } selectItem(value); }} {" "} {getFileIconByExt
+
+### Source Details
+- `components/file-tree.tsx`: language TypeScript; exports `CollapseButton`, `File`, `Folder`, `Tree`, `TreeViewElement`
+
+### Evidence
+- `components/file-tree.tsx`

@@ -1,0 +1,81 @@
+---
+title: "Component Preview"
+description: "Component Preview is a repository module detected from 1 source file."
+order: 280
+---
+
+# Component Preview
+
+Component Preview is a repository module detected from 1 source file.
+## What This Module Owns
+Component Preview owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar.
+The module key is `components/component-preview`. It was selected because the repository has concrete source evidence for this area, such as files, declarations, routes, or package exports.
+## Module Responsibilities
+- Component Preview
+- Components
+- ComponentShowcase
+- FileTree
+- FileTreePreMade
+## Detailed Module Model
+Component Preview is generated from a coherent source area, not from a generic keyword. The docs engine groups files into this page when they share a module boundary, package export, route family, or public symbol surface.
+
+For Better Auth UI, module pages help the docs grow with the repository. Small codebases may only need a few module pages; larger codebases can expose many focused pages so readers can learn one capability, adapter, plugin, or subsystem at a time.
+
+## What to Look For
+- The responsibility owned by this module.
+- The public exports, route handlers, declarations, or configuration values attached to the module.
+- The neighboring docs pages that explain related user-facing workflows or integration details.
+
+## Success Criteria
+- Readers understand why this source area exists before reading file paths.
+- Readers can find the files that define the module without searching the whole repo.
+- Maintainers can update this page when the module's exports, routes, or responsibilities change.
+## Public or Observable Surface
+The items below are extracted from the files attached to this page. Treat them as evidence for what the module exposes or handles, not as a guarantee that every symbol is public API.
+- `ComponentShowcase`
+- `FileTree`
+- `FileTreePreMade`
+## Repository Notes
+These notes come from the repository README so the page stays grounded in existing project language.
+
+### Overview
+Better-Auth UI is a beautiful and compatible user interface designed to enhance the authentication experience in your applications using [Better Auth](https://better-auth.com) as your authentication library , providing you a set of pre-built UI components that you can easily copy and paste to kickstart your project.
+
+### Features
+- Beautiful and responsive UI components (shadcn , or pure tailwind)
+- Easy integration with the Better-Auth authentication library
+- Customizable components to fit your design needs
+
+
+# Contribution Guidelines
+
+Thank you for considering contributing to Better-Auth UI. Always welcomed to Issues & PR's.
+## Operational Notes
+- The concept comes before the file paths, so readers understand the workflow before they inspect implementation evidence.
+- Examples stay grounded in detected commands, config names, import paths, or behavior from the repository.
+- Maintainer details live in the reference section so the main page stays useful to product readers.
+- Module pages are generated only from concrete source, route, declaration, or package export evidence.
+- If the module is internal, keep the page focused on responsibility and maintenance boundaries rather than promising public APIs.
+## Maintainer Reference
+The sections above are the reader-facing explanation. The references below are for maintainers who need to verify or update the implementation behind this page.
+
+### Implementation Map
+- `app/_components/component-preview.tsx` - Evidence file that contributes to the implementation understanding for this page.
+
+### Knowledge Chunks
+- `app/_components/component-preview.tsx:1-24` - ComponentShowcase, FileTree, FileTreePreMade (source; TypeScript; module components/component-preview; symbols ComponentShowcase, FileTree, FileTreePreMade). // @ts nocheck "use client"; import { REACT ELEMENTS, SVELTE ELEMENTS, SOLID ELEMENTS, NUXT ELEMENTS, ASTRO ELEMENTS, REMIX ELEMENTS, NEXT ELEMENTS, } from "./element strucuture"; import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue, } from "@/components/ui/select"; import React, { useState, useEffect } from "react";
+- `app/_components/component-preview.tsx:24-111` - ComponentShowcase, FileTree, FileTreePreMade (source; TypeScript; module components/component-preview; symbols ComponentShowcase, FileTree, FileTreePreMade). import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"; import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button"; import { Copy, Check, Layout, Link2, FileText, X } from "lucide react"; import { Icons } from "@/components/icons"; import Link from "next/link"; import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider, } from "@/component
+- `app/_components/component-preview.tsx:111-177` - ComponentShowcase, FileTree, FileTreePreMade (source; TypeScript; module components/component-preview; symbols ComponentShowcase, FileTree, FileTreePreMade). tsx"); break; case "nuxt": setFm("html"); setCurrentPage("login.vue"); break; default: // setIsPrev((prev) = !prev); break; } }; useEffect(() = { console.log({ isPrev }); }, [isPrev]); const getFileIconByExtension = (fileName: string) = { const [ , extension] = fileName.split("."); switch (extension) { case "jsx": case "tsx": return ; case "js": return ; case "ts": return ; case "astro": return ; case "svelte": retur
+- `app/_components/component-preview.tsx:177-193` - ComponentShowcase, FileTree, FileTreePreMade (source; TypeScript; module components/component-preview; symbols ComponentShowcase, FileTree, FileTreePreMade). { setIsPrev(true); setActiveTab("preview"); }} Preview
+- `app/_components/component-preview.tsx:193-219` - ComponentShowcase, FileTree, FileTreePreMade (source; TypeScript; module components/component-preview; symbols ComponentShowcase, FileTree, FileTreePreMade). { handleTabClick(e); }} Framework Nextjs React Svelte Nuxt Solid Astro <TabsTrigger
+- `app/_components/component-preview.tsx:254-299` - ComponentShowcase, FileTree, FileTreePreMade (source; TypeScript; module components/component-preview; symbols ComponentShowcase, FileTree, FileTreePreMade). className="flex py 2 data [state=active]:text white rounded none gap 2 items center data [state=active]:bg stone 900" value="next" onClick={() = handleTabClick("next")} NextJS handleTabClick("react")} ReactJS handleTabClick("svelte")} Svelte handleTabClick("astro")} Astro handleTabClick("solid")} Solid{" "} <TabsTrigger disabled={true}
+- `app/_components/component-preview.tsx:299-357` - ComponentShowcase, FileTree, FileTreePreMade (source; TypeScript; module components/component-preview; symbols ComponentShowcase, FileTree, FileTreePreMade). className="flex py 2 data [state=active]:text white rounded none gap 2 items center data [state=active]:bg stone 900" value="nuxt" onClick={() = handleTabClick("nuxt")} Nuxt {isPrev && ( {component} )} {Object.entries(codeExamples).map( ([framework, example]) = defaultFm === framework && (currentSlug === "env" ? ( ) : ( )), )} {Object.entries(codeExamples).map( ([framework, example]) = framework === activeTab && (
+- `app/_components/component-preview.tsx:357-385` - ComponentShowcase, FileTree, FileTreePreMade (source; TypeScript; module components/component-preview; symbols ComponentShowcase, FileTree, FileTreePreMade). {getFileIconByExtension(currentPage)} {currentPage} <Button variant="outline" size="icon"
+- `app/_components/component-preview.tsx:385-415` - ComponentShowcase, FileTree, FileTreePreMade (source; TypeScript; module components/component-preview; symbols ComponentShowcase, FileTree, FileTreePreMade). className="absolute w 7 h [27.8px] outline none rounded none top [5px] right 4" onClick={() = copyToClipboard( example.code[currentSlug], framework as keyof typeof copiedStates, ) } {copiedStates[ framework as keyof typeof copiedStates ] ? ( ) : ( )} Copy code ), )} ); } import { Tree } from "@/components/file tree"; import { RenderElements } from "./element render"; import { useCodeComponent } from "..
+- `app/_components/component-preview.tsx:415-477` - ComponentShowcase, FileTree, FileTreePreMade (source; TypeScript; module components/component-preview; symbols ComponentShowcase, FileTree, FileTreePreMade). /constants/store"; import { useComponents } from "@/lib/store"; export function FileTree({ element, currentPage, currentSlug, setCurrentSlug, setCurrentPage, }: { element: string; currentPage: string; currentSlug: string; setCurrentSlug: (value: string) = void; setCurrentPage: (value: string) = void; }) { let FM = null; const { code } = useCodeComponent(); const { enabledComp } = useComponents(); switch (element) { c
+
+### Source Details
+- `app/_components/component-preview.tsx`: language TypeScript; exports `ComponentShowcase`, `FileTree`, `FileTreePreMade`
+
+### Evidence
+- `app/_components/component-preview.tsx`

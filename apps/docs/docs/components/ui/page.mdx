@@ -1,0 +1,120 @@
+---
+title: "Ui"
+description: "Ui is a repository module detected from 22 source files."
+order: 440
+---
+
+# Ui
+
+Ui is a repository module detected from 22 source files.
+## What This Module Owns
+Ui owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar.
+The module key is `components/ui`. It was selected because the repository has concrete source evidence for this area, such as files, declarations, routes, or package exports.
+## Module Responsibilities
+- Accordion
+- AccordionContent
+- AccordionItem
+- AccordionTrigger
+- Alert
+- AlertDescription
+- AlertTitle
+- Breadcrumb
+- Components
+- Ui
+## Detailed Module Model
+Ui is generated from a coherent source area, not from a generic keyword. The docs engine groups files into this page when they share a module boundary, package export, route family, or public symbol surface.
+
+For Better Auth UI, module pages help the docs grow with the repository. Small codebases may only need a few module pages; larger codebases can expose many focused pages so readers can learn one capability, adapter, plugin, or subsystem at a time.
+
+## What to Look For
+- The responsibility owned by this module.
+- The public exports, route handlers, declarations, or configuration values attached to the module.
+- The neighboring docs pages that explain related user-facing workflows or integration details.
+
+## Success Criteria
+- Readers understand why this source area exists before reading file paths.
+- Readers can find the files that define the module without searching the whole repo.
+- Maintainers can update this page when the module's exports, routes, or responsibilities change.
+## Public or Observable Surface
+The items below are extracted from the files attached to this page. Treat them as evidence for what the module exposes or handles, not as a guarantee that every symbol is public API.
+- `Accordion`
+- `AccordionContent`
+- `AccordionItem`
+- `AccordionTrigger`
+- `Alert`
+- `AlertDescription`
+- `AlertTitle`
+- `Breadcrumb`
+- `BreadcrumbEllipsis`
+- `BreadcrumbItem`
+- `BreadcrumbLink`
+- `BreadcrumbList`
+## Repository Notes
+These notes come from the repository README so the page stays grounded in existing project language.
+
+### Overview
+Better-Auth UI is a beautiful and compatible user interface designed to enhance the authentication experience in your applications using [Better Auth](https://better-auth.com) as your authentication library , providing you a set of pre-built UI components that you can easily copy and paste to kickstart your project.
+
+### Features
+- Beautiful and responsive UI components (shadcn , or pure tailwind)
+- Easy integration with the Better-Auth authentication library
+- Customizable components to fit your design needs
+
+
+# Contribution Guidelines
+
+Thank you for considering contributing to Better-Auth UI. Always welcomed to Issues & PR's.
+## Operational Notes
+- The concept comes before the file paths, so readers understand the workflow before they inspect implementation evidence.
+- Examples stay grounded in detected commands, config names, import paths, or behavior from the repository.
+- Maintainer details live in the reference section so the main page stays useful to product readers.
+- Module pages are generated only from concrete source, route, declaration, or package export evidence.
+- If the module is internal, keep the page focused on responsibility and maintenance boundaries rather than promising public APIs.
+## Maintainer Reference
+The sections above are the reader-facing explanation. The references below are for maintainers who need to verify or update the implementation behind this page.
+
+### Implementation Map
+- `components/ui/accordion.tsx` - Evidence file that contributes to the implementation understanding for this page.
+- `components/ui/alert.tsx` - Evidence file that contributes to the implementation understanding for this page.
+- `components/ui/breadcrumb.tsx` - Evidence file that contributes to the implementation understanding for this page.
+- `components/ui/button.tsx` - Evidence file that contributes to the implementation understanding for this page.
+- `components/ui/card.tsx` - Evidence file that contributes to the implementation understanding for this page.
+- `components/ui/checkbox.tsx` - Evidence file that contributes to the implementation understanding for this page.
+- `components/ui/collapsible.tsx` - Evidence file that contributes to the implementation understanding for this page.
+- `components/ui/command.tsx` - Evidence file that contributes to the implementation understanding for this page.
+- `components/ui/dialog.tsx` - Evidence file that contributes to the implementation understanding for this page.
+- `components/ui/dropdown-menu.tsx` - Evidence file that contributes to the implementation understanding for this page.
+
+### Knowledge Chunks
+- `components/ui/accordion.tsx:1-58` - Accordion, AccordionContent, AccordionItem (source; TypeScript; module components/ui; symbols Accordion, AccordionContent, AccordionItem, AccordionTrigger). "use client" import as React from "react" import as AccordionPrimitive from "@radix ui/react accordion" import { ChevronDownIcon } from "@radix ui/react icons" import { cn } from "@/lib/utils" const Accordion = AccordionPrimitive.Root const AccordionItem = React.forwardRef , React.ComponentPropsWithoutRef (({ className, ...props }, ref) = ( )) AccordionItem.displayName = "AccordionItem" const AccordionTrigger = React
+- `components/ui/alert.tsx:1-60` - Alert, AlertDescription, AlertTitle (source; TypeScript; module components/ui; symbols Alert, AlertDescription, AlertTitle). import as React from "react" import { cva, type VariantProps } from "class variance authority" import { cn } from "@/lib/utils" const alertVariants = cva( "relative w full rounded lg border px 4 py 3 text sm [& svg+div]:translate y [ 3px] [& svg]:absolute [& svg]:left 4 [& svg]:top 4 [& svg]:text foreground [& svg~ ]:pl 7", { variants: { variant: { default: "bg background text foreground", destructive: "border destru
+- `components/ui/breadcrumb.tsx:1-22` - Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem (source; TypeScript; module components/ui; symbols Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink). import as React from "react" import { ChevronRightIcon, DotsHorizontalIcon } from "@radix ui/react icons" import { Slot } from "@radix ui/react slot" import { cn } from "@/lib/utils" const Breadcrumb = React.forwardRef & { separator?: React.ReactNode } (({ ...props }, ref) = ) Breadcrumb.displayName = "Breadcrumb" const BreadcrumbList = React.forwardRef (({ className, ...props }, ref) = ( <ol ref={ref} className={cn(
+- `components/ui/breadcrumb.tsx:22-116` - Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem (source; TypeScript; module components/ui; symbols Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink). "flex flex wrap items center gap 1.5 break words text sm text muted foreground sm:gap 2.5", className )} {...props} / )) BreadcrumbList.displayName = "BreadcrumbList" const BreadcrumbItem = React.forwardRef (({ className, ...props }, ref) = ( )) BreadcrumbItem.displayName = "BreadcrumbItem" const BreadcrumbLink = React.forwardRef & { asChild?: boolean } (({ asChild, className, ...props }, ref) = { const Comp = asChil
+- `components/ui/button.tsx:1-58` - Button, ButtonProps, buttonVariants (source; TypeScript; module components/ui; symbols Button, ButtonProps, buttonVariants). import as React from "react" import { Slot } from "@radix ui/react slot" import { cva, type VariantProps } from "class variance authority" import { cn } from "@/lib/utils" const buttonVariants = cva( "inline flex items center justify center gap 2 whitespace nowrap rounded md text sm font medium transition colors focus visible:outline none focus visible:ring 1 focus visible:ring ring disabled:pointer events none disab
+- `components/ui/card.tsx:1-77` - Card, CardContent, CardDescription (source; TypeScript; module components/ui; symbols Card, CardContent, CardDescription, CardFooter). import as React from "react" import { cn } from "@/lib/utils" const Card = React.forwardRef (({ className, ...props }, ref) = ( )) Card.displayName = "Card" const CardHeader = React.forwardRef (({ className, ...props }, ref) = ( )) CardHeader.displayName = "CardHeader" const CardTitle = React.forwardRef (({ className, ...props }, ref) = ( )) CardTitle.displayName = "CardTitle" const CardDescription = React.forwardRef
+- `components/ui/checkbox.tsx:1-31` - Checkbox (source; TypeScript; module components/ui; symbols Checkbox). "use client" import as React from "react" import as CheckboxPrimitive from "@radix ui/react checkbox" import { CheckIcon } from "@radix ui/react icons" import { cn } from "@/lib/utils" const Checkbox = React.forwardRef , React.ComponentPropsWithoutRef (({ className, ...props }, ref) = ( )) Checkbox.displayName = CheckboxPrimitive.Root.displayName export { Checkbox }
+- `components/ui/collapsible.tsx:1-12` - Collapsible, CollapsibleContent, CollapsibleTrigger (source; TypeScript; module components/ui; symbols Collapsible, CollapsibleContent, CollapsibleTrigger). "use client" import as CollapsiblePrimitive from "@radix ui/react collapsible" const Collapsible = CollapsiblePrimitive.Root const CollapsibleTrigger = CollapsiblePrimitive.CollapsibleTrigger const CollapsibleContent = CollapsiblePrimitive.CollapsibleContent export { Collapsible, CollapsibleTrigger, CollapsibleContent }
+- `components/ui/command.tsx:1-62` - Command, CommandDialog, CommandEmpty (source; TypeScript; module components/ui; symbols Command, CommandDialog, CommandEmpty, CommandGroup). "use client" import as React from "react" import { type DialogProps } from "@radix ui/react dialog" import { Command as CommandPrimitive } from "cmdk" import { cn } from "@/lib/utils" import { Dialog, DialogContent } from "@/components/ui/dialog" import { MagnifyingGlassIcon } from "@radix ui/react icons" const Command = React.forwardRef , React.ComponentPropsWithoutRef (({ className, ...props }, ref) = ( )) Command.
+- `components/ui/command.tsx:62-117` - Command, CommandDialog, CommandEmpty (source; TypeScript; module components/ui; symbols Command, CommandDialog, CommandEmpty, CommandGroup). className={cn("max h [300px] overflow y auto overflow x hidden", className)} {...props} / )) CommandList.displayName = CommandPrimitive.List.displayName const CommandEmpty = React.forwardRef , React.ComponentPropsWithoutRef ((props, ref) = ( )) CommandEmpty.displayName = CommandPrimitive.Empty.displayName const CommandGroup = React.forwardRef , React.ComponentPropsWithoutRef (({ className, ...props }, ref) = ( )) Com
+
+### Source Details
+- `components/ui/accordion.tsx`: language TypeScript; exports `Accordion`, `AccordionContent`, `AccordionItem`, `AccordionTrigger`
+- `components/ui/alert.tsx`: language TypeScript; exports `Alert`, `AlertDescription`, `AlertTitle`
+- `components/ui/breadcrumb.tsx`: language TypeScript; exports `Breadcrumb`, `BreadcrumbEllipsis`, `BreadcrumbItem`, `BreadcrumbLink`, `BreadcrumbList`, `BreadcrumbPage`
+- `components/ui/button.tsx`: language TypeScript; exports `Button`, `ButtonProps`, `buttonVariants`
+- `components/ui/card.tsx`: language TypeScript; exports `Card`, `CardContent`, `CardDescription`, `CardFooter`, `CardHeader`, `CardTitle`
+- `components/ui/checkbox.tsx`: language TypeScript; exports `Checkbox`
+- `components/ui/collapsible.tsx`: language TypeScript; exports `Collapsible`, `CollapsibleContent`, `CollapsibleTrigger`
+- `components/ui/command.tsx`: language TypeScript; exports `Command`, `CommandDialog`, `CommandEmpty`, `CommandGroup`, `CommandInput`, `CommandItem`
+
+### Evidence
+- `components/ui/accordion.tsx`
+- `components/ui/alert.tsx`
+- `components/ui/breadcrumb.tsx`
+- `components/ui/button.tsx`
+- `components/ui/card.tsx`
+- `components/ui/checkbox.tsx`
+- `components/ui/collapsible.tsx`
+- `components/ui/command.tsx`
+- `components/ui/dialog.tsx`
+- `components/ui/dropdown-menu.tsx`

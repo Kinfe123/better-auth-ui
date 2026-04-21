@@ -1,0 +1,55 @@
+---
+title: "Next"
+description: "Next is a repository module detected from 1 source file."
+order: 450
+---
+
+# Next
+
+Next is a repository module detected from 1 source file.
+## What This Module Owns
+Next owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar.
+The module key is `parser/next`. It was selected because the repository has concrete source evidence for this area, such as files, declarations, routes, or package exports.
+## Module Responsibilities
+- Next
+- parsedNextContent
+- Parser
+## Detailed Module Model
+Next is generated from a coherent source area, not from a generic keyword. The docs engine groups files into this page when they share a module boundary, package export, route family, or public symbol surface.
+
+For Better Auth UI, module pages help the docs grow with the repository. Small codebases may only need a few module pages; larger codebases can expose many focused pages so readers can learn one capability, adapter, plugin, or subsystem at a time.
+
+## What to Look For
+- The responsibility owned by this module.
+- The public exports, route handlers, declarations, or configuration values attached to the module.
+- The neighboring docs pages that explain related user-facing workflows or integration details.
+
+## Success Criteria
+- Readers understand why this source area exists before reading file paths.
+- Readers can find the files that define the module without searching the whole repo.
+- Maintainers can update this page when the module's exports, routes, or responsibilities change.
+## Public or Observable Surface
+The items below are extracted from the files attached to this page. Treat them as evidence for what the module exposes or handles, not as a guarantee that every symbol is public API.
+- `parsedNextContent`
+## Operational Notes
+- The concept comes before the file paths, so readers understand the workflow before they inspect implementation evidence.
+- Examples stay grounded in detected commands, config names, import paths, or behavior from the repository.
+- Maintainer details live in the reference section so the main page stays useful to product readers.
+- Module pages are generated only from concrete source, route, declaration, or package export evidence.
+- If the module is internal, keep the page focused on responsibility and maintenance boundaries rather than promising public APIs.
+## Maintainer Reference
+The sections above are the reader-facing explanation. The references below are for maintainers who need to verify or update the implementation behind this page.
+
+### Implementation Map
+- `lib/parser/next.ts` - Evidence file that contributes to the implementation understanding for this page.
+
+### Knowledge Chunks
+- `lib/parser/next.ts:1-58` - parsedNextContent (source; TypeScript; module parser/next; symbols parsedNextContent). import { EnabledComponent } from "../store"; import { importAndDistructureCleanup } from "@/app/builder/ components/lib/code export"; import { credentialDep, actionUIDep, } from "@/app/constants/templates/ui function dep"; import { anyBool, secretGen } from "../utils"; import { serverClientDep } from "@/app/constants/templates/server client dep"; import { stateMap } from "@/app/constants/templates/state"; import { pa
+- `lib/parser/next.ts:58-76` - parsedNextContent (source; TypeScript; module parser/next; symbols parsedNextContent). log({ otherEnabledLists, listsOfComments }); listsOfComments = [ "empty", "better auth secret env", ...otherEnabledLists, ...listsOfComments, ...socialEnabledLists, ...credentialLists, ]; let cleanedJsx = ""; const replacableLists = Object.keys(parserTokenMap); if (listsOfComments.length === 1) { cleanedJsx = parseTokens(replacableLists, content, { eraseAll: true, }); } else { /
+- `lib/parser/next.ts:76-118` - parsedNextContent (source; TypeScript; module parser/next; symbols parsedNextContent). cleaning up import distructuring at the top of the file if not used in file e.g import { } from "better auth/plugins" will be converted to empty string since it is useless putting it there / cleanedJsx = importAndDistructureCleanup( "noDistructure", content, otherEnabledLists.length === 0, ); / cleaning up lists like plugin if not imported in a file e.g plugins: [ ] will be converted to empty string since it is usele
+
+### Source Details
+- `lib/parser/next.ts`: language TypeScript; exports `parsedNextContent`
+
+### Evidence
+- `lib/parser/next.ts`

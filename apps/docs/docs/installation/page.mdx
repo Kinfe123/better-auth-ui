@@ -1,0 +1,66 @@
+---
+title: "Installation"
+description: "Install and configure Better Auth UI."
+order: 20
+---
+
+# Installation
+
+This page explains how to get Better Auth UI into a runnable state. It separates the setup model from the raw command inventory so readers understand what each step is preparing.
+## Setup Model
+Installation has three jobs: install the package dependencies, provide the runtime configuration the project expects, and verify the command that exercises the main workflow. If any of those steps are skipped, the application may install correctly but still fail when it tries to load database, adapter, environment-backed, or service-backed behavior.
+## What Gets Configured
+- Dependencies provide the framework, CLI, adapters, and runtime libraries used by the project.
+- Environment variables provide secrets, URLs, database connections, provider tokens, and deployment-specific behavior.
+- Scripts provide repeatable entrypoints for local development, production builds, tests, and release tasks.
+## Successful Setup Looks Like
+- Dependencies install with the package manager already used by the repository.
+- Required environment variables are present before runtime commands are executed.
+- The primary command starts, builds, or verifies the project without needing undocumented manual steps.
+## Install Dependencies
+Run `pnpm install` from the repository root.
+## Configure Environment Variables
+Copy `env.example` into `.env` and fill in the required values before running the project.
+- `APPLE_CLIENT_ID`
+- `APPLE_CLIENT_SECRET`
+- `DISCORD_CLIENT_ID`
+- `DISCORD_CLIENT_SECRET`
+- `DROPBOX_CLIENT_ID`
+- `DROPBOX_CLIENT_SECRET`
+- `FACEBOOK_CLIENT_ID`
+- `FACEBOOK_CLIENT_SECRET`
+- `GITHUB_CLIENT_ID`
+- `GITHUB_CLIENT_SECRET`
+- `GITLAB_CLIENT_ID`
+- `GITLAB_CLIENT_SECRET`
+- `GOOGLE_CLIENT_ID`
+- `GOOGLE_CLIENT_SECRET`
+- `LINKEDIN_CLIENT_ID`
+- `LINKEDIN_CLIENT_SECRET`
+- `MICROSOFT_CLIENT_ID`
+- `MICROSOFT_CLIENT_SECRET`
+- `NODE_ENV`
+- `SPOTIFY_CLIENT_ID`
+- `SPOTIFY_CLIENT_SECRET`
+- `TURSO_AUTH_TOKEN`
+- `TURSO_DATABASE_URL`
+- `TWITCH_CLIENT_ID`
+- `TWITCH_CLIENT_SECRET`
+- `TWITTER_CLIENT_ID`
+- `TWITTER_CLIENT_SECRET`
+## Verify the Build or Runtime Command
+The most relevant command detected right now is `pnpm start`.
+## Framework and Adapter Coverage
+- Next.js
+## Configuration Files
+- `components.json` (ui) - shadcn/ui component aliases and project structure.
+- `next.config.mjs` (framework) - Next.js application configuration.
+- `package.json` (package) - Package metadata, scripts, dependencies, and exports.
+- `postcss.config.mjs` (styling) - Styling and CSS pipeline configuration.
+- `tailwind.config.ts` (styling) - Styling and CSS pipeline configuration.
+## Current Script Inventory
+- `dev`: `next dev`
+- `build`: `next build`
+- `start`: `next start`
+- `lint`: `next lint`
+- `postinstall`: `prisma generate`

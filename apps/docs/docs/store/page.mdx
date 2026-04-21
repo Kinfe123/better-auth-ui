@@ -1,0 +1,72 @@
+---
+title: "Store"
+description: "Store is a repository module detected from 2 source files."
+order: 180
+---
+
+# Store
+
+Store is a repository module detected from 2 source files.
+## What This Module Owns
+Store owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar.
+The module key is `store`. It was selected because the repository has concrete source evidence for this area, such as files, declarations, routes, or package exports.
+## Module Responsibilities
+- EnabledComponent
+- Store
+- useCodeComponent
+- useComponents
+- useCurrentDisable
+- useUrl
+## Detailed Module Model
+Store is generated from a coherent source area, not from a generic keyword. The docs engine groups files into this page when they share a module boundary, package export, route family, or public symbol surface.
+
+For Better Auth UI, module pages help the docs grow with the repository. Small codebases may only need a few module pages; larger codebases can expose many focused pages so readers can learn one capability, adapter, plugin, or subsystem at a time.
+
+## What to Look For
+- The responsibility owned by this module.
+- The public exports, route handlers, declarations, or configuration values attached to the module.
+- The neighboring docs pages that explain related user-facing workflows or integration details.
+
+## Success Criteria
+- Readers understand why this source area exists before reading file paths.
+- Readers can find the files that define the module without searching the whole repo.
+- Maintainers can update this page when the module's exports, routes, or responsibilities change.
+## Public or Observable Surface
+The items below are extracted from the files attached to this page. Treat them as evidence for what the module exposes or handles, not as a guarantee that every symbol is public API.
+- `EnabledComponent`
+- `useCodeComponent`
+- `useComponents`
+- `useCurrentDisable`
+- `useUrl`
+## Operational Notes
+- The concept comes before the file paths, so readers understand the workflow before they inspect implementation evidence.
+- Examples stay grounded in detected commands, config names, import paths, or behavior from the repository.
+- Maintainer details live in the reference section so the main page stays useful to product readers.
+- Module pages are generated only from concrete source, route, declaration, or package export evidence.
+- If the module is internal, keep the page focused on responsibility and maintenance boundaries rather than promising public APIs.
+## Maintainer Reference
+The sections above are the reader-facing explanation. The references below are for maintainers who need to verify or update the implementation behind this page.
+
+### Implementation Map
+- `app/constants/store.ts` - Evidence file that contributes to the implementation understanding for this page.
+- `lib/store.ts` - Evidence file that contributes to the implementation understanding for this page.
+
+### Knowledge Chunks
+- `app/constants/store.ts:1-109` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). import { create } from "zustand"; const firstName = "firstName"; const lastName = "lastName"; interface FileStructure { pages: Partial ; components: Partial ; files: Partial ; } interface Codeblocks { title: string; slug: string; code: Partial ; } interface CodeBlocks { title: "SignIn UI Block"; slug: "signin ui"; } export const useCodeComponent = create ((set) = ({ title: "SignIn UI Block", slug: "signin ui", code:
+- `app/constants/store.ts:109-128` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). preventDefault(); setIsSubmitting(true); setError(""); try { const res = await client.forgetPassword({ email, redirectTo: "/reset password", }); setIsSubmitted(true); } catch (err) { setError("An error occurred. Please try again."); } finally { setIsSubmitting(false); } }; if (isSubmitted) { return (
+- `app/constants/store.ts:128-161` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). Check your email We've sent a password reset link to your email. If you don't see the email, check your spam folder. setIsSubmitted(false)} Back to reset password ); } return ( {/ Radial gradient for the container to give a faded look /}
+- `app/constants/store.ts:161-238` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). Forgot password Enter your email to reset your password Email setEmail(e.target.value)} required / {error && ( {error} )} {isSubmitting ? "Sending..." : "Send reset link"} Back to sign in ); }, resetPassword: "use client"; import { Alert, AlertDescription } from "@/components/ui/alert"; import { Button } from "@/components/ui/button"; import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } f
+- `app/constants/store.ts:238-251` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). preventDefault(); setIsSubmitting(true); setError(""); const res = await client.resetPassword({ newPassword: password, }); if (res.error) { toast.error(res.error.message); } setIsSubmitting(false); router.push("/sign in"); } return (
+- `app/constants/store.ts:251-294` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). Reset password Enter new password and confirm it to reset your password New password setPassword(e.target.value)} autoComplete="password" placeholder="Password" / Confirm password setConfirmPassword(e.target.value)} autoComplete="password" placeholder="Password" / {error && ( {error} )} {isSubmitting ? "Resetting...
+- `app/constants/store.ts:294-354` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). " : "Reset password"} ); } , signin: "use client" import { Button } from "@/components/ui/button"; import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card"; import { Checkbox } from "@/components/ui/checkbox"; import { Input } from "@/components/ui/input"; import { Label } from "@/components/ui/label"; import { PasswordInput } from "@/components/ui/password input";
+- `app/constants/store.ts:354-397` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). value); }} value={email} / // forgetPassword // passwordInput // rememberMeUI // signInAction // magicLinkAction // googleUI // googleContinueUI // appleUI // appleContinueUI // facebookUI // facebookContinueUI // microsoftUI // microsoftContinueUI // discordUI // discordContinueUI // twitterUI // twitterContinueUI // twitchUI // twitchContinueUI // githubUI // githubContinueUI // dropboxUI // dropboxContinueUI // gi
+- `app/constants/store.ts:397-454` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). ); } export default LogIn , signup: "use client"; import { Button } from "@/components/ui/button"; import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card"; import { Input } from "@/components/ui/input"; import { Label } from "@/components/ui/label"; import { PasswordInput } from "@/components/ui/password input"; import { DiscordLogoIcon, GitHubLogoIcon } from "@ra
+- `app/constants/store.ts:454-523` - useCodeComponent (source; TypeScript; module store; symbols useCodeComponent). readAsDataURL(file); } }; const [loading, setLoading] = useState(false); return ( Sign Up Enter your information to create an account First name { setFirstName(e.target.value); }} value={firstName} / Last name { setLastName(e.target.value); }} value={lastName} / Email { setEmail(e.target.value); }} value={email} / Password setPassword(e.target.value)} autoComplete="new password" placeholder="Password" / Confirm Passw
+
+### Source Details
+- `app/constants/store.ts`: language TypeScript; exports `useCodeComponent`
+- `lib/store.ts`: language TypeScript; exports `EnabledComponent`, `useComponents`, `useCurrentDisable`, `useUrl`
+
+### Evidence
+- `app/constants/store.ts`
+- `lib/store.ts`

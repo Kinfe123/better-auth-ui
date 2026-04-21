@@ -1,0 +1,69 @@
+---
+title: "Component Render"
+description: "Component Render is a repository module detected from 1 source file."
+order: 290
+---
+
+# Component Render
+
+Component Render is a repository module detected from 1 source file.
+## What This Module Owns
+Component Render owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar.
+The module key is `components/component-render`. It was selected because the repository has concrete source evidence for this area, such as files, declarations, routes, or package exports.
+## Module Responsibilities
+- Component Render
+- Components
+- ComponentShowcaseSection
+## Detailed Module Model
+Component Render is generated from a coherent source area, not from a generic keyword. The docs engine groups files into this page when they share a module boundary, package export, route family, or public symbol surface.
+
+For Better Auth UI, module pages help the docs grow with the repository. Small codebases may only need a few module pages; larger codebases can expose many focused pages so readers can learn one capability, adapter, plugin, or subsystem at a time.
+
+## What to Look For
+- The responsibility owned by this module.
+- The public exports, route handlers, declarations, or configuration values attached to the module.
+- The neighboring docs pages that explain related user-facing workflows or integration details.
+
+## Success Criteria
+- Readers understand why this source area exists before reading file paths.
+- Readers can find the files that define the module without searching the whole repo.
+- Maintainers can update this page when the module's exports, routes, or responsibilities change.
+## Public or Observable Surface
+The items below are extracted from the files attached to this page. Treat them as evidence for what the module exposes or handles, not as a guarantee that every symbol is public API.
+- `ComponentShowcaseSection`
+## Repository Notes
+These notes come from the repository README so the page stays grounded in existing project language.
+
+### Overview
+Better-Auth UI is a beautiful and compatible user interface designed to enhance the authentication experience in your applications using [Better Auth](https://better-auth.com) as your authentication library , providing you a set of pre-built UI components that you can easily copy and paste to kickstart your project.
+
+### Features
+- Beautiful and responsive UI components (shadcn , or pure tailwind)
+- Easy integration with the Better-Auth authentication library
+- Customizable components to fit your design needs
+
+
+# Contribution Guidelines
+
+Thank you for considering contributing to Better-Auth UI. Always welcomed to Issues & PR's.
+## Operational Notes
+- The concept comes before the file paths, so readers understand the workflow before they inspect implementation evidence.
+- Examples stay grounded in detected commands, config names, import paths, or behavior from the repository.
+- Maintainer details live in the reference section so the main page stays useful to product readers.
+- Module pages are generated only from concrete source, route, declaration, or package export evidence.
+- If the module is internal, keep the page focused on responsibility and maintenance boundaries rather than promising public APIs.
+## Maintainer Reference
+The sections above are the reader-facing explanation. The references below are for maintainers who need to verify or update the implementation behind this page.
+
+### Implementation Map
+- `app/_components/component-render.tsx` - Evidence file that contributes to the implementation understanding for this page.
+
+### Knowledge Chunks
+- `app/_components/component-render.tsx:1-39` - ComponentShowcaseSection (source; TypeScript; module components/component-render; symbols ComponentShowcaseSection). "use client"; import { ComponentShowcase } from "./component preview"; import { Button } from "@/components/ui/button"; import { previewComponent } from "../constants/components"; import { Github } from "lucide react"; export default function ComponentShowcaseSection({ category, }: { category: string; }) { const filteredBasedOnCategory = previewComponent.filter((comp) = comp.category.includes(category), ); return ( {
+- `app/_components/component-render.tsx:39-68` - ComponentShowcaseSection (source; TypeScript; module components/component-render; symbols ComponentShowcaseSection). Contribute ) : ( filteredBasedOnCategory.map((comp, indx) = { return ( ); }) )}{" "} ); }
+
+### Source Details
+- `app/_components/component-render.tsx`: language TypeScript; exports `ComponentShowcaseSection`
+
+### Evidence
+- `app/_components/component-render.tsx`

@@ -1,0 +1,64 @@
+---
+title: "Token Map"
+description: "Token Map is a repository module detected from 1 source file."
+order: 500
+---
+
+# Token Map
+
+Token Map is a repository module detected from 1 source file.
+## What This Module Owns
+Token Map owns a coherent part of the codebase. This page is generated from module structure, public symbols, routes, and package exports so larger repositories produce deeper docs instead of a fixed sidebar.
+The module key is `templates/token-map`. It was selected because the repository has concrete source evidence for this area, such as files, declarations, routes, or package exports.
+## Module Responsibilities
+- parserTokenMap
+- routeMap
+- Templates
+- Token Map
+## Detailed Module Model
+Token Map is generated from a coherent source area, not from a generic keyword. The docs engine groups files into this page when they share a module boundary, package export, route family, or public symbol surface.
+
+For Better Auth UI, module pages help the docs grow with the repository. Small codebases may only need a few module pages; larger codebases can expose many focused pages so readers can learn one capability, adapter, plugin, or subsystem at a time.
+
+## What to Look For
+- The responsibility owned by this module.
+- The public exports, route handlers, declarations, or configuration values attached to the module.
+- The neighboring docs pages that explain related user-facing workflows or integration details.
+
+## Success Criteria
+- Readers understand why this source area exists before reading file paths.
+- Readers can find the files that define the module without searching the whole repo.
+- Maintainers can update this page when the module's exports, routes, or responsibilities change.
+## Public or Observable Surface
+The items below are extracted from the files attached to this page. Treat them as evidence for what the module exposes or handles, not as a guarantee that every symbol is public API.
+- `parserTokenMap`
+- `routeMap`
+## Operational Notes
+- The concept comes before the file paths, so readers understand the workflow before they inspect implementation evidence.
+- Examples stay grounded in detected commands, config names, import paths, or behavior from the repository.
+- Maintainer details live in the reference section so the main page stays useful to product readers.
+- Module pages are generated only from concrete source, route, declaration, or package export evidence.
+- If the module is internal, keep the page focused on responsibility and maintenance boundaries rather than promising public APIs.
+## Maintainer Reference
+The sections above are the reader-facing explanation. The references below are for maintainers who need to verify or update the implementation behind this page.
+
+### Implementation Map
+- `app/constants/templates/tokenMap.ts` - Evidence file that contributes to the implementation understanding for this page.
+
+### Knowledge Chunks
+- `app/constants/templates/tokenMap.ts:1-77` - parserTokenMap, routeMap (source; TypeScript; module templates/token-map; symbols parserTokenMap, routeMap). import { secretGen } from "@/lib/utils"; import { forgetPasswordSnippet, MagicLinkClientImport, MagicLinkClientSnippet, MagicLinkServerImport, MagicLinkServerSnippet, PassKeyClientImport, PassKeyClientSnippet, PassKeyServerImport, PassKeyServerSnippet, PassKeySnippet, remeberMeSnippet, } from "./file"; const generateSec = secretGen(); export const parserTokenMap: Record = { socialProviders: socialProviders: { } , for
+- `app/constants/templates/tokenMap.ts:77-98` - parserTokenMap, routeMap (source; TypeScript; module templates/token-map; symbols parserTokenMap, routeMap). email( { email: email, password: password, callbackURL: "/dashboard", // rememberMeValue }, { onRequest: () = { setLoading(true); }, onResponse: () = { setLoading(false); }, onError: (ctx) = { toast.error(ctx.error.message); }, } ); }}
+- `app/constants/templates/tokenMap.ts:98-142` - parserTokenMap, routeMap (source; TypeScript; module templates/token-map; symbols parserTokenMap, routeMap). {loading ? : "Login"} , magicLinkAction: { await client.signin.magicLink({ email }) }} Sign in with Magickey , googleUI: { await client.signIn.social({ provider: "google" }) }} <path fill="currentColor"
+- `app/constants/templates/tokenMap.ts:142-179` - parserTokenMap, routeMap (source; TypeScript; module templates/token-map; symbols parserTokenMap, routeMap). d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844 35.974C195.245 12.91 165.798 0 130.55 0C79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59 31.477 39.891 54.251 74.414 54.251" / , googleContinueUI: { await client.signIn.social({ provider: "google" }) }} <path fill="currentColor"
+- `app/constants/templates/tokenMap.ts:179-228` - parserTokenMap, routeMap (source; TypeScript; module templates/token-map; symbols parserTokenMap, routeMap). d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844 35.974C195.245 12.91 165.798 0 130.55 0C79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59 31.477 39.891 54.251 74.414 54.251" / Continue with Google , githubUI: { await client.signIn.social({ provider: "Github" }) }} , githubContinueUI: { await client.signIn.social({ provider: "Github" }) }} <path clipRule="evenodd"
+- `app/constants/templates/tokenMap.ts:228-280` - parserTokenMap, routeMap (source; TypeScript; module templates/token-map; symbols parserTokenMap, routeMap). d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682 .217.682 .482 0 .237 .008 .866 .013 1.7 2.782.603 3.369 1.34 3.369 1.34 .454 1.156 1.11 1.462 1.11 1.462 .908 .62.069 .608.069 .608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092 .647.35 1.088.636 1.338 2.22 .253 4.555 1.11 4.555 4.943 0 1.091.39 1.984 1.029 2.683 .103 .253 .446 1.27.098 2.647 0 0 .84 .269 2.75 1.025A9.578 9.578 0
+- `app/constants/templates/tokenMap.ts:280-289` - parserTokenMap, routeMap (source; TypeScript; module templates/token-map; symbols parserTokenMap, routeMap). d="M15.769,0c0.053,0,0.106,0,0.162,0c0.13,1.606 0.483,2.806 1.228,3.675c 0.731,0.863 1.732,1.7 3.351,1.573 c 0.108 1.583,0.506 2.694,1.25 3.561C13.292,0.879,14.557,0.16,15.769,0z" / <path d="M20.67,16.716c0,0.016,0,0.03,0,0.045c 0.455,1.378 1.104,2.559 1.896,3.655c 0.723,0.995 1.609,2.334 3.191,2.334 c 1.367,0 2.275 0.879 3.676 0.903c 1.482 0.024 2.297,0.735 3.652,0.926c 0.155,0 0.31,0 0.462,0 c 0.995 0.144 1.798 0.9
+- `app/constants/templates/tokenMap.ts:289-338` - parserTokenMap, routeMap (source; TypeScript; module templates/token-map; symbols parserTokenMap, routeMap). c1.733,0.262,2.963,1.032,3.723,2.22c 1.466,0.933 2.625,2.339 2.427,4.74C17.818,14.688,19.086,15.964,20.67,16.716z" / , appleContinueUI: { await client.signIn.social({ provider: "apple" }) <path d="M20.67,16.716c0,0.016,0,0.03,0,0.045c 0.455,1.378 1.104,2.559 1.896,3.655c 0.723,0.995 1.609,2.334 3.191,2.334 c 1.367,0 2.275 0.879 3.676 0.903c 1.482 0.024 2.297,0.735 3.652,0.926c 0.155,0 0.31,0 0.462,0 c 0.995 0.144 1.7
+- `app/constants/templates/tokenMap.ts:338-390` - parserTokenMap, routeMap (source; TypeScript; module templates/token-map; symbols parserTokenMap, routeMap). c0.471,0.181,1.06,0.502,1.618,0.485c0.378 0.011,0.754 0.208,1.135 0.347c1.116 0.403,2.21 0.865,3.652 0.648 c1.733,0.262,2.963,1.032,3.723,2.22c 1.466,0.933 2.625,2.339 2.427,4.74C17.818,14.688,19.086,15.964,20.67,16.716z" / Continue with Apple , discordUI: { await client.signIn.social({ provider: "discord" }) {" "} <path fill rule="evenodd" clip rule="evenodd"
+- `app/constants/templates/tokenMap.ts:390-402` - parserTokenMap, routeMap (source; TypeScript; module templates/token-map; symbols parserTokenMap, routeMap). d="M11 12.5C11 13.8807 10.1046 15 9 15C7.89543 15 7 13.8807 7 12.5C7 11.1193 7.89543 10 9 10C10.1046 10 11 11.1193 11 12.5ZM8.22293 12.5C8.22293 13.0365 8.57084 13.4713 9 13.4713C9.42916 13.4713 9.77707 13.0365 9.77707 12.5C9.77707 11.9635 9.42916 11.5287 9 11.5287C8.57084 11.5287 8.22293 11.9635 8.22293 12.5Z" fill=" ffffff" <path fill rule="evenodd" clip rule="evenodd"
+
+### Source Details
+- `app/constants/templates/tokenMap.ts`: language TypeScript; exports `parserTokenMap`, `routeMap`
+
+### Evidence
+- `app/constants/templates/tokenMap.ts`

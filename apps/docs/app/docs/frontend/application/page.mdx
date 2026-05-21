@@ -1,0 +1,24 @@
+---
+title: "Frontend Application"
+description: "The frontend page explains the user-facing application, navigation shell, and interface workflows readers actually interact with."
+order: 70
+---
+
+# Frontend Application
+
+The frontend page explains the user-facing application, navigation shell, and interface workflows readers actually interact with.
+## What Lives Here
+- `app/builder/_components/nested/pages/forget-password.tsx` - Forget Password page-level UI. This is where users usually encounter the capability in the product.
+- `app/builder/_components/nested/pages/reset-password.tsx` - Reset Password page-level UI. This is where users usually encounter the capability in the product.
+- `app/constants/components/credentail/username-and-password.tsx` - Username And Password reusable UI component. It renders a visible part of the workflow or a focused interaction.
+- `app/constants/components/GridCredentialSocial.tsx` - GridCredentialSocial reusable UI component. It renders a visible part of the workflow or a focused interaction.
+- `components/bottom-toolbar.tsx` - Repository file related to this page.
+- `components/codeblock/index.tsx` - Repository file related to this page.
+- `components/command-menu.tsx` - Repository file related to this page.
+- `components/command-palette-context.tsx` - Repository file related to this page.
+## How It Connects
+- The frontend translates user actions into API requests, mutations, or route transitions.
+- Shared layout, navigation, and state live here so workflow pages can explain the visible product before they describe internals.
+- Reader-facing docs should start from the screen or task, then link to backend or configuration pages only when the UI depends on them.
+## Related Areas
+No sibling subsystem pages are planned yet.
